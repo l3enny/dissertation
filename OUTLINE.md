@@ -4,39 +4,38 @@ Outline
 This is the ever-evolving outline of the paper, it will contain
 everything that's fit to print (plus some extra).
 
+1. Introduction
+    1. Background (Motivation)
+    2. Gaseous Discharges (Theory)
+    3. Survey of Fast Ionization Waves (Literature Review)
+    4. Diagnostic Challenges
 
-I. Introduction
-    A) Background (Motivation)
-    B) Gaseous Discharges (Theory)
-    C) Survey of Fast Ionization Waves (Literature Review)
-    D) Diagnostic Challenges
+2. Experimental Setup
 
-II. Experimental Setup
+3. Metastable Measurements
+    1. Laser Absorption Spectroscopy (Brief review of theory)
+    2. Details and Difficulties
+    3. Results
+    4. Electric Field Estimates
 
-III. Metastable Measurements
-    A) Laser Absorption Spectroscopy (Brief review of theory)
-    B) Details and Difficulties
-    C) Results
-    D) Electric Field Estimates
+4. Emission Measurements
+    1. Optical Emission Spectroscopy (Brief review of theory)
+    2. Details and Difficulties
+    3. Results
 
-IV. Emission Measurements
-    A) Optical Emission Spectroscopy (Brief review of theory)
-    B) Details and Difficulties
-    C) Results
+5. Modeling
+    1. Particle-in-Cell (Brief review of theory)
+    2. Suggested EEDF
+    3. Global Models (Brief review of theory)
+    4. Comparison of Global Model to Emissions and Metastables
 
-V. Modeling
-    A) Particle-in-Cell (Brief review of theory)
-    B) Suggested EEDF
-    C) Global Models (Brief review of theory)
-    D) Comparison of Global Model to Emissions and Metastables
+6. Conclusions
+    1. Overview of Results
+    2. Future Work
+    3. Concluding Remarks
 
-VI. Conclusions
-    A) Overview of Results
-    B) Future Work
-    C) Concluding Remarks
+7. References
 
-VII. References
-
-VIII. Appendices
-    A) Millimeter-wave Interferometry at Glenn
-    B) Rotational Spectroscopy at Glenn
+8. Appendices
+    1. Millimeter-wave Interferometry at Glenn
+    2. Rotational Spectroscopy at Glenn
