@@ -31,3 +31,5 @@
 *.xdy
 *.tdo
 thesis-umich/*
+*.lox
+*.lop
