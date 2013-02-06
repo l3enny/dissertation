@@ -20,7 +20,7 @@ If I have done my job right, all you'll need is a (close to) bog
 standard LaTeX distribution (I am using some variety of TeX Live on Mac
 and GNU/Linux). To compile, simply type:
 
-    latexmk -pdflatex 'xelatex %O %S' -pdf main.tex
+    latexmk -pdflatex='xelatex %O %S' -pdf main.tex
 
 The, somewhat awkward, command is a result of the obsolete version of
 latexmk that is on my machine. If you're fortunate enough to have
