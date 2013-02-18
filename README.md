@@ -7,8 +7,7 @@ will (probably) include:
 
 * XeTeX
 * Gnuplot
-* Python (if necessary)
-* Various shell scripts
+* Shell scripts
 
 While it is tempting to integrate the two, the data analysis will be
 separate from the dissertation. If this sounds interesting to you, check
@@ -17,7 +16,7 @@ hadn't already set myself the goal of using gnuplot (I may end up
 returning to Veusz instead).
 
 If I have done my job right, all you'll need is a (close to) bog
-standard LaTeX distribution (I am using some variety of TeX Live on Mac
+standard TeX distribution (I am using some variety of TeX Live on Mac
 and GNU/Linux). To compile, simply type:
 
     latexmk -pdflatex='xelatex %O %S' -pdf main.tex
