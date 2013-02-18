@@ -33,3 +33,5 @@
 thesis-umich/*
 *.lox
 *.lop
+.DS_Store
+main.fls
