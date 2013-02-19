@@ -6,19 +6,24 @@
 % ideration for the Rackham requirements.
 %\documentclass[12pt]{memoir}
 
-\usepackage{fontspec}
-\usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage{newcent}
 \usepackage{acronym}
-%\usepackage{todonotes}
-\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{fontspec}
+\usepackage{graphicx}
+%\usepackage{listings}
+\usepackage{newcent}
+\usepackage{todonotes}
+\usepackage{xcolor}
 \usepackage{xfrac}
+
+%\usepackage[log-declarations=false]{xparse}
 
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont{TeX Gyre Schola}
 \setsansfont{TeX Gyre Heros}
 \setmonofont{TeX Gyre Cursor}
+
+%\newcommand\todo[1]{\textcolor{red}{#1}}
 
 \title{Population Kinetics of a Repetitively-Pulsed Nanosecond Discharge}
 \author{Benjamin T. Yee}
@@ -55,7 +60,7 @@
 \abbreviations{ %
   \acro{rpnd}[\textsc{rpnd}]{repetitively-pulsed nanosecond discharge}
   \acro{dbd}[\textsc{dbd}]{dielectric-barrier discharge}
-  \acro{app}[\textsc{app}][atmospheric-pressure plasma}
+  \acro{app}[\textsc{app}]{atmospheric-pressure plasma}
 }
 
 \begin{document}
