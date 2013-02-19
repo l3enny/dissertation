@@ -1506,7 +1506,8 @@
  % Use the correct formatting.
  \if@umich@thesis %
   % Use 1.5 spacing
-  \onehalfspacing %
+  %\onehalfspacing %
+  \doublespacing
  \else %
   % Use two-column format
   \twocolumn %
