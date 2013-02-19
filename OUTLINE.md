@@ -5,10 +5,9 @@ This is the ever-evolving outline of the paper, it will contain
 everything that's fit to print (plus some extra).
 
 1. Introduction
-    1. Background (Motivation)
-    2. Gaseous Discharges (Theory)
-    3. Survey of Fast Ionization Waves (Literature Review)
-    4. Diagnostic Challenges
+    1. Overview (Motivation)
+    2. Survey of Fast Ionization Waves (Literature Review)
+    3. Gaseous Discharges (Theory)
 2. Experimental Setup
 3. Metastable Measurements
     1. Laser Absorption Spectroscopy (Brief review of theory)
