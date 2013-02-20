@@ -339,11 +339,12 @@
   % Non-justified content
   \begin{flushleft}
    % Heading for the committee
-   \hspace{1in}Doctoral Committee: \\[2ex] %
+   %\hspace{1in}
+   Doctoral Committee: \\[2ex] %
    % Horizontal spacing
-   \hspace{1.5in} %
+   \hspace{0.5in} %
    % Insert the committee (in a box).
-   \parbox{4.2in}{\insertcommittee}
+   \parbox{4.5in}{\insertcommittee}
   \end{flushleft} %
  \end{singlespace} %
 }
