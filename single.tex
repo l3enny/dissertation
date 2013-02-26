@@ -1,0 +1,41 @@
+%!TEX TS-program = xelatex
+\documentclass[12pt]{memoir}
+
+% Swap these lines with the thesis-umich class to enable the memoir build.
+% This will have better attention to a proper book layout, but less cons-
+% ideration for the Rackham requirements.
+%\documentclass[12pt]{memoir}
+
+\usepackage[nolist]{acronym}
+\usepackage{booktabs}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{newcent}
+\usepackage{todonotes}
+\usepackage{xcolor}
+\usepackage{xfrac}
+
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont{TeX Gyre Schola}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{TeX Gyre Cursor}
+
+
+\begin{document}
+
+\begin{acronym}
+  \acro{rpnd}[\textsc{rpnd}]{repetitively-pulsed nanosecond discharge}
+  \acro{dbd}[\textsc{dbd}]{dielectric-barrier discharge}
+  \acro{app}[\textsc{app}]{atmospheric-pressure plasma}
+\end{acronym}
+
+  \DoubleSpacing
+
+  \chapter{Introduction}
+    \input{chapters/introduction/introduction.tex}
+
+  \bibliography{$HOME/Dropbox/References/Thesis}
+    \bibliographystyle{unsrt}
+
+\end{document}
