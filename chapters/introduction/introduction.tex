@@ -161,6 +161,8 @@ which was capable of, at least partly, explaining the fast ionization wave
 phenomena. Independently, Loeb and Meek developed a similar theory in 1940
 \cite{Loeb1940}.
 
+\todo[inline]{Remember to include the laser dudes! Xenon lamps!}
+
 \section{Basic Theory}
 
 \subsection{Plasmas}
@@ -189,15 +191,31 @@ There must also be a sufficient number of
 \todo[inline]{requirements for a plasma}
 
 Provided a sufficient number of particles, each species can be described by a
-distribution function. This function, $f_\alpha(\vec{r}, \vec{v}, t)$, describes the
-probability of finding a particle of species $\alpha$, at position $\vec{r}$,
-with velocity $\vec{v}$, at time $t$. The distribution function for a particle
-can be determined by the Vlasov-Fokker-Planck equation,
-\begin{equation}
+distribution function. This function, $f_\alpha(\vec{r}, \vec{v}, t)$, describes
+the probability of finding a particle of species $\alpha$, at position
+$\vec{r}$, with velocity $\vec{v}$, at time $t$. The distribution function for a
+particle can be determined by the Vlasov-Fokker-Planck equation,
+\begin{equation}\label{eq:vfp}
   \frac{\partial f_\alpha}{\partial t} + \vec{v}\cdot\nabla f_\alpha +
   q \left(\vec{E} + \vec{v}\times\vec{B}\right) \cdot \nabla_\mathrm{v} f_\alpha =
   \left( \frac{\partial f_\alpha}{\partial t}\right)_\mathrm{coll}.
 \end{equation}
+In essence, this is the Boltzmann equation from statistical mechanics, however
+it now includes several changes. Vlasov replaced the original force term with
+the Lorentz equation, and Fokker and Planck introduced the collision operator on
+the right-hand side. This is coupled with Maxwell's equations for a solution of
+the electric and magnetic fields in the plasma.
+
+Unfortunately, depending on the collision operator, the Vlasov-Fokker-Planck
+equation is a seven-dimension integro-differential equation which is notoriously
+difficult to solve in anything but the most trivial of cases. As a result, most
+plasma models use various moments of equation \ref{vfp} where the velocity
+dependence has been integrated out. Each of these moments depends on a higher
+one, thus it is necessary to truncate the moments at some point. It is common to
+stop with the third moment which results in equations for: continuity of
+density, conservation of moment, and conservation of energy,
+\begin{gather}
+  \
 
 \subsection{Fast Ionization Waves}
 
