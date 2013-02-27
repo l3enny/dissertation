@@ -163,4 +163,44 @@ phenomena. Independently, Loeb and Meek developed a similar theory in 1940
 
 \section{Basic Theory}
 
-Basic theory of gaseous breakdown.
+\subsection{Plasmas}
+
+Most definitions of plasma use the phrase ``ionized gas.'' This implies that a
+plasma is a gas with a finite amount of ionization. In the limit of no
+ionization, the normal behavior of a gas should be recovered. Consequently, one
+requirement for a plasma is that the electromagnetic effects of the charged
+particles are the dominant interaction mechanism, compared to stochastic
+effects. Quantitatively, this is written as
+\begin{equation}
+  \sqrt{n_\mathrm{e} e^2 / (\epsilon_0 m_\mathrm{e})} < \nu,
+\end{equation}
+where $n_\mathrm{e}$ is the electron density, $e$ is the fundamental charge,
+$\epsilon_0$ is the permittivity of free space, $m_\mathrm{e}$ is the mass of an
+electron, and $\nu$ is the electron-neutral collision frequency\footnote{A
+similar oscillation frequency also exists for each electrically-charged species.
+However, the electrons are the fastest to respond to electrical perturbations,
+given their low mass. As a result, it is the electron-plasma frequency that is
+used in this requirement.}. The term on the left is often denoted as
+$\omega_mathrm{pe}$ and is referred to as the electron-plasma frequency.
+
+However, this is not the only requirement for a gas to be considered a plasma.
+There must also be a sufficient number of
+
+\todo[inline]{requirements for a plasma}
+
+Provided a sufficient number of particles, each species can be described by a
+distribution function. This function, $f_\alpha(\vec{r}, \vec{v}, t)$, describes the
+probability of finding a particle of species $\alpha$, at position $\vec{r}$,
+with velocity $\vec{v}$, at time $t$. The distribution function for a particle
+can be determined by the Vlasov-Fokker-Planck equation,
+\begin{equation}
+  \frac{\partial f_\alpha}{\partial t} + \vec{v}\cdot\nabla f_\alpha +
+  q \left(\vec{E} + \vec{v}\times\vec{B}\right) \cdot \nabla_\mathrm{v} f_\alpha =
+  \left( \frac{\partial f_\alpha}{\partial t}\right)_\mathrm{coll}.
+\end{equation}
+
+\subsection{Fast Ionization Waves}
+
+\subsection{Atomic Spectroscopy}
+
+
