@@ -146,29 +146,14 @@
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
 
-% This loads the proper graphics package.
-\RequirePackage{graphicx}
-
 % This is useful for complex figures.
 \RequirePackage{subfigure}
-
-% This changes the font to Times New Roman.
-\RequirePackage{times}
-
-% And in equations, too!
-\RequirePackage{mathptmx}
 
 % Compress multiple citations
 \RequirePackage{cite}
 
-% This package allows the ability to create a 'code' environment.
-\RequirePackage{verbatim}
-
 % This hopefully tells verbatim to leave my damn quotes alone.
 \RequirePackage{upquote}
-
-% This package enables the use of proper single quotes in text.
-\RequirePackage{textcomp}
 
 % This package is used to set line spacing.
 \RequirePackage{setspace}
