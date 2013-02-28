@@ -46,6 +46,12 @@
 %%                                  in-dissertation abstract and
 %%                                  abstract that prints at the end.
 %%  2011.04.09 @Derek Dalle       : Convert rac.sty --> thesis.umich.cls
+%%  2013.02.28 @Ben Yee           : Removed extraneous and obsolete
+%%                                  packages; class should only
+%%                                  implement the Rackham-related
+%%                                  requirements. Defaulted to two-sided
+%%                                  printing now that Rackham allows it.
+%%
 %%
 
 %% ---- HEADERS --------------------------------------------------------
@@ -118,7 +124,7 @@
  \LoadClass[letterpaper,10pt,twoside]{report}
 \else
  % Call the report class with 12pt fonts and one-sided formatting.
- \LoadClass[letterpaper,12pt,oneside]{report}
+ \LoadClass[letterpaper,12pt,twoside]{report}
 \fi
 
 % Make sure the index is off for 'thesis'.
@@ -140,20 +146,6 @@
  \RequirePackage[margin=1in,left=1.5in, %
   headheight=0.5\baselineskip]{geometry}
 \fi
-
-% This loads the required math packages.
-\RequirePackage{amsmath}
-\RequirePackage{amsfonts}
-\RequirePackage{amssymb}
-
-% This is useful for complex figures.
-\RequirePackage{subfigure}
-
-% Compress multiple citations
-\RequirePackage{cite}
-
-% This hopefully tells verbatim to leave my damn quotes alone.
-\RequirePackage{upquote}
 
 % This package is used to set line spacing.
 \RequirePackage{setspace}
