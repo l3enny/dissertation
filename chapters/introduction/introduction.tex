@@ -195,37 +195,73 @@ of the plasma can be described by a continuous probability distribution
 function. This function, $f_\alpha(\vec{r}, \vec{v}, t)$, describes the
 probability of finding a particle of species $\alpha$, at position $\vec{r}$,
 The distribution function for a particle can be determined by the
-Vlasov-Fokker-Planck equation,
+Vlasov-Fokker-Planck \acs{vfp} equation,
 \begin{equation}\label{eq:vfp}
-  \frac{\partial f_\alpha}{\partial t} + \vec{v}\cdot\nabla f_\alpha +
-  q \left(\vec{E} + \vec{v}\times\vec{B}\right) \cdot \nabla_\mathrm{v} f_\alpha =
-  \left( \frac{\partial f_\alpha}{\partial t}\right)_\mathrm{coll}.
+  \frac{\partial f_\alpha}{\partial t} + \vec{v_\alpha}\cdot\nabla f_\alpha +
+  q_\alpha \left(\vec{E} + \vec{v_\alpha}\times\vec{B}\right)
+  \cdot \nabla_\mathrm{v} f_\alpha = \left( \frac{\partial f_\alpha}
+  {\partial t}\right)_\mathrm{coll}.
 \end{equation}
-In essence, this is the Boltzmann equation from statistical mechanics, however
-it now includes several changes. Vlasov replaced the original force term with
-the Lorentz equation, and Fokker and Planck introduced the collision operator on
-the right-hand side. This is coupled with Maxwell's equations for a solution of
-the electric and magnetic fields in the plasma.
+Here, $\vec{E}$ is the electric field, $\vec{B}$ is the magnetic field, and
+$\partial f_\alpha/(\partial t)_\mathrm{coll}$ is a term representing all
+collisions. The \acs{vfp} equation is coupled to Maxwell's equations in order to
+obtain a self-consistent description of the particle distribution and the
+resulting fields. In essence, this is the Boltzmann equation from statistical
+mechanics, however it now includes several changes. Vlasov replaced the original
+force term with the Lorentz equation, and Fokker and Planck introduced the
+collision operator on the right-hand side. This is coupled with Maxwell's
+equations for a solution of the electric and magnetic fields in the plasma.
 
-Unfortunately, depending on the collision operator, the Vlasov-Fokker-Planck
-equation is a seven-dimension integro-differential equation which is notoriously
-difficult to solve in anything but the most trivial of cases. In the absence of
-external fields and with only elastic collisions, the equation admits the famous
-Maxwell-Boltzmann equilibrium distribution,
+In the absence of external fields and with only elastic collisions, the equation
+admits the famous Maxwell-Boltzmann equilibrium distribution,
+\todo[inline]{n for degrees of freedom? Change to something unambiguous?}
 \begin{equation}\label{eq:mb}
-  f(v) = n\left(\frac{m_\alpha}{2\pi k_\mathrm{B}T}\right^{3/2}
-    \exp\left(-\frac{m_\alpha v^2}{2k_\mathrm{B}T}\right),
+  f_\alpha(v) = n\left(\frac{m_\alpha}{2\pi k_\mathrm{B}T}\right)^{3/2}
+    \exp\left(-\frac{m_\alpha v_\alpha^2}{2k_\mathrm{B}T}\right),
 \end{equation}
 where $n$ is the number of degrees of freedom, $k_\mathrm{B}$ is Boltzmann's
 constant, and $T$ is the temperature. A species of particles which possesses a
 Boltzmann distribution is said to be in equilibrium. Likewise, two species with
 the same distribution are in equilibrium.
 
-As a result, most plasma models use various moments of equation \ref{vfp} where
-the velocity dependence has been integrated out. Each of these moments depends
-on a higher one, thus it is necessary to truncate the moments at some point. It
-is common to stop with the third moment which results in equations for:
-continuity of density, conservation of moment, and conservation of energy
+\todo[inline]{Should the Boltzmann-Maxwell equilibrium be pushed back to
+discussion of rate equations and averaging?}
+
+Aside from this, the \acs{vfp} equation is notoriously difficult to solve. As a
+result, most plasma models use various moments of equation \ref{vfp} where the
+velocity dependence has been integrated out. For example, the first moment is
+the continuity equation,
+\begin{equation}\label{eq:cont}
+  \frac{\partial n_\alpha}{\partial t} + \nabla \cdot (n_\alpha \vec{u_\alpha})
+  = G_\alpha - L_\alpha,
+\end{equation}
+where $\vec{u_\alpha}$ is the mean velocity of species $\alpha$, $G_\alpha$ is its
+rate of gain, and $L_\alpha$ is the rate of loss. This equation can be
+interpreted as the rate of change in particle density for a particular volume of
+space. 
+
+Though the continuity equation is much simpler than the original \acs{vfp}
+equation, it cannot be solved alone. The mean velocity, $\vec{u}$, is undefined.
+Typically, this leads to the second moment, \todo[inline]{Come up with tensor
+notation, and fix collision operator}
+\begin{equation}\label{eq:mom}
+  mn_\alpha\left[\frac{\partial \vec{u_\alpha}}{\partial t}
+  (\vec{u_\alpha}\cdot \nabla)\right] = q_\alpha n_\alpha(\vec{E} +
+  \vec{u_\alpha} \times \vec{B}) - \nabla \cdot \vec{\Pi_\alpha} +
+  \vec{f}_{\alpha,c}
+\end{equation}
+where \vec{\Pi_\alpha} is the pressure tensor, and $\vec{f}_{\alpha,c}$ is the
+rate of momentum transfer into species $\alpha$. Again, any solution is stymied
+by the presence of a new a term, in this case, $\vec{\Pi_\alpha}$. At this
+point, an equation of state can be used to close the set of equations, in this
+case relating the pressure to the density. However, later work will benefit from
+one more moment.
+
+Following the conservation of momentum, the energy conservation equation can be
+derived from the \acs{vfp} equation,
+\begin{equation}
+  \frac{\partial}{\partial t}\left(\frac{3}{2}p\right)
+\end{equation}
 
 \subsection{Fast Ionization Waves}
 
