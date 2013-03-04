@@ -1,16 +1,16 @@
-How to write the lit review section:
+Theory:
 
-Ways:
+Gas Discharge
++ Definition of a plasma
++ Kinetic Description
++ Moments -> Continuity, Momentum, Energy
++ Simplification to Lieberman (2.3.22)
 
-Historical -> Present Day
-+ Provides context
-+ May be considered unnecesary
+Atomic Processes (Noble Gas)
++ Elastic Scattering
++ Inelastic Scattering
+  + Excitation
+  + Superelastic
++ Radiative Transitions
 
-Context: Writing for a more general science audience, think Gus' background.
-
-Strictly RPND
-
-Go with the strictly RPND approach, don't get distracted by comparing to
-other types of discharges.
-
-Apply this to lit review? Skip to post WWII?
+Fast Ionization Waves
