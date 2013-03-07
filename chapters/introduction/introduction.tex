@@ -189,6 +189,7 @@ side term is called the electron plasma frequency, it the characteristic
 frequency at which a plasma oscillates in response to a perturbation.
 
 \todo[inline]{requirements for a plasma}
+\todo[inline]{Be clear about relation to Lieberman's writing!}
 
 For a sufficiently large number of particles, the behavior of the each species
 of the plasma can be described by a continuous probability distribution
@@ -228,17 +229,19 @@ the same distribution are in equilibrium.
 discussion of rate equations and averaging?}
 
 Aside from this, the \acs{vfp} equation is notoriously difficult to solve. As a
-result, most plasma models use various moments of equation \ref{vfp} where the
-velocity dependence has been integrated out. For example, the first moment is
-the continuity equation,
+result, most plasma models use various moments of equation \ref{eq:vfp} where the
+velocity dependence has been integrated out. These moments are the basis for the
+two-fluid equations, the MHD formulation, and global models. We will show the
+first three moments following the notation of Lieberman and Lichtenberg
+\cite{Lieberman2005}. For example, the first moment is the continuity equation,
 \begin{equation}\label{eq:cont}
   \frac{\partial n_\alpha}{\partial t} + \nabla \cdot (n_\alpha \vec{u_\alpha})
   = G_\alpha - L_\alpha,
 \end{equation}
-where $\vec{u_\alpha}$ is the mean velocity of species $\alpha$, $G_\alpha$ is its
-rate of gain, and $L_\alpha$ is the rate of loss. This equation can be
+where $\vec{u_\alpha}$ is the mean velocity of species $\alpha$, $G_\alpha$ is
+its rate of gain, and $L_\alpha$ is the rate of loss. This equation can be
 interpreted as the rate of change in particle density for a particular volume of
-space. 
+space.
 
 Though the continuity equation is much simpler than the original \acs{vfp}
 equation, it cannot be solved alone. The mean velocity, $\vec{u}$, is undefined.
@@ -248,9 +251,9 @@ notation, and fix collision operator}
   mn_\alpha\left[\frac{\partial \vec{u_\alpha}}{\partial t}
   (\vec{u_\alpha}\cdot \nabla)\right] = q_\alpha n_\alpha(\vec{E} +
   \vec{u_\alpha} \times \vec{B}) - \nabla \cdot \vec{\Pi_\alpha} +
-  \vec{f}_{\alpha,c}
+  \vec{f}_{\alpha,\mathrm{coll}}
 \end{equation}
-where \vec{\Pi_\alpha} is the pressure tensor, and $\vec{f}_{\alpha,c}$ is the
+where $\vec{\Pi_\alpha}$ is the pressure tensor, and $\vec{f}_{\alpha,c}$ is the
 rate of momentum transfer into species $\alpha$. Again, any solution is stymied
 by the presence of a new a term, in this case, $\vec{\Pi_\alpha}$. At this
 point, an equation of state can be used to close the set of equations, in this
@@ -260,10 +263,18 @@ one more moment.
 Following the conservation of momentum, the energy conservation equation can be
 derived from the \acs{vfp} equation,
 \begin{equation}
-  \frac{\partial}{\partial t}\left(\frac{3}{2}p\right)
+  \frac{\partial}{\partial t}\left(\frac{3}{2}p_\alpha\right) 
+  + \nabla\cdot\frac{3}{2} (p_\alpha\vec{u}_\alpha)
+  + p_\alpha\nabla\cdot\vec{u}_\alpha
+  + \nabla\cdot\vec{q}_\alpha
+  = \frac{\partial}{\partial
+  t}\left(\frac{3}{2}p_\alpha\right)\bigg|_\mathrm{coll}
 \end{equation}
-
-\subsection{Fast Ionization Waves}
+where $p_\alpha$ is the species pressure, $q_\alpha$ is the heat flow vector,
+and the right-hand side is the time rate of change in energy as a result of
+collisions. In our case, we only consider the flux into the volume (from the
+electric field) and the distribution of this field via rate constants. This is
+the basis for the global model.
 
 \subsection{Atomic Spectroscopy}
 
