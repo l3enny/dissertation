@@ -46,14 +46,26 @@
 %%                                  in-dissertation abstract and
 %%                                  abstract that prints at the end.
 %%  2011.04.09 @Derek Dalle       : Convert rac.sty --> thesis.umich.cls
-%%
+%%  2013.03.08 @Ben Yee           : Removed several obsolete packages.
+%%                                  Removed several unnecessary style
+%%                                  packages, reason: template should
+%%                                  only implement Rackham requirements.
+%%                                  Switched to two-sided printing by
+%%                                  default.
+
+%% TODO:
+%% 1. Default to two-side, but allow user-specified sidedness
+%% 2. Remove more of the unnecessary packages.
+%% 3. Derive class options from memoir to increase flexibility.
+%% 4. Create secondary class for improved styling and options:
+%%    hyperlink creation, code environment, book tables, etc.
 
 %% ---- HEADERS --------------------------------------------------------
 % This prevents the compiler from running on old versions of LaTeX.
 \NeedsTeXFormat{LaTeX2e}
 
 % This command gives the name of the class.
-\ProvidesClass{thesis-umich}[2011/04/09 Thesis template]
+\ProvidesClass{thesis-umich}[2013/03/08 UofM thesis template]
 
 %% ---- OPTIONS PROCESSING ---------------------------------------------
 % Define three switches for the the thesis format types.
@@ -118,7 +130,7 @@
  \LoadClass[letterpaper,10pt,twoside]{report}
 \else
  % Call the report class with 12pt fonts and one-sided formatting.
- \LoadClass[letterpaper,12pt,oneside]{report}
+ \LoadClass[letterpaper,12pt,twoside]{report}
 \fi
 
 % Make sure the index is off for 'thesis'.
@@ -141,39 +153,10 @@
   headheight=0.5\baselineskip]{geometry}
 \fi
 
-% This loads the required math packages.
-\RequirePackage{amsmath}
-\RequirePackage{amsfonts}
-\RequirePackage{amssymb}
-
-% This loads the proper graphics package.
-\RequirePackage{graphicx}
-
-% This is useful for complex figures.
-\RequirePackage{subfigure}
-
-% This changes the font to Times New Roman.
-\RequirePackage{times}
-
-% And in equations, too!
-\RequirePackage{mathptmx}
-
-% Compress multiple citations
-\RequirePackage{cite}
-
-% This package allows the ability to create a 'code' environment.
-\RequirePackage{verbatim}
-
-% This hopefully tells verbatim to leave my damn quotes alone.
-\RequirePackage{upquote}
-
-% This package enables the use of proper single quotes in text.
-\RequirePackage{textcomp}
-
 % This package is used to set line spacing.
 \RequirePackage{setspace}
 
-% This package allows conditional testing of varibles.
+% This package allows conditional testing of variables.
 \RequirePackage{ifthen}
 
 % This package is used for silly letter spacing
@@ -339,11 +322,11 @@
   % Non-justified content
   \begin{flushleft}
    % Heading for the committee
-   \hspace{1in}Doctoral Committee: \\[2ex] %
+   Doctoral Committee: \\[2ex] %
    % Horizontal spacing
-   \hspace{1.5in} %
+   \hspace{0.5in} %
    % Insert the committee (in a box).
-   \parbox{4.2in}{\insertcommittee}
+   \parbox{5.2in}{\insertcommittee}
   \end{flushleft} %
  \end{singlespace} %
 }
@@ -1403,7 +1386,7 @@
 
 %% ---- LINKS ----------------------------------------------------------
 % This loads a package that allows extra colors for links.
-\RequirePackage[usenames,dvipsnames]{color}
+\RequirePackage[usenames,dvipsnames]{xcolor}
 % Custom color for references.
 \definecolor{DarkGreen}{rgb}{0,0.6,0}
 
