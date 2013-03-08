@@ -46,12 +46,6 @@
 %%                                  in-dissertation abstract and
 %%                                  abstract that prints at the end.
 %%  2011.04.09 @Derek Dalle       : Convert rac.sty --> thesis.umich.cls
-%%  2013.02.28 @Ben Yee           : Removed extraneous and obsolete
-%%                                  packages; class should only
-%%                                  implement the Rackham-related
-%%                                  requirements. Defaulted to two-sided
-%%                                  printing now that Rackham allows it.
-%%
 %%
 
 %% ---- HEADERS --------------------------------------------------------
@@ -124,7 +118,7 @@
  \LoadClass[letterpaper,10pt,twoside]{report}
 \else
  % Call the report class with 12pt fonts and one-sided formatting.
- \LoadClass[letterpaper,12pt,twoside]{report}
+ \LoadClass[letterpaper,12pt,oneside]{report}
 \fi
 
 % Make sure the index is off for 'thesis'.
@@ -146,6 +140,35 @@
  \RequirePackage[margin=1in,left=1.5in, %
   headheight=0.5\baselineskip]{geometry}
 \fi
+
+% This loads the required math packages.
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+
+% This loads the proper graphics package.
+\RequirePackage{graphicx}
+
+% This is useful for complex figures.
+\RequirePackage{subfigure}
+
+% This changes the font to Times New Roman.
+\RequirePackage{times}
+
+% And in equations, too!
+\RequirePackage{mathptmx}
+
+% Compress multiple citations
+\RequirePackage{cite}
+
+% This package allows the ability to create a 'code' environment.
+\RequirePackage{verbatim}
+
+% This hopefully tells verbatim to leave my damn quotes alone.
+\RequirePackage{upquote}
+
+% This package enables the use of proper single quotes in text.
+\RequirePackage{textcomp}
 
 % This package is used to set line spacing.
 \RequirePackage{setspace}
@@ -316,12 +339,11 @@
   % Non-justified content
   \begin{flushleft}
    % Heading for the committee
-   %\hspace{1in}
-   Doctoral Committee: \\[2ex] %
+   \hspace{1in}Doctoral Committee: \\[2ex] %
    % Horizontal spacing
-   \hspace{0.5in} %
+   \hspace{1.5in} %
    % Insert the committee (in a box).
-   \parbox{4.5in}{\insertcommittee}
+   \parbox{4.2in}{\insertcommittee}
   \end{flushleft} %
  \end{singlespace} %
 }
@@ -1381,7 +1403,7 @@
 
 %% ---- LINKS ----------------------------------------------------------
 % This loads a package that allows extra colors for links.
-\RequirePackage[usenames,dvipsnames]{xcolor}
+\RequirePackage[usenames,dvipsnames]{color}
 % Custom color for references.
 \definecolor{DarkGreen}{rgb}{0,0.6,0}
 
@@ -1484,8 +1506,7 @@
  % Use the correct formatting.
  \if@umich@thesis %
   % Use 1.5 spacing
-  %\onehalfspacing %
-  \doublespacing
+  \onehalfspacing %
  \else %
   % Use two-column format
   \twocolumn %
