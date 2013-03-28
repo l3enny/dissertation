@@ -222,19 +222,21 @@ provides a fair review of the material.
 
 \todo[inline]{Remember to include the laser dudes! Xenon lamps!}
 
-Come 1998, the fiw was the subject of renewed interest by a group of researchers
-at the Moscow Institute of Physics and Technology \cite{Anikin1998}. They
-employed several different diagnostic techniques (photomultiplier tubes and
-capacitive probes) in an exceptionally detailed study of fiws in both air and
-nitrogen, using a shock tube and a bell jar. A summary of these investigations
-can be found in \cite{Starikovskaia2001}. The work showed exceptionally
-reproducibility of the discharge parameters at relatively low repetition rates,
-on the order of tens of Hz, and evidence of runaway electrons in the
-electronically excited molecular states. This work also included some of the
-first approximations of the electron energy distribution function (\acs{eedf}).
-This was found by comparing several paremeterized distribution functions with
-the resulting excited state populations. 
-\todo[inline]{This is pretty damned similar to what you originally discussed}
+Come 1998, the fiw was the subject of renewed interest by a group of
+researchers at the Moscow Institute of Physics and Technology
+\cite{Anikin1998}. They employed several different diagnostic techniques
+(photomultiplier tubes and capacitive probes) in an exceptionally
+detailed study of fiws in both air and nitrogen, using a shock tube and
+a bell jar. A summary of these investigations can be found in
+\cite{Starikovskaia2001}. The work showed exceptionally reproducibility
+of the discharge parameters at relatively low repetition rates, on the
+order of tens of Hz, and evidence of runaway electrons in the
+electronically excited molecular states. This work also included some of
+the first approximations of the electron energy distribution function
+(\acs{eedf}). This was found by comparing several paremeterized
+distribution functions with the resulting excited state populations.
+\todo[inline]{This is pretty damned similar to what you originally
+discussed}
 
 This was time the population kinetics of an fiw was really examined. In this
 case, it emphasized the short-lived states of nitrogen. Specifically,
@@ -290,94 +292,101 @@ resolution and detail.
 
 \subsection{Plasmas}
 
-A volume containing some number of charged particles can be considered a plasma
-if it meets three conditions. The first requires that the motion of charged
-particles is primarily determined by the electric and magnetic fields of the
-volume rather than through collisions with neutral particles. This is
-classically expressed by the inequality
+A volume containing some number of charged particles can be considered a
+plasma if it meets three conditions. The first requires that the motion
+of charged particles is primarily determined by the electric and
+magnetic fields of the volume rather than through collisions with
+neutral particles. This is classically expressed by the inequality
 \begin{equation}
   \sqrt{n_\mathrm{e} e^2 / (\epsilon_0 m_\mathrm{e})} < \nu,
 \end{equation}
-where $n_\mathrm{e}$ is the electron density, $e$ is the fundamental charge,
-$\epsilon_0$ is the permittivity of free space, $m_\mathrm{e}$ is the mass of an
-electron, and $\nu$ is the electron-neutral collision frequency. The left-hand
-side term is called the electron plasma frequency, it the characteristic
-frequency at which a plasma oscillates in response to a perturbation.
+where $n_\mathrm{e}$ is the electron density, $e$ is the fundamental
+charge, $\epsilon_0$ is the permittivity of free space, $m_\mathrm{e}$
+is the mass of an electron, and $\nu$ is the electron-neutral collision
+frequency. The left-hand side term is called the electron plasma
+frequency, it the characteristic frequency at which a plasma oscillates
+in response to a perturbation.
 
 \todo[inline]{requirements for a plasma}
 \todo[inline]{Be clear about relation to Lieberman's writing!}
 
-For a sufficiently large number of particles, the behavior of the each species
-of the plasma can be described by a continuous probability distribution
-function. This function, $f_\alpha(\vec{r}, \vec{v}, t)$, describes the
-probability of finding a particle of species $\alpha$, at position $\vec{r}$,
-The distribution function for a particle can be determined by the
-Vlasov-Fokker-Planck \acs{vfp} equation,
+For a sufficiently large number of particles, the behavior of the each
+species of the plasma can be described by a continuous probability
+distribution function. This function, $f_\alpha(\vec{r}, \vec{v}, t)$,
+describes the probability of finding a particle of species $\alpha$, at
+position $\vec{r}$, The distribution function for a particle can be
+determined by the Vlasov-Fokker-Planck \acs{vfp} equation,
 \begin{equation}\label{eq:vfp}
   \frac{\partial f_\alpha}{\partial t} + \vec{v_\alpha}\cdot\nabla f_\alpha +
   q_\alpha \left(\vec{E} + \vec{v_\alpha}\times\vec{B}\right)
   \cdot \nabla_\mathrm{v} f_\alpha = \left( \frac{\partial f_\alpha}
   {\partial t}\right)_\mathrm{coll}.
 \end{equation}
-Here, $\vec{E}$ is the electric field, $\vec{B}$ is the magnetic field, and
-$\partial f_\alpha/(\partial t)_\mathrm{coll}$ is a term representing all
-collisions. The \acs{vfp} equation is coupled to Maxwell's equations in order to
-obtain a self-consistent description of the particle distribution and the
-resulting fields. In essence, this is the Boltzmann equation from statistical
-mechanics, however it now includes several changes. Vlasov replaced the original
-force term with the Lorentz equation, and Fokker and Planck introduced the
-collision operator on the right-hand side. This is coupled with Maxwell's
-equations for a solution of the electric and magnetic fields in the plasma.
+Here, $\vec{E}$ is the electric field, $\vec{B}$ is the magnetic field,
+and $\partial f_\alpha/(\partial t)_\mathrm{coll}$ is a term
+representing all collisions. The \acs{vfp} equation is coupled to
+Maxwell's equations in order to obtain a self-consistent description of
+the particle distribution and the resulting fields. In essence, this is
+the Boltzmann equation from statistical mechanics, however it now
+includes several changes. Vlasov replaced the original force term with
+the Lorentz equation, and Fokker and Planck introduced the collision
+operator on the right-hand side. This is coupled with Maxwell's
+equations for a solution of the electric and magnetic fields in the
+plasma.
 
-In the absence of external fields and with only elastic collisions, the equation
-admits the famous Maxwell-Boltzmann equilibrium distribution,
-\todo[inline]{n for degrees of freedom? Change to something unambiguous?}
+In the absence of external fields and with only elastic collisions, the
+equation admits the famous Maxwell-Boltzmann equilibrium distribution,
+\todo[inline]{n for degrees of freedom? Change to something
+unambiguous?}
 \begin{equation}\label{eq:mb}
   f_\alpha(v) = n\left(\frac{m_\alpha}{2\pi k_\mathrm{B}T}\right)^{3/2}
     \exp\left(-\frac{m_\alpha v_\alpha^2}{2k_\mathrm{B}T}\right),
 \end{equation}
-where $n$ is the number of degrees of freedom, $k_\mathrm{B}$ is Boltzmann's
-constant, and $T$ is the temperature. A species of particles which possesses a
-Boltzmann distribution is said to be in equilibrium. Likewise, two species with
-the same distribution are in equilibrium.
+where $n$ is the number of degrees of freedom, $k_\mathrm{B}$ is
+Boltzmann's constant, and $T$ is the temperature. A species of particles
+which possesses a Boltzmann distribution is said to be in equilibrium.
+Likewise, two species with the same distribution are in equilibrium.
 
 \todo[inline]{Should the Boltzmann-Maxwell equilibrium be pushed back to
 discussion of rate equations and averaging?}
 
-Aside from this, the \acs{vfp} equation is notoriously difficult to solve. As a
-result, most plasma models use various moments of equation \ref{eq:vfp} where the
-velocity dependence has been integrated out. These moments are the basis for the
-two-fluid equations, the MHD formulation, and global models. We will show the
-first three moments following the notation of Lieberman and Lichtenberg
-\cite{Lieberman2005}. For example, the first moment is the continuity equation,
+Aside from this, the \acs{vfp} equation is notoriously difficult to
+solve. As a result, most plasma models use various moments of equation
+\ref{eq:vfp} where the velocity dependence has been integrated out.
+These moments are the basis for the two-fluid equations, the MHD
+formulation, and global models. We will show the first three moments
+following the notation of Lieberman and Lichtenberg
+\cite{Lieberman2005}. For example, the first moment is the continuity
+equation,
 \begin{equation}\label{eq:cont}
   \frac{\partial n_\alpha}{\partial t} + \nabla \cdot (n_\alpha \vec{u_\alpha})
   = G_\alpha - L_\alpha,
 \end{equation}
-where $\vec{u_\alpha}$ is the mean velocity of species $\alpha$, $G_\alpha$ is
-its rate of gain, and $L_\alpha$ is the rate of loss. This equation can be
-interpreted as the rate of change in particle density for a particular volume of
-space.
+where $\vec{u_\alpha}$ is the mean velocity of species $\alpha$,
+$G_\alpha$ is its rate of gain, and $L_\alpha$ is the rate of loss. This
+equation can be interpreted as the rate of change in particle density
+for a particular volume of space.
 
-Though the continuity equation is much simpler than the original \acs{vfp}
-equation, it cannot be solved alone. The mean velocity, $\vec{u}$, is undefined.
-Typically, this leads to the second moment, \todo[inline]{Come up with tensor
-notation, and fix collision operator}
+Though the continuity equation is much simpler than the original
+\acs{vfp} equation, it cannot be solved alone. The mean velocity,
+$\vec{u}$, is undefined. Typically, this leads to the second moment,
+\todo[inline]{Come up with tensor notation, and fix collision operator}
 \begin{equation}\label{eq:mom}
   mn_\alpha\left[\frac{\partial \vec{u_\alpha}}{\partial t}
   (\vec{u_\alpha}\cdot \nabla)\right] = q_\alpha n_\alpha(\vec{E} +
   \vec{u_\alpha} \times \vec{B}) - \nabla \cdot \vec{\Pi_\alpha} +
   \vec{f}_{\alpha,\mathrm{coll}}
 \end{equation}
-where $\vec{\Pi_\alpha}$ is the pressure tensor, and $\vec{f}_{\alpha,c}$ is the
-rate of momentum transfer into species $\alpha$. Again, any solution is stymied
-by the presence of a new a term, in this case, $\vec{\Pi_\alpha}$. At this
-point, an equation of state can be used to close the set of equations, in this
-case relating the pressure to the density. However, later work will benefit from
-one more moment.
+where $\vec{\Pi_\alpha}$ is the pressure tensor, and
+$\vec{f}_{\alpha,c}$ is the rate of momentum transfer into species
+$\alpha$. Again, any solution is stymied by the presence of a new a
+term, in this case, $\vec{\Pi_\alpha}$. At this point, an equation of
+state can be used to close the set of equations, in this case relating
+the pressure to the density. However, later work will benefit from one
+more moment.
 
-Following the conservation of momentum, the energy conservation equation can be
-derived from the \acs{vfp} equation,
+Following the conservation of momentum, the energy conservation equation
+can be derived from the \acs{vfp} equation,
 \begin{equation}
   \frac{\partial}{\partial t}\left(\frac{3}{2}p_\alpha\right) 
   + \nabla\cdot\frac{3}{2} (p_\alpha\vec{u}_\alpha)
@@ -386,11 +395,11 @@ derived from the \acs{vfp} equation,
   = \frac{\partial}{\partial
   t}\left(\frac{3}{2}p_\alpha\right)\bigg|_\mathrm{coll}
 \end{equation}
-where $p_\alpha$ is the species pressure, $q_\alpha$ is the heat flow vector,
-and the right-hand side is the time rate of change in energy as a result of
-collisions. In our case, we only consider the flux into the volume (from the
-electric field) and the distribution of this field via rate constants. This is
-the basis for the global model.
+where $p_\alpha$ is the species pressure, $q_\alpha$ is the heat flow
+vector, and the right-hand side is the time rate of change in energy as
+a result of collisions. In our case, we only consider the flux into the
+volume (from the electric field) and the distribution of this field via
+rate constants. This is the basis for the global model.
 
 \subsection{Atomic Spectroscopy}
 
@@ -426,5 +435,6 @@ possessed by an electron in that particular level.
 Allowed transitions are determined by a series of selection rules. These
 selection rules can be 
 
+\subsubsection{Spectral Lineshapes}
 
 \subsubsection{Radiation Trapping}
