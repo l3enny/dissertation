@@ -35,3 +35,4 @@ thesis-umich/*
 *.lop
 .DS_Store
 *.fls
+*.swp
