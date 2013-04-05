@@ -9,7 +9,14 @@ everything that is fit to print (plus some extra).
     2. Survey of Fast Ionization Waves (Literature Review)
 2. Theory
   1. Gaseous Discharges
+    1. 
+    2. 
+    3. 
   2. Atomic Spectroscopy
+    1. Atomic Structure and Notation
+    2. Atomic Transitions
+    3. Spectral Lineshapes
+    4. 
 3. Experimental Setup
 4. Metastable Measurements
     1. Laser Absorption Spectroscopy (Brief review of theory)
@@ -22,8 +29,6 @@ everything that is fit to print (plus some extra).
 6. Modeling
     1. Global Models (Brief review of theory)
     2. Electric Field Estimates
-    3. Particle-in-Cell (Brief review of theory)
-    4. Comparison of EEDFs from PIC and Boltzmann Solutions
     5. Comparison of Emissions to Model
 7. Conclusions
     1. Overview of Results
