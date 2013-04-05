@@ -30,7 +30,6 @@
 *.vrb
 *.xdy
 *.tdo
-thesis-umich/*
 *.lox
 *.lop
 .DS_Store
