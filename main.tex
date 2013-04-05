@@ -3,20 +3,20 @@
 
 \usepackage{acronym}
 \usepackage{amsmath}
-\usepackage{fontspec}
+%\usepackage{fontspec}
 \usepackage{graphicx}
 %\usepackage{todonotes}
 %\usepackage{xcolor}
 %\usepackage{xfrac}
 %\usepackage{booktabs}
 %\usepackage{listings}
-%\usepackage{mathspec}
+\usepackage{mathspec}
 
 \defaultfontfeatures{Mapping=tex-text, Ligatures={Common}}
-\setmainfont{TeX Gyre Schola}
+\setmainfont{TeX Gyre Termes}
 \setsansfont{TeX Gyre Heros}
 \setmonofont{TeX Gyre Cursor}
-%\setmathsfont{TeX Gyre Schola}
+\setmathfont(Digits,Latin,Greek){TeX Gyre Termes}
 
 \title{Population Kinetics of a Repetitively-Pulsed Nanosecond Discharge}
 \author{Benjamin T. Yee}
@@ -60,7 +60,6 @@
 }
 
 \begin{document}
-
   \chapter{Introduction}\label{chp:intro}
     \input{chapters/introduction/introduction.tex}
   
