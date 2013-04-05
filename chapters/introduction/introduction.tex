@@ -447,8 +447,85 @@ Additionally, each set of numbers determines the potential energy
 possessed by an electron in that particular level. 
 
 Allowed transitions are determined by a series of selection rules. These
-selection rules can be 
+selection rules can be summed up as the following:
+\begin{itemize}
+    \item $\Delta S = 0$
+    \item $\Delta L = \pm1$
+\end{itemize}
+Though other transitions are possible (spin and dipole forbidden respectively),
+they tend to require an external perturbation in order to induce transition.
+
+Figure \missingfigure{} shows the what is commonly called a Grotrian diagram for
+helium. In this diagram, the vertical axis represents the energy above the
+ground state, and the levels are arranged horizontally based on increasing $L$.
+Levels which are radiatively linked are connected by solid lines. As can be seen
+in this figure, only the levels having $S=1$ are radiatively connected to the
+ground state. As a result, any helium atoms that are excited into the triplet
+manifold tend to stay there, accumulating in the metastable state, $2^3S$.
+
+Approaching 24 eV, the excited electron enters what is known as the continuum.
+The energy separation between states goes as $n^{-2}$, thus at large $n$ the
+spacing becomes quite close and the states are almost indistinguishable. The
+levels are often referred to as Ryberg states. Above 24.69 eV, the electron
+becomes totally detached from the helium nucleus, and all that remains is
+a singly ionized helium atom.
+
+Though the emissions of ions can be quite useful in some plasmas, we do not
+concern ourselves with them in either the measurements or models. 24.69 eV is
+the largest known ionization potential, and as a result, the number of ions and
+the emissions associated with them remain relatively small.
 
 \subsubsection{Spectral Lineshapes}
+It is tempting to think that the energy spacing can be calculated exactly,
+however there is always some variance about a central energy. This is called the
+spectral lineshape, and it effects both the energy of the emitted photon in
+radiative transitions, and the photons that an atom can absorb. Though these
+variations can be attributed to quantum mechanical effects, the actual result
+can derived from the so-called dipole approximation.
 
+In this case, we envision a single electron oscillating about a large, heavy,
+positive charge. The full details of this derivation are covered in Siegman
+\cite{Siegman1986}, however we'll address some of the most pertinent portions
+here. The response of a collection of atoms to an applied electric field can be
+expressed as a quantity known as the susceptibility. This is generally defined
+as
+\begin{equation}
+    \tilde{\chi}(\omega) \equiv
+    \frac{\tilde{P}(\omega)}{\epsilon_0\tilde{E}(\omega)}
+\end{equation}
+where $\tilde{\chi}$ is the electric susceptibility, $\tilde{P}$ is the
+macroscopic polarization, $\tilde{E}$ is the applied electric field, and
+$\omega$ is the frequency of the applied field.
+
+\paragraph{Natural Linewidth}
+The electric susceptibility often possesses both a real and imaginary component.
+Physically, these respectively represent the reactive and absorptive component
+of the medium. Accounting for level-dependent effects, the standard
+susceptibility for an atomic transition can be written as
+\begin{equation}
+    \tilde{\chi}_\mathrm{at}(\omega) = -j\frac{3}{4\pi^2}\frac{\Delta
+    N\lambda^3\gamma_\mathrm{rad}}{\Delta\omega_\mathrm{a}}\frac{1}{1
+    + 2j(\omega - \omega_\mathrm{a})/\Delta\omega}
+\end{equation}
+where $\Delta N$ represents the population difference between the upper and
+lower levels of the oscillator, $\lambda$ is the transition wavelength,
+$\gamma_\mathrm{rad}$ is the natural radiative lifetime of the oscillator,
+$\Delta\omega_\mathrm{a}$ is the linewidth of the transition (for an unperturbed
+atom, this is simply $\gamma_\mathrm{rad}$), and $\omega_\mathrm{a}$ is the
+angular frequency of the transition or oscillator.
+
+This equation is generally known as the complex lorentzian. Separated into its
+components it expresses both the absorptive and reactive properties of the
+atomic medium. It also clearly susceptible to fields that are displaced from
+$\omega_\mathrm{a}$. This is the finite linewidth associated with atomic
+emissions and absorption.
+
+This linewidth effects each atom within the medium. Each atom will emit or
+absorb radiation with a probability described by this susceptibility.
+Consequently, this natural linewidth falls under the homogeneous category of
+line broadening.
+
+\paragraph{Pressure Broadening}
+Also included in this category is pressure broadening, or more fundamentally,
+dephasing. 
 \subsubsection{Radiation Trapping}
