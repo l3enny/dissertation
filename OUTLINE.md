@@ -2,7 +2,7 @@ Outline
 =======
 
 This is the ever-evolving outline of the paper, it will contain
-everything that is fit to print (plus some extra).
+everything that is fit to print (plus some extra). Hallelujah!
 
 1. Introduction
     1. Overview (Motivation)
