@@ -3,20 +3,18 @@
 
 \usepackage{acronym}
 \usepackage{amsmath}
-\usepackage{fontspec}
 \usepackage{graphicx}
-\usepackage{todonotes}
 \usepackage{xcolor}
+\usepackage{mathspec}
 %\usepackage{xfrac}
 %\usepackage{booktabs}
 %\usepackage{listings}
-%\usepackage{mathspec}
 
 \defaultfontfeatures{Mapping=tex-text, Ligatures={Common}}
-\setmainfont{TeX Gyre Schola}
+\setmainfont{TeX Gyre Termes}
 \setsansfont{TeX Gyre Heros}
 \setmonofont{TeX Gyre Cursor}
-%\setmathsfont{TeX Gyre Schola}
+\setmathfont(Digits,Latin,Greek){TeX Gyre Termes}
 
 \title{Population Kinetics of a Repetitively-Pulsed Nanosecond Discharge}
 \author{Benjamin T. Yee}
@@ -60,34 +58,30 @@
 }
 
 \begin{document}
-
-  %\chapter{Introduction}\label{chp:intro}
-  %  %\input{chapters/introduction/introduction.tex}
+  \chapter{Introduction}\label{chp:intro}
+    \input{chapters/introduction/introduction.tex}
   
-  %\chapter{Theory}\label{chp:theory}
-  %  %\input{chapters/theory/theory.tex}
+  \chapter{Theory}\label{chp:theory}
+    \input{chapters/theory/theory.tex}
 
-  %\chapter{Experiment}\label{chp:exp}
-  %  %\input{chapters/experiment/experiment.tex}
+  \chapter{Experiment}\label{chp:exp}
+    \input{chapters/experiment/experiment.tex}
 
-  %\chapter{Metastable Measurements}\label{chp:meta}
+  \chapter{Metastable Measurements}\label{chp:meta}
   
-  %\chapter{Emission Measurements}\label{chp:emit}
+  \chapter{Emission Measurements}\label{chp:emit}
 
-  %\chapter{Modeling}\label{chp:model}
+  \chapter{Modeling}\label{chp:model}
 
-  %\chapter{Conclusions}\label{chp:conc}
+  \chapter{Conclusions}\label{chp:conc}
 
   \appendix
-    \chapter{Methods}
-      This is a test of the appendix.
+    \chapter{Millimeter-Wave Interferometry}\label{chp:mmw}
+      \input{chapters/mmw/mmw.tex}
+    \chapter{Rotational Spectroscopy}\label{chp:oes}
+      \input{chapters/oes/oes.tex}
 
-  %\bibliographystyle{ieee}
-  %\bibliography{$HOME/Dropbox/References/Thesis}
-
-    %\chapter{Millimeter-Wave Interferometry}\label{chp:mmw}
-    %  \input{chapters/mmw/mmw.tex}
-    %\chapter{Rotational Spectroscopy}\label{chp:oes}
-    %  \input{chapters/oes/oes.tex}
+  \bibliographystyle{unsrt}
+  \bibliography{$HOME/Dropbox/References/Thesis}
 
 \end{document}
