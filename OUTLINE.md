@@ -7,7 +7,7 @@ everything that is fit to print (plus some extra). Hallelujah!
 1. Introduction
     1. Overview 
       1. Motivation
-      3. History
+      4. History
       3. Questions
       4. Approach
     2. Literature Review
