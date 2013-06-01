@@ -4,7 +4,7 @@ Outline
 1. Introduction
     1. Overview 
       1. Motivation
-      4. History
+      2. History
       3. Questions
       4. Approach
     2. Literature Review
