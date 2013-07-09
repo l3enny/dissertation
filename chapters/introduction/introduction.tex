@@ -15,63 +15,90 @@ plasma in some form or another.
 Some exceptions aside, only three things are required to create a plasma: a gas,
 an energy source, and a means of transferring the energy to the gas. In man-made
 applications, the energy source is typically electricity, and the simplest
-transfer mechanism are two electrodes placed on either side of the gas. When a
-sufficient voltage is applied across the gap, residual electrons in the gas
-(often created by background cosmic radiation) are accelerated until they
-collide with a gas particle. The electron, having acquired a fair amount of
-energy, knocks a second electron loose from the particle, leaving behind a
-relatively heavy and immobile ion. Subsequently, both the first and second
-electron are now accelerated by the electric field, until they again create new
-electrons. Electrons continue to be created in this exponentially growing
-process, referred to as an avalanche, until they cross the gap between the
-electrodes, leaving behind a plasma.
+transfer mechanism are two electrodes placed on either side of the gas. This
+results in an electric field in the gap between the electrodes, as seen in
+figure~\ref{fig:avalanche}.
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/introduction/figures/avalanche.pdf}
+  \caption{A simplified depiction of the avalanche breakdown process in a gas.}
+  \label{fig:avalanche}
+\end{figure}
+The field accelerates a single seed electron in the gas (often created by
+background cosmic radiation) until it collides with a neutral particle. The
+electron, having acquired a fair amount of energy, knocks a second electron
+loose from the particle, leaving behind a relatively heavy and immobile ion.
+Subsequently, both the first and second electron are now accelerated by the
+electric field. Again, they collide with two more neutral atoms, creating two
+new electrons. As long as the electric field persists, the number of electron
+and ion pairs increases exponentially. This process is generally referred to as
+an avalanche.
 
 Despite this relatively simple recipe, the physical characteristics can vary
 greatly depending on what gas is used, what pressure it is at, what voltage is
 used, whether the electricity is applied constantly or varied over time, what
-kind of electrodes are used, etc. As a result, plasmas are generally produced
-under tightly controlled conditions. For example, a plasma etcher used in
-semiconductor manufacturing may operate at pressures that are one-thousandth of
-atmospheric pressure with 99.999\% pure gases. In these plasmas, the ions and
-neutral gas particles often have temperatures that are below 1,000 K. Though this
-is may be above room temperature, it is well below the electrons which often
-possess temperatures closer to 20,000 K. This disparity in temperatures is
-characteristic of plasmas which are not in thermal equilibrium, more
-colloquially known as ``low-temperature'' plasmas.
+kind of electrodes are used, etc. As a result, man-made plasmas are generally
+produced under very specific conditions. For example, a plasma etcher used in
+semiconductor manufacturing may need to operate operate at pressures that are
+one-thousandth of atmospheric pressure with ultra-pure (99.9999\%) gases.
 
-By comparison, plasmas in thermal equilibrium possess electrons, ions, and
-neutral particles which are all at the same, highly elevated, temperature. For
-reasons which will later be explained, such plasmas tend to occur at gas
-pressures which are closer to atmosphere. High-temperature plasmas have their
-own set of applications, such as arc welders which use a plasma for metal
-joining. Additional examples include the xenon arc lamps used to simulate the
-sun, metal-halide lamps used in cars, plasma torches for cutting metals,
+Plasmas like those which occur in plasma etchers, feature ions and neutral gas
+particles with temperatures that are below 1,000 K, or roughly 1,340$^\cdot$ F.
+Though this temperature is relatively high compared to room temperature, it is
+well below the temperature of the electrons which may be in excess of 20,000 K.
+Plasmas which exhibit this disparity in temperatures are often called
+nonequilibrium or ``low-temperature'' plasmas.
 
-Unfortunately, there are a number of applications which would benefit from
-operation at higher pressures, but with low-temperatures ions and neutral
-particles. This has spurred a substantial amount of research on
-atmospheric-pressure plasmas (\acs{app}s) in recent years. One product of these
-efforts has been the use of plasmas to treat polymers so that ink can adhere to
-the surface. Another, uses low-temperature \acs{app}s to generate ozone to kill
-bacterial contaminants in water.
+Conversely, there exists another class of plasmas where the electrons, ions, and
+neutral particles are all at the same temperature. These are called thermal
+plasmas. Generally speaking, the closer the gas pressure is to atmosphere, the
+more thermal a plasma is. Additionally, the temperatures in a thermal plasma can
+be quite high and, in many cases, can easily melt most metals. For example, the
+arc of an arc welder is a thermal plasma. Similar high temperature plasmas, have
+a number of other applications which include a variety of high-intensity lamps,
+metal cutting, and surface coating.
 
-That said, research on high-pressure, low-temperature plasmas is ongoing. The
-number of potential applications has continued to grow, and the outcomes include
-things like better access to clean water, wound sterilization, improved fuel
-efficiency, faster airplanes, new materials, nanoparticle production, and much
-more. However, these plasmas are much more difficult to create as they are
-subject to a number of instabilities which either snuff out the plasma, or cause
-it to transition to thermal equilibrium.
+There are, however, a number of applications which would benefit from operation
+at higher pressures, but with low-temperature ions and neutrals so as to avoid
+heat damage. This has spurred a substantial amount of research on nonequilibrium
+atmospheric-pressure plasmas (\acs{app}s) in recent years. Ideally, such a
+plasma could be generated at or near atmospheric pressure with hot electrons,
+but minimal heating of surrounding gas. Though this field of research is still
+relatively young, it has produced a variety of new plasmas and capabilities. One
+of the more ubiquitous examples is use of plasmas to process the surface of
+plastics so that ink can adhere. Separately, nonequilibrium \acs{app}s are the
+technology which drives plasma televisions.
 
-Of the few techniques available to create atmospheric plasmas, the
-repetitively-pulsed nanosecond discharge (\acs{rpnd}) is unique in its ability
-to create plasmas up to several liters in volume, but with relatively uniform
-properties throughout. The potential of this plasma to result in even one of the
-above outcomes more than warrants its close study. This is sentiment is echoed
-by the National Academies, when, in their recent review of plasma science stated
-that ``[high-pressure nonequilibrium plasmas] have great promise both for
-practical application, and also as a unifying platform for future
-low-temperature plasma science research.''
+As mentioned, these applications promise to be the first of many for such
+plasmas. More recently, there have been innovative proposals to use these
+plasmas in water purification, wound sterilization, improved combustion engines,
+nanoparticle production, and more. However, each situation has its own
+challenges when it comes to the design and development of a plasma source,
+particularly at these elevated pressures. Particularly problematic is the
+tendency of \acs{app}s to develop instabilities which can cause them to rapidly
+transition to thermal plasmas in a matter of nanoseconds.
+
+There exist a few ways of getting around these instabilities. One example is the
+dielectric-barrier discharge which passively regulates the amount of power which
+can be deposited into the plasma. Another example includes split-ring resonators
+which use natural feedback mechanisms to damp out potential instabilities. The
+technique considered here, referred to as the repetitively-pulsed nanosecond
+discharge, or \acs{rpnd}, uses high voltage pulses which are so short that the
+instability does not have time to develop. The \acs{rpnd} is a nonequilibrium
+plasma which can operate at pressures ranging from approximately $10^{-3}$--$10$
+atmospheres. At atmospheric pressure the \acs{rpnd} can produce a uniform plasma
+in volumes on the order of 10 mL. As the pressure is reduced, the plasma volume
+can reach the order of liters.
+
+The importance of large-area, uniform, high-pressure plasmas such as the
+\acs{rpnd} was highlighted in the National Academies' most recent decadal survey
+of plasma science \cite{NA2007}. However, there is still much that is not know
+about such plasmas. From the same survey, it is said that ``the full promise of
+\acs{app}s will be known only if they can be understood and managed based on
+fundamental scientific principles at two extremes--the nanoscopic kinetic level,
+where selective chemistry occurs, and the global stability level.'' It is this
+challenge, specifically the investigation of the nanoscopic kinetic level, which
+drives the research presented here.
 
 \subsection{History}
 
@@ -179,23 +206,26 @@ more desirable than others.
 
 \subsection{Approach}
 
-In order to answer these questions, I present a series of experiments,
-measurements, and simulations of a helium \acs{rpnd}.
+The dissertation presented here represents my efforts to, in whole or in part,
+these questions. In the next section, I begin with a review of the literature
+associated with \acs{rpnd}s, from the earliest pulsed discharges, to modern
+experiments. Subsequently, I discuss the plasma theory necessary to understand
+\acs{rpnd}s. This includes basic discharges, streamers, the necessary atomic
+physics. Following that, I describe the experimental setup which was used to
+make the measurements and was the basis for later simulations. In the same
+chapter, I also present several of the more rudimentary \acs{rpnd} measurements
+including wave velocities and energy coupling.
 
-Here, I present a series of experiments, measurements, and simulations used to
-study the dynamics of a helium \acs{rpnd}. Helium was chosen because it is
-commonly used in gas mixtures to stabilize the plasma between pulses, in
-addition, it provides a relatively simple atomic system for which a wealth of
-the necessary electronic, optical, and atomic data are available.
-
-
-
-
-Here, I present the results of a study into the dynamics of a \acs{rpnd}. The
-primary experimental measurements are laser-absorption spectroscopy of the
-helium metastable level, supported by calibrated optical emission measurements.
-The measurements are interpreted with the aid of a helium global model and
-particle-in-cell simulations.
+Afterward, I present the use and measurement of the helium metastable densities
+in the discharge. Unlike electrons or ground state helium atoms, the metastable
+state is relatively easy to detect and can be measured on time scale relevant to
+the formation of the \acs{rpnd}. The trends of metastable densities with
+pressure and location along the axis of the discharge are discussed. These are
+complemented in the next chapter by emission measurements. The emission
+measurements are analyzed in a similar manner for their dependence of pressure
+and axial position. Finally, a global model of a helium plasma is developed and
+applied to the metastable measurements. Finally, I conclude with a summary of
+the important results and suggestions for further avenues of research.
 
 \section{Literature Review}
 
@@ -444,7 +474,7 @@ application-driven studies. This included:
         Adamovich2008, Schneider2009a}
   \item Plasma actuators \cite{Starikovskii2009, Adamovich2009}
   \item High-pressure xenon lamps \cite{Nikandrov2008}
-  \item Plasma medicine \cite{Ayan2009, Zimmerman2012}
+  \item Plasma medicine \cite{Ayan2009, Zimmermann2012}
   \item Water treatment \cite{Foster2013}
 \end{itemize}
 Though not specific to the \acs{rpnd}, Becker et al. \cite{Becker2005} provide
