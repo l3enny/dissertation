@@ -137,97 +137,65 @@ circuits and pathways to ensure reliable operation.
 Recently, the invention of fast solid-state switches with low recovery times has
 solved both issues. Modern switches can operate almost one-hundred thousand
 times a second. This results in a plasma that is almost continually on.
-Furthermore, because the plasma does not completely die away between pulses, it
-requires much lower voltages to reignite with each pulse. Similar to the fast
-ionization wave, these plasmas are accompanied by fast impulses of light, but
-the repetitive pulsing allows excited species to build up. Furthermore, the
-despite the long history of investigation and hypothesis, relatively little
-direct information is available on how these waves form.
-
-Early efforts to study fast ionization waves were often limited to blurry,
-underexposed photographs. In some cases, researchers would create the plasma
-directly above a photographic emulsion without any accompanying camera.
-Eventually, progress in vacuum electronics allowed researchers to study the
-electric field in these discharges with small metal probes and oscillographs.
-Later, the invention of photomultiplier tubes allowed scientists to measure even
-the smallest changes in light in a few billionths of a second. The two proved to
-be a great advance on other approaches and allowed scientists to measure the
-speed of the wave with great accuracy, characterize its uniformity, calculate
-the energy coupled into it, and measure the electric field at the front.
-
-More recently, intensified CCD cameras have made it possible to image the entire
-discharge as it develops with time resolutions of less than a billionth of a
-second.
+Furthermore, because the plasma does not completely die away between successive
+pulses, it requires much lower voltages to reignite with each pulse. Where
+before the fast ionization wave may have been prohibitively large and expensive
+for a number of situations, the repetitively-pulsed nanosecond discharge is able
+to serve as a more capable substitute.
 
 \subsection{Questions}
 
+The large pedigree of pulsed plasma research belies the fact that they are not
+well-understood. The short time scales, electrical noise, high pressures, and
+complex chemistries continue to stymie the best experimental equipment and most
+well-developed simulations. This is particularly true of \acs{rpnd}s which have
+recently emerged as an area of interest. These discharges present a number of
+questions with a range of implications in their use and development.
+
+Most fundamentally, the majority of \acs{rpnd} research has concentrated on
+quantities which do not change over time, or change slowly compared to the
+formation time. The most common of these are chemical composition, gas
+temperature, total energy deposited. While undoubtedly important, such
+measurements provide little insight on what is happening while the plasma is
+forming. Thus the question arises, what are the plasma properties during its
+formation?
+
+Additionally, the most of the contemporary studies have focused on system in
+mixtures of molecular gases such as oxygen, nitrogen, air, and occasionally
+hydrogen. The choice of these gases reflect a limited number of specific
+applications. However, several others involve the use of rare gases, such as
+helium. Notably, rare gas atoms feature unique internal structures which can
+significantly influence the properties of a plasma. So we naturally would like
+to address how a rare gas \acs{rpnd} compares one in a molecular gas.
+
+Finally, the persistence of the plasma between pulses can alter the development
+of the discharge. For example, a large background population of electrons can
+quickly shield out the applied voltage pulse. This would have the
+counterintuitive effect of decreasing the final electron density despite a large
+number of seed electrons. As a result, it is important to study how the trends
+of various parameters and how they're optimized for different conditions. This
+is particularly important for application purposes where some excited states are
+more desirable than others.
+
 \subsection{Approach}
 
-However, the detail of the measurements and calculations
-associated with \acs{app}s has been limited by their complexity. From a
-computational perspective, the high pressure and number of potential reactions
-present a difficult challenge. Likewise, the high pressure can significantly
-complicate the data analysis for a number of plasma diagnostics. Aside from the
-high pressures, the large electric fields, short time scales, and general
-randomness of \acs{app}s make even the most basic observations a feat.
+In order to answer these questions, I present a series of experiments,
+measurements, and simulations of a helium \acs{rpnd}.
 
-In the last several decades, some of this has begun to change. High-powered
-computing has allowed simulations with remarkable detail. Similarly, advances in
-technology has enabled plasma diagnostics in regimes that were experimentally
-inaccessible. As a result, the body of knowledge regarding \acs{app}s has
-greatly increased. Sometimes, the motivation for this work is scientific
-curiosity. More often, the study of \acs{app}s has been driven by a broad range
-of applications.
+Here, I present a series of experiments, measurements, and simulations used to
+study the dynamics of a helium \acs{rpnd}. Helium was chosen because it is
+commonly used in gas mixtures to stabilize the plasma between pulses, in
+addition, it provides a relatively simple atomic system for which a wealth of
+the necessary electronic, optical, and atomic data are available.
 
-Among the first plasma applications were provided by \acs{app}s: ozone
-generation and lighting. Aside from these items, plasma welding, polymer
-treatment, combustion, and plasma televisions have become widely accepted.
-Meanwhile, a large number of new applications may soon be added to this list,
-including: treatment of tissue wounds, altering airflow over airfoils, and
-destruction of industrial pollutants.
 
-Unsurprisingly, each case demands a different kind of plasma. The original arc
-discharges were created between two graphite rods connected to immense battery
-banks. In contrast, a modern research reactor studying plasma-assisted
-combustion might use a fast-switching semiconductor circuit. Over the years,
-several types of \acs{app}s have been developed for a variety of situations:
-dielectric-barrier, corona, thermal arc, RF, microwave, pulsed, and more.
 
-Within this group\footnote{The interested reader is referred to Starikovskaia's
-review \cite{Starikovskaia2006} which provides a general overview of \acs{app}s
-in the context of plasma-assisted combustion}, the repetitively-pulsed
-nanosecond discharge (\acs{rpnd}) has created considerable interest. Generally
-speaking, a \acs{rpnd} is a plasma generated by a repetitive electrical pulse
-applied between two electrodes. The pulse voltage is often in excess of one
-kilovolt, lasts anywhere from $<1-100$ ns, and is repeated over a thousand
-times each second. The result is a wave of ionization (and light) which crosses
-from the powered electrode to the grounded one.
 
-A \acs{rpnd} can fill volumes of several liters with a relatively uniform
-plasma. Though they can cause significant excitation of the background gas, they
-generally produce very little heating (in some cases below a detection limit of
-$\Delta \pm 15$ K). In addition, the excitation can be changed with adjustments
-to the magnitude or duration of the electrical pulse. Each of these
-characteristics are highly desirable in one or more of potential applications
-for \acs{app}s.
-
-Given all of these promising properties, \acs{rpnd}s have been the subject of
-substantial study by several research groups. However, much of this work has
-focused on the physics of \acs{rpnd}s in air. Unfortunately, air's large number
-of constituent elements can lead to notable complexity. In turn, this can
-obscure some of the more fundamental questions relation to \acs{rpnd}s: how do
-they form, how is the energy distributed between excited particles, and what
-kind of spatial variation can be expected?
-
-This paper details a study of each of these questions in a helium \acs{rpnd}.
-Specifically, the densities of one particular excited atom are measured for a
-variety of pressures and locations. This is complemented by measurements of the
-light emissions for the same set of parameters. A simple model of a \acs{rpnd}
-is used to predict several characteristics of the plasma based on the excited
-state densities: electron density, electric field, and light emission. The
-measured light emissions are interpreted to show how the energy is distributed
-in the gas, and how it changes over time. Finally, they are compared with the
-estimated light emissions to check the validity of several common assumptions.
+Here, I present the results of a study into the dynamics of a \acs{rpnd}. The
+primary experimental measurements are laser-absorption spectroscopy of the
+helium metastable level, supported by calibrated optical emission measurements.
+The measurements are interpreted with the aid of a helium global model and
+particle-in-cell simulations.
 
 \section{Literature Review}
 
