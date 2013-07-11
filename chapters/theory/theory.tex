@@ -88,10 +88,53 @@ which describes energy added or removed from the system as a result of
 collisions.
 
 \section{Plasma Criteria}
-Previously, it was stated that plasmas were a form of ionized gas. 
+While equations above can equally describe an ionized gas or a plasma,
+the two are conceptually distinct. A plasma is unique in that its
+dynamics are governed by long range electromagnetic forces, unlike gases
+in which short-range collisions dominate. As a result, plasmas
+frequently feature large scale structure and organization. Examples of
+these structures are ubiquitous in astronomy where phenomena such as the
+aurora borealis, coronal mass ejections, and even interstellar media all
+qualify as forms of plasma. How then, does one define a plasma? There
+are three criteria required of an ionized gas in order for it to be
+considered a plasma.
 
-To a large extent, a plasma can be categorized based on its electron
-temperature and density. Figure~\ref{fig:regimes}
+\subsection{$\lambda_\mathrm{D} < L$}
+An ionized gas is composed of both positive and negative charges,
+usually some combination of ions and electrons. If an electrical
+perturbation is introduced, the charge particles will tend to rearrange
+themselves to shield out the effect of the perturbation. A plasma is an
+ionized gas which is sufficiently large for this shielding effect to
+occur. The length scale of this shielding effect is referred to as the
+Debye length, denoted $\lambda_\mathrm{D}$. The Debye length can be
+shown to be equal to $\sqrt{\epsilon_0T_\mathrm{e}/(en_0)}$, where
+$\epsilon_0$ is the vacuum permittivity, $T_\mathrm{e}$ is the electron
+temperature, and $n_0$ is the plasma density. If the characteristic
+length scale of the ionized gas is $L$, then $\lambda_\mathrm{D} < L$
+for it to be considered a plasma.
+
+\subsection{$n_0(4\pi \lambda_\mathrm{D}^3/3) >> 1$}
+However, the previous condition is necessary, but not sufficient for
+shielding to occur. It is possible to have an ionized gas in which the
+Debye length is smaller than the characteristic length scale, but in
+which there are too few charged particles for shielding to occur. More
+simply put, it would be impossible for a single electron to shield out
+even the smallest of perturbations. For that reason, the number of
+particles in a Debye sphere must be greater than unity in a plasma.
+
+\subsection{$\omega_\mathrm{p} > \nu$}
+If an ionized gas meets the two aforementioned conditions, it may still
+not exhibit the large scale structure of plasma if the collision
+frequency with neutral particles is too high. In this case, the behavior
+of the ionized gas would be determined more by the random collisions
+with gas particles than the long-range electromagnetic forces. As a
+result, the characteristic oscillation frequency of a plasma (or plasma
+frequency) $\omega_\mathrm{p}$ must be greater than the neutral
+collision frequency, $\nu$. Here, $\omega_\mathrm{p} =
+\sqrt{e^2n_0/(\epsilon_0 m_\mathrm{e})}$.
+
+In spite of this range of requirements, there are a large number of
+natural and man-made plasmas. Figure~\ref{fig:regimes}
 \begin{figure}
   \centering
   \includegraphics{./chapters/theory/figures/regimes.eps}
@@ -99,28 +142,35 @@ temperature and density. Figure~\ref{fig:regimes}
 electron temperature and density \cite{Huba2011}.}
   \label{fig:regimes}
 \end{figure}
-shows where a number of different types of plasmas fall based on this
-classification. As can be seen, the electron temperature of a plasma can
-cross seven orders of magnitude, and the density can extend over 20.
-While a plasma is often described as an ionized gas, the two are not
-interchangeable; ionization of a gas is a necessary, but not sufficient
-condition for a plasma. There are three additional criteria which are
-used to identify a plasma.
+shows several categories of plasma, plotted as a function of their
+electron density and temperature. As can be seen, the electron densities
+span seven decades, and the densities cover in excess of 20.
 
-\subsection{$\lambda_\mathrm{D} < L$}
-An ionized gas is composed of both positive and negative charges,
-usually ions and electrons, respectively. When an electrical
-perturbation is introduced, the electrons and ions will arrange
-themselves so as to screen or shield the perturbation. This causes the
-electric field of the perturbation to fall off more rapidly than the
-typical $r^{-2}$. The length scale of this shielding effect is referred
-to as the Debye length, denoted $\lambda_\mathrm{D}$. The Debye length
-can be shown to be equal to $\sqrt{\epsilon_0T_\mathrm{e}/(en_0)}$,
-where $\epsilon_0$ is the vacuum permittivity, $T_\mathrm{e}$ is the
-electron temperature, and $n_\mathrm{e}$ is the electron density.
+\section{Streamer Discharge}
+Of course, a mathematical description of plasma dynamics does not
+suffice to explain how the plasma was generated in the first place.
+Compared to the continuous description of how a plasma behaves, the
+formation of a plasma is almost always stochastic. This is true for the
+classical Townsend breakdown, as described in
+chapter~\ref{chp:introduction}, and for the streamer discharge which
+forms the basis for the \acs{rpnd}.
 
-\subsection{$n(4/3\pi r^3) >> 1$}
-\subsection{$\omega_p > \nu$}
+Before entering into a description of the streamer discharge, it is
+necessary to acknowledge the long-running dispute about the relative
+importance of nonlocal electrons, photoionization, and associative
+ionization \cite{Kunhardt1988, Babich1990} in cathode-directed
+streamers. The necessity of one or more of these processes stems from
+the assumption that the discharge develops from a single electron. In
+contrast, after approximately 10 pulses \cite{Pancheshnyi2006}, the
+\acs{rpnd} reaches a quasi-steady state in which the minimum electron
+density prior to each pulse is $1\times10^{11}$ m$^{-3}$
+\cite{Weatherford2012a}. Consequently, these mechanisms are not critical
+to the development of the large-volume, homogeneous \acs{rpnd}. As a
+result, the development of the \acs{rpnd} will be considered from the
+perspective of over-lapping streamers developed by several other authors
+\cite{Mesyats1972, Levatter1980}.
+
+
 
 \section{Atomic Spectroscopy}
 
