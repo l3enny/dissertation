@@ -8,19 +8,22 @@ Outline
       3. Questions
       4. Approach
     2. Literature Review
-      1. Early History
-      2. Streamer Models
-      3. Pulsed Glows
+      1. Early History of Pulsed Discharges
+      2. The Streamer Model
+      3. Diffuse Streamers
       4. Repetitively-Pulsed Nanosecond Discharges
 2. Theory
-  1. Gaseous Discharges
-    1. Defining a plasma
-    2. Sheaths
-    3. Solving the Boltzmann Equations
-  2. Atomic Spectroscopy
-    1. Atomic Structure and Notation
-    2. Atomic Transitions
-    3. Spectral Lineshapes
+  1. Ionized Gas
+  2. Plasma Criteria
+    1. A < L
+    2. n*pi*A^3 >> 1
+    3. w > nu
+  3. Streamer Discharge
+  4. Atomic Spectroscopy
+    1. Structure and Notation
+    2. Transitions and Susceptibility
+    3. Spectral Lineshape
+    4. Reabsorption
 3. Experimental Setup
     1. Laser Absorption Measurements
     2. Emission Measurements
