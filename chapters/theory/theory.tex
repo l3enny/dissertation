@@ -1,104 +1,126 @@
-\section{Plasmas}
+\section{Ionized Gas}
+A plasma is considered to be a form or subset of ionized gas. That is, a
+volume of neutral atoms or molecules, of which some fraction has been
+separated into electrons and ions. For a sufficiently large number of
+particles, the behavior of each species in the ionized gas can be
+described by a continuous distribution function which specifies the
+number of particles with a specific range of velocities, in a specific
+volume, at a specific time. This function is denoted
+$f_\alpha(\vec{r_\alpha}, \vec{v_\alpha}, t)$, where the subscript
+$\alpha$ denotes the species, $f$ is the probability distribution,
+$\vec{r}$ is the position, $\vec{v}$ is the velocity, and $t$ is the
+time.
 
-A volume containing some number of charged particles can be considered a
-plasma if it meets three conditions. The first requires that the motion
-of charged particles is primarily determined by the electric and
-magnetic fields of the volume rather than through collisions with
-neutral particles. This is classically expressed by the inequality
-\begin{equation}
-  \sqrt{n_\mathrm{e} e^2 / (\epsilon_0 m_\mathrm{e})} < \nu,
-\end{equation}
-where $n_\mathrm{e}$ is the electron density, $e$ is the fundamental
-charge, $\epsilon_0$ is the permittivity of free space, $m_\mathrm{e}$
-is the mass of an electron, and $\nu$ is the electron-neutral collision
-frequency. The left-hand side term is called the electron plasma
-frequency, it the characteristic frequency at which a plasma oscillates
-in response to a perturbation.
-
-For a sufficiently large number of particles, the behavior of the each
-species of the plasma can be described by a continuous probability
-distribution function. This function, $f_\alpha(\vec{r}, \vec{v}, t)$,
-describes the probability of finding a particle of species $\alpha$, at
-position $\vec{r}$, The distribution function for a particle can be
-determined by the Vlasov-Fokker-Planck \acs{vfp} equation,
+The behavior of $f_\alpha$ can be shown to be governed by the
+Vlasov-Fokker-Planck (\acs{vfp}) equation,
 \begin{equation}\label{eq:vfp}
   \frac{\partial f_\alpha}{\partial t} + \vec{v_\alpha}\cdot\nabla f_\alpha +
   q_\alpha \left(\vec{E} + \vec{v_\alpha}\times\vec{B}\right)
   \cdot \nabla_\mathrm{v} f_\alpha = \left( \frac{\partial f_\alpha}
   {\partial t}\right)_\mathrm{coll}.
 \end{equation}
-Here, $\vec{E}$ is the electric field, $\vec{B}$ is the magnetic field,
-and $\partial f_\alpha/(\partial t)_\mathrm{coll}$ is a term
-representing all collisions. The \acs{vfp} equation is coupled to
-Maxwell's equations in order to obtain a self-consistent description of
-the particle distribution and the resulting fields. In essence, this is
-the Boltzmann equation from statistical mechanics, however it now
-includes several changes. Vlasov replaced the original force term with
-the Lorentz equation, and Fokker and Planck introduced the collision
-operator on the right-hand side. This is coupled with Maxwell's
-equations for a solution of the electric and magnetic fields in the
-plasma.
+Here, $q$ is the charge of the species, $\vec{E}$ is the electric field,
+$\vec{B}$ is the magnetic field, and $\partial f_\alpha/(\partial
+t)_\mathrm{coll}$ is a term which represents changes to the distribution
+function as a result of collisions. The \acs{vfp} is a rigorous kinetic
+description of an ionized gas. Coupled with Maxwell's equations, it is
+can provide a complete and self-consistent description of the particle
+densities in an ionized gas as well as the electric and magnetic fields.
 
-In the absence of external fields and with only elastic collisions, the
-equation admits the famous Maxwell-Boltzmann equilibrium distribution,
+For a species in equilibrium in the absence of external forces
+(($\partial f_\alpha/\partial t)_\mathrm{coll} = 0$) it can be shown
+that
 \begin{equation}\label{eq:mb}
-  f_\alpha(v) = n\left(\frac{m_\alpha}{2\pi k_\mathrm{B}T}\right)^{3/2}
-    \exp\left(-\frac{m_\alpha v_\alpha^2}{2k_\mathrm{B}T}\right),
+  f_\alpha(v_\alpha) =
+    n_\alpha\left( \frac{m_\alpha}{2\pi \kB T_\alpha}\right)^{3/2}
+   \exp\left(-\frac{m_\alpha v_\alpha^2}{2\kB T_\alpha}\right),
 \end{equation}
-where $n$ is the number of degrees of freedom, $k_\mathrm{B}$ is
-Boltzmann's constant, and $T$ is the temperature. A species of particles
-which possesses a Boltzmann distribution is said to be in equilibrium.
-Likewise, two species with the same distribution are in equilibrium.
+where $n$ is the total density of the species, $m$ is the particle mass,
+$\kB$ is Boltzmann's constant, and $T_\mathrm{alpha}$ is the temperature
+of the species. It must be emphasized that this solution only applies to
+situations where the species can be considered to be in equilibrium.
+Strong gradients and large electromagnetic fields can both drive a
+distribution far from its equilibrium condition. This is particularly
+important when plasmas are discussed in the context of temperature.
 
-Aside from this, the \acs{vfp} equation is notoriously difficult to
-solve. As a result, most plasma models use various moments of equation
-\ref{eq:vfp} where the velocity dependence has been integrated out.
-These moments are the basis for the two-fluid equations, the MHD
-formulation, and global models. We will show the first three moments
-following the notation of Lieberman and Lichtenberg
-\cite{Lieberman2005}. For example, the first moment is the continuity
-equation,
+Solutions of the \acs{vfp} in anything but this simple case can be very
+challenging. It most situations, it is reduced to more tenable equations
+by integrating over the velocity-space (leaving $f$ as only a function of
+space and time). The first so-called moment is often called the conservation
+equation or continuity equation,
 \begin{equation}\label{eq:cont}
   \frac{\partial n_\alpha}{\partial t} + \nabla \cdot (n_\alpha \vec{u_\alpha})
-  = G_\alpha - L_\alpha,
+  = G_\alpha - L_\alpha.
 \end{equation}
-where $\vec{u_\alpha}$ is the mean velocity of species $\alpha$,
-$G_\alpha$ is its rate of gain, and $L_\alpha$ is the rate of loss. This
-equation can be interpreted as the rate of change in particle density
-for a particular volume of space.
+In this case, $\vec{v}$ has been replaced by a mean velocity $\vec{u}$.
+We have also introduced terms losses ($L$) and gains ($G$) in the
+species density.
 
-Though the continuity equation is much simpler than the original
-\acs{vfp} equation, it cannot be solved alone. The mean velocity,
-$\vec{u}$, is undefined. Typically, this leads to the second moment,
-\begin{equation}\label{eq:mom}
-  mn_\alpha\left[\frac{\partial \vec{u_\alpha}}{\partial t}
-  (\vec{u_\alpha}\cdot \nabla)\right] = q_\alpha n_\alpha(\vec{E} +
-  \vec{u_\alpha} \times \vec{B}) - \nabla \cdot \vec{\Pi_\alpha} +
-  \vec{f}_{\alpha,\mathrm{coll}}
-\end{equation}
-where $\vec{\Pi_\alpha}$ is the pressure tensor, and
-$\vec{f}_{\alpha,c}$ is the rate of momentum transfer into species
-$\alpha$. Again, any solution is stymied by the presence of a new a
-term, in this case, $\vec{\Pi_\alpha}$. At this point, an equation of
-state can be used to close the set of equations, in this case relating
-the pressure to the density. However, later work will benefit from one
-more moment.
+The definition of the mean velocity can be obtained by multiplying the
+\acs{vfp} equation by $v$ and integrating over velocity-space. This is
+referred to as the second moment. The result is an equation expressing
+the conservation of momentum for the species. The actual equation will
+not be reproduced here, but it forms the basis for the two-fluid
+approximation of a plasma. In the course of developing the second
+moment an additional term, the pressure tensor, is introduced which can
+only be defined by the third moment of the \acs{vfp} equation. In fact,
+each additional moment introduces a new term, \emph{ad infinitum}. For
+most cases, the first two or three moments suffice, after the sequence
+is terminated by the use of an additional assumption.
 
-Following the conservation of momentum, the energy conservation equation
-can be derived from the \acs{vfp} equation,
+For our purposes, one more moment will suffice. Multiplying by $mv^2/2$,
+integrating over velocity-space, and assuming that the pressure is
+isotropic, produces the energy conservation equation,
 \begin{equation}
   \frac{\partial}{\partial t}\left(\frac{3}{2}p_\alpha\right) 
   + \nabla\cdot\frac{3}{2} (p_\alpha\vec{u}_\alpha)
   + p_\alpha\nabla\cdot\vec{u}_\alpha
   + \nabla\cdot\vec{q}_\alpha
   = \frac{\partial}{\partial
-  t}\left(\frac{3}{2}p_\alpha\right)\bigg|_\mathrm{coll}
+  t}\left(\frac{3}{2}p_\alpha\right)\bigg|_\mathrm{coll}.
 \end{equation}
-where $p_\alpha$ is the species pressure, $q_\alpha$ is the heat flow
-vector, and the right-hand side is the time rate of change in energy as
-a result of collisions. In our case, we only consider the flux into the
-volume (from the electric field) and the distribution of this field via
-rate constants. This is the basis for the global model.
+In this case, $p$ represents the plasma pressure, and $\vec{q}$ is the
+heat flow. The first term on the \textsc{lhs} represents the total
+energy contained by the species, the second term is the energy flux in
+and out of the volume, and the third term accounts for changes due to
+compression or expansion. The \textsc{rhs} is the collision operator
+which describes energy added or removed from the system as a result of
+collisions.
+
+\section{Plasma Criteria}
+Previously, it was stated that plasmas were a form of ionized gas. 
+
+To a large extent, a plasma can be categorized based on its electron
+temperature and density. Figure~\ref{fig:regimes}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/theory/figures/regimes.eps}
+  \caption{Illustration of the various regimes of plasma in terms of
+electron temperature and density \cite{Huba2011}.}
+  \label{fig:regimes}
+\end{figure}
+shows where a number of different types of plasmas fall based on this
+classification. As can be seen, the electron temperature of a plasma can
+cross seven orders of magnitude, and the density can extend over 20.
+While a plasma is often described as an ionized gas, the two are not
+interchangeable; ionization of a gas is a necessary, but not sufficient
+condition for a plasma. There are three additional criteria which are
+used to identify a plasma.
+
+\subsection{$\lambda_\mathrm{D} < L$}
+An ionized gas is composed of both positive and negative charges,
+usually ions and electrons, respectively. When an electrical
+perturbation is introduced, the electrons and ions will arrange
+themselves so as to screen or shield the perturbation. This causes the
+electric field of the perturbation to fall off more rapidly than the
+typical $r^{-2}$. The length scale of this shielding effect is referred
+to as the Debye length, denoted $\lambda_\mathrm{D}$. The Debye length
+can be shown to be equal to $\sqrt{\epsilon_0T_\mathrm{e}/(en_0)}$,
+where $\epsilon_0$ is the vacuum permittivity, $T_\mathrm{e}$ is the
+electron temperature, and $n_\mathrm{e}$ is the electron density.
+
+\subsection{$n(4/3\pi r^3) >> 1$}
+\subsection{$\omega_p > \nu$}
 
 \section{Atomic Spectroscopy}
 
