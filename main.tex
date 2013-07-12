@@ -7,6 +7,7 @@
 \usepackage{xcolor}
 \usepackage{mathspec}
 \usepackage{cite}
+\usepackage{scalefnt}
 %\usepackage{xfrac}
 %\usepackage{booktabs}
 %\usepackage{listings}
@@ -54,6 +55,8 @@
 }
 
 \input{./mathcommands.tex}
+
+\newcommand{\smaller}[2][0.85]{{\scalefont{#1}#2}}
 
 \begin{document}
   \chapter{Introduction}\label{chp:introduction}
