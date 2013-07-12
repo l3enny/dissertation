@@ -11,21 +11,20 @@ $\alpha$ denotes the species, $f$ is the probability distribution,
 $\vec{r}$ is the position, $\vec{v}$ is the velocity, and $t$ is the
 time.
 
-The behavior of $f_\alpha$ can be shown to be governed by the
-Vlasov-Fokker-Planck (\acs{vfp}) equation,
-\begin{equation}\label{eq:vfp}
+The behavior of $f_\alpha$ can be shown to be governed by the Boltzmann
+equation,
+\begin{equation}\label{eq:boltzmann}
   \frac{\partial f_\alpha}{\partial t} + \vec{v_\alpha}\cdot\nabla f_\alpha +
   q_\alpha \left(\vec{E} + \vec{v_\alpha}\times\vec{B}\right)
-  \cdot \nabla_\mathrm{v} f_\alpha = \left( \frac{\partial f_\alpha}
+  \cdot \nabla_v f_\alpha = \left( \frac{\partial f_\alpha}
   {\partial t}\right)_\mathrm{coll}.
 \end{equation}
 Here, $q$ is the charge of the species, $\vec{E}$ is the electric field,
 $\vec{B}$ is the magnetic field, and $\partial f_\alpha/(\partial
 t)_\mathrm{coll}$ is a term which represents changes to the distribution
-function as a result of collisions. The \acs{vfp} is a rigorous kinetic
-description of an ionized gas. Coupled with Maxwell's equations, it is
-can provide a complete and self-consistent description of the particle
-densities in an ionized gas as well as the electric and magnetic fields.
+function as a result of collisions. Coupled with Maxwell's equations,
+equation~\ref{eq:boltzmann} provides a complete description of the
+behavior of the fields and particles in a plasma.
 
 For a species in equilibrium in the absence of external forces
 (($\partial f_\alpha/\partial t)_\mathrm{coll} = 0$) it can be shown
@@ -36,18 +35,18 @@ that
    \exp\left(-\frac{m_\alpha v_\alpha^2}{2\kB T_\alpha}\right),
 \end{equation}
 where $n$ is the total density of the species, $m$ is the particle mass,
-$\kB$ is Boltzmann's constant, and $T_\mathrm{alpha}$ is the temperature
-of the species. It must be emphasized that this solution only applies to
+$\kB$ is Boltzmann's constant, and $T_\alpha$ is the temperature of the
+species. It must be emphasized that this solution only applies to
 situations where the species can be considered to be in equilibrium.
 Strong gradients and large electromagnetic fields can both drive a
 distribution far from its equilibrium condition. This is particularly
 important when plasmas are discussed in the context of temperature.
 
-Solutions of the \acs{vfp} in anything but this simple case can be very
-challenging. It most situations, it is reduced to more tenable equations
-by integrating over the velocity-space (leaving $f$ as only a function of
-space and time). The first so-called moment is often called the conservation
-equation or continuity equation,
+Solutions of the equation~\ref{eq:boltzmann} in anything but this simple
+case can be very challenging. It most situations, it is reduced to more
+tenable equations by integrating over the velocity-space (leaving $f$ as
+only a function of space and time). The first so-called moment is often
+called the conservation equation or continuity equation,
 \begin{equation}\label{eq:cont}
   \frac{\partial n_\alpha}{\partial t} + \nabla \cdot (n_\alpha \vec{u_\alpha})
   = G_\alpha - L_\alpha.
@@ -56,17 +55,18 @@ In this case, $\vec{v}$ has been replaced by a mean velocity $\vec{u}$.
 We have also introduced terms losses ($L$) and gains ($G$) in the
 species density.
 
-The definition of the mean velocity can be obtained by multiplying the
-\acs{vfp} equation by $v$ and integrating over velocity-space. This is
-referred to as the second moment. The result is an equation expressing
-the conservation of momentum for the species. The actual equation will
-not be reproduced here, but it forms the basis for the two-fluid
-approximation of a plasma. In the course of developing the second
-moment an additional term, the pressure tensor, is introduced which can
-only be defined by the third moment of the \acs{vfp} equation. In fact,
-each additional moment introduces a new term, \emph{ad infinitum}. For
-most cases, the first two or three moments suffice, after the sequence
-is terminated by the use of an additional assumption.
+The definition of the mean velocity can be obtained by multiplying
+equation~\ref{eq:boltzmann} by $v$ and integrating over velocity-space.
+This is referred to as the second moment. The result is an equation
+expressing the conservation of momentum for the species. The actual
+equation will not be reproduced here, but it forms the basis for the
+two-fluid approximation of a plasma. In the course of developing the
+second moment an additional term, the pressure tensor, is introduced
+which can only be defined by the third moment of
+equation~\ref{eq:boltzmann}. In fact, each additional moment introduces
+a new term, \emph{ad infinitum}. For most cases, the first two or three
+moments suffice, after the sequence is terminated by the use of an
+additional assumption.
 
 For our purposes, one more moment will suffice. Multiplying by $mv^2/2$,
 integrating over velocity-space, and assuming that the pressure is
@@ -99,21 +99,20 @@ qualify as forms of plasma. How then, does one define a plasma? There
 are three criteria required of an ionized gas in order for it to be
 considered a plasma.
 
-\subsection{$\lambda_\mathrm{D} < L$}
+\subsection{$\lambda_D < L$}
 An ionized gas is composed of both positive and negative charges,
 usually some combination of ions and electrons. If an electrical
 perturbation is introduced, the charge particles will tend to rearrange
 themselves to shield out the effect of the perturbation. A plasma is an
 ionized gas which is sufficiently large for this shielding effect to
 occur. The length scale of this shielding effect is referred to as the
-Debye length, denoted $\lambda_\mathrm{D}$. The Debye length can be
-shown to be equal to $\sqrt{\epsilon_0T_\mathrm{e}/(en_0)}$, where
-$\epsilon_0$ is the vacuum permittivity, $T_\mathrm{e}$ is the electron
-temperature, and $n_0$ is the plasma density. If the characteristic
-length scale of the ionized gas is $L$, then $\lambda_\mathrm{D} < L$
-for it to be considered a plasma.
+Debye length, denoted $\lambda_D$. The Debye length can be shown to be
+equal to $\sqrt{\epsilon_0T_e/(en_0)}$, where $\epsilon_0$ is the vacuum
+permittivity, $T_e$ is the electron temperature, and $n_0$ is the plasma
+density. If the characteristic length scale of the ionized gas is $L$,
+then $\lambda_D < L$ for it to be considered a plasma.
 
-\subsection{$n_0(4\pi \lambda_\mathrm{D}^3/3) >> 1$}
+\subsection{$n_0(4\pi \lambda_D^3/3) >> 1$}
 However, the previous condition is necessary, but not sufficient for
 shielding to occur. It is possible to have an ionized gas in which the
 Debye length is smaller than the characteristic length scale, but in
@@ -122,16 +121,16 @@ simply put, it would be impossible for a single electron to shield out
 even the smallest of perturbations. For that reason, the number of
 particles in a Debye sphere must be greater than unity in a plasma.
 
-\subsection{$\omega_\mathrm{p} > \nu$}
+\subsection{$\omega_p > \nu$}
 If an ionized gas meets the two aforementioned conditions, it may still
 not exhibit the large scale structure of plasma if the collision
 frequency with neutral particles is too high. In this case, the behavior
 of the ionized gas would be determined more by the random collisions
 with gas particles than the long-range electromagnetic forces. As a
 result, the characteristic oscillation frequency of a plasma (or plasma
-frequency) $\omega_\mathrm{p}$ must be greater than the neutral
-collision frequency, $\nu$. Here, $\omega_\mathrm{p} =
-\sqrt{e^2n_0/(\epsilon_0 m_\mathrm{e})}$.
+frequency) $\omega_p$ must be greater than the neutral collision
+frequency, $\nu$. Here, $\omega_p = \sqrt{e^2n_0/(\epsilon_0
+m_e)}$.
 
 In spite of this range of requirements, there are a large number of
 natural and man-made plasmas. Figure~\ref{fig:regimes}
@@ -147,30 +146,103 @@ electron density and temperature. As can be seen, the electron densities
 span seven decades, and the densities cover in excess of 20.
 
 \section{Streamer Discharge}
-Of course, a mathematical description of plasma dynamics does not
-suffice to explain how the plasma was generated in the first place.
-Compared to the continuous description of how a plasma behaves, the
-formation of a plasma is almost always stochastic. This is true for the
-classical Townsend breakdown, as described in
-chapter~\ref{chp:introduction}, and for the streamer discharge which
-forms the basis for the \acs{rpnd}.
+The Boltzmann equation is a continuous, statistical description of a
+plasma. By comparison, the initial breakdown of a plasma is a
+discontinuous process marked by its stochasticity. The initiation of a
+discharge is the result of electron avalanches which may occur randomly
+throughout the discharge, particularly without any form of
+preionization. Often, the seed electrons for a plasma result from
+ionizing cosmic rays which generate a few electrons per
+cubic-centimeter. This has been verified with measurements of the
+statistical lag in Townsend breakdown.
 
-Before entering into a description of the streamer discharge, it is
-necessary to acknowledge the long-running dispute about the relative
-importance of nonlocal electrons, photoionization, and associative
-ionization \cite{Kunhardt1988, Babich1990} in cathode-directed
-streamers. The necessity of one or more of these processes stems from
-the assumption that the discharge develops from a single electron. In
-contrast, after approximately 10 pulses \cite{Pancheshnyi2006}, the
-\acs{rpnd} reaches a quasi-steady state in which the minimum electron
-density prior to each pulse is $1\times10^{11}$ m$^{-3}$
-\cite{Weatherford2012a}. Consequently, these mechanisms are not critical
-to the development of the large-volume, homogeneous \acs{rpnd}. As a
-result, the development of the \acs{rpnd} will be considered from the
-perspective of over-lapping streamers developed by several other authors
-\cite{Mesyats1972, Levatter1980}.
+Briefly, the Townsend mechanism begins with some small number of primary
+electrons between two electrodes. In the presence of a sufficient
+electric field, the electron population exponentiates as they traverse
+the anode-cathode gap. The collection of the electrons at the anode is
+balanced out by the emission of secondary electrons from cathode as a
+result of ion impact. The time required for an electron to drift across
+the gap determines the formation time of a Townsend discharge, and the
+secondary electron emission processes play an important role in
+sustaining the discharge.
 
+Conversely, the \acs{rpnd} is fundamentally similar to a streamer
+discharge where secondary emission processes are unimportant, and space
+charge plays an important role. Consider a single electron between two
+electrodes, as seen in (a) of figure~\ref{fig:streamer}.
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/theory/figures/streamer.eps}
+  \caption{An illustration of the development of a single streamer. (a)
+    A seed electron is accelerated by the applied electric field. (b) The
+    initial electron develops into an avalanche which leaves a large region
+    of positive space charge, halting further advance. (c) The streamer
+    propagates toward the cathode via photoionization and the anode via
+    nonlocal electrons and photoionization.}
+  \label{fig:streamer}
+\end{figure}
+The electron acquires energy from the applied electric field, and begins
+to move in the direction of the anode. As the electron drifts, it
+undergoes random collisions, some of which result in ionization. As long
+as the charged particles do not significantly perturb the external
+field, the new electrons also begin to drift resulting in an electron
+avalanche.
 
+On short time scales, the ions are essentially immobile as result of
+their large mass. This produces a cone of positive space charge in the
+wake of the electron avalanche, as seen in part (b) of
+figure~\ref{fig:streamer}. The increasing radius of the avalanche with
+distance occurs primarily as a result of collision-induced lateral
+diffusion of the electrons. At some point, the space charge of the
+positive ions becomes sufficient to shield the avalanche electrons from
+the applied field. This halts the propagation of spherical region of
+electrons in the streamer ``head.''
+
+The length of this avalanche is equivalent to the minimum distance in
+which a streamer can form. Following Levatter and Lin, the critical
+avalanche distance can be expressed as
+\begin{equation}
+  \int_0^\xi_c\alpha(\xi')d\xi' = \ln\left(19.6 \epsilon_0 E \bar{\lambda_e}
+                                           \bar{C_e}\xi_c/e\bar{u_e}\right)
+\end{equation}
+
+This can be expressed as a mobility, $\mu = u/E$, where $u$ is the drift
+velocity and $E$ is the applied field. The mobility can be found by
+empirical methods, or through solutions of the Boltzmann equation. Here,
+we use approximate solutions of the Boltzmann equation found with the
+program \smaller{BOLSIG+} \cite{Hagelaar2005} using the electronic cross
+sections of Phelps \cite{Phelps2002}.
+
+The distance it takes to form this critical level of space charge is the
+minimum distance in which a streamer can form.
+
+TODO: Develop Critical radius of streamer head
+
+TODO: Develop size condition for streamer formation
+
+At this point, several processes become important for the streamer to
+continue its progress across the gap, displayed in part (c) of
+giure~\ref{fig:streamer}. The large internal field of the streamer can
+``inject'' electrons in the direction of the anode \cite{Kunhardt1980}.
+In addition, excited atoms in the wake of the avalanche can emit
+photons, ionizing the gas between the streamer head and the anode. These
+electrons are subject to the large electric field between the anode and
+streamer head, resulting in additional avalanches. Likewise,
+photoionization can occur in the region between the tail of the streamer
+and the cathode. The any photoelectrons generated in this region are
+accelerated toward the tail of the streamer, resulting in additional
+avalanches.
+
+However, in the \acs{rpnd} these later processes in part (c) are not
+critical to the formation of the volume discharge. Instead, as described
+by Levatter and Lin \cite{Levatter1980}, a sufficiently large amount of
+preionization results in a similarly large number of avalanches.
+Provided these avalanches are close enough, the streamer heads will
+overlap before reaching the critical electric field strength. This
+action smooths out the strong local gradients that cause streamers to
+filament and constrict.
+
+TODO: HOMOGENEOUS DISCHARGE CONDITION
 
 \section{Atomic Spectroscopy}
 
@@ -261,20 +333,20 @@ of the medium. Accounting for level-dependent effects, the standard
 susceptibility for an atomic transition can be written as
 \begin{equation}
     \tilde{\chi}_\mathrm{at}(\omega) = -j\frac{3}{4\pi^2}\frac{\Delta
-    N\lambda^3\gamma_\mathrm{rad}}{\Delta\omega_\mathrm{a}}\frac{1}{1
-    + 2j(\omega - \omega_\mathrm{a})/\Delta\omega}
+    N\lambda^3\gamma_\mathrm{rad}}{\Delta\omega_a}\frac{1}{1
+    + 2j(\omega - \omega_a)/\Delta\omega}
 \end{equation}
 where $\Delta N$ represents the population difference between the upper and
 lower levels of the oscillator, $\lambda$ is the transition wavelength,
 $\gamma_\mathrm{rad}$ is the natural radiative lifetime of the oscillator,
-$\Delta\omega_\mathrm{a}$ is the linewidth of the transition (for an unperturbed
-atom, this is simply $\gamma_\mathrm{rad}$), and $\omega_\mathrm{a}$ is the
+$\Delta\omega_a$ is the linewidth of the transition (for an unperturbed
+atom, this is simply $\gamma_\mathrm{rad}$), and $\omega_a$ is the
 angular frequency of the transition or oscillator.
 
 This equation is generally known as the complex lorentzian. Separated into its
 components it expresses both the absorptive and reactive properties of the
 atomic medium. It also clearly susceptible to fields that are displaced from
-$\omega_\mathrm{a}$. This is the finite linewidth associated with atomic
+$\omega_a$. This is the finite linewidth associated with atomic
 emissions and absorption.
 
 This linewidth affects each atom within the medium. Each atom will emit or
