@@ -24,6 +24,7 @@ Outline
     2. Transitions and Susceptibility
     3. Spectral Lineshape
     4. Reabsorption
+  5. Collision Processe
 3. Experimental Setup
     1. Laser Absorption Measurements
     2. Emission Measurements
