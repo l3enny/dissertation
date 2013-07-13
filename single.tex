@@ -1,36 +1,27 @@
 %!TEX TS-program = xelatex
 \documentclass[12pt]{memoir}
 
-% Swap these lines with the thesis-umich class to enable the memoir build.
-% This will have better attention to a proper book layout, but less cons-
-% ideration for the Rackham requirements.
-%\documentclass[12pt]{memoir}
-
 \usepackage[nolist]{acronym}
-\usepackage{booktabs}
-\usepackage{fontspec}
+\usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage{listings}
-\usepackage{newcent}
-\usepackage{todonotes}
 \usepackage{xcolor}
-\usepackage{xfrac}
+\usepackage{mathspec}
+\usepackage{cite}
+%\usepackage{xfrac}
+%\usepackage{booktabs}
+%\usepackage{listings}
 
-\defaultfontfeatures{Mapping=tex-text}
-\setmainfont{TeX Gyre Schola}
+\defaultfontfeatures{Mapping=tex-text, Ligatures={Common}}
+\setmainfont{TeX Gyre Termes}
 \setsansfont{TeX Gyre Heros}
 \setmonofont{TeX Gyre Cursor}
+\setmathfont(Digits,Latin,Greek){TeX Gyre Termes}
 
+\acronym{
+  \input{./acronyms.tex}
+}
 
 \begin{document}
-
-\begin{acronym}
-  \acro{rpnd}[\textsc{rpnd}]{repetitively-pulsed nanosecond discharge}
-  \acro{dbd}[\textsc{dbd}]{dielectric-barrier discharge}
-  \acro{app}[\textsc{app}]{atmospheric-pressure plasma}
-  \acro{lte}[\textsc{lte}]{local thermodynamic equilibrium}
-  \acro{vfp}[\textsc{vfp}]{Vlasov-Fokker-Planck}
-\end{acronym}
 
   \DoubleSpacing
 
