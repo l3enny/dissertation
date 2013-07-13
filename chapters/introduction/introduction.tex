@@ -1,98 +1,271 @@
 \section{Overview}
 
-Historically, the study of atmospheric-pressure plasmas (\acs{app}'s) is
-indistinguishable from the study of plasmas as a whole. However, the detail of
-the measurements and calculations associated with \acs{app}'s has been limited
-by their complexity. From a computational perspective, the high pressure and
-number of potential reactions present a difficult challenge. Likewise, the high
-pressure can significantly complicate the data analysis for a number of plasma
-diagnostics. Aside from the high pressures, the large electric fields, short
-time scales, and general randomness of \acs{app}'s make even the most basic
-observations a feat.
+\subsection{Motivation}
+Plasmas, commonly called the fourth state of matter, are a gas where a
+significant fraction of the neutral atoms or molecules have been split into
+pairs of electrons and positive ions. Initially, a curiosity of the laboratory,
+they have become a critical part of every day life. The electrically charged
+nature of plasmas makes them a practical means by which to convert electrical
+energy into light, chemical reactions, kinetic energy, or even nuclear
+reactions. From an applications perspective, they are indisposable in lighting,
+semiconductor manufacturing, plastic processing, and space propulsion. On a more
+broad scale, virtually all observable light in the universe is the result of a
+plasma in some form or another.
 
-In the last several decades, some of this has begun to change. High-powered
-computing has allowed simulations with remarkable detail. Similarly, advances in
-technology has enabled plasma diagnostics in regimes that were experimentally
-inaccessible. As a result, the body of knowledge regarding \acs{app}'s has
-greatly increased. Sometimes, the motivation for this work is scientific
-curiosity. More often, the study of \acs{app}'s has been driven by a broad range
-of applications.
+Some exceptions aside, only three things are required to create a plasma: a gas,
+an energy source, and a means of transferring the energy to the gas. In man-made
+applications, the energy source is typically electricity, and the simplest
+transfer mechanism are two electrodes placed on either side of the gas. This
+results in an electric field in the gap between the electrodes, as seen in
+figure~\ref{fig:avalanche}.
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/introduction/figures/avalanche.pdf}
+  \caption{A simplified depiction of the avalanche breakdown process in a gas.}
+  \label{fig:avalanche}
+\end{figure}
+The field accelerates a single seed electron in the gas (often created by
+background cosmic radiation) until it collides with a neutral particle. The
+electron, having acquired a fair amount of energy, knocks a second electron
+loose from the particle, leaving behind a relatively heavy and immobile ion.
+Subsequently, both the first and second electron are now accelerated by the
+electric field. Again, they collide with two more neutral atoms, creating two
+new electrons. As long as the electric field persists, the number of electron
+and ion pairs increases exponentially. This process is generally referred to as
+an avalanche.
 
-Among the first plasma applications were provided by \acs{app}'s: ozone
-generation and lighting. Aside from these items, plasma welding, polymer
-treatment, combustion, and plasma televisions have become widely accepted.
-Meanwhile, a large number of new applications may soon be added to this list,
-including: treatment of tissue wounds, altering airflow over airfoils, and
-destruction of industrial pollutants.
+Despite this relatively simple recipe, the physical characteristics can vary
+greatly depending on what gas is used, what pressure it is at, what voltage is
+used, whether the electricity is applied constantly or varied over time, what
+kind of electrodes are used, etc. As a result, man-made plasmas are generally
+produced under very specific conditions. For example, a plasma etcher used in
+semiconductor manufacturing may need to operate operate at pressures that are
+one-thousandth of atmospheric pressure with ultra-pure (99.9999\%) gases.
 
-Unsurprisingly, each case demands a different kind of plasma. The original arc
-discharges were created between two graphite rods connected to immense battery
-banks. In contrast, a modern research reactor studying plasma-assisted
-combustion might use a fast-switching semiconductor circuit. Over the years,
-several types of \acs{app}s have been developed for a variety of situations:
-dielectric-barrier, corona, thermal arc, RF, microwave, pulsed, and more.
+Plasmas like those which occur in plasma etchers, feature ions and neutral gas
+particles with temperatures that are below 1,000 K, or roughly 1,340$^\cdot$ F.
+Though this temperature is relatively high compared to room temperature, it is
+well below the temperature of the electrons which may be in excess of 20,000 K.
+Plasmas which exhibit this disparity in temperatures are often called
+nonequilibrium or ``low-temperature'' plasmas.
 
-Within this group\footnote{The interested reader is referred to Starikovskaia's
-review \cite{Starikovskaia2006} which provides a general overview of \acs{app}'s
-in the context of plasma-assisted combustion}, the repetitively-pulsed
-nanosecond discharge (\acs{rpnd}) has created considerable interest. Generally
-speaking, a \acs{rpnd} is a plasma generated by a repetitive electrical pulse
-applied between two electrodes. The pulse voltage is often in excess of one
-kilovolt, lasts anywhere from $<1-100$ ns, and is repeated over a thousand
-times each second. The result is a wave of ionization (and light) which crosses
-from the powered electrode to the grounded one.
+Conversely, there exists another class of plasmas where the electrons, ions, and
+neutral particles are all at the same temperature. These are called thermal
+plasmas. Generally speaking, the closer the gas pressure is to atmosphere, the
+more thermal a plasma is. Additionally, the temperatures in a thermal plasma can
+be quite high and, in many cases, can easily melt most metals. For example, the
+arc of an arc welder is a thermal plasma. Similar high temperature plasmas, have
+a number of other applications which include a variety of high-intensity lamps,
+metal cutting, and surface coating.
 
-A \acs{rpnd} can fill volumes of several liters with a relatively uniform
-plasma. Though they can cause significant excitation of the background gas, they
-generally produce very little heating (in some cases below a detection limit of
-$\Delta \pm 15$ K). In addition, the excitation can be changed with adjustments
-to the magnitude or duration of the electrical pulse. Each of these
-characteristics are highly desirable in one or more of potential applications
-for \acs{app}'s.
+There are, however, a number of applications which would benefit from operation
+at higher pressures, but with low-temperature ions and neutrals so as to avoid
+heat damage. This has spurred a substantial amount of research on nonequilibrium
+atmospheric-pressure plasmas (\acs{app}s) in recent years. Ideally, such a
+plasma could be generated at or near atmospheric pressure with hot electrons,
+but minimal heating of surrounding gas. Though this field of research is still
+relatively young, it has produced a variety of new plasmas and capabilities. One
+of the more ubiquitous examples is use of plasmas to process the surface of
+plastics so that ink can adhere. Separately, nonequilibrium \acs{app}s are the
+technology which drives plasma televisions.
 
-Given all of these promising properties, \acs{rpnd}'s have been the subject of
-substantial study by several research groups. However, much of this work has
-focused on the physics of \acs{rpnd}'s in air. Unfortunately, air's large number
-of constituent elements can lead to notable complexity. In turn, this can
-obscure some of the more fundamental questions relation to \acs{rpnd}'s: how do
-they form, how is the energy distributed between excited particles, and what
-kind of spatial variation can be expected?
+As mentioned, these applications promise to be the first of many for such
+plasmas. More recently, there have been innovative proposals to use these
+plasmas in water purification, wound sterilization, improved combustion engines,
+nanoparticle production, and more. However, each situation has its own
+challenges when it comes to the design and development of a plasma source,
+particularly at these elevated pressures. Particularly problematic is the
+tendency of \acs{app}s to develop instabilities which can cause them to rapidly
+transition to thermal plasmas in a matter of nanoseconds.
 
-This paper details a study of each of these questions in a helium \acs{rpnd}.
-Specifically, the densities of one particular excited atom are measured for a
-variety of pressures and locations. This is complemented by measurements of the
-light emissions for the same set of parameters. A simple model of a \acs{rpnd}
-is used to predict several characteristics of the plasma based on the excited
-state densities: electron density, electric field, and light emission. The
-measured light emissions are interpreted to show how the energy is distributed
-in the gas, and how it changes over time. Finally, they are compared with the
-estimated light emissions to check the validity of several common assumptions.
+There exist a few ways of getting around these instabilities. One example is the
+dielectric-barrier discharge which passively regulates the amount of power which
+can be deposited into the plasma. Another example includes split-ring resonators
+which use natural feedback mechanisms to damp out potential instabilities. The
+technique considered here, referred to as the repetitively-pulsed nanosecond
+discharge, or \acs{rpnd}, uses high voltage pulses which are so short that the
+instability does not have time to develop. The \acs{rpnd} is a nonequilibrium
+plasma which can operate at pressures ranging from approximately $10^{-3}$--$10$
+atmospheres. At atmospheric pressure the \acs{rpnd} can produce a uniform plasma
+in volumes on the order of 10 mL. As the pressure is reduced, the plasma volume
+can reach the order of liters.
+
+The importance of large-area, uniform, high-pressure plasmas such as the
+\acs{rpnd} was highlighted in the National Academies' most recent decadal survey
+of plasma science \cite{NA2007}. However, there is still much that is not know
+about such plasmas. From the same survey, it is said that ``the full promise of
+\acs{app}s will be known only if they can be understood and managed based on
+fundamental scientific principles at two extremes--the nanoscopic kinetic level,
+where selective chemistry occurs, and the global stability level.'' It is this
+challenge, specifically the investigation of the nanoscopic kinetic level, which
+drives the research presented here.
+
+\subsection{History}
+
+Historically, the study of low-temperature \acs{app}s has been almost
+indistinguishable from the study of plasmas as a whole. However, this was not
+necessarily a matter of reasoned choice. Plasma generation at
+atmospheric-pressure obviates the need for an effective vacuum pump.
+Additionally, prior to the creation of large battery banks, early sources of
+electrical energy had relatively small capacities. This precluded the generation
+of thermal atmospheric plasmas which required large amounts of energy.
+
+Indeed, the requirements for a low-temperature \acs{app} are sufficiently
+rudimentary that the first man-made one (and likely the first man-made plasma),
+was probably a spark generated by rubbing fur against amber. This is commonly
+attributed to Thales of Mil\^{e}tus from around 600 B.C. Following Thales,
+electrical sparks came to intrigue many scientists including Gottfried Liebniz,
+Benjamin Franklin, and Charles Wheatstone. By the mid-1800s, Pl\"{u}cker,
+Gei\ss{}ler, and Hittorf began some of the first work on low-pressure plasmas
+though it was Crookes who would later identify plasma as a separate state of
+matter. Later, J.J.\ Thomson's discovery of the electron and discretized charge
+in 1897 marked the beginning of modern plasma research.
+
+By this time, the necessary tools and techniques existed to create steady
+plasmas in pure, rarified gases. The behaviors of which were dominated by the
+motion and interaction of the charged electrons and ions. Critically, the
+effects of the neutral particles were negligible, thus isolating the electrical
+properties of the plasma. These carefully controlled systems were ideal for
+basic studies of plasma behavior and were used to great effect by individuals
+such as Irving Langmuir and Lewi Tonks. In fact, many modern concepts in plasma
+physics can be traced back to their work.
+
+In contrast, the pulsed \acs{app}s, characteristic of the earliest man-made
+plasmas, were easy to create, but notoriously difficult to work with. It could
+take them only a few nanoseconds to form, and less than a millisecond to decay
+away. For many years, there were simply no instruments capable of taking
+measurements this quickly. Furthermore, the neutral particles which were of no
+consequence in the low-pressure plasmas, could not be ignored. The neutral
+particles were present in such quantities that they could confound or obscure
+otherwise simple measurements.
+
+As a consequence, there is still a great deal that is not known about about
+pulsed \acs{app}s, particularly lightning, streamers, and a type of plasma which
+Thomson referred to as a ``luminous front.'' By the 1970s, this latter plasma
+had come to be called the fast ionization wave, or \acs{fiw}. It was generated
+by a single voltage pulse lasting around 100 nanoseconds and peaking at 10s or
+100s of kilovolts. For the right pressure and gas, the \acs{fiw} could fill
+volumes of nearly 40 L with a relatively uniform plasma, but with little heating
+of the gas.
+
+These properties were attractive for a number of uses, but the \acs{fiw} faced a
+number of implementation-related challenges. The switches used to trigger the
+\acs{fiw} could only operate up to 100 times each second. Unfortunately, the
+lifetime of a plasma at elevated pressures is relatively short, and the plasma
+generated by the \acs{fiw} would decay away quickly after each pulse. This meant
+that the \acs{fiw}-generated plasma had a relatively low duty cycle; the ratio
+of the time the plasma spends on to the time it spends off. This was
+disadvantageous for plasma-processing applications where low duty cycles are
+equivalent to long processing times. The low duty cycle also necessitated
+so-called preionization of the gas with UV lamps or a secondary plasma
+generator, adding to the cost and complexity of the system. Finally, the pulse
+generators used for \acs{fiw}s were not considered reliable enough for long
+operational lifetimes.
+
+Recent advances in solid-state switching technology has largely solved these
+issues. At present, switches exist which can reliably operate 100,00 times a
+second; sufficiently fast that the plasma duty cycle approaches 100\%. This has
+the additional benefit of obviating the need for a preionization stage, as a
+sufficient number of electrons persist between pulses. The discharge produced by
+the use of these new switches is what we refer to as the \acs{rpnd}.
+
+\subsection{Questions}
+
+The large pedigree of pulsed plasma research belies the fact that they are still
+not well-understood. This remains especially true for \acs{rpnd}s which present
+significant experimental challenges. A major component of this has to do with
+the time scales associated with the \acs{rpnd}. The formation of a \acs{rpnd}
+often requires no more than 10-20 nanoseconds. Very sensitive equipment is
+required in order to measure changes which occur during this period.
+Unfortunately, such equipment is particularly susceptible to the broadband
+electronic noise generated by the fast pulses. There is a plethora of other
+problems that can be traced back to topic of timing. For example, things like
+the length and insulators of detector cables can introduce substantial delays,
+and must be considered in order to synchronize different measurements.
+
+Consequently, the majority of \acs{rpnd} studies focus on measurements after the
+discharge has occurred, when changes happen at a much slower rate. A great deal
+of information is available for this period of time, including chemical
+compositions, atomic densities, electron densities, gas temperatures, and more.
+While undoubtedly important, these measurements provide limited insight on what
+is happening \emph{while} the plasma is forming. It is natural, then, to ask,
+what are the \acs{rpnd} plasma properties during formation?
+
+Additionally, most studies have used a limited range of gases: oxygen, nitrogen,
+air, hydrogen, or some mixture thereof. The choice of these gases is deliberate
+and reflects specific applications in combustion and aerospace. However, the use
+of rare gases (such as helium) and rare gas mixtures has become popular because
+they provide for a wider range of stable operating conditions. Notably, it has
+been found that unique internal structures of rare gases can produce very
+different discharges. Given this, there is the question of how rare gas
+\acs{rpnd}s compare to more conventional ones.
+
+Finally, the persistence of the plasma between pulses makes the development of a
+\acs{rpnd} very different from a \acs{fiw}. One reason for this is the large
+number of electrons that remain between pulses in the \acs{rpnd}. While these
+seed electrons are necessary for the discharge to develop, in too large a number
+they can shield out the applied pulse. This can have the detrimental effect of
+reducing the final plasma density. These competing effects have to be balanced
+in order to obtain an optimal result, and what is considered optimal can vary
+depending on the application. Therefore, one must ask how the properties of a
+\acs{rpnd} compare to a similar \acs{fiw} and how they vary depending on the
+operating conditions.
+
+\subsection{Approach}
+
+The dissertation presented here represents my efforts to either answer or
+provide a foundation to answer these questions. In order to develop the
+appropriate context for this work, the next section will be a comprehensive
+review of the \acs{rpnd} literature. It begins with the first reported pulsed
+\acs{app}s and concludes with contemporary studies.
+
+The following two chapters set the basis for the experimental and numerical
+studies. Chapter~\ref{chp:theory} presents the theory necessary to understand
+\acs{rpnd}s from basic gaseous discharges to cathode-directed streamers.
+Subsequently, chapter~\ref{chp:experiment} describes the design of the helium
+\acs{rpnd} discharge apparatus used for the experimental studies and as the
+basis for the simulations. Also included in this chapter are several
+measurements of the basic discharge properties.
+
+Chapters~\ref{chp:metastables} through~\ref{chp:modeling} provide more detailed
+measurements and analysis of the \acs{rpnd} dynamics. In
+chapter~\ref{chp:metastables}, the measurements of the helium metastables in a
+\acs{rpnd} are presented and analyzed as a function of pressure an axial
+location in the discharge apparatus. Chapter~\ref{chp:emissions} presents and
+analyzes similar measurements of the spontaneous plasma emissions. Finally,
+chapter~\ref{chp:modeling} discusses the development of a global model for a
+helium plasma and its use with the experimental data to infer the plasma
+properties of the \acs{rpnd}. The dissertation concludes with a summary of the
+results and suggestions for further avenues of research.
 
 \section{Literature Review}
 
-\acs{rpnd}'s are only a recent invention which resulted from advances in
+\acs{rpnd}s are only a recent invention which resulted from advances in
 fast-switching semiconductors. However, the physics of their formation is
-related to a much larger category of plasmas which includes lightning, sparks,
-and even some transient phenomena in DC glows. These plasmas are unique in that
-their formation occurs on timescales much faster than the traditional Townsend
-mechanism allows for. The means by which these plasmas form has acquired several
-names in the literature; here we will adopt the term, fast ionization wave
-(\acs{fiw}).\footnote{It should be noted that the phrase wave does not indicate
+related to a much more broad category of plasmas which includes lightning,
+streamers, and even some transient phenomena in DC glows \cite{Loeb1965}. These
+plasmas are unique in that their spatial structure develops at speeds much
+faster than can be accounted for by the conventional Townsend mechanism. Loeb
+refers to this phenomena as ``ionizing waves of potential gradient.'' \footnote{It should be noted that the phrase wave does not indicate
 any kind of periodic motion or spatial arrangement. Simply put, it describes a
 boundary which separates ionized and unionized gas which travels from one
 electrode to another.}.
 
 \subsection{Early History of Pulsed Discharges}
 
-The first \acs{fiw} was likely generated by Wheatstone in 1835
-\cite{Wheatstone1835}. As reported by Thomson \cite{Thomson1893}, Wheatstone
-built a vacuum tube six feet in length, and applied a high voltage across the
-gas. As a plasma formed in the tube, Wheatstone observed its formation with a
-rotating mirror. The use of this apparatus allowed Wheatstone to place a lower
-limit on the speed with which the plasma travelled from one electrode to the
-other. Though the discharge crossed the tube with a speed of at least
-$8\times10^7$ cm/s, spectral observations indicated that the particles emitting
-the light were not travelling at that speed \cite{Zahn1879}.
+In 1835 (as reported by Thomson \cite{Thomson1893}), Charles Wheatstone
+attempted to measure what he thought to be the speed of electricity between two
+electrodes, connected by a vacuum tube, six feet in length
+\cite{Wheatstone1835}. It is now known that he was actually measuring the speed
+with which a plasma formed between the two electrodes. He accomplished this by
+the use of a rotating mirror which allowed him to see images of two sections of
+the tube, slightly displaced. The displacement between the images was
+proportional to the speed with which the plasma traveled between them. Wheatsone
+estimated this speed to be at least $8\times10^7$ cm/s.
+
+Interestingly, von Zahn later noted that this was \emph{not} the speed of the
+emitting particles \cite{Zahn1879}. That is, even though the visible light
+crossed the electrode gap at a high speed, the particles did not.
 
 Later, Thomson revisited this work with an improved apparatus
 \cite{Thomson1893}. This included a tube that was now 15 m in length and five mm
@@ -100,36 +273,33 @@ in diameter, as seen in figure \ref{fig:thomson}.
 \begin{figure}
   \centering
   \includegraphics[width=4in]{chapters/introduction/figures/thomson.png}
-  \caption{A sketch of J.J. Thomson's early experiments on fast ionization
-  waves in long vacuum tubes.}\label{fig:thomson}
+  \caption{A sketch of J.J. Thomson's early experiments on pulsed plasmas 
+  in long vacuum tubes.}\label{fig:thomson}
 \end{figure}
 Also using the rotating mirror apparatus, Thomson was able to greatly improve on
 the estimates of Wheatstone. He estimated that the so-called ``luminous front''
-had a speed that was more than $1.5\times10^{10}$, or in excess of half of the
-speed of light. Furthermore, Thomson determined that the front always appeared
-to travel from the positively pulsed electrode (anode) to the ground electrode
-(cathode).
+had a speed that was more than $1.5\times10^{10}$ cm/s, or in excess of half of
+the speed of light. Furthermore, Thomson determined that the luminous front
+always appeared to travel from the positively pulsed electrode (anode) to the
+ground electrode (cathode).
 
 The study of these luminous fronts was revisited by several researchers in the
-wake of Thomson \cite{James1904, Whiddington1925, Beams1926} with varied
-success. By his own admission, Beams's work in 1926 was done ``hurriedly,''
-using a rudimentary Kerr cell. In 1930, Beams returned to the propagation of
-light pulses in vacuum tubes with a rotating mirror apparatus \cite{Beams1930}.
-In addition to confirming his previous measurements, and those of Thomson, Beams
-discovered that the \acs{fiw} always traveled from the electrode with the
-highest absolute potential, to the lowest one. In other words, the wave could be
-anode or cathode directed, depending on the magnitude of their potentials
-relative to ground. Benefiting from an improved understanding of electricity,
-namely the existence of electrons and ions, Beams was able to provide the first
-hypothesis on the nature of the \acs{fiw}:
+wake of Thomson \cite{James1904, Whiddington1925, Beams1926}, but their attempts
+to duplicate the measured speeds were met with varied success. In 1930, Beams
+confirmed definitively confirmed those of Thomson. He also discovered that the
+front always traveled from the electrode with the highest absolute potential, to
+the lowest one. In other words, it could be anode \emph{or} cathode directed,
+depending on the magnitude of their potentials relative to ground. Beams
+hypothesized that the rapid motion of the front was a result of a
+self-propagating region of high space charge, quote:
 \begin{quote}
   In the neighborhood of the electrode $\ldots{}$ the field is very high and
   intense ionization should take place. This ionization due to the large
   difference in mobilities of positive ions, negative ions and electrons
   respectively should result in the establishment of a space charge. This space
-  charge, once formed near the high potential electrode $Q$ must move down the
-  tube regardless of the polarity of the applied potential because of the
-  changes it produces in the field near its edges.
+  charge, once formed near the high potential electrode $\ldots{}$ must move
+  down the tube regardless of the polarity of the applied potential because of
+  the changes it produces in the field near its edges.
 \end{quote}
 
 At about the same time, Schonland and Collens reported on their observations of
@@ -140,7 +310,7 @@ work Schonland and Collens noted that lightning would usually occur in a
 two-step process. Based on the images they obtained, they suggested that
 the leader was generated by a relatively small ``dart'' with a mean vertical
 velocity of $7.2\times10^8$ cm/s. The dart moved in a random manner, changing
-directions at random intervals, but always moving downward.
+directions at random intervals, but always moving toward the ground.
 
 The second step began when this dart reached the ground. Once there, a bright
 return stroke would occur along the same path that the leader had traced out. In
@@ -148,73 +318,59 @@ contrast to the leader stroke, the return stroke had a velocity of $5\times10^9$
 cm/s. Schonland and Collens hesitantly attributed the leader stroke to an
 extended electron avalanche, and the return stroke to thermal ionization along
 the conductive path generated by the dart. However, calculations by Cravath and
-Loeb showed that the speeds of the proposed avalanche would have to be
-inconsistent with the fields at the head of a lightning stroke
-\cite{Cravath1935}. Instead, they suggested that the dart was actually a moving
-region of space charge which locally accelerated electrons to ionizing energies.
-This was fundamentally similar to the mechanism proposed by Beams in 1930.
+Loeb showed that the speeds of the proposed avalanche was inconsistent with the
+fields at the head of a lightning stroke \cite{Cravath1935}. Instead, they
+suggested that the dart was actually a moving region of space charge which
+locally accelerated electrons to ionizing energies. This was similar to the
+mechanism earlier proposed by Beams.
 
 \subsection{The Streamer Model}
 
 It was long known that sparks in air were similar to lightning. Advances in
 technology during the 1930's led to experiments which reinforced this
 similarity. In response to the measurements of Schonland and Collens; Snoddy,
-Beams, and Dietrich studied the breakdown of gas in a long tube with an
-oscillograph \cite{Snoddy1936}. The results from the oscillograph showed a very
-clear return wave for which they measured several parameters the characterized
-as a function of pressure and applied potential. They observed that at low
-voltages, the system behaved like a large resistor in series with a capacitor,
-and below a critical voltage, no return stroke would form. Finally, in order to
-explain the propagation of the \acs{fiw} generated by the positive pulse, they
-suggested that photoionization was occurring in the space ahead of the wave.
+Beams, and Dietrich studied the breakdown of gas in a long tube with both
+positive and negative applied potentials \cite{Snoddy1936}. Using an
+oscillograph, they observed both the leader and a return stroke in both cases.
+However, the propagation of the plasma wave toward the cathode required a source
+electrons ahead of the wave. The authors proposed that photoionization might
+provide these necessary electrons.
 
-Around the same time, Flegler and Raether had come to a similar conclusion,
-leading to the first attempt at a theory describing streamers
-\cite{Flegler1936}. This same theory was proposed independently by Loeb and Meek
-in a series of papers \cite{Loeb1940, Loeb1940a, Meek1940}. The streamer theory
-divided the initial breakdown of a spark into two steps. In the first step, an
-electron avalanche is initiated between two electrodes. The avalanche travels
-toward the anode and leaves behind a region of high positive space charge. In
-the second step, the return stroke begins at the cathode and travels toward the
-cathode. It was suggested that the head of the return stroke ionizes the gas
-ahead of it by pulling in background electrons or via photoionization.
-\footnote{These early works emphasized the importance of photoionization. It is
-now know that it is only required for cathode-directed streamers in systems with
-no background ionization. In addition, Mesyats later showed that the lifetime of
-the excited states responsible for photoionization were often longer than the
-lifetime of the streamers \cite{Mesyats1972}}.
+Around the same time, Flegler and Raether had come to a similar conclusion
+regarding the importance of photoionization. This led them to develop a more
+thorough theoretical model for these waves \cite{Flegler1936} which came to be
+known as the streamer theory. This was followed by a similar treatment by Loeb
+and Meek \cite{Loeb1940, Loeb1940a, Meek1940}. The streamer theory divided the
+initial plasma formation into two steps. In the first step, an electron
+avalanche is initiated between two electrodes. The avalanche travels toward the
+anode and leaves behind a region of positive space charge. In the second step,
+the return stroke begins at the anode and travels along the conductive path
+generated by the initial avalanche toward the cathode.
 
 The streamer model proved relatively successful in describing the development of
 sparks and lightning. Theoretical estimates of the speed matched the velocity
-measurements that were acquired through photographs and oscillographs.
-Additionally, the theory is able to account for the halting manner in which
-lightning is formed, though it is only tentatively able to describe the
-branching and stepped appearance. Finally, the streamer mechanism provides an
-adequate explanation of why streamer discharges are not affected by the shape or
-material of the cathode, namely, they do not depend on secondary electron
-emission.
+measurements that were acquired with photographs and oscillographs.
+Additionally, the theory was able to account for the halting manner in which
+lightning was formed as well as the constriction in space.
 
-The study of the formation of streamers and lightning continues to be active to
-this day. Following the initial work of Flegler, Raether, Loeb, and Meek, a
-number of researchers began to explore the boundary between the Townsend
-mechanism and the streamer mechanism. Most notable was Fisher and Bederson's
-work in 1951 \cite{Fisher1951}, which was later extended to nitrogen
-\cite{Kachickas1952} and argon \cite{Kachickas1953}. However, there were still a
-number of phenomena that were poorly explained by the streamer model. In
-particular, Kunhardt provided a useful overview of the problems in 1980
-\cite{Kunhardt1980}. However, even before that, it was apparent that the
-transients of sparks and lightning was more complicated than thought.
+Following the initial work of Flegler, Raether, Loeb, and Meek, a number of
+researchers began to explore the boundary between the Townsend mechanism and the
+streamer mechanism. Most notable was Fisher and Bederson's work in 1951
+\cite{Fisher1951}, which was later extended to nitrogen \cite{Kachickas1952} and
+argon \cite{Kachickas1953}. These studies suggested that the streamer theory was
+incomplete. Furthermore, the reliance of the streamer theory on photoionization
+would later prove very contentious \cite{Kunhardt1988}. Finally, there was a
+whole class of discharges that it did not readily explain.
 
-\subsection{Ionizing Waves of Potential Gradient}
+\subsection{Diffuse Streamers}
 
 Per Chalmers \cite{Chalmers1971}, Rogowski and Buss \cite{Rogowski1927,
 Buss1932} observed a fast, diffuse, glow discharge immediately prior to the
-filaments which often accompany a streamer discharge. Allibone and Meek, noted
-similar diffuse discharges in air based on oscillographs and photographs
-\cite{Allibone1938, Allibone1938b, Allibone1938c}. However, the Boys apparatus
-which was employed in these studies (an ancestor to the modern streak camera)
-was unable to capture the evolution of the diffuse glow, given its large spatial
-extent.
+filaments of a streamer discharge. Allibone and Meek, noted similar diffuse
+discharges in air based on oscillographs and photographs \cite{Allibone1938,
+Allibone1938b, Allibone1938c}. However, the Boys apparatus which was employed in
+these studies (an ancestor to the modern streak camera) was unable to capture
+the evolution of the diffuse glow, given its large spatial extent.
 
 This was first noted by Allibone who attempted to use Lichtenberg
 figures\footnote{Such figures directly exposed photographic emulsions to the
@@ -226,40 +382,29 @@ brief, diffuse glow \cite{Saxe1948} as a function of space. Both studies
 agreed in the existence of the diffuse glow, despite some disagreement on the
 nature of its geometry and propagation.
 
-The similarity of fast transient ionization waves in certain glow discharges
-\cite{Westberg1959} to those observed in lightning and streamers led Loeb to to
-the conclusion that they were all the same phenomena \cite{Loeb1965}. He
-referred to them as ``ionizing waves of potential gradient,'' as the proposed
-mechanism for the waves was the generation of a steep potential gradient in a
-sufficient short period of time. 
+By 1968 (according to Kunhardt and Byszewski \cite{Kunhardt1980}), Stankevich
+and Kalinin had provided the most firm evidence yet of a diffuse discharge in a
+dense gas \cite{Stankevich1968}. This was later confirmed by experiments with a
+pulsed nanosecond discharge by Mesyats, Bychkov, and Kremnev \cite{Mesyats1972}.
+In their analysis, they noted that photoionization could not play a role in such
+short-lived discharges and thus there was a need for extensions to the streamer
+model.
 
-As reported by Babich, Loika, and Tarasova \cite{Babich1977}, the detection of
-x-ray emissions from pulsed, high-pressure, helium discharges created a new
-avenue of interest for these transient plasmas \cite{Stankevich1967,
-Noggle1968}. Unlike the streamers, which were often filamentary, these new
-discharges exhibited surprising uniformity. The primary difference being the
-duration of the pulse (on the order of nanoseconds) and the applied potentials
-(in excess of 200 kV).
-
-The x-rays suggested that electrons in these discharges were accelerated to
-unusually high energies (on the order of 10 keV) despite the high
-collisionality. It was then that Babich and Stankevich suggested that the x-rays
-resulted from continually accelerated electrons impinging on the metal
-electrodes \cite{Babich1973}. Briefly, the electric fields in the fronts of the
-ionizing waves were so large that they managed to accelerate electrons past the
-peak in their collisional cross sections.
-
-Mesyats, Bychov, and Kremnev attempted to provide a more rigorous explanation
-for the uniform nature of these new discharges \cite{Mesyats1972}. After
-conducting several experiments, they came to the conclusion that these transient
-plasmas were the result of many overlapping avalanches, unlike the streamer
-which only involves a single avalanche. Kunhardt and Byszewski later
-expanded on this work by developing a kinetic model to explain the behavior of
-all pulsed discharges above the Townsend threshold \cite{Kunhardt1980}.
+In addition to the diffuse discharge, Stankevich and Kalinin also noted the
+detection of x-rays with each pulse. This suggested the presence of high-energy
+electrons impinging on the surface of the electrodes, despite the high
+collisionality of the dense gas. Not only that, but the electron energies could
+even exceed what would be expected from the vacuum electric fields
+\cite{Babich1977}. The eventual conclusion was that the electric field
+associated with the space charge at the head of the streamer produced very
+energetic electrons which deposited their energy far from the streamer tip
+\cite{Kunhardt1980, Babich1990}, allowing the streamer to spread out beyond the
+diffusive region of the electrons.
 
 It was based on the studies of the fast electrons in these discharges that
 Mesyats, Bychov, and Kremnev proposed the use of a fast electron beam for
 pumping high-pressure gas lasers. Similar work was conducted simultaneously by
+<<<<<<< HEAD
 Fenstermacher et al.~\cite{Fenstermacher1972}. Palmer \cite{Palmer1974}, and
 Levatter and Lin \cite{Levatter1980} determined that there was a threshold
 amount of preionization required to ensure homogeneity of the discharge. Hunter
@@ -339,3 +484,99 @@ state and electron densities in helium \acs{rpnd}s \cite{Weatherford2012}.
 Concurrent with these improvements in experimental techniques has been similar
 progress in the simulation of \textsc{rpnd}s. The one-dimensional models 
 
+=======
+Fenstermacher et al.~\cite{Fenstermacher1972}. Later, Hunter \cite{Hunter1976},
+and Koval'chuk and Mesyats \cite{Koval'chuk1976} proposed that such discharges
+be used for fast-closing switches. The need for a homogeneous plasmas in these
+applications prompted Palmer \cite{Palmer1974}, and Levatter and Lin
+\cite{Levatter1980} to investigate the necessary conditions for uniformity. They
+concluded that the primary requirement for uniformity was a threshold value of
+fractional ionization.
+
+\subsection{Repetitively-Pulsed Nanosecond Discharges}
+
+The type of discharge originally studied by Babich, Loika, and Tarasova came to
+be known as the fast ionization wave (\acs{fiw}). In the years following its
+discovery, a substantial effort was made to document the properties of the
+\acs{fiw} over a wide range of conditions. In these studies, the wave velocity,
+current, and attenuation were the most frequently measured quantities. Much of
+this work is summarized in a review by Vasilyak \cite{Vasilyak1994}. Also
+reviewed are Slavin and Sopin's work which was the first to attempt a
+computation of the electron energy distribution function \acs{eedf} in
+\acs{fiw}s \cite{Slavin1992}.
+
+The experimental measurements and computational work reported by Vasilyak were
+expanded on by a series of studies conducted at the Moscow Institute of Physics.
+These are reviewed by Starikovskaia et al.~\cite{Starikovskaia2001} and included
+measurements of the electron density, electric field, and energy coupling for
+\acs{fiw}s in air, nitrogen, and hydrogen. The computational work by
+Starikoskaia and Starikovskii \cite{Starikovskaia2001a} still represents the
+most detailed study of the \acs{eedf} in nitrogen \acs{fiw}s.
+
+However, Starikovskaia et al. noted that the usefulness of \acs{fiw}s were
+limited, in part, by their repetition rates. The power supplies for \acs{fiw}s
+were capacitor banks, charged in parallel, and discharged in series (also
+referred to Marx banks). Unfortunately, the spark gaps used to trigger these
+capacitor banks would not operate above a few hundred Hz. This changed in the
+late 1990's with the development and commercialization of fast, solid-state
+switches. Specifically, with the fast ionization dynistor it was possible to
+achieve repetition rates of 100 kHz.
+
+This led to a new class of repetitively-pulsed discharges, or the \acs{rpnd}.
+These discharges operated at sufficiently high rates such that charged particles
+would persist between pulses, significantly increasing the plasma duty cycle.
+The improved qualities of the \acs{rpnd} over the \acs{fiw} inspired a number of
+novel, application-driven studies. This included:
+\begin{itemize}
+  \item Plasma-assisted combustion \cite{Pancheshnyi2006, Starikovskaia2006, 
+        Adamovich2008}
+  \item Magnetohydrodynamic energy bypass engines \cite{Macheret2002,
+        Adamovich2008, Schneider2009a}
+  \item Plasma actuators \cite{Starikovskii2009, Adamovich2009}
+  \item High-pressure xenon lamps \cite{Nikandrov2008}
+  \item Plasma medicine \cite{Ayan2009, Zimmermann2012}
+  \item Water treatment \cite{Foster2013}
+\end{itemize}
+Though not specific to the \acs{rpnd}, Becker et al. \cite{Becker2005} provide
+an extensive discussion of the potential uses for non-equilibrium air plasmas.
+
+As a result, contemporary researchers have produced a wealth of literature on
+the operation of \acs{rpnd}s. More recently, there have been detailed
+measurements of the gas temperatures \cite{Pilla2006, Pancheshnyi2006,
+Nishihara2006, Bao2007, Lou2007, Pai2009, Zuzeek2010, Nishihara2011}, chemical
+composition \cite{Bao2007, Lou2007, Pai2009}, electric fields \cite{Ito2009,
+Ito2010, Muller2011a}, and energy coupling \cite{Macheret2006, Pancheshnyi2006}.
+Notably, these studies have been generally restricted to molecular gases; air,
+nitrogen, and occasionally, hydrogen.
+
+The first such study was the work of Laroussi and Lu who examined a \acs{rpnd}
+excited in a stream of helium flowing from a tube into air \cite{Laroussi2005,
+Lu2006}. The resulting plasma had the appearance of a jet, emitted from the open
+end of the tube. Using fast photography they observed that the jet was actually
+a series of plasma ``bullets'' formed with each pulse. Measurements of the
+bullet velocities showed that their speed greatly exceed what would be expected
+purely from electrons drifting under the applied electric field. They described
+the bullet as a classic cathode-directed streamer propagated by photoionization.
+
+The plasma bullets of Laroussi and Lu spawned a great deal of interest in
+\acs{rpnd} helium plasma jets\footnote{A distinction should be made between
+plasma jets, excited by sinusoidal power supplies, similar to the well-known
+dielectric-barrier discharge \cite{Kogelschatz2003}, and those produced by
+nanosecond pulses. Differences between the two were reported by Walsh, Shi, and
+Kong \cite{Walsh2006}.} For example, Walsh et al. studied the atomic oxygen
+production for helium-oxygen mixtures with the use of emission spectroscopy and
+a global plasma chemistry model \cite{Walsh2010}. Urabe et al. employed a
+variety of laser diagnostics to measure the radial density profiles of helium
+metastable atoms and molecular nitrogen ions in a similar jet. This work was
+supported by a number of two-dimensional plasma simulations such as those by
+Naidis \cite{Naidis2010} and Breden, Miki, and Raja \cite{Breden2011}.
+
+Simultaneously, there has been a decline in the study of \acs{fiw}s, and
+relatively little on large-volume \acs{rpnd}s. One of the most recent \acs{fiw}
+studies was produced by Takashima et al. \cite{Takashima2011}. In it, the
+authors reported on \acs{fiw}s in helium and nitrogen which were studied using
+capacitive probes and voltage-current characteristics. The results were compared
+to extensive two-dimensional fluid simulations and an analytic, one-dimensional
+drift model. In most cases, the measurements and simulations showed good
+agreement.
+>>>>>>> 6951654e7e5e0d2c492be21e72315a581b71d32b

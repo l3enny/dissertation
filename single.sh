@@ -1,3 +1,3 @@
 #!/bin/sh
 
-latexmk -pdflatex='xelatex %O %S' -pdf single.tex -g
+latexmk -xelatex -pdf single
