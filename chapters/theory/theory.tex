@@ -252,35 +252,68 @@ filament and constrict.
 
 TODO: HOMOGENEOUS DISCHARGE CONDITION
 
-\section{Atomic Structure and Spectroscopy}
+\section{Atomic Spectroscopy \& Notation}
 
-Spectroscopy spans a large body of theory which cannot be adequately
-covered here. Given that the measurements are all for helium, we will
-limit ourselves to a simple description of atomic spectroscopy. An atom
-is made of positively charged nucleus and a number of negatively charged
-electrons which orbit this nucleus. In the unperturbed, or ground state,
-the electrons occupy orbitals determined by a full solution of the
-Schrodinger equation.
+Unlike physical probes, optical diagnostics are noninvasive and offer an
+attractive approach to the measurement of plasma parameters. Careful
+measurements of the light emitted from excited atomic states can yield electron
+densities and temperatures, excited state densities and temperatures, electric
+fields, and magnetic fields. The topic of spectroscopy is extensive and it is
+neither necessary nor desirable to cover it in full. Instead we will only
+consider what is necessary to understand the emissions from a singly-excited,
+multi-electron atom.
 
-However, interactions with other particles or photons can excite one or
-more of the electrons into orbitals with higher potential energy. In
-most cases relevant to low temperature plasmas, only a single electron
-will be excited at any given time. Depending on which orbital the
-electron is excited to, it can transition to orbitals with lower
-potential energy by emitting a photon. These are typically called
-allowed transitions.
-
-Each orbital in an atom can be described by four quantum numbers.
+An atom is composed of a small, positively charged nucleus, orbited by a
+negatively charged electrons. The actual position of any single electron is
+probabilistic and described by a wavefunction, as determined by solutions of the
+Schr\"{o}dinger equation. Multiple possible wavefunctions or orbitals exist, and
+the Pauli exclusion principle prevents more than one electron from possessing
+the same orbital. Each orbital is identified by four quantum numbers,
 \begin{itemize}
-  \item $n$ - The principal quantum number.
-  \item $l$ - Orbital angular momentum number.
-  \item $j$ - Total angular momentum.
-  \item $m_j$ - Total angular magnetic moment.
+  \item $n=1,2,\ldots$ - the principal quantum number,
+  \item $l=0,1,\ldots,n-1$ - the orbital angular momentum, and
+  \item $s=\pm1/2$ - the spin angular momentum.
 \end{itemize}
-The Pauli exclusion principle restricts more than a single electron from
-occupying any given state defined by this series of numbers.
-Additionally, each set of numbers determines the potential energy
-possessed by an electron in that particular level. 
+The principal quantum number identifies the shell to which an electron belongs.
+Each shell can contain a total of $2(2l+1)$ electrons, after which it is
+considered full. Each shell has a series of subshells, defined by $l$ (using the
+nomenclature $0,1,2,3,\ldots = s,p,d,f,\ldots$). 
+
+The electrons of an atom possess potential energy as a result of their
+separation from the nucleus. As $n$ and $l$ increase, so does the potential
+energy, thus an electron in the $1s$ ($n=1$ and $l=0$) subshell has the lowest
+possible potential energy. Each as a result of the exclusion principle, each
+subshell can only contain up to $2(2l+1)$ electrons after which it is considered
+full.
+
+Absent from external influences, the subshells are populated with electrons so
+as to minimize the potential energy of the system, referred to as the ground
+state configuration. Often, but not always, the subshells are filled
+sequentially and in order from lowest to highest $l$. Provided some input
+energy, one or more of the electrons surrounding the atom may transition to
+another orbital, increasing the potential energy of the system. In
+low-temperature plasmas it usually one of the electrons from the outermost or
+unfilled subshell to be excited.
+
+In hydrogen-like atoms with a single electron in a single unfilled subshell, the
+potential energy of any singly-excited configuration is uniquely determined by
+this single outer electron. As a result, the initial and final states of the
+atom can be uniquely identified based on the initial and final $n$ and $l$ of
+aforementioned electron. In contrast, the potential energies of configurations
+in noble gases and atoms with more than one electron in the valence shell are
+determined by the collective effects of these outer electrons.
+
+This necessitates an additional means of classifying the configuration of the
+outer electrons. It turns out that the state of these types of atoms can be
+specified based on their total orbital angular momentum $\bm{L}=\sum \bm{l}_i$,
+the total spin, $\bm{S}=\sum \bm{s}_i$, and the total angular momentum,
+$\bm{J}=\bm{L}+\bm{S}$, where $i$ are all the electrons of the unfilled shell.
+In addition, each state can be said to have either even or odd parity, defined
+as $(-1)^{\sum\bm{l}_i}$.
+
+Together, these values can be used to express the term symbol for any particular
+atomic state. For example, the so called triplet metastable state of helium can
+be written as $1s2p^3P^o_{0,1,2}$.
 
 Allowed transitions are determined by a series of selection rules. These
 selection rules can be summed up as the following:
@@ -367,3 +400,5 @@ Also included in this category is pressure broadening, or more fundamentally,
 dephasing. 
 
 \subsection{Radiation Trapping}
+
+\section{Collision Processes}
