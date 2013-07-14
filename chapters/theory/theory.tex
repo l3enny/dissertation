@@ -360,61 +360,40 @@ energy matching a transition, the photon may be absorbed. Both processes are
 useful in determining the prevalence and dynamics of the excited states. This,
 in turn, can be used to infer various plasma properties.
 
-The light 
+Conservation of energy requires that the energy of the absorbed or emitted
+photon match the energy difference between the two states. However, the finite
+lifetime of excited atomic states implies, via the time-energy formulation of
+the uncertainty principle, some uncertainty in the actual energy difference
+between the states. As a result, the emitted photon will possess an energy
+selected from a distribution of energies.
 
-It is tempting to think that the energy spacing can be calculated exactly,
-however there is always some variance about a central energy. This is called the
-spectral lineshape, and it effects both the energy of the emitted photon in
-radiative transitions, and the photons that an atom can absorb. Though these
-variations can be attributed to quantum mechanical effects, the actual result
-can derived from the so-called dipole approximation.
-
-In this case, we envision a single electron oscillating about a large, heavy,
-positive charge. The full details of this derivation are covered in Siegman
-\cite{Siegman1986}, however we'll address some of the most pertinent portions
-here. The response of a collection of atoms to an applied electric field can be
-expressed as a quantity known as the susceptibility. This is generally defined
-as
+This distribution is referred to as the spectral lineshape. The natural
+lineshape of an atomic transition can be shown \cite{Siegman1986} to be a
+Lorentzian of the form,
 \begin{equation}
-    \tilde{\chi}(\omega) \equiv
-    \frac{\tilde{P}(\omega)}{\epsilon_0\tilde{E}(\omega)}
+  g(\omega) = -\frac{1}{4\pi^2}\frac{A\lambda^3}{\Delta\omega_a}
+  \frac{1}{1 + \left[2(\omega-\omega_a)/\Delta\omega_a\right]^2},
+  \label{eq:lorentzian}
 \end{equation}
-where $\tilde{\chi}$ is the electric susceptibility, $\tilde{P}$ is the
-macroscopic polarization, $\tilde{E}$ is the applied electric field, and
-$\omega$ is the frequency of the applied field.
+where $\omega$ is the photon frequency, $A$ is the Einstein coefficient for the
+transition, $\lambda$ is the wavelength of the transition, $\omega_a$ is central
+frequency of the transition, and $\Delta\omega_a$ the full-width half maximum
+(\acs{fwhm}) of the transition. In the ideal case, where the atoms motionless
+and unaffected by external perturbations, $\Delta\omega_a = A$. This is known as
+the natural linewidth.
 
-\paragraph{Natural Linewidth}
-The electric susceptibility often possesses both a real and imaginary component.
-Physically, these respectively represent the reactive and absorptive component
-of the medium. Accounting for level-dependent effects, the standard
-susceptibility for an atomic transition can be written as
-\begin{equation}
-    \tilde{\chi}_\mathrm{at}(\omega) = -j\frac{3}{4\pi^2}\frac{\Delta
-    N\lambda^3\gamma_\mathrm{rad}}{\Delta\omega_a}\frac{1}{1
-    + 2j(\omega - \omega_a)/\Delta\omega}
-\end{equation}
-where $\Delta N$ represents the population difference between the upper and
-lower levels of the oscillator, $\lambda$ is the transition wavelength,
-$\gamma_\mathrm{rad}$ is the natural radiative lifetime of the oscillator,
-$\Delta\omega_a$ is the linewidth of the transition (for an unperturbed
-atom, this is simply $\gamma_\mathrm{rad}$), and $\omega_a$ is the
-angular frequency of the transition or oscillator.
+Other processes can affect the spectral lineshape. For example, inter-atomic
+collisions can reduce the lifetimes of excited states. This results in
+additional broadening of the line, though it retains its Loretnzian nature. As
+the frequency of inter-atomic collisions increases linearly with pressure, this
+phenomena is referred to as pressure broadening. It can be included in
+equation~\ref{eq:lorentzian} by using $\Delta\omega_a = A + BP$, where $B$ is a
+measured or calculated broadening coefficient, and $P$ is the pressure.
 
-This equation is generally known as the complex lorentzian. Separated into its
-components it expresses both the absorptive and reactive properties of the
-atomic medium. It also clearly susceptible to fields that are displaced from
-$\omega_a$. This is the finite linewidth associated with atomic
-emissions and absorption.
-
-This linewidth affects each atom within the medium. Each atom will emit or
-absorb radiation with a probability described by this susceptibility.
-Consequently, this natural linewidth falls under the homogeneous category of
-line broadening.
-
-\paragraph{Pressure Broadening}
-Also included in this category is pressure broadening, or more fundamentally,
-dephasing. 
-
-\subsection{Radiation Trapping}
+Atomic motion can also play a role in the spectral lineshape. If an atom is
+moving toward or away an observer as it emits a photon, the emitted photon will
+be blue or red shifted. If this effect is averaged over the random motion of
+atoms in a gas, the result is an additional broadening of the lineshape, called
+Doppler broadening. Unlike pressure broadening, Doppler broadening
 
 \section{Collision Processes}
