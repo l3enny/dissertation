@@ -371,8 +371,8 @@ This distribution is referred to as the spectral lineshape. The natural
 lineshape of an atomic transition can be shown \cite{Siegman1986} to be a
 Lorentzian of the form,
 \begin{equation}
-  g(\omega) = -\frac{1}{4\pi^2}\frac{A\lambda^3}{\Delta\omega_a}
-  \frac{1}{1 + \left[2(\omega-\omega_a)/\Delta\omega_a\right]^2},
+  g(\omega) = -\frac{1}{4\pi^2}\frac{A\lambda^3}{\dwa}
+  \frac{1}{1 + \left[2(\omega-\omega_a)/\dwa\right]^2},
   \label{eq:lorentzian}
 \end{equation}
 where $\omega$ is the photon frequency, $A$ is the Einstein coefficient for the
@@ -394,6 +394,24 @@ Atomic motion can also play a role in the spectral lineshape. If an atom is
 moving toward or away an observer as it emits a photon, the emitted photon will
 be blue or red shifted. If this effect is averaged over the random motion of
 atoms in a gas, the result is an additional broadening of the lineshape, called
-Doppler broadening. Unlike pressure broadening, Doppler broadening
+Doppler broadening. Unlike pressure broadening, Doppler broadening introduces a
+Gaussian component to the lineshape such that,
+\begin{multline}
+  g(\omega) = \sqrt{\frac{2\ln{2}}{\pi^3}}\frac{\dwa}{\dwd}
+  \int_{-\infty}^\infty
+  \frac{1}{[(\omega - \omega_a) - \omega']^2 + 4\dwa^2} \\
+  \times \exp\left[4\ln{2}\left(\frac{\omega'}{\dwd}\right)^2\right]d\omega'.
+  \label{eq:voigt}
+\end{multline}
+Here, $\dwd = \omega_a\sqrt{\frac{8k_\mathrm{B}T_\mathrm{g}\ln{2}} {Mc^2}}$, is
+the width of the Doppler broadening. This form of the spectral lineshape is
+known as the Voigt profile, and it must be numerically integrated. In the case
+that $\dwd >> \dwa$, equation~\ref{eq:voigt} can be simplified to a standard
+Gaussian distribution.
 
-\section{Collision Processes}
+The spectral lineshape can be altered by a number of other processes. Electric
+fields can influence the emissions via the Stark effect, while magnetic fields
+can split up degenerate states via the Zeeman effect. The fields of electrons
+and nearby molecules can also alter the lineshape of a transition. While not
+used in this study, such effects can be used as effective diagnostic tools for
+plasmas.
