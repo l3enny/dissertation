@@ -153,23 +153,31 @@ discharge is the result of electron avalanches which may occur randomly
 throughout the discharge, particularly without any form of
 preionization. Often, the seed electrons for a plasma result from
 ionizing cosmic rays which generate a few electrons per
-cubic-centimeter. This has been verified with measurements of the
-statistical lag in Townsend breakdown.
+cubic-centimeter.
 
-Briefly, the Townsend mechanism begins with some small number of primary
-electrons between two electrodes. In the presence of a sufficient
-electric field, the electron population exponentiates as they traverse
-the anode-cathode gap. The collection of the electrons at the anode is
-balanced out by the emission of secondary electrons from cathode as a
-result of ion impact. The time required for an electron to drift across
-the gap determines the formation time of a Townsend discharge, and the
-secondary electron emission processes play an important role in
-sustaining the discharge.
+Classically, plasmas are created by two different mechanisms, depending on the
+strength of the electric field. At lower electric fields, the Townsend mechanism
+is used to explain the formation of a plasma. Consider a two electrodes
+separated by a gap filled with some gas. An electron starting near the cathode
+will drift toward the anode. For a sufficient electric field, the electron will
+gain enough kinetic energy to ionize a neutral atom, creating two electrons.
+These two electrons may then ionize additional neutral atoms as they cross the
+gap, in a manner similar to that seen in fig~\ref{fig:avalanche}. Eventually,
+the electrons are collected at the anode. However, in their wake are ions which
+slowly drift toward the cathode. Upon colliding with the cathode, they have some
+probability of emitting a secondary electron which will also undergo an
+avalanche. Townsend breakdown occurs when the enough electron multiplication
+occurs within the gap to balance out the ions which do not produce secondary
+electrons.
 
-Conversely, the \acs{rpnd} is fundamentally similar to a streamer
-discharge where secondary emission processes are unimportant, and space
-charge plays an important role. Consider a single electron between two
-electrodes, as seen in (a) of figure~\ref{fig:streamer}.
+This process is characterized by $\alpha$ and $\gamma$, the first and second
+Townsend coefficients. $\alpha$ expresses the number of ionization events per
+unit pathlength for a given electric field. On the other hand, $\gamma$ is the
+probability that an ion impinging on the cathode produces a secondary electron.
+
+In contrast, the streamer discharge does not rely on secondary emission
+processes. Again, consider an electron between two electrodes, as seen in (a) of
+figure~\ref{fig:streamer}.
 \begin{figure}
   \centering
   \includegraphics{./chapters/theory/figures/streamer.eps}
@@ -181,85 +189,109 @@ electrodes, as seen in (a) of figure~\ref{fig:streamer}.
     nonlocal electrons and photoionization.}
   \label{fig:streamer}
 \end{figure}
-The electron acquires energy from the applied electric field, and begins
-to move in the direction of the anode. As the electron drifts, it
-undergoes random collisions, some of which result in ionization. As long
-as the charged particles do not significantly perturb the external
-field, the new electrons also begin to drift resulting in an electron
-avalanche.
-
-On short time scales, the ions are essentially immobile as result of
-their large mass. This produces a cone of positive space charge in the
-wake of the electron avalanche, as seen in part (b) of
-figure~\ref{fig:streamer}. The increasing radius of the avalanche with
-distance occurs primarily as a result of collision-induced lateral
-diffusion of the electrons. At some point, the space charge of the
-positive ions becomes sufficient to shield the avalanche electrons from
-the applied field. This halts the propagation of spherical region of
-electrons in the streamer ``head.''
-
-The length of this avalanche is equivalent to the minimum distance in
-which a streamer can form. Following Levatter and Lin
-\cite{Levatter1980}, the critical avalanche distance can be expressed as
+The only difference from the Townsend case, is that the electric field is much
+larger. Again, the electron acquires energy from the applied electric field, and
+begins to create an avalanche of electrons. Following Levatter and Lin
+\cite{Levatter1980}, the electrons in the avalanche travel with a velocity
+characterized by the electron mobility, $\mu$. This term expresses the
+frictional force exerted by the gas on the electrons. Consequently, the mean
+velocity of electrons drifting in a field $E(t)$ can be expressed as
 \begin{equation}
-  \int_0^{\xi_c}\alpha(\xi')d\xi' = \ln\left(19.6 \epsilon_0 E \bar{\lambda_e}
-                                           \bar{C_e}\xi_c/e\bar{u_e}\right),
-  \label{eq:xi_c}
+  u = \mu(E/N_g) E(t),
 \end{equation}
-where $\xi_c$ is the critical avalanche length, $\xi$ is the overall
-avalanche length, $\alpha$ is the first Townsend coefficient expressing
-the number of electrons generated for a given distance and field, $E_0$ is
-the applied field, $\bar{\lambda_e}$ is the electron mean free path,
-$\bar{C_e}$ is the mean thermal velocity of the electron, and $\bar{u_e}
-= \mu\dot{E}[t_0+\delta t/2]$ is the mean drift velocity of the
-electron.
-
-With certain assumptions, this equation can be reduced to the form of
-the classic Raether criterion for breakdown in air. Supposing that the
-first Townsend coefficient is constant, a breakdown electric field of
-$E/N=4.4$ Td, a mean momentum transfer cross section of
-$3.34\times10^{-19}$ m$^2$, a mean thermal velocity of $6.23\times10^5$
-m/s, and a mean drift velocity of $1.06\time10^4$ m/s, we obtain
+where $N_g$ is the neutral gas density. This involves the implicit assumption
+that the electrons in the avalanche have reached equilibrium with the applied
+field at all times, $t$. Given this definition of the electron drift velocity,
+the total length of the avalanche may be written as
 \begin{equation}
-  \alpha d = 41.3 + \ln{d}.
+  \xi = \int_{t_0}^t u dt.
+  \label{eq:s_xi}
 \end{equation}
-The thermal velocity and drift velocity were calculated from solutions
-of the Boltzmann equation produced by \smaller{BOLSIG+}
-\cite{Hagelaar2005} using the electronic cross sections of Phelps
-\cite{Phelps2002}. Thus, given a specific Townsend coefficient the gap
-width can be calculated, or vice versa.
+Here, $t_0$ is the time at which $E(t)$ becomes sufficiently large for $\alpha >
+0$ which is interpreted as the beginning of the avalanche.
 
-However, the Raether criterion only considers a system with the electric
-field suddenly applied. It does not consider the situation where the
-electric field, and as a result $\alpha$, is changing over time. In
-order to develop the actual critical track length, $\xi_c$,
-equation~\ref{eq:xi_c} must be integrated numerically. 
+As seen in figure~\ref{fig:streamer}, the ions generated by the ionization
+events remain in place as the electron avalanche passes. This follows from the
+much larger mass of the ions, and the relatively short time scale on which the
+avalanche occurs (often on the order of nanoseconds). The cone-like structure of
+the ions results from the collision-induced, transverse diffusion of the
+electrons. The diffusion coefficient for can be approximated as $D = \lambda
+v_mathrm{th}/3$, where $\lambda$ is the mean free path of the electrons, and
+$v_\mathrm{th}$ is their thermal velocity. Assuming that the electrons diffuse
+equally in the lateral transverse directions, the electron density in the head
+of the avalanche is a sphere of the form,
+\begin{equation}
+  n_e(r) = \frac{N_e}{\pi^{3/2}R^2}\exp\left(-\frac{r^2}{R^2}\right),
+  \label{eq:s_density}
+\end{equation}
+where $r$ is the radial coordinate (relative to the center of the avalanche),
+$N_e$ is the electron population, $\Delta t$ is the time elapsed since $\alpha >
+0$, and $R$ is the diffusion radius. The diffusion radius can be calculated from
+\begin{equation}
+  R = \int_{0}^{\xi} \lambda v_\mathrm{th}(\xi') d\xi',
+  \label{eq:s_rad}
+\end{equation}
+as the thermal velocity is expected to change as more energy is deposited into
+the electrons over the length of the avalanche.
 
-TODO: Develop Critical radius of streamer head
+In a Townsend discharge, the avalanche would be expected to cross the entire
+width of the gap. For a streamer, on the other hand, the space charge of the
+avalanche becomes sufficiently large that it stalls mid-gap as can be noted in
+part (c) for figure~\ref{fig:streamer}. It is commonly assumed that this occurs
+when the peak field within the head of the avalanche becomes equal to the
+applied field. Again, from Levatter and Lin, electric field can be found to
+equal,
+\begin{eqnarray}
+  E_a(r) = \frac{eN_e}{4\pi\epsilon_0R^2} F(r/R), \qquad \mathrm{where} \\
+  F(r/R) = \frac{1}{R^2}left[\erf(r/R)-\frac{2}{\pi^{1/2}}
+           (r/R)\exp(-r^2/R^2)\right],
+\end{eqnarray}
+and $\erf$ is the error function. $F$ is a dimenionless function which has a
+peak value of $0.428$. The number of electrons in the avalanche, is equal to
+\begin{equation}
+  N_e = \int_0^\xi \alpha(\xi')d\xi'.
+  \label{eq:s_pop}
+\end{equation}
 
-TODO: Develop size condition for streamer formation
+Levatter and Lin make a number of assumptions in order to develop an analytic
+and dimensionless solution for $E_{a,\mathrm{max}}(t) = E(t)$. However, it is
+possible to numerically integrate equations~\ref{eq:s_xi} and~\ref{eq:s_rad} so
+as to more accurately calculate the final radius, and length of the avalanche.
+Figure~\ref{fig:he_avalanche}
+\begin{figure}
+  \includegraphics{./chapters/theory/figures/he_avalanche.eps}
+  \caption{The }
+  \label{fig:he_avalanche}
+\end{figure}
+shows the results of such calculations for a streamer in 1.0 Torr of helium, and
+various ramped electric fields. The values for the mobility, mean velocity, and
+Townsend coefficient were interpolated from solutions of the Boltzmann equation
+provided by the \smaller{BOLSIG+} code with Phelps' cross sections
+\cite{Phelps2002}.
 
-At this point, several processes become important for the streamer to
-continue its progress across the gap, displayed in part (c) of
-giure~\ref{fig:streamer}. The large internal field of the streamer can
-``inject'' electrons in the direction of the anode \cite{Kunhardt1980}.
-In addition, excited atoms in the wake of the avalanche can emit
-photons, ionizing the gas between the streamer head and the anode. These
-electrons are subject to the large electric field between the anode and
-streamer head, resulting in additional avalanches. Likewise,
-photoionization can occur in the region between the tail of the streamer
-and the cathode. The any photoelectrons generated in this region are
-accelerated toward the tail of the streamer, resulting in additional
-avalanches.
+At this point, several processes become important for the development of the
+streamer in the gap. The large internal field of the avalanche can ``inject''
+electrons in the direction of the anode \cite{Kunhardt1980}. In addition,
+excited atoms in the wake of the avalanche can emit photons, ionizing the gas
+between the avalanche head and the anode. These electrons are subject to the
+large electric field between the anode and avalanche head, resulting in
+additional avalanches. Likewise, photoionization can occur in the region between
+the tail of the streamer and the cathode. The any photoelectrons generated in
+this region are accelerated toward the tail of the avalanche, resulting in
+additional avalanches.
 
-However, in the \acs{rpnd} these later processes in part (c) are not
-critical to the formation of the volume discharge. Instead, as described
-by Levatter and Lin \cite{Levatter1980}, a sufficiently large amount of
-preionization results in a similarly large number of avalanches.
-Provided these avalanches are close enough, the streamer heads will
-overlap before reaching the critical electric field strength. This
-action smooths out the strong local gradients that cause streamers to
-filament and constrict.
+Once the gap is bridged
+
+However, in the \acs{rpnd} these later processes are not critical to the
+formation of the volume discharge. Instead for a sufficiently large
+preionization density, where the cr
+
+Instead, as described by Levatter and Lin
+\cite{Levatter1980}, a sufficiently large amount of preionization results in a
+similarly large number of avalanches. Provided these avalanches are close
+enough, the streamer heads will overlap before reaching the critical electric
+field strength. This action smooths out the strong local gradients that cause
+streamers to filament and constrict.
 
 TODO: HOMOGENEOUS DISCHARGE CONDITION
 
@@ -419,6 +451,8 @@ the width of the Doppler broadening. This form of the spectral lineshape is
 known as the Voigt profile, and it must be numerically integrated. In the case
 that $\dwd >> \dwa$, equation~\ref{eq:voigt} can be simplified to a standard
 Gaussian distribution.
+
+TODO: Comparison of lorentzian vs. gaussian vs. voigt
 
 The spectral lineshape can be altered by a number of other processes. Electric
 fields can influence the emissions via the Stark effect, while magnetic fields
