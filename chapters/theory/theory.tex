@@ -199,30 +199,41 @@ the applied field. This halts the propagation of spherical region of
 electrons in the streamer ``head.''
 
 The length of this avalanche is equivalent to the minimum distance in
-which a streamer can form. Following Levatter and Lin, the critical
-avalanche distance can be expressed as
+which a streamer can form. Following Levatter and Lin
+\cite{Levatter1980}, the critical avalanche distance can be expressed as
 \begin{equation}
   \int_0^{\xi_c}\alpha(\xi')d\xi' = \ln\left(19.6 \epsilon_0 E \bar{\lambda_e}
                                            \bar{C_e}\xi_c/e\bar{u_e}\right),
+  \label{eq:xi_c}
 \end{equation}
 where $\xi_c$ is the critical avalanche length, $\xi$ is the overall
 avalanche length, $\alpha$ is the first Townsend coefficient expressing
-the number of electrons generated for a given distance and field, $E$ is
+the number of electrons generated for a given distance and field, $E_0$ is
 the applied field, $\bar{\lambda_e}$ is the electron mean free path,
 $\bar{C_e}$ is the mean thermal velocity of the electron, and $\bar{u_e}
 = \mu\dot{E}[t_0+\delta t/2]$ is the mean drift velocity of the
 electron.
 
+With certain assumptions, this equation can be reduced to the form of
+the classic Raether criterion for breakdown in air. Supposing that the
+first Townsend coefficient is constant, a breakdown electric field of
+$E/N=4.4$ Td, a mean momentum transfer cross section of
+$3.34\times10^{-19}$ m$^2$, a mean thermal velocity of $6.23\times10^5$
+m/s, and a mean drift velocity of $1.06\time10^4$ m/s, we obtain
+\begin{equation}
+  \alpha d = 41.3 + \ln{d}.
+\end{equation}
+The thermal velocity and drift velocity were calculated from solutions
+of the Boltzmann equation produced by \smaller{BOLSIG+}
+\cite{Hagelaar2005} using the electronic cross sections of Phelps
+\cite{Phelps2002}. Thus, given a specific Townsend coefficient the gap
+width can be calculated, or vice versa.
 
-This can be expressed as a mobility, $\mu = u/E$, where $u$ is the drift
-velocity and $E$ is the applied field. The mobility can be found by
-empirical methods, or through solutions of the Boltzmann equation. Here,
-we use approximate solutions of the Boltzmann equation found with the
-program \smaller{BOLSIG+} \cite{Hagelaar2005} using the electronic cross
-sections of Phelps \cite{Phelps2002}.
-
-The distance it takes to form this critical level of space charge is the
-minimum distance in which a streamer can form.
+However, the Raether criterion only considers a system with the electric
+field suddenly applied. It does not consider the situation where the
+electric field, and as a result $\alpha$, is changing over time. In
+order to develop the actual critical track length, $\xi_c$,
+equation~\ref{xi_c} must be integrated numerically. 
 
 TODO: Develop Critical radius of streamer head
 
