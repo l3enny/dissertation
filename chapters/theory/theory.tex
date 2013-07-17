@@ -475,9 +475,26 @@ Here, $\dwd = \omega_a\sqrt{\frac{8k_\mathrm{B}T_\mathrm{g}\ln{2}} {Mc^2}}$, is
 the width of the Doppler broadening. This form of the spectral lineshape is
 known as the Voigt profile, and it must be numerically integrated. In the case
 that $\dwd >> \dwa$, equation~\ref{eq:voigt} can be simplified to a standard
-Gaussian distribution.
+Gaussian distribution,
+\begin{equation}
+  g(\omega) = \sqrt{\frac{4\log{2}}{\pi\dwd^2}}
+  \exp\left[-(4\log{2})\left(\frac{\omega-\omega_a}}{\dwd}\right)^2\right].
+\end{equation}
 
-TODO: Comparison of lorentzian vs. gaussian vs. voigt
+The effect of the various broadening mechanisms is most apparent in the wings of
+the lineshape, far from the peak. Figure~\ref{fig:lineshapes}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/theory/figures/lineshapes.eps}
+  \caption{A comparison of the three primary spectral lineshapes, each with the
+  same full width.}
+  \label{fig:lineshapes}
+\end{figure}
+illustrates the three major lineshapes with equivalent full widths. The Voigt
+profile is composed of equally broad Lorentzian and Gaussian distributions. As
+can be seen, the wings of the Gaussian distribution fall off very quickly. In
+comparison, the Lorentzian component is observable well out to the edges of the
+figure. 
 
 The spectral lineshape can be altered by a number of other processes. Electric
 fields can influence the emissions via the Stark effect, while magnetic fields
