@@ -49,8 +49,8 @@ def mu_func(t):
         return mu_spline(EN(t))
 
 
-slopes = 1e-21 / np.logspace(-10, -8)
-#slopes = [1e-21 / 1e-9]
+delays = np.logspace(-10, -8)
+slopes = EN_0 / delays
 xi_c = []
 R_c = []
 for dENdt in slopes:
@@ -108,5 +108,7 @@ for dENdt in slopes:
     print "Critical Field:  ", 1e21 * E_r / N_g, '\n'
 
 np.savetxt('slopes.dat', slopes, delimiter=',')
+np.savetxt('delays.dat', delays, delimiter=',')
 np.savetxt('lengths.dat', xi_c, delimiter=',')
-np.savetxt('radii.dat', R_c, delimiter=',')
+np.savetxt('delays.dat', R_c, delimiter=',')
+np.savetxt('ne.dat', np.array(R_c)**-3, delimiter=',')
