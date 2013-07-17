@@ -1,15 +1,13 @@
 \section{Ionized Gas}
-A plasma is considered to be a form or subset of ionized gas. That is, a
-volume of neutral atoms or molecules, of which some fraction has been
-separated into electrons and ions. For a sufficiently large number of
-particles, the behavior of each species in the ionized gas can be
-described by a continuous distribution function which specifies the
-number of particles with a specific range of velocities, in a specific
-volume, at a specific time. This function is denoted
-$f_\alpha(\vec{r_\alpha}, \vec{v_\alpha}, t)$, where the subscript
-$\alpha$ denotes the species, $f$ is the probability distribution,
-$\vec{r}$ is the position, $\vec{v}$ is the velocity, and $t$ is the
-time.
+A plasma is considered to be a form or subset of ionized gas. That is, a volume
+of neutral atoms or molecules, of which some fraction has been separated into
+electrons and ions. For a sufficiently large number of particles, the behavior
+of each species in the ionized gas can be described by a continuous distribution
+function which specifies the number of particles with a specific range of
+velocities, in a specific volume, at a specific time. This function is denoted
+$f_\alpha(\vec{r_\alpha}, \vec{v_\alpha}, t)$, where the subscript $\alpha$
+denotes the species, $f$ is the probability distribution, $\vec{r}$ is the
+position, $\vec{v}$ is the velocity, and $t$ is the time.
 
 The behavior of $f_\alpha$ can be shown to be governed by the Boltzmann
 equation,
@@ -23,54 +21,51 @@ Here, $q$ is the charge of the species, $\vec{E}$ is the electric field,
 $\vec{B}$ is the magnetic field, and $\partial f_\alpha/(\partial
 t)_\mathrm{coll}$ is a term which represents changes to the distribution
 function as a result of collisions. Coupled with Maxwell's equations,
-equation~\ref{eq:boltzmann} provides a complete description of the
-behavior of the fields and particles in a plasma.
+equation~\ref{eq:boltzmann} provides a complete description of the behavior of
+the fields and particles in a plasma.
 
-For a species in equilibrium in the absence of external forces
-(($\partial f_\alpha/\partial t)_\mathrm{coll} = 0$) it can be shown
-that
+For a species in equilibrium in the absence of external forces (($\partial
+f_\alpha/\partial t)_\mathrm{coll} = 0$) it can be shown that
 \begin{equation}\label{eq:mb}
   f_\alpha(v_\alpha) =
     n_\alpha\left( \frac{m_\alpha}{2\pi \kB T_\alpha}\right)^{3/2}
    \exp\left(-\frac{m_\alpha v_\alpha^2}{2\kB T_\alpha}\right),
 \end{equation}
-where $n$ is the total density of the species, $m$ is the particle mass,
-$\kB$ is Boltzmann's constant, and $T_\alpha$ is the temperature of the
-species. It must be emphasized that this solution only applies to
-situations where the species can be considered to be in equilibrium.
-Strong gradients and large electromagnetic fields can both drive a
-distribution far from its equilibrium condition. This is particularly
-important when plasmas are discussed in the context of temperature.
+where $n$ is the total density of the species, $m$ is the particle mass, $\kB$
+is Boltzmann's constant, and $T_\alpha$ is the temperature of the species. It
+must be emphasized that this solution only applies to situations where the
+species can be considered to be in equilibrium. Strong gradients and large
+electromagnetic fields can both drive a distribution far from its equilibrium
+condition. This is particularly important when plasmas are discussed in the
+context of temperature.
 
-Solutions of the equation~\ref{eq:boltzmann} in anything but this simple
-case can be very challenging. It most situations, it is reduced to more
-tenable equations by integrating over the velocity-space (leaving $f$ as
-only a function of space and time). The first so-called moment is often
-called the conservation equation or continuity equation,
+Solutions of the equation~\ref{eq:boltzmann} in anything but this simple case
+can be very challenging. It most situations, it is reduced to more tenable
+equations by integrating over the velocity-space (leaving $f$ as only a function
+of space and time). The first so-called moment is often called the conservation
+equation or continuity equation,
 \begin{equation}\label{eq:cont}
   \frac{\partial n_\alpha}{\partial t} + \nabla \cdot (n_\alpha \vec{u_\alpha})
   = G_\alpha - L_\alpha.
 \end{equation}
-In this case, $\vec{v}$ has been replaced by a mean velocity $\vec{u}$.
-We have also introduced terms losses ($L$) and gains ($G$) in the
-species density.
+In this case, $\vec{v}$ has been replaced by a mean velocity $\vec{u}$. We have
+also introduced terms losses ($L$) and gains ($G$) in the species density.
 
 The definition of the mean velocity can be obtained by multiplying
-equation~\ref{eq:boltzmann} by $v$ and integrating over velocity-space.
-This is referred to as the second moment. The result is an equation
-expressing the conservation of momentum for the species. The actual
-equation will not be reproduced here, but it forms the basis for the
-two-fluid approximation of a plasma. In the course of developing the
-second moment an additional term, the pressure tensor, is introduced
-which can only be defined by the third moment of
-equation~\ref{eq:boltzmann}. In fact, each additional moment introduces
-a new term, \emph{ad infinitum}. For most cases, the first two or three
-moments suffice, after the sequence is terminated by the use of an
-additional assumption.
+equation~\ref{eq:boltzmann} by $v$ and integrating over velocity-space. This is
+referred to as the second moment. The result is an equation expressing the
+conservation of momentum for the species. The actual equation will not be
+reproduced here, but it forms the basis for the two-fluid approximation of a
+plasma. In the course of developing the second moment an additional term, the
+pressure tensor, is introduced which can only be defined by the third moment of
+equation~\ref{eq:boltzmann}. In fact, each additional moment introduces a new
+term, \emph{ad infinitum}. For most cases, the first two or three moments
+suffice, after the sequence is terminated by the use of an additional
+assumption.
 
 For our purposes, one more moment will suffice. Multiplying by $mv^2/2$,
-integrating over velocity-space, and assuming that the pressure is
-isotropic, produces the energy conservation equation,
+integrating over velocity-space, and assuming that the pressure is isotropic,
+produces the energy conservation equation,
 \begin{equation}
   \frac{\partial}{\partial t}\left(\frac{3}{2}p_\alpha\right) 
   + \nabla\cdot\frac{3}{2} (p_\alpha\vec{u}_\alpha)
@@ -79,61 +74,57 @@ isotropic, produces the energy conservation equation,
   = \frac{\partial}{\partial
   t}\left(\frac{3}{2}p_\alpha\right)\bigg|_\mathrm{coll}.
 \end{equation}
-In this case, $p$ represents the plasma pressure, and $\vec{q}$ is the
-heat flow. The first term on the \textsc{lhs} represents the total
-energy contained by the species, the second term is the energy flux in
-and out of the volume, and the third term accounts for changes due to
-compression or expansion. The \textsc{rhs} is the collision operator
-which describes energy added or removed from the system as a result of
-collisions.
+In this case, $p$ represents the plasma pressure, and $\vec{q}$ is the heat
+flow. The first term on the \textsc{lhs} represents the total energy contained
+by the species, the second term is the energy flux in and out of the volume, and
+the third term accounts for changes due to compression or expansion. The
+\textsc{rhs} is the collision operator which describes energy added or removed
+from the system as a result of collisions.
 
 \section{Plasma Criteria}
-While equations above can equally describe an ionized gas or a plasma,
-the two are conceptually distinct. A plasma is unique in that its
-dynamics are governed by long range electromagnetic forces, unlike gases
-in which short-range collisions dominate. As a result, plasmas
-frequently feature large scale structure and organization. Examples of
-these structures are ubiquitous in astronomy where phenomena such as the
-aurora borealis, coronal mass ejections, and even interstellar media all
-qualify as forms of plasma. How then, does one define a plasma? There
-are three criteria required of an ionized gas in order for it to be
-considered a plasma.
+While equations above can equally describe an ionized gas or a plasma, the two
+are conceptually distinct. A plasma is unique in that its dynamics are governed
+by long range electromagnetic forces, unlike gases in which short-range
+collisions dominate. As a result, plasmas frequently feature large scale
+structure and organization. Examples of these structures are ubiquitous in
+astronomy where phenomena such as the aurora borealis, coronal mass ejections,
+and even interstellar media all qualify as forms of plasma. How then, does one
+define a plasma? There are three criteria required of an ionized gas in order
+for it to be considered a plasma.
 
-\subsection{$\lambda_D < L$}
-An ionized gas is composed of both positive and negative charges,
-usually some combination of ions and electrons. If an electrical
-perturbation is introduced, the charge particles will tend to rearrange
-themselves to shield out the effect of the perturbation. A plasma is an
-ionized gas which is sufficiently large for this shielding effect to
-occur. The length scale of this shielding effect is referred to as the
-Debye length, denoted $\lambda_D$. The Debye length can be shown to be
-equal to $\sqrt{\epsilon_0T_e/(en_0)}$, where $\epsilon_0$ is the vacuum
-permittivity, $T_e$ is the electron temperature, and $n_0$ is the plasma
-density. If the characteristic length scale of the ionized gas is $L$,
-then $\lambda_D < L$ for it to be considered a plasma.
+\subsection{Debye Length}
+An ionized gas is composed of both positive and negative charges, usually some
+combination of ions and electrons. If an electrical perturbation is introduced,
+the charge particles will tend to rearrange themselves to shield out the effect
+of the perturbation. A plasma is an ionized gas which is sufficiently large for
+this shielding effect to occur. The length scale of this shielding effect is
+referred to as the Debye length, denoted $\lambda_D$. The Debye length can be
+shown to be equal to $\sqrt{\epsilon_0T_e/(en_0)}$, where $\epsilon_0$ is the
+vacuum permittivity, $T_e$ is the electron temperature, and $n_0$ is the plasma
+density. If the characteristic length scale of the ionized gas is $L$, then
+$\lambda_D < L$ for it to be considered a plasma.
 
-\subsection{$n_0(4\pi \lambda_D^3/3) >> 1$}
-However, the previous condition is necessary, but not sufficient for
-shielding to occur. It is possible to have an ionized gas in which the
-Debye length is smaller than the characteristic length scale, but in
-which there are too few charged particles for shielding to occur. More
-simply put, it would be impossible for a single electron to shield out
-even the smallest of perturbations. For that reason, the number of
-particles in a Debye sphere must be greater than unity in a plasma.
+\subsection{Debye Sphere}
+However, the previous condition is necessary, but not sufficient for shielding
+to occur. It is possible to have an ionized gas in which the Debye length is
+smaller than the characteristic length scale, but in which there are too few
+charged particles for shielding to occur. More simply put, it would be
+impossible for a single electron to shield out even the smallest of
+perturbations. For that reason, the number of particles in a Debye sphere must
+be greater than unity in a plasma, or {$n_0(4\pi \lambda_D^3/3) >> 1$.
 
-\subsection{$\omega_p > \nu$}
-If an ionized gas meets the two aforementioned conditions, it may still
-not exhibit the large scale structure of plasma if the collision
-frequency with neutral particles is too high. In this case, the behavior
-of the ionized gas would be determined more by the random collisions
-with gas particles than the long-range electromagnetic forces. As a
-result, the characteristic oscillation frequency of a plasma (or plasma
-frequency) $\omega_p$ must be greater than the neutral collision
-frequency, $\nu$. Here, $\omega_p = \sqrt{e^2n_0/(\epsilon_0
-m_e)}$.
+\subsection{Plasma Oscillations}
+If an ionized gas meets the two aforementioned conditions, it may still not
+exhibit the large scale structure of plasma if the collision frequency with
+neutral particles is too high. In this case, the behavior of the ionized gas
+would be determined more by the random collisions with gas particles than the
+long-range electromagnetic forces. As a result, the characteristic oscillation
+frequency of a plasma (or plasma frequency) $\omega_p$ must be greater than the
+neutral collision frequency, $\nu$, or {$\omega_p > \nu$}. Here, $\omega_p =
+\sqrt{e^2n_0/(\epsilon_0 m_e)}$.
 
-In spite of this range of requirements, there are a large number of
-natural and man-made plasmas. Figure~\ref{fig:regimes}
+In spite of this range of requirements, there are a large number of natural and
+man-made plasmas. Figure~\ref{fig:regimes}
 \begin{figure}
   \centering
   \includegraphics{./chapters/theory/figures/regimes.eps}
@@ -141,19 +132,17 @@ natural and man-made plasmas. Figure~\ref{fig:regimes}
 electron temperature and density \cite{Huba2011}.}
   \label{fig:regimes}
 \end{figure}
-shows several categories of plasma, plotted as a function of their
-electron density and temperature. As can be seen, the electron densities
-span seven decades, and the densities cover in excess of 20.
+shows several categories of plasma, plotted as a function of their electron
+density and temperature. As can be seen, the electron densities span seven
+decades, and the densities cover in excess of 20.
 
 \section{Streamer Discharge}
-The Boltzmann equation is a continuous, statistical description of a
-plasma. By comparison, the initial breakdown of a plasma is a
-discontinuous process marked by its stochasticity. The initiation of a
-discharge is the result of electron avalanches which may occur randomly
-throughout the discharge, particularly without any form of
-preionization. Often, the seed electrons for a plasma result from
-ionizing cosmic rays which generate a few electrons per
-cubic-centimeter.
+The Boltzmann equation is a continuous, statistical description of a plasma. By
+comparison, the initial breakdown of a plasma is a discontinuous process marked
+by its stochasticity. The initiation of a discharge is the result of electron
+avalanches which may occur randomly throughout the discharge, particularly
+without any form of preionization. Often, the seed electrons for a plasma result
+from ionizing cosmic rays which generate a few electrons per cubic-centimeter.
 
 Classically, plasmas are created by two different mechanisms, depending on the
 strength of the electric field. At lower electric fields, the Townsend mechanism
@@ -243,11 +232,12 @@ applied field. Again, from Levatter and Lin, electric field can be found to
 equal,
 \begin{eqnarray}
   E_a(r) = \frac{eN_e}{4\pi\epsilon_0R^2} F(r/R), \qquad \mathrm{where} \\
-  F(r/R) = \frac{1}{R^2}left[\erf(r/R)-\frac{2}{\pi^{1/2}}
-           (r/R)\exp(-r^2/R^2)\right],
+  F(r/R) = \frac{1}{R^2}\left[\mathrm{erf}(r/R)-\frac{2}{\pi^{1/2}}
+           (r/R)\exp(-r^2/R^2)\right] ,
 \end{eqnarray}
-and $\erf$ is the error function. $F$ is a dimenionless function which has a
-peak value of $0.428$. The number of electrons in the avalanche, is equal to
+and $\mathrm{erf}$ is the error function. $F$ is a dimenionless function which
+has a peak value of $0.428$. The number of electrons in the avalanche, is equal
+to
 \begin{equation}
   N_e = \int_0^\xi \alpha(\xi')d\xi'.
   \label{eq:s_pop}
@@ -259,41 +249,51 @@ possible to numerically integrate equations~\ref{eq:s_xi} and~\ref{eq:s_rad} so
 as to more accurately calculate the final radius, and length of the avalanche.
 Figure~\ref{fig:he_avalanche}
 \begin{figure}
+  \centering
   \includegraphics{./chapters/theory/figures/he_avalanche.eps}
-  \caption{The }
+  \caption{Numerical calculations of the preionization density for homogeneous
+    excitation, avalanche length, and avalanche radius in helium at a pressure
+    of 1.0 Torr as a function of the slope of the electric field.}
   \label{fig:he_avalanche}
 \end{figure}
 shows the results of such calculations for a streamer in 1.0 Torr of helium, and
-various ramped electric fields. The values for the mobility, mean velocity, and
-Townsend coefficient were interpolated from solutions of the Boltzmann equation
-provided by the \smaller{BOLSIG+} code with Phelps' cross sections
-\cite{Phelps2002}.
+various breakdown delays. The breakdown delay is the time it takes for $\alpha >
+0$ with a linearly increasing electric field. The values for the mobility, mean
+velocity, and Townsend coefficient were interpolated from solutions of the
+Boltzmann equation provided by the \smaller{BOLSIG+} code with Phelps' cross
+sections \cite{Phelps2002}. For this range of breakdown delays, the avalanche
+length requires an anode-cathode gap of 1-6 cm for a streamer to form.
 
-At this point, several processes become important for the development of the
-streamer in the gap. The large internal field of the avalanche can ``inject''
-electrons in the direction of the anode \cite{Kunhardt1980}. In addition,
-excited atoms in the wake of the avalanche can emit photons, ionizing the gas
-between the avalanche head and the anode. These electrons are subject to the
-large electric field between the anode and avalanche head, resulting in
-additional avalanches. Likewise, photoionization can occur in the region between
-the tail of the streamer and the cathode. The any photoelectrons generated in
-this region are accelerated toward the tail of the avalanche, resulting in
-additional avalanches.
+At this point the avalanche can no longer continue, and several processes are
+responsible for the development of the streamer. For one, the large internal
+field of the avalanche can ``inject'' electrons in the direction of the anode
+\cite{Kunhardt1980}. In addition, excited atoms in the wake of the avalanche can
+emit photons, ionizing the gas between the avalanche head and the anode. These
+electrons are then subject to the large electric field between the anode and
+avalanche head, resulting in additional avalanches. Likewise, photoionization
+can occur in the region between the tail of the streamer and the cathode.
+Together, these processes create a constricted conductive pathway which bridges
+the two electrodes. The rapid flow of current through this conductive pathway
+quickly thermalizes the plasma, eventually transitioning to an arc.
 
-Once the gap is bridged
+However, these later processes are not critical in the formation of a volume
+discharge by an \acs{rpnd}. The original description of the streamer only treats
+the result of a single avalanche. In reality, it is possible for several
+avalanches to form simultaneously. Furthermore, with sufficient preionization,
+the strong fields of the stalled avalanches can influence each other, smoothing
+out the field gradients which constrict the streamer. This is roughly equivalent
+to the case where the spherical avalanche heads overlap just at the stalling
+condition. In that case, the condition for homogeneous breakdown is simply
+$n_{e,c} > r_c^{-3}$, where $n_{e,c}$ is the preionization density, and $r_c$ is
+the radius of the stalled avalanche. A plot of this condition with the breakdown
+time can also be observed in figure~\ref{fig:he_avalanche}.
 
-However, in the \acs{rpnd} these later processes are not critical to the
-formation of the volume discharge. Instead for a sufficiently large
-preionization density, where the cr
-
-Instead, as described by Levatter and Lin
-\cite{Levatter1980}, a sufficiently large amount of preionization results in a
-similarly large number of avalanches. Provided these avalanches are close
-enough, the streamer heads will overlap before reaching the critical electric
-field strength. This action smooths out the strong local gradients that cause
-streamers to filament and constrict.
-
-TODO: HOMOGENEOUS DISCHARGE CONDITION
+From this condition, it is apparent that as the avalanche radius increases, the
+necessary preionization decreases. Less obvious is the increasing avalanche
+radius with breakdown delay. The higher breakdown delay implies a slower slope
+to the electric field and thus a longer time before the internal field of the
+avalanche becomes significant. As a result, longer breakdown delays imply that
+the avalanche has more time to diffuse, leading to the increased radius.
 
 \section{Atomic Spectroscopy \& Notation}
 
