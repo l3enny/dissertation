@@ -24,6 +24,7 @@ Outline
     2. Streamer Mechanism
   4. Atomic Spectroscopy & Notation
     1. Spectral Lineshape
+    2. Absorption
 3. Experimental Setup
     1. Preliminary Results
         1. Wave Velocities
