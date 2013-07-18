@@ -12,20 +12,19 @@ structure is provided in order to introduce spectroscopic concepts such as
 energy levels, transitions, lineshapes, and absorption cross sections.
 
 \section{Ionized Gas}
-A plasma is considered to be a form or subset of ionized gas. That is, a volume
-of gas in which some fraction of the neutral atoms and/or molecules have been
-separated into electron and ion pairs. For a sufficiently large number of
-particles, the behavior of each species in the ionized gas can be described by a
-continuous distribution function.
+An ionized gas is a volume of gas in which some fraction of the neutral atoms
+and/or molecules have been separated into electron and ion pairs. For a
+sufficiently large number of particles, the behavior of each species in the
+ionized gas can be described by a continuous distribution function.
 
-This probability distribution expresses the likelihood of finding a particle
-with a specific range of velocities in a specific volume, as a function of time.
-This function is denoted as $f_\alpha(\vec{r}, \vec{v}, t)$, where
-the subscript $\alpha$ denotes the species, $f$ is the probability distribution,
-$\vec{r}$ is the position, $\vec{v}$ is the velocity, and $t$ is the time.
+This function is an expression of the likelihood of finding a particle with a
+specific range of velocities in a specific volume, as a function of time. This
+function is denoted as $f_\alpha(\vec{r}, \vec{v}, t)$, where the subscript
+$\alpha$ denotes the species, $f$ is the distribution function, $\vec{r}$ is the
+position, $\vec{v}$ is the velocity, and $t$ is the time.
 
-The behavior of $f_\alpha$ can be shown to be governed by the Boltzmann
-equation,
+The behavior of $f_\alpha$ can be shown \cite{Bellan2008} to be governed by the
+Boltzmann equation,
 \begin{equation}\label{eq:boltzmann}
   \frac{\partial f_\alpha}{\partial t} + \vec{v}\cdot\nabla f_\alpha +
   q_\alpha \left(\vec{E} + \vec{v}\times\vec{B}\right)
@@ -33,7 +32,7 @@ equation,
   {\partial t}\right)_\mathrm{coll}.
 \end{equation}
 Here, $q$ is the charge of the species, $\vec{E}$ is the electric field,
-$\vec{B}$ is the magnetic field, and $\partial f_\alpha/(\partial
+$\vec{B}$ is the magnetic field, and $(\partial f_\alpha/\partial
 t)_\mathrm{coll}$ is a term which represents changes to the distribution
 function as a result of collisions. Coupled with Maxwell's equations,
 equation~\ref{eq:boltzmann} provides a complete description of the behavior of
@@ -54,11 +53,11 @@ fields can both significantly alter the distribution function of a species. This
 can be of particular importance in the calculation or reaction rates, or the
 measurement of temperatures.
 
-Additionally, the Boltzmann equation may be solved for electrons, assuming they
-only interact through elastic collisions, and that they are in equilibrium with
-a small, constant electric field. This result was originally presented by
-Druyvesteyn and Penning \cite{Druyvesteyn1940} and has come to be known as the
-Druyvesteyn distribution. It is defined as,
+Additionally, the Boltzmann equation may be solved for electrons in equilibrium
+with a small, constant electric field, assuming they only interact through
+elastic collisions. This result was originally presented by Druyvesteyn and
+Penning \cite{Druyvesteyn1940} and has come to be known as the Druyvesteyn
+distribution. It is defined as,
 \begin{equation}
   f_{\alpha} = \frac{3\sqrt{3}}{4\Gamma(3/4)}(\kB T_\alpha)^{-3/2}
   \exp{\left[-\frac{9}{16}\left(\frac{\epsilon}{\kB T_\alpha}\right)\right]}
@@ -75,24 +74,31 @@ values. Figure~\ref{fig:simpledists}
   dotted line).}
   \label{fig:simpledists}
 \end{figure}
-compares the probably distributions from equations~\ref{eq:mb} and~\ref{eq:druy}
-for the same temperature $\T_\alpha$. The dotted line illustrates the average
-energy for the two distributions, which is not the same as the most probably
-energy.
+compares the probability distributions from equations~\ref{eq:mb}
+and~\ref{eq:druy} for the same temperature $\T_\alpha$. The dotted line
+illustrates the average energy for the two distributions, which is not the same
+as the most probably energy.
 
 Additional solutions of equation~\ref{eq:boltzmann} in anything but these simple
-cases can be very challenging. In most situations, it is reduced to more tenable
-equations by integrating over velocity-space (leaving $f$ as a function of space
-and time). The first so-called moment is often called the conservation equation
-or continuity equation,
+cases can be very challenging. Even computational approaches can be stymied by
+the seven-dimension phase space and high dynamic range. In most situations, the
+Boltzmann equation is reduced to more tenable expressions by integrating over
+velocity-space (leaving $f$ as a function of space and time). The first
+so-called moment is the conservation equation or continuity equation,
 \begin{equation}\label{eq:cont}
   \frac{\partial n_\alpha}{\partial t} + \nabla \cdot (n_\alpha \vec{u_\alpha})
   = G_\alpha - L_\alpha.
 \end{equation}
-In this case, $\vec{v}$ has been replaced by a mean velocity $\vec{u}$, and the
-collision operator has been replace by gain ($G$) and loss ($L$) terms. The gain
-and loss terms are generally calculated by integrating a cross section over a
-known velocity distribution.
+In this case, there is now a mean velocity $\vec{u}$, as well as gain ($G$) and
+loss ($L$) terms which replace the collision operator. The gain and loss terms
+are generally expressed as the product of the densities of the interacting
+species, and a rate coefficient. For an electron-impact interaction where the
+target is relatively stationary, the rate coefficient is
+\begin{equation}
+  K = \int_0^\infty f_e(\epsilon)\sigma(\epsilon)
+      \sqrt{\frac{2\epsilon}{m_e}}d\epsilon,
+\end{equation}
+where $\sigma$ is the energy-dependent cross section.
 
 The definition of the mean velocity, $\vec{u}$ can be obtained by multiplying
 equation~\ref{eq:boltzmann} by $v$ and integrating over velocity-space, to
@@ -107,17 +113,17 @@ obtain the second moment,
 This expresses the conservation of momentum by the plasma. It provides a means
 by which to solve for the mean velocity of the system, however it also
 introduces two additional terms. $\vec{f}|_\mathrm{coll}$ deals with the forces
-transferred to $\alpha$ via collisions. Though complex, it only depends on known
-quantities. The second term, $\vec{\Pi}$, is the pressure tensor and can only be
-defined by the third moment of the Boltzmann equation. In fact, each additional
-moment introduces a new term requiring a higher order moment, \emph{ad
-infinitum}. In most situations, this chain of equations is terminated after the
-first two or three moments by the use of an additional assumption such as an
-equation of state.
+transferred to $\alpha$ via collisions. This is often approximated as the Krook
+collision operator, which is only dependent on known quantities. The second
+term, $\vec{\Pi}$, is the pressure tensor and can only be defined by the third
+moment of the Boltzmann equation. In fact, each additional moment introduces a
+new term requiring a higher order moment, \emph{ad infinitum}. In most
+situations, this chain of equations is terminated after the first two or three
+moments by the use of an additional assumption such as an equation of state.
 
-For our purposes, one more moment will suffice. Assuming that the pressure is
-isotropic, one can multiply equation~\ref{eq:boltzmann} by $mv^2/2$, and
-integrate over velocity-space. This yields the energy conservation equation,
+For the purposes of this paper, one more moment will suffice. Assuming that the
+pressure is isotropic, one can multiply equation~\ref{eq:boltzmann} by $mv^2/2$,
+and integrate over velocity-space to find the energy conservation equation,
 \begin{equation}
   \frac{\partial}{\partial t}\left(\frac{3}{2}p_\alpha\right) 
   + \nabla\cdot\frac{3}{2} (p_\alpha\vec{u}_\alpha)
@@ -136,24 +142,24 @@ from the system as a result of collisions.
 
 Equations~\ref{eq:cont} and~\ref{eq:energy} are particularly important for this
 study. As will be detailed in chapter~\ref{chp:modeling}, the two can be used to
-create a global model of the plasma. While such a model only considers globally
-averaged quantities, it can be extremely useful in characterizing the complex
-evolution of multi-component plasmas.
+create a global model of the plasma. Such a model assumes spatial homogeneity of
+the plasma in order to reduce the associated computational costs. This allows
+the model to address large numbers of species over long periods of time as will
+be required in the case of the \acs{rpnd}.
 
 \section{Plasma Criteria}
-Though the Boltzmann equation can describe both an ionized gas and a plasma, the
-two are conceptually distinct. A plasma is unique in that its dynamics are
-governed by long range electromagnetic forces unlike gases in which short-range
-collisions dominate. As a result, plasmas frequently feature large scale
-structure and organization. Examples of these structures are ubiquitous in
-astronomy where phenomena such as the aurora borealis, coronal mass ejections,
-and even interstellar media all qualify as forms of plasma. How then, does one
-define a plasma? There are three criteria required for an ionized gas to be
-considered a plasma.
+Though the Boltzmann equation describes both an ionized gas and a plasma, the
+two are distinct as a plasma is necessarily an ionized gas, but not vice versa.
+A plasma is unique in that its dynamics are governed by long range
+electromagnetic forces, unlike gases in which short-range collisions dominate.
+As a result, plasmas frequently exhibit large scale structure and organization.
+Examples of these structures are ubiquitous in astronomy where phenomena such as
+the aurora borealis, coronal mass ejections, and even interstellar media are all
+plasmas. There are three criteria which form a more exact definition of what
+constitutes a plasma.
 
 \subsection{Debye Length}
-As mentioned, an ionized gas features a number of electron and ion pairs. If an
-electrical perturbation is introduced into the ionized gas, the charged
+If an electrical perturbation is introduced into an ionized gas, the charged
 particles will tend to rearrange themselves to shield it out. A plasma is an
 ionized gas which is large enough for this shielding effect to occur. The
 characteristic length scale for this shielding effect to take place is referred
@@ -164,25 +170,24 @@ characteristic length scale of the ionized gas is $L$, then $\lambda_D < L$ for
 it to be considered a plasma.
 
 \subsection{Debye Sphere}
-However, the previous condition is necessary, but not sufficient for shielding
-to occur. It is possible that an ionized gas may have a relatively small Debye
-length, but also lack enough charged particles for shield to occur. More simply
-put, it would be impossible for a single electron to shield out even the
-smallest of perturbations. For that reason, the number of particles in a Debye
-sphere must be greater than unity in a plasma, or {$n_0(4\pi \lambda_D^3/3) >>
-1$.
+However, the above condition by itself is not sufficient for shielding to occur.
+It is possible that an ionized gas may have a relatively small Debye length, but
+also lack enough charged particles for shield to occur. More simply put, it
+would be impossible for a single electron to shield out even the smallest of
+perturbations. For that reason, the number of particles in a Debye sphere must
+be greater than unity in a plasma, or $n_0(4\pi \lambda_D^3/3) >> 1$.
 
 \subsection{Plasma Oscillations}
-Finally, a plasma may exhibit Debye shielding, but lack the long-range
-interactions of a plasma. This can occur when the collision frequency with
-neutral particles is too high. In this case, the behavior of the ionized gas
-would be determined more by the random collisions. Therefore, the characteristic
-response frequency of a plasma, commonly called the plasma frequency, must be
-greater than the neutral collision frequency, or {$\omega_p > \nu$}. The plasma
-frequency can be shown to be $\omega_p = \sqrt{e^2n_0/(\epsilon_0 m_e)}$.
+Finally, a plasma may exhibit Debye shielding, but lack the collective behavior
+of a plasma. This can occur when the collision frequency with neutral particles
+is too high. In this case, the behavior of the ionized gas would be determined
+more by the random collisions. Therefore, the characteristic response frequency
+of a plasma, commonly called the plasma frequency, must be greater than the
+neutral collision frequency, or {$\omega_p > \nu$}. The plasma frequency can be
+shown to be $\omega_p = \sqrt{e^2n_0/(\epsilon_0 m_e)}$.
 
-There are many natural and man-made ionized gases which can be considered
-plasmas. Figure~\ref{fig:regimes}
+There are many natural and man-made plasmas of varying size and quality.
+Figure~\ref{fig:regimes}
 \begin{figure}
   \centering
   \includegraphics{./chapters/theory/figures/regimes.eps}
