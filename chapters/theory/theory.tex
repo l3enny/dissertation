@@ -426,47 +426,52 @@ does its potential energy. In most cases, $m_l$ and $s$ do not affect the
 potential energy of an electron. As an example, an electron in the 1s ($n=1$ and
 $l=0$) subshell has the lowest possible potential energy.
 
-Absent from external influences, the subshells are populated with electrons so
-as to minimize the total potential energy of the system. This natural
-arrangement is referred to as the ground state configuration. Often, but not
-always, the subshells are filled sequentially and in order from lowest to
-highest $l$. Provided some input energy, one or more of the electrons
-surrounding the atom may transition to another state, increasing the potential
-energy of the system. In low-temperature plasmas it usually one of the electrons
-from the outermost or unfilled subshell to be excited.
+Absent from external influences, the individual states are populated with
+electrons so as to minimize the total potential energy of the system. This
+natural arrangement is referred to as the ground state configuration. Often, but
+not always, the subshells are filled sequentially and in order from lowest to
+highest $l$. Provided some input energy in the form of a collision or a photon,
+one or more of the electrons surrounding the atom may transition to another
+state, increasing the potential energy of the system. In low-temperature plasmas
+it usually one of the electrons from the outermost or unfilled subshell to be
+excited.
 
-In hydrogen and alkali metals, all the subshells are filled with the exception
-of a lone electron in the outer (or valence) subshell. For these atoms, the
-potential energy of any singly-excited configuration is uniquely determined by
-this electron. As a result, the initial and final states of the atom can be
+In hydrogen and alkali metals, several subshells are filled with the exception
+of a lone outer (or valence) subshell with a single electron. For these atoms,
+the potential energy of any singly-excited configuration is uniquely determined
+by this electron. As a result, the initial and final states of the atom can be
 uniquely identified based on the initial and final $n$ and $l$ of the
 aforementioned electron. In contrast, the potential energies of configurations
 in other atoms are determined by the collective effects of all outer electrons.
-
-This necessitates an additional means of classifying the electron configurations
-in these atoms. It turns out that the states of these types of atoms can be
-specified based on their total azimuthal angular momentum $\bm{L}=\sum \bm{l}_i$,
-the total spin, $\bm{S}=\sum \bm{s}_i$, and the total angular momentum,
+This includes the total azimuthal angular momentum $\bm{L}=\sum \bm{l}_i$, the
+total spin, $\bm{S}=\sum \bm{s}_i$, and the total angular momentum,
 $\bm{J}=\bm{L}+\bm{S}$, where $i$ are all the electrons of the valence shell. In
 addition, each state can be said to have either even or odd parity, defined as
 $(-1)^{\sum\bm{l}_i}$, where $-1$ is odd, and $1$ is even.
 
-Together, these values are sufficient to identify the electron configuration in
-these atoms. They are often written out in a form called the term symbol which
-lists the filled subshells and appends a symbol representing the outer subshell
-configuration. For example, the so called triplet metastable state of helium can
-be written as 1s2p$^3$P$^o_{0,1,2}$. This describes a helium atom with one
-electron in the 1s subshell and a second atom in the 2p subshell. This
-configuration has a total azimuthal angular moment of 1 (denoted by the `P'), odd
-parity (denoted by the superscript `o'), a total spin of $1/2$ (the superscript
-$3$ is equal to $2S+1$) and three possible values for the total angular
-momentum: 0, 1, or 2 which varies depending on the spin-orbit interaction.
+Together, these values are sufficient to identify the potential energy of the
+electron configuration. They are written with the internal shell configuration,
+followed by the ``term symbol'' for the outer subshell. One example of this term
+symbol is 1s2s$^3$S$^o_{1}$, which describes the triplet helium metastable
+state. In this case, there is a single electron in the 1s subshell and a second
+atom in the 2s subshell. The configuration has a total azimuthal angular moment
+of 0 (denoted by the `S'), an odd parity (denoted by the superscript `o'), a
+total spin of $1/2$ (the superscript $3$ is equal to $2S+1$) and a total angular
+moment of 1.
 
-These excited atomic states usually have finite lifetimes as the electrons in
-the excited states will often transition to lower states. This can occur
-spontaneously, through the emission of a photon, or via a superelastic collision
-with another particle. In the case of spontaneous transitions, only certain ones
-are allowed, as defined by a set of selection rules:
+The total angular momentum can often take on a range of values, called levels,
+depending on the individual $l$ and $s$ states. This is caused by a process
+known as spin-orbit coupling. The energy difference between configurations with
+different total angular momenta is very small, generally less than 1 eV. In
+addition, within each level is a number of degenerate configurations;
+configurations with different arrangements of electrons, but the same energies.
+
+Excited atomic states usually have finite lifetimes. If possible, electrons will
+undergo transitions to lower the potential energy of the system. This can occur
+spontaneously, through the emission of a photon, or through a superelastic
+collision with another particle. In the case of spontaneous transitions, only
+certain states can transition to others, as defined by a series of selection
+rules:
 \begin{itemize}
   \item $\Delta S = 0$
   \item $\Delta L = \pm1$ or 0
@@ -474,9 +479,9 @@ are allowed, as defined by a set of selection rules:
   \item $L=0$ cannot transition to $L=0$
   \item $j=0$ cannot transition to $J=0$
 \end{itemize}
-These rules are determined using the electric dipole approximation. As a result,
-some transitions forbidden by these rules can occur, though they occur at a much
-lower rate.
+These rules are determined from a lower order approximation, and thus are not
+strict. As a result, forbidden transitions can occur, however these generally
+take place at much lower rates.
 
 Figure~\ref{fig:grotrian}
 \begin{figure}
@@ -485,22 +490,30 @@ Figure~\ref{fig:grotrian}
   \caption{A partial Grotrian diagram of neutral helium \cite{Moore1968}.}
   \label{fig:grotrian}
 \end{figure}
-is a diagram of the energy levels in neutral helium and the allowed transitions.
-In this case, the atomic states are separated into the singlet ($S=0$) and
-triplet ($S = 1$) manifolds. The singlet manifold represents excited states
-where the electron spins are anti-parallel, and the triplet manifold represents
-excited states where the electron spins are parallel. As indicated by the first
-selection rule, transitions between these two manifolds is forbidden, thus each
-is something of a self-contained system.
+is a Grotrian diagram of the energy levels in neutral helium and the allowed
+transitions. In this case, the atomic states are separated into the singlet
+($S=0$) and triplet ($S = 1$) manifolds. The singlet manifold represents excited
+states where the electron spins are anti-parallel, and the triplet manifold
+represents excited states where the electron spins are parallel. As indicated by
+the first selection rule, transitions between these two manifolds is forbidden,
+thus each is something of a self-contained system.
+
+Also observable in the diagram are two ``metastable'' states. These are the 2s
+states at the bottom of the singlet and triplet diagrams. An electron in either
+state cannot spontaneously transition to a lower energy state. As a result, an
+electron in either state can be extremely long-lived. In addition, they are also
+the lowest-lying excited states of helium. For these reasons, helium plasmas
+tend to have high densities of metastable atoms. This makes them a good
+candidate for spectroscopic study as will be seen in
+chapter~\ref{chp:metastables}.
 
 \subsection{Spectral Lineshapes}
 
-It is the transitions between these various excited states which concern
-spectroscopy. Electrons which transition to lower energy states emit photons
-which can be detected. Conversely, if an atom is exposed to a photon with an
-energy matching a transition, the atom may absorb the photon. Both processes are
-useful in determining the prevalence and dynamics of the excited states. This,
-in turn, can be used to infer various plasma properties.
+Electrons which transition to lower energy states emit photons which can be
+detected. Conversely, if an atom is exposed to a photon with an energy matching
+a transition, the atom may absorb the photon. Both processes are useful in
+determining the prevalence and dynamics of the excited states. This, in turn,
+can be used to infer various plasma properties.
 
 Conservation of energy requires that the energy of the absorbed or emitted
 photon match the energy difference between the two states. However, the finite
@@ -509,9 +522,9 @@ the uncertainty principle, some uncertainty in the actual energy difference
 between the states. As a result, the emitted photon will possess an energy
 selected from a distribution of energies.
 
-This distribution is referred to as the spectral lineshape. The natural
-lineshape of an atomic transition can be shown \cite{Siegman1986} to be a
-Lorentzian of the form,
+This distribution is referred to as the spectral lineshape. The narrowest
+permissible lineshape, or natural lineshape, of an atomic transition can be shown
+\cite{Siegman1986} to be a Lorentzian of the form,
 \begin{equation}
   g(\omega) = -\frac{1}{4\pi^2}\frac{A\lambda^3}{\dwa}
   \frac{1}{1 + \left[2(\omega-\omega_a)/\dwa\right]^2},
@@ -523,20 +536,22 @@ frequency of the transition, and $\dwa$ the full-width half maximum (\acs{fwhm})
 of the transition. In the ideal case, where the atoms motionless and unaffected
 by external perturbations, $\dwa = A$. This is known as the natural linewidth.
 
-Other processes can affect the spectral lineshape. For example, inter-atomic
-collisions can reduce the lifetimes of excited states. This results in
-additional broadening of the line, though it retains its Loretnzian nature. As
-the frequency of inter-atomic collisions increases linearly with pressure, this
-phenomena is referred to as pressure broadening. It can be included in
+Other processes can act to broaden or alter the spectral lineshape. For example,
+inter-atomic collisions can reduce the lifetimes of excited states. This results
+in additional broadening of the line, though it retains its Loretnzian nature.
+As the frequency of inter-atomic collisions increases linearly with pressure,
+this phenomena is referred to as pressure broadening. It can be included in
 equation~\ref{eq:lorentzian} by using $\dwa = A + BP$, where $B$ is a measured
 or calculated broadening coefficient, and $P$ is the pressure.
 
 Atomic motion can also play a role in the spectral lineshape. If an atom is
 moving toward or away an observer as it emits a photon, the emitted photon will
-be blue or red shifted. If this effect is averaged over the random motion of
-atoms in a gas, the result is an additional broadening of the lineshape, called
-Doppler broadening. Unlike pressure broadening, Doppler broadening introduces a
-Gaussian component to the lineshape such that,
+be blue or red shifted. Likewise, if the atom is moving toward or away an
+incident photon, the energy of that photon will be shifted. If this effect is
+averaged over the random motion of atoms in a gas, the result is an additional
+broadening of the lineshape, called Doppler broadening. Unlike pressure
+broadening, Doppler broadening introduces a Gaussian component to the lineshape
+such that,
 \begin{multline}
   g(\omega) = \sqrt{\frac{2\ln{2}}{\pi^3}}\frac{\dwa}{\dwd}
   \int_{-\infty}^\infty
@@ -575,3 +590,36 @@ can split up degenerate states via the Zeeman effect. The fields of electrons
 and nearby molecules can also alter the lineshape of a transition. While not
 used in this study, such effects can be used as effective diagnostic tools for
 plasmas.
+
+\subsection{Absorption}
+
+As has been mentioned, a photon which closely matches the energy between two
+states can be absorbed by an atom. This property forms the basis for absorption
+spectroscopy where light with a known spectrum is used to illuminate a sample.
+The spectrum of the light that passes through the sample is measured and used to
+infer properties of the sample. In contrast to the emission processes occur
+spontaneously with a characteristic lifetime, often 10s of nanoseconds or more,
+absorption is almost instantaneous. This makes absorption-based spectroscopic
+methods desirable for fast phenomena, such as the \acs{rpnd}.
+
+The cross section for a single atom to interact with a photon can be shown
+\cite{Siegman1986} to be,
+\begin{equation}
+  \sigma(\omega) = A \frac{\lambda^2}{8\pi}\frac{g_1}{g_2}g(\omega).
+\end{equation}
+where $g_1$ and $g_2$ are the number of degenerate configuration for the lower
+state and upper state respectively. $g(\omega)$ is the appropriate spectral
+lineshape, determined from the operating conditions.
+
+It is important to recognize that for absorption spectroscopy can also perturb
+the system it is measuring. In the above example, suppose two consecutive
+photons were incident on the atom. If the first was absorbed, the cross section
+for the second would be zero. This known as saturation and depends on the
+intensity of the photon field and the $A$ coefficient for the transition.
+Assuming that saturation is the intensity required to reduce the absorption
+cross section by half, then the intensity limit for a two-state system is,
+\begin{equation}
+  I_s = \frac{2\sqrt{2}h\nu_0A}{\lambda^2},
+\end{equation}
+where $h$ is Planck's constant, and $\nu_0$ is the nominal frequency of the
+transition.
