@@ -12,35 +12,37 @@ Outline
       2. The Streamer Model
       3. Diffuse Streamers
       4. Repetitively-Pulsed Nanosecond Discharges
+    3. Summary
 2. Theory
   1. Ionized Gas
   2. Plasma Criteria
-    1. A < L
-    2. n*pi*A^3 >> 1
-    3. w > nu
-  3. Streamer Discharge
-  4. Atomic Spectroscopy
-    1. Structure and Notation
-    2. Transitions and Susceptibility
-    3. Spectral Lineshape
-    4. Reabsorption
-  5. Collision Processe
+    1. Debye Length
+    2. Debye Sphere
+    3. Plasma Oscillations
+  3. Discharge Initiation
+    1. Townsend Mechanism
+    2. Streamer Mechanism
+  4. Atomic Spectroscopy & Notation
+    1. Spectral Lineshape
 3. Experimental Setup
-    1. Laser Absorption Measurements
-    2. Emission Measurements
-    3. Preliminary Results
+    1. Preliminary Results
         1. Wave Velocities
         2. Energy Coupling
 4. Metastable Measurements
-    1. Details and Difficulties
-    2. Results
+    1. Theory
+    2. Setup (as necessary)
+    3. Results
 5. Emission Measurements
-    1. Details and Difficulties
-    2. Results
+    1. Theory
+    2. Setup (as necessary)
+    3. Results
 6. Modeling
-    1. Global Models (Brief review of theory)
-    2. Electron Energies with Generalized Maxwellian
-    3. Variation of EEDF
+    1. Global Model Development
+      1. Electron Impact Coefficients
+      2. Optical Emission Coefficients
+      3. PIC Simulations
+    2. Effect of Distributions
+    3. Effect of Pulse Shape
 7. Conclusions
     1. Overview of Results
     2. Future Work
