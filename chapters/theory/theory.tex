@@ -190,67 +190,71 @@ There are many natural and man-made plasmas of varying size and quality.
 Figure~\ref{fig:regimes}
 \begin{figure}
   \centering
-  \includegraphics{./chapters/theory/figures/regimes.eps}
+  \includegraphics{./chapters/theory/figures/regimes.pdf}
   \caption{Illustration of the various regimes of plasma in terms of
-electron temperature and density \cite{Huba2011}.}
+    electron temperature and density with the \acs{rpnd} regime highlighted
+    \cite{Huba2011}.}
   \label{fig:regimes}
 \end{figure}
 shows several categories of plasma, plotted as a function of their electron
 density and temperature. As can be seen, the electron densities span seven
 decades, and the densities cover in excess of 20. This broad range of conditions
 presents a particularly challenging problem for both simulations and
-experimental measurements.
+experimental measurements. Also highlighted in the figure is the range spanned
+by the \acs{rpnd}.
 
 \section{Discharge Initiation}
 The Boltzmann equation is a continuous, statistical description of a plasma. By
 comparison, the initial breakdown of a plasma is a highly discontinuous process
 marked by its stochasticity. The initiation of a discharge is typically the
 result of electron avalanches which occur randomly throughout a volume of gas.
-Often, the seed electrons for a plasma are the products of ionizing cosmic rays
-which generate a few electrons per cubic-centimeter. As a result, it is
-necessary to consider the initiation of a discharge separately from a
+Often, the seed electrons for a plasma are the products of ionizing cosmic rays.
+At sea level this results in a few electrons per cubic-centimeter. As a result,
+it is necessary to consider the initiation of a discharge separately from a
 pre-existing plasma.
 
 \subsection{Townsend Mechanism}
 
-Classically, plasmas are created by two different mechanisms, the choice of
-which depends on the strength of the electric field. At lower electric fields,
-the Townsend mechanism is responsible for the formation of a plasma. Consider a
-two electrodes separated by a gap filled with some gas. An electron starting
-near the cathode will drift toward the anode. For a large enough electric field
-the electron will gain enough kinetic energy to ionize a neutral atom, producing
-a second electron. The two electrons are now accelerated by the field,
-instigating further ionization of the background gas. The population of
-electrons quickly grows, thus the process is referred to as an electron
-avalanche. Eventually, the avalanche electrons are collected at the anode.
+Classically, plasmas are created by two different mechanisms, the applicability
+of which depends on primarily on the strength of the electric field relative to
+the neutral gas density, a value called the reduced electric field. At lower
+reduced fields, the Townsend mechanism is responsible for the formation of a
+plasma. Consider two electrodes separated by a gap filled with some gas. An
+electron starting near the cathode will drift toward the anode. For a large
+enough electric field the electron will gain sufficient kinetic energy to ionize
+a neutral atom, producing a second electron. The two electrons are now
+accelerated by the field, instigating further ionization of the background gas.
+The population of electrons quickly grows, thus the process is referred to as an
+electron avalanche. Eventually, the avalanche electrons are collected at the
+anode.
 
 In their wake are ions which slowly drift toward the cathode. As the ions impact
 the surface of the cathode, they occasionally cause a secondary electron to be
 emitted. This secondary electron initiates a new avalanche and helps to sustain
-the discharge. Townsend breakdown occurs when the electron multiplication in the
-avalanche compensates for the finite probability that an ion striking the
-cathode releases a secondary electron. Therefore, the time required for the ions
-to drift across the gap is the characteristic time it takes for a discharge to
-develop via the Townsend mechanism (on the order of 1$\mu$s).
+the discharge. A steady state electric discharge occurs when the electron
+multiplication in the avalanche compensates for the finite probability that an
+ion striking the cathode releases a secondary electron. Therefore, the
+characteristic time for a Townsend discharge to develop is approximately equal
+to the time it takes an ion to drift across the gap (for a gap of several cm
+this can be on the order of 10$^{-4}$ s).
 
 The Townsend mechanism is characterized by two parameters: $\alpha$ and
 $\gamma$, the first and second Townsend coefficients. $\alpha$ is the number of
-ionization events that occur per unit path-length. The value depends on the
-applied electric field, and is typically expressed in terms of the reduced
-electric field; the electric field divided by the neutral gas density. The
-second Townsend coefficient is the probability that an ion impinging on the
-cathode produces a secondary electron. The values for $\gamma$ can vary widely
-and depend on the type of ion, its energy, the cathode material, contamination
-of the surface, and many other factors. That said, typical values are around
-0.01-0.1.
+ionization events that occur per unit length, often expressed as a function of
+the reduced field. The second Townsend coefficient is the probability that an
+ion impinging on the cathode produces a secondary electron. The values for
+$\gamma$ can vary widely and depend on the type of ion, its energy, the cathode
+material, contamination of the surface, and many other factors. That said,
+typical values are around 0.01-0.1.
 
 \subsection{Streamer Mechanism}
 
-In contrast, the streamer discharge does not require secondary emission
-processes. Additionally, streamer discharges can develop in time periods as
-short as 1 ns, much less than the time required for Townsend breakdown. In order
-to describe the streamer mechanism, again consider an electron between two
-electrodes, as seen in (a) of figure~\ref{fig:streamer}.
+In contrast, the streamer discharge which occurs for larger values of the
+reduced field does not depend on secondary emission. Additionally, streamer
+discharges can develop in time periods as short as 1 ns, much less than the time
+required for Townsend breakdown. In order to describe the streamer mechanism,
+again consider an electron between two electrodes, as seen in (a) of
+figure~\ref{fig:streamer}.
 \begin{figure}
   \centering
   \includegraphics{./chapters/theory/figures/streamer.eps}
@@ -262,66 +266,87 @@ electrodes, as seen in (a) of figure~\ref{fig:streamer}.
     nonlocal electrons and photoionization.}
   \label{fig:streamer}
 \end{figure}
-The electron acquires energy from the applied electric field, and begins to
-create an avalanche of electrons. The electrons in the avalanche travel with a
-velocity characterized by the electron mobility, $\mu$. This term expresses the
-frictional force exerted by the gas on the electrons. Like the first Townsend
-coefficient, it is a function of the reduced electric field. Consequently, the
-mean velocity of electrons drifting in a time-varying field $E(t)$ can be
-expressed as
+As with the Townsend discharge, this electron initiates an avalanche which moves
+toward the anode. As the electrons travel toward the anode, they randomly
+collide and diffuse, leaving behind a cone of ions, as seen in part (b).
+However, the higher reduced field drastically increases $\alpha$. This causes
+the space charge of the avalanche to create an electric field comparable to the
+one that is applied, quickly halting the avalanche.
+
+Once stalled, the avalanche can no longer continue to advance toward either
+electrode. At this point the avalanche can be considered a streamer as it begins
+to increase its extent by several other processes. The large internal fields of
+the avalanche can accelerate individual electrons and ``inject'' them in the
+direction of the anode \cite{Kunhardt1980}. In addition, as the excited atoms in
+the wake of the avalanche begin to radiate, they can cause photoionization
+throughout the volume. Photoelectrons generated close enough to the negative
+head, or positive tail of the streamer will initiate secondary avalanches which
+eventually connect to the primary one. Both of these methods take place
+primarily along the axis of the original avalanche, thus the streamer remains
+relatively constricted in the direction transverse to the electric field.
+
+\subsection{Homogeneity Condition}
+
+However, these processes are not critical in the formation of a large-volume
+discharge by an \acs{rpnd}. This description of a streamer only considers an
+avalanche generated by a single electron. In reality, many can form
+simultaneously assuming that there is more than one seed electron in the volume.
+With sufficient preionization of the volume, the strong fields of the
+individual avalanches can begin to overlap. This smoothes out the field
+gradients which would otherwise radially constrict the streamers. Instead,
+ionization progresses homogeneously throughout the volume.
+
+In order to determine the necessary preionization density, we refer to the work
+done by Levatter and Lin on gas laser discharges \cite{Levatter1980}. First, the
+electron drift velocity in an applied field can be expressed as the product of
+the field and the electron mobility $\mu$. The electron mobility is the
+steady-state drift velocity for an electron in an applied field and represents
+the balance between the frictional force of the neutral gas collisions and the
+electric field. Consequently, the mean velocity of electrons drifting in a
+time-varying field $E(t)$ can be expressed as
 \begin{equation}
-  u(t) = \mu(E/N_g) E(t),
+  u(t) = \mu(E) E(t).
 \end{equation}
-where $N_g$ is the neutral gas density. Given this definition of the electron
-drift velocity, the total length of the avalanche may be written as
+
+This allows the length of the avalanche can then be written as an integral
+quantity,
 \begin{equation}
   \xi = \int_{t_0}^t u(t) dt.
   \label{eq:s_xi}
 \end{equation}
 Here, $t_0$ is the time at which $E(t)$ becomes high enough that the first
-Townsend coefficient, $\alpha$, exceeds 0. This is considered the beginning of
-the avalanche as there is no multiplication before this time.
+Townsend coefficient, $\alpha$, exceeds 0. Because no electron multiplication
+occurs while $\alpha < 0$, this effectively represents the beginning of the
+avalanche.
 
-As seen in figure~\ref{fig:streamer}, the ions generated by the ionization
-events remain in place as the electron avalanche passes. This follows from the
-much larger mass of the ions, and the relatively short time scale on which the
-avalanche occurs. The cone-like structure of the ions results from the
-collision-induced, transverse diffusion of the electrons. The free diffusion
-coefficient is $D = \lambda v_mathrm{th}(E/N_g)/3$, where $\lambda$ is the mean
-free path of the electrons, and $v_\mathrm{th}$ is their thermal velocity.
-Following Levatter and Lin \cite{Levatter1980}, if the electrons are assumed to
-diffuse equally in all directions, the electron density in the head of the
-avalanche is
+The electric field in the head of the avalanche depends on its radius, which is
+dependent on the diffusion of the electrons as they cross the gap. This is
+governed by the free diffusion coefficient, $D = \lambda v_mathrm{th}(E)/3$,
+where $\lambda$ is the mean free path of the electrons, and $v_\mathrm{th}$ is
+their thermal velocity. The diffusion radius is then equal to
 \begin{equation}
-  n_e(r) = \frac{N_e}{\pi^{3/2}R(t)^2}\exp\left(-\frac{r^2}{R(t)^2}\right),
-  \label{eq:s_density}
-\end{equation}
-where $r$ is the radial coordinate (relative to the center of the avalanche),
-$N_e$ is the absolute electron population, $\Delta t = t - t_0$, and $R$ is the
-diffusion radius. The diffusion radius can be calculated from
-\begin{equation}
-  R(t) = \int_{0}^{\xi} \lambda v_\mathrm{th}(\xi') d\xi',
+  R(\xi) = \int_{0}^{\xi} \lambda v_\mathrm{th}(\xi') d\xi'.
   \label{eq:s_rad}
 \end{equation}
-as the thermal velocity is expected to change as more energy is deposited into
-the electrons over the length of the avalanche. The dependence of $R$ on time is
-implied from its dependence on $\xi$.
+For the calculations below, $\lambda$ is assumed to be fixed. In contrast, the
+thermal velocity of the electrons is expected to grow as the electric field
+deposits energy in the electrons. As a result, it is necessary to integrate the
+diffusion coefficient over the avalanche in order to determine $R$.
 
-In a Townsend discharge, the avalanche would continue across the entire width of
-the gap. On the other hand, the avalanche of a streamer grows at such a rate
-that its space charge shields out the applied field. This stalls the head of the
-avalanche mid-gap as seen in part (c) of figure~\ref{fig:streamer}. It is
-commonly assumed that this occurs when the peak field within the head of the
-avalanche becomes equal to the applied field. Again, from Levatter and Lin,
-electric field can be found to equal,
+Levatter and Lin assume that the avalanche stalls when the peak field of the
+avalanche is equal to the applied field. Assuming that the electrons diffuse
+equally in all directions, the electric field of the avalanche head can be
+expressed as
 \begin{eqnarray}
   E_a(r) = \frac{eN_e}{4\pi\epsilon_0R^2} F(r/R), \qquad \mathrm{where} \\
   F(r/R) = \frac{1}{R^2}\left[\mathrm{erf}(r/R)-\frac{2}{\pi^{1/2}}
            (r/R)\exp(-r^2/R^2)\right] ,
 \end{eqnarray}
-and $\mathrm{erf}$ is the error function. $F$ is a dimenionless function which
-has a peak value of $0.428$. The number of electrons in the avalanche, is equal
-to
+where $r$ is the radius with respect to the center of the avalanche, $N_e$ is
+the number of electrons in the avalanche, $\mathrm{erf}$ is the error function.
+$F$ is a dimenionless function which has a peak value of $0.428$. Provided
+$\alpha$ as a function of reduced field, the number of electrons in the
+avalanche is equal to 
 \begin{equation}
   N_e = \int_0^\xi \alpha(\xi')d\xi'.
   \label{eq:s_pop}
@@ -329,11 +354,10 @@ to
 
 Here, Levatter and Lin make a number of assumptions in order to develop an
 analytic and dimensionless solution for $E_{a,\mathrm{max}}(t) = E(t)$. However,
-it is possible to numerically integrate equations~\ref{eq:s_xi}
-and~\ref{eq:s_rad} over time until $E_{a,\mathrm{max}}$ is equal to the applied
-field. This should provide a more accurate, but less general result for the
-final radius and length of the avalanche. Assuming a linearly increasing
-electric field, figure~\ref{fig:he_avalanche}
+it is possible to numerically integrate equations~\ref{eq:s_xi},~\ref{eq:s_rad},
+and~\ref{eq:s_pop} to determine the time required for the avalanche to stall.
+This should provide a more accurate, but less general result. Assuming a
+linearly increasing electric field, figure~\ref{fig:he_avalanche}
 \begin{figure}
   \centering
   \includegraphics{./chapters/theory/figures/he_avalanche.eps}
@@ -351,76 +375,50 @@ this range of breakdown delays, the avalanche was able to develop up to 6 cm in
 length before it stalled. The times required for the avalanche to stall ranged
 from around 13 ns for the shortest breakdown delay, and 330 ns for the longest.
 
-Once stalled, the avalanche can no longer continue to advance toward either
-electrode. At this point the avalanche can be considered a streamer as it begins
-to increase its extent by several other processes. The large internal fields of
-the avalanche can accelerate individual electrons and ``inject'' them in the
-direction of the anode \cite{Kunhardt1980}. In addition, as the excited atoms in
-the wake of the avalanche begin to radiate, they can cause photoionization
-throughout the volume. Photoelectrons generated close enough to the negative
-head, or positive tail of the streamer will initiate secondary avalanches which
-eventually connect to the primary one. Both of these methods take place
-primarily along the axis of the original avalanche, thus the streamer remains
-relatively constricted in the direction transverse to the electric field.
+From this, a criteria for homogeneous breakdown of the gas can be developed. In
+order for the field gradients to be smoothed out, the individual avalanche heads
+should roughly overlap by the time they have stalled. Assuming that all seed
+electrons in the volume initiate avalanches, this is equivalent to the
+requirement that $n_{e,c} > r_c^{-3}$, where $n_{e,c}$ is the critical electron
+density, and $r_c$ is the avalanche radius at stall. As seen in
+figure~\ref{fig:he_avalanche}, this suggests that a preionization density of
+10$^{11}$ to 10$^{15}$ is required for the breakdown times under consideration.
 
-However, these processes are not critical in the formation of a large-volume
-discharge by an \acs{rpnd}. The previous description of a streamer only
-considers an avalanche generated by a single electron. In reality, many can form
-simultaneously assuming that there is more than one seed electron in the volume.
-With sufficient pre-ionization of the volume, the strong fields of the
-individual avalanches can begin to overlap. This smoothes out the field
-gradients which result in constricted streamers and leads to a relatively
-homogeneous breakdown.
-
-This field overlap is roughly equivalent to a spatial overlap of the heads of
-the avalanches. In this case, the condition for homogeneous breakdown is simply
-$n_{e,c} > r_c^{-3}$, where $n_{e,c}$ is the preionization density, and $r_c$ is
-the radius of the stalled avalanche. A plot of this condition with the breakdown
-time can also be observed in figure~\ref{fig:he_avalanche}.
-
-It is apparent that as the avalanche radius increases, the necessary
-pre-ionization decreases. It is less obvious as to why the avalanche radius
-decreases as the breakdown delay increases. This can be explained by the lower
-slope, implied by the long breakdown delays. As the slope decreases, the
-avalanche has a longer period of time to diffuse in the system, thus the
-increased radius.
+Based on this formulation for the homogeneous breakdown condition, tt is
+apparent that as the avalanche radius increases, the necessary preionization
+density decreases. It is less obvious as to why the avalanche radius decreases
+as the breakdown delay increases. This can be explained by the lower slope,
+implied by the long breakdown delays. As the slope decreases, the avalanche has
+a longer period of time to diffuse in the system, thus the increased radius.
 
 \section{Atomic Spectroscopy \& Notation}
 
-Given a particular plasma, it is often desirable to measure various critical
-parameters. Such measurements can be broadly split into perturbing and
-non-perturbing measurements. Perturbing measurements, such as those made with
-physical probes inserted into the plasma, can alter the local or even global
-qualities of a plasma. In contrast, non-perturbing measurements, are passive and
-do not influence the plasma in any way.
-
-A number of non-perturbing diagnostics involve the practice of plasma
-spectroscopy, or the interaction of light and plasma. Careful measurements of
-the light emitted from excited atomic states can yield electron densities and
-temperatures, excited state densities and temperatures, electric fields, and
-magnetic fields. The topic of spectroscopy is extensive and it is neither
-necessary nor desirable to cover it in full. Instead we will only consider what
-is necessary to understand the emissions from a singly-excited, multi-electron
-atom.
+As described, much of the experimental work presented will concern the use of
+spectroscopic techniques. Careful measurements of the light emitted from excited
+atomic states can yield electron densities and temperatures, excited state
+densities and temperatures, electric fields, and magnetic fields. The topic of
+spectroscopy is extensive and it is neither necessary nor desirable to cover it
+in full. Instead we will only consider what is necessary to understand the
+emissions from a singly-excited, multi-electron atom.
 
 An atom is composed of a small, positively charged nucleus, orbited by
 negatively charged electrons. The actual position of any single electron is
-probabilistic and described by a wavefunction; solutions of the Schr\"{o}dinger
-equation for the atom in question. Many different wavefunctions or orbitals
+probabilistic and described by a wavefunction or state; solutions of the
+Schr\"{o}dinger equation for the atom in question. Many different wavefunctions
 exist, each described by four quantum numbers:
 \begin{itemize}
   \item $n=1,2,\ldots$: the principal quantum number,
-  \item $l=0,1,\ldots,n-1$: the orbital angular momentum,
-  \item $m_l =-l,\ldots,l$: the magnetic quantum number, and the
-  \item $s=\pm1/2$: spin quantum number.
+  \item $l=0,1,\ldots,n-1$: the azimuthal angular momentum,
+  \item $m_l =-l,\ldots,l$: the magnetic quantum number, and
+  \item $s=\pm1/2$: the spin quantum number.
 \end{itemize}
 The quantum numbers are hierarchical such that each $n$, or shell, possesses a
 series of subshells, $l$, while each subshell possesses a number of individual
-states, $m_l$, and each state possess one of two spins. The Pauli exclusion
-principle forbids the electrons of an atom from possessing the same combination
-of quantum numbers. As a result, each subsequent shell of an atom can only
-contain $2(2l+1)$ electrons, after which it is considered full. The subshells
-are often referred to using the nomenclature $0,1,2,3,\ldots = s,p,d,f,\ldots$.
+orbital, $m_l$, and each orbital possess one of two spins. As a result of the
+Pauli exclusion principle, the wavefunction of each electron around an atom is
+described by a \emph{unique} set of quantum numbers. This means, that any
+particular subshell can only contain $2(2l+1)$ electrons. The subshells are
+often referred to using the nomenclature $0,1,2,3,\ldots = s,p,d,f,\ldots$.
 
 As a result of their separation from the nucleus, the electrons in an atom have
 some degree of potential energy. As the $n$ and $l$ of an electron increase, so
@@ -433,7 +431,7 @@ as to minimize the total potential energy of the system. This natural
 arrangement is referred to as the ground state configuration. Often, but not
 always, the subshells are filled sequentially and in order from lowest to
 highest $l$. Provided some input energy, one or more of the electrons
-surrounding the atom may transition to another orbital, increasing the potential
+surrounding the atom may transition to another state, increasing the potential
 energy of the system. In low-temperature plasmas it usually one of the electrons
 from the outermost or unfilled subshell to be excited.
 
@@ -447,7 +445,7 @@ in other atoms are determined by the collective effects of all outer electrons.
 
 This necessitates an additional means of classifying the electron configurations
 in these atoms. It turns out that the states of these types of atoms can be
-specified based on their total orbital angular momentum $\bm{L}=\sum \bm{l}_i$,
+specified based on their total azimuthal angular momentum $\bm{L}=\sum \bm{l}_i$,
 the total spin, $\bm{S}=\sum \bm{s}_i$, and the total angular momentum,
 $\bm{J}=\bm{L}+\bm{S}$, where $i$ are all the electrons of the valence shell. In
 addition, each state can be said to have either even or odd parity, defined as
@@ -459,7 +457,7 @@ lists the filled subshells and appends a symbol representing the outer subshell
 configuration. For example, the so called triplet metastable state of helium can
 be written as 1s2p$^3$P$^o_{0,1,2}$. This describes a helium atom with one
 electron in the 1s subshell and a second atom in the 2p subshell. This
-configuration has a total orbital angular moment of 1 (denoted by the `P'), odd
+configuration has a total azimuthal angular moment of 1 (denoted by the `P'), odd
 parity (denoted by the superscript `o'), a total spin of $1/2$ (the superscript
 $3$ is equal to $2S+1$) and three possible values for the total angular
 momentum: 0, 1, or 2 which varies depending on the spin-orbit interaction.
