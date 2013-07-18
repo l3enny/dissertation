@@ -30,7 +30,8 @@ Outline
   1. Discharge Apparatus
   2. Operating Procedure & Conditions
   3. Initial Observations
-  4. Preliminary Results
+  4. Field Calculations
+  5. Preliminary Results
     1. Wave Velocities
     2. Energy Coupling
 4. Metastable Measurements
