@@ -27,9 +27,12 @@ Outline
     1. Spectral Lineshape
     2. Absorption
 3. Experimental Setup
-    1. Preliminary Results
-        1. Wave Velocities
-        2. Energy Coupling
+  1. Discharge Apparatus
+  2. Operating Procedure & Conditions
+  3. Initial Observations
+  4. Preliminary Results
+    1. Wave Velocities
+    2. Energy Coupling
 4. Metastable Measurements
     1. Theory
     2. Setup (as necessary)
@@ -45,6 +48,7 @@ Outline
       3. PIC Simulations
     2. Effect of Distributions
     3. Effect of Pulse Shape
+    4. Plasma Parameters
 7. Conclusions
     1. Overview of Results
     2. Future Work
