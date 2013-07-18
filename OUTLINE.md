@@ -22,6 +22,7 @@ Outline
   3. Discharge Initiation
     1. Townsend Mechanism
     2. Streamer Mechanism
+    3. Homogeneity Condition
   4. Atomic Spectroscopy & Notation
     1. Spectral Lineshape
     2. Absorption
