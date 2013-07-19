@@ -68,8 +68,8 @@ The gas inlet connection was made through the double-sided flange via a 1/8"
 \textsc{npt} hole. A 1/4" polyethylene tube was attached to the \textsc{npt}
 connection via a \textsc{npt} to 1/4" Swagelok adapater. The tube was then
 connected by Swagelok to a source of ultra-high purity (99.999\%) helium.
-Throughout the experiment, the helium flow rate was fixed at 25.0 sccm,
-regardless of the operating pressure.
+Throughout the experiment, the helium flow rate was fixed at 25.0 sccm with a
+digital flow controller, regardless of the operating pressure.
 
 The discharge apparatus was pumped down by a oil-based roughing pump with an
 upstream zeolite trap. In each case, the system was evacuated by the roughing
@@ -94,10 +94,33 @@ angle brackets. Attached to one of the angle brackets was a small optical
 breadboard with four bolts which served as physical references for aligning and
 positioning the apparatus.
 
+All electrical measurements were made with a LeCroy \smaller{6100A} WaveRunner
+oscilloscope which had a bandwidth of 1.0 GHz. Electrical connections to the
+oscilloscope were made with the shortest practical lengths of \smaller{RG 50/U}
+coaxial cable and terminated at 50 $\Omega$ unless otherwise noted. The voltage
+of the pulser was monitored from an internal $1:1000$ divider, and the current
+was via a current shunt located in a break of the outer conductor of the
+transmission line. The current shunt was composed of 9, low inductance, $1.0
+\Omega$ resistors connected in parallel. Figure~\ref{fig:bcs}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/experiment/figures/bcs.jpg}
+  \caption{Photograph of the back-current shunt used to measure the current
+  characteristics of the \acs{rpnd}.}
+  \label{fig:bcs}
+\end{figure}
+
+Data were retrieved from the oscilloscope with a desktop computer via a
+\textsc{gpib} connection. A LabView interface was used to interface with the
+oscilloscope and additional instruments. Analog inputs and outputs (such as
+laser control and pressure sensing) were handled by a \textsc{srs}
+\smaller{sr850 dsp} lock-in amplifier which performed as an \emph{ad hoc} data
+acquisition system.
+
 \section{Operating Procedure \& Conditions}
 
-At the beginning of each day of operation, the system was initially pumped down
-to base pressure. After this, the primary pump path was closed in favor of the
+At the beginning of each day of operation, the system was first pumped down to
+base pressure. After this, the primary pump path was closed in favor of the
 needle valve bypasses. The helium flow was then initiated at 25.0 sccm. Then,
 the system pressure was adjusted to 3.0 Torr.
 
@@ -114,45 +137,19 @@ changes in the emissions and current-voltage characteristics during the first 15
 minutes of operation. Additional increases to this warm up time resulted in no
 appreciable changes to any of the measured data.
 
-
+Measurements were made for a range of pressures, including: 0.3, 0.5, 1.0, 2.0
+3.0, 4.0, 8.0, and 16.0 Torr. The lower limit was set by the pumping speed of
+the roughing pump. Difficulty in obtaining reliable plasma breakdown at
+pressures above 16.0 Torr set an upper limit on the pressure range. Experimental
+measurements of optical properties were obtained at three axial locations: 7.6,
+15.2, and 22.9 cm, relative to the anode. These will frequently be referred to
+as upstream, midstream, and downstream locations, respectively.
 
 \section{Initial Observations}
 
-\acs{las}, emission, and coupling energy measurements were made at three
-different operating pressures. The operating pressures were: 0.3, 0.5,
-1.0, 2.0, 3.0, 4.0, 8.0, and 16.0 Torr. Pressures below 10.0 Torr were
-measured with a capacitance manometer with a full scale range of 10.0
-Torr, above this a capacitance manometer with a full scale range of
-100.0 Torr was used.
-
-Optical measurements were made at three locations along the axis of the
-discharge. The measurement location closest to the anode was separated
-from it by a distance of approximately six inches. Each other optical
-measurement location was moved further from the anode by an additional
-three inches.
-
-For each operating condition, measurements were made of the voltage and
-current. The voltage measurement was made via an internal divider from
-the power supply. Current measurements were made using an back-current
-shunt located at a break in the outer shield of the transmission line.
-The back-current shunt can be seen in Figure \ref{fig:bcs}. It is
-composed of nine, low impedance, one ohm resistors, connected in
-parallel. Each side of the resistors were soldered to a piece of copper
-foil which was then soldered to the outer shield. A calibrated DC power
-supply was used to measure the resistance of the current shunt.
-
-All measurements were made using a LeCroy Waverider oscilloscope with a
-bandwidth of 1 GHz. Connections were made using minimal lengths of RG
-50/U cable. When necessary for timing purposes, the cable lengths were
-matched.  Connections were made using minimal lengths of RG 50/U cable.
-When necessary for timing purposes, the cable lengths were matched. All
-measurements which required maximum bandwidth were made with a using
-external 50 ohm terminators.
 
 \section{Energy Coupling}
-For comparison to other discharges, estimates of the energy coupling
-were made using the current and voltage characteristics at each
-operating pressure.
+
 
 \section{Absorption Setup}
 The \acs{las} setup was based upon the used of a distributed-feedback
