@@ -57,7 +57,7 @@ side of the double-sided flange was connected to the anode of the discharge
 tube.
 
 The voltage pulse was provided by a \acs{fid} pulser, supplied by \textsc{anvs},
-Inc. (model \smaller{PT510NM}). The amplitude of the pulse was fixed at 7.6 kV
+Inc. (model \smaller{PT510NM}). The amplitude of the pulse was fixed at 6.4 kV
 with a repetition rate of 1.0 kHz. Each pulse had a fixed width of 25 ns, with a
 10\%-90\% rise time of approximately 4 ns and a roughly Gaussian shape. It is
 likely that the low conductivity of the gas preceding each pulse resulted in a
@@ -184,6 +184,22 @@ conditions and, as in the low pressure case, the plasma would have to be started
 at more amenable conditions. No electrical interference was noted for this
 pressure range.
 
+Cursory examination of the voltage signal revealed a large number of reflections
+in the system. These can be seen in figure~\ref{fig:waveform},
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/experiment/figures/waveform.eps}
+  \caption{Typical voltage waveform of the \acs{rpnd}. Arrows indicate
+  reflections back to the pulser. The pulser exhibited a double pulsing
+  phenomena, indicated by the dotted line.}
+\end{figure}
+a typical voltage waveform with overlaid arrows indicating the reflected pulses.
+These can be attributed to the impedance discontinuity at the electrode. Also
+observable in the waveform is a second pulse and its associated reflection. This
+is believed to be a peculiarity of the particular power supply used. The
+majority of the presented results, particularly those concerning the fast
+dynamics will only consider the initial pulse.
+
 \section{Field Calculations}
 
 The electric field characteristics of the discharge system was analyzed using a
@@ -198,12 +214,12 @@ two-dimensional, electrostatic solver, Ansoft Maxwell 9. Figure~\ref{fig:fields}
 is a logarithmic heat map of the electric field magnitude, with overlaid
 electric field vectors (in magenta). The electric field varies significantly
 over the length of the discharge apparatus, with a peak near the axial location
-of the glass tube followed by a monotonic decline. These characteristics are
-a large departure from simple case of two parallel electrodes in which the field
+of the glass tube followed by a monotonic decline. These characteristics are a
+large departure from simple case of two parallel electrodes in which the field
 is uniform throughout. This can be attributed to the presence of the external
 ground shield. Though this does complicate the field characteristics, the
 proximity of the ground results in a much higher electric field than would
-otherwise be achievable. 
+otherwise be achievable.
 
 While the off-axis field lines all feature notable radial components,
 particularly close to the anode the center line does not.
@@ -211,18 +227,13 @@ Figure~\ref{fig:centere}
 \begin{figure}
   \centering
   \includegraphics{./chapters/experiment/figures/centere.eps}
-  \caption{The strength of the electric field along the centerline of the
-  discharge.}
+  \caption{The magnitude of the electric field along the center and outside of
+  the discharge apparatus.}
   \label{fig:centere}
 \end{figure}
-shows the strength of the electric field along the center line as a function of
-distance from the edge of the anode (considered to where the glass and anode
-meet). In addition, the figure shows the range of preionization densities
-required in order to achieve homogeneous breakdown for the range of electric
-fields along the axis. These were calculated for the lowest and highest pressure
-operating conditions assuming that the electric field is linearly ramped to its
-peak value. If this process requires more than a total of 25 ns, it is assumed
-that homogeneous breakdown is not achieved.
+is a plot of the magnitude of the electric field along the central axis of the
+discharge apparatus and the outside, adjacent to the glass tube. The location of
+the anode is defined as the location of the glass-to-metal seal.
 
 \section{Energy Coupling}
 
