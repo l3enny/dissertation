@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-07-21T18:23:45.599000
+# Saved at 2013-07-21T18:31:41.102000
 
 AddImportPath(u'C:\\Users\\Ben\\Repos\\dissertation\\chapters\\experiment\\figures')
 ImportFileCSV(u'../../../data/Waveform Averages/4.0 Torr/current.csv', linked=True, dsprefix=u'current.csv')
@@ -65,13 +65,14 @@ Set('xData', u'time')
 Set('yData', u'current.csvcol1')
 Set('key', u'')
 Set('yAxis', u'current')
-Set('PlotLine/color', u'red')
+Set('PlotLine/color', u'black')
 To('..')
 Add('xy', name='xy2', autoadd=False)
 To('xy2')
 Set('xData', u'time')
 Set('yData', u'voltage.csvcol1')
 Set('yAxis', u'voltage')
+Set('PlotLine/color', u'red')
 To('..')
 To('..')
 To('..')
