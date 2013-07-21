@@ -242,67 +242,40 @@ the vacuum electric field was $4.8 \times 10^5$, 750, and 11 V/m respectively.
 
 \section{Energy Coupling}
 
-The energy coupling to the plasma for the first pulse (not including
-reflections) was calculated by integration of the current and voltage product.
-Figure~\ref{fig:energy}
+The energy coupling to the plasma for the first pulse was calculated by
+integration of the current and voltage product for the first incident and
+reflected pulse. Figure~\ref{fig:energy}
 \begin{figure}
   \centering
   \includegraphics{./chapters/experiment/figures/energy.eps}
   \caption{Higher resolution plot of the initial voltage and current pulse.}
   \label{fig:energy}
 \end{figure}
-shows a closer view of the incident and reflected voltage and current pulse.
+is a closer view of the time domain under consideration at the 4.0 Torr
+condition. The voltage signal appears to be relatively unmarred by distortion or
+ringing. The current signal from the shunt does appear to involve a moderate
+degree of ringing. The ringing in the current signal increased at lower and
+higher pressures and was most noticeable in the reflected pulse measurements.
+
+Figure~\ref{fig:energies}
+\begin{figure}
+  \centering
+  \includegaphics{./chapters/experiment/figures/energies.eps}
+  \caption{Plot of the energy coupled into the plasma with the first pulse as
+  a function of pressure.}
+  \label{fig:energies}
+\end{figure}
+shows the energy coupled to the plasma for the first incident pulse as a result
+of the above analysis. The coupled energy peaks at a pressure of 1.0 Torr and
+5.5 mJ, before slowly decreasing. The uncertainty of these calculations is
+difficult to estimate as error may be introduced by the ringing of the current
+signal as well as timing differences between the current and voltage signals. 
+
+These values for the coupled energy are comparable to those predicted by
+Adamovich et al. \cite{Adamovich2009} for air plasmas, using an analytical
+model. 
 
 \section{Wave Velocity}
 
-\section{Absorption Setup}
-The \acs{las} setup was based upon the used of a distributed-feedback
-laser diode. Temperature and current control of the diode provided
-coarse and fine tuning, respectively, for the output frequency. It was
-found that it was unnecessary to adjust the temperature for the diode
-once the correct transition was found, therefore all tuning was
-accomplished using current tuning.
-
-The laser diode was produced by Toptica Photonics (model
-\#LD-1083-0070-DFB-1), and had a nominal operating power of 70 mW at a
-center wavelength of 1083 nm. The diode was held inside a Toptica DL-100
-diode housing which contained an integral thermoelectric cooler and
-collimating optics. The operation of the diode was controlled by a
-Toptica DC 110 monitor, DCC 110 current control, DTC 110 temperature
-control, and SC 110 scan control.
-
-A schematic of the optical layout for the absorption experiment can be
-seen in Figure \ref{fig:abslayout}. Immediately after exiting the
-housing, the beam was passed through an optical isolator in order to
-prevent instabilities from back reflections. Next the beam was
-attenuated using a neutral density filter in order to keep its intensity
-below the saturation level for the transition. Following that, the beam
-passed through two apertures for alignment. Here, the beam was split by
-a partially reflecting mirror. Approximately 98\% of the beam was
-allowed to pass through to a reference photodiode (Thorlabs DET300).
-After passing through the plasma, entered another aperture to limit
-near-coincident plasma emissions. The background emissions were further
-reduced using a long pass filter with a cutoff of 1000 nm. Finally, the
-beam was coupled into an optical fiber which connected to the detection
-electronics.
-
-The transmitted laser light was detected with an InGaAs photodiode
-(Thorlabs DET410). The signal from the diode was often too small to
-detect, so the output of the signal photodiode was sent through a
-voltage amplifier (Femto HVA-200M-40-B). The light response of this
-system is limited by the photodiode which has a nominal rise time of
-five nanoseconds. The signal from the amplifier was terminated by a 50
-ohm terminator and sensed by the aforementioned oscilloscope.
-
-\subsection{Acquisition Process} The actual acquisition process required
-a specific series of steps in order to properly account for all noise
-sources. In order to accommodate this process, a custom LabView script
-was used to automate the acquisition of the laser transmission spectra.
-Generally speaking, the signal can be described as
-\begin{equation}
-  V_\mathrm{total} = V_\mathrm{signal} + V_\mathrm{background} +
-                     V_\mathrm{plasma}.
-\end{equation}
-In order to remove the background signal, the acquisition scr
-
-\section{Emissions Setup}
+The wave velocity was measured using a monochromator coupled to
+a photomultiplier tube.
