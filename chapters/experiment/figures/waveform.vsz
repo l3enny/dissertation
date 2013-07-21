@@ -4,7 +4,6 @@
 AddImportPath(u'C:\\Users\\Ben\\Repos\\dissertation\\chapters\\experiment\\figures')
 ImportFileCSV(u'../../../data/Single Acquisition/0.3Torr.dat', delimiter='\t', linked=True, dsprefix=u'0.3Torr.dat')
 ImportFileCSV(u'../../../data/Single Acquisition/4.0Torr.dat', delimiter='\t', linked=True, dsprefix=u'4.0Torr.dat')
-ImportFileCSV(u'../../../data/Single Acquisition/Upstream.dat', delimiter='\t', linked=True, dsprefix=u'Upstream.dat')
 DatasetPlugin('Chop', {'ds_out': u'double', 'start': 2666, 'num': 587, 'ds_in': u'4.0Torr.datcol4'})
 SetDataExpression(u'time', u't', parametric=(-2e-07, 1.8e-06, 5000), linked=True)
 SetDataExpression(u'time_double', u't', parametric=(8.65e-07, 1.099e-06, 587), linked=True)
