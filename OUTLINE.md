@@ -28,12 +28,9 @@ Outline
     2. Absorption
 3. Experimental Setup
   1. Discharge Apparatus
-  2. Operating Procedure & Conditions
-  3. Initial Observations
-  4. Field Calculations
-  5. Preliminary Results
-    1. Wave Velocities
-    2. Energy Coupling
+  2. Field Calculations
+  3. Operating Procedure & Conditions
+  4. Electrical Characteristics
 4. Metastable Measurements
     1. Theory
     2. Setup (as necessary)
