@@ -93,7 +93,7 @@ a bellows valve. The leak rate was found to be $2.0\times 10^{-3}$ sccm. Given a
 constant flow rate of 25.0 sccm, the fractional impurity can be conservatively
 estimated to be 80 ppm.
 
-A \texts{mks} \smaller{PDR-C-2C} power supply and readout, and two capacitance
+A \textsc{mks} \smaller{PDR-C-2C} power supply and readout, and two capacitance
 manometers were used to measure the pressure. One manometer had a full scale
 range of 10 Torr, while the other had a range of 100 Torr. The desired pressure
 was obtained by sealing the system from the pump with the bellows valve. Two
@@ -139,107 +139,6 @@ were all managed by a LabView program. Analog input and output was handled with
 the auxiliary input and output ports of a \textsc{srs} \smaller{SR850 DSP}
 lock-in amplifier.
 
-\section{Operating Procedure \& Conditions}
-
-One of two operating procedures was selected depending on how recently the
-plasma had last been turned on. If it had been greater than one hour, a full
-startup procedure was used. Otherwise, an abbreviated process was used. 
-
-In the case of the former, the roughing pump was turned on and the primary pump
-path was opened. The system was allowed to pump down to its base pressure.
-Afterward, the cutoff valve on the gas feed line was opened and the system was
-again allowed to come to base pressured. Then, the helium flow was initiated at
-25.0 sccm.
-
-Data were acquired over a period of weeks, requiring a standard procedure in
-order to ensure repeatable results. 
-
-
-
-When the discharge had not been run for a
-period of one hour or more, the apparatus was first evacuated to base pressure.
-The primary pump path was then closed, and the bypass lines were opened. The
-helium flow was initiated at 25.0 sccm, and the needle valves on the bypass
-lines were adjust to obtain a pressure of 3.0 Torr.
-
-The delay generator was then turned on and then set to output 5.0 V pulses with
-widths of 5.0 $\mu$s at 1.0 kHz (based on its internal clock). The \acs{fid}
-power supply was then turned on. This produced a plasma within the discharge
-tube. The system was allowed to operate at this condition for one hour in order
-to remove potential contamination on the walls and electrodes. At the end of
-this period, the pulse characteristics were checked to ensure that they remained
-the same as before. Once this was confirmed, the pressure was adjusted to the
-desired operating condition.
-
-In cases where the discharge was turned off for periods of less than one hour,
-an abbreviated startup procedure was used. The roughing pump was turned on, and
-the 
-
-It was frequently necessary to turn off the pulser in between experiments. In
-these cases, once the pulser was turned on, the plasma was allowed to run for 15
-minutes before any measurements were made. This was necessitated by observable
-changes in the emissions and current-voltage characteristics during the first 15
-minutes of operation. Additional increases to this warm up time resulted in no
-appreciable changes to any of the measured data.
-
-Measurements were made for a range of pressures, including: 0.3, 0.5, 1.0, 2.0
-3.0, 4.0, 8.0, and 16.0 Torr. The lower limit was set by the pumping speed of
-the roughing pump. Difficulty in obtaining reliable plasma breakdown at
-pressures above 16.0 Torr set an upper limit on the pressure range. Experimental
-measurements of optical properties were obtained at three axial locations: 3.83,
-11.45, and 19.07 cm relative to the boundary between the anode and the glass
-tube.
-
-\section{Initial Observations}
-
-Plasma characteristics could be divided into approximately three cases: low,
-intermediate, and high pressure. At the low pressures, 0.3, 0.5, and 1.0 Torr,
-it was difficult to initiate a discharge. Frequently, the plasma would have to
-be started at more moderate pressures, and then adjusted to the desired
-condition. At these conditions, the plasma was dim compared to the ambient room
-light and a dull purple. It appeared to be well separated from the walls.
-Visually, the diameter of the plasma was estimated to be about 2 cm, however
-this increased with pressure. Also occurring at these conditions was a large
-amount of electronic noise. Nearby instruments, such as the computer mouse, and
-lock-in amplifier, would occasionally malfunction at these conditions.
-
-At moderate pressures, 2.0, 3.0, and 4.0 Torr, the plasma expanded radially to
-fill the whole of the discharge volume. Compared to ambient conditions the
-plasma was bright with an orange-pink hue. Electrical interference disappeared
-at these conditions, and the plasma initiation was relatively easy.
-Nevertheless, at the beginning of each day several thousand pulses could be
-required before a visible plasma was formed. Interestingly, the plasma extended
-well past the cathode/ground and to the pumping section (connected to ground at
-a separate point). Presumably, this is a result of the relatively small cathode
-area compared to the large anode area. The build up of space charge limits the
-current extraction from the intended cathode, subsequently the electrode further
-downstream begins to contribute.
-
-For the higher operating pressures, 8.0 and 16.0 Torr, the brightness of the
-plasma decreased, though not to the level of the low pressure discharge. In
-addition, the plasma remained volume-filling. However, it did not visibly
-extended past the cathode. Discharge initiation was difficult at these operating
-conditions and, as in the low pressure case, the plasma would have to be started
-at more amenable conditions. No electrical interference was noted for this
-pressure range.
-
-Cursory examination of the voltage signal revealed a large number of reflections
-in the system. These can be seen in figure~\ref{fig:waveform},
-\begin{figure}
-  \centering
-  \includegraphics{./chapters/experiment/figures/waveform.eps}
-  \caption{Typical voltage waveform of the \acs{rpnd}. Arrows indicate
-  reflections back to the pulser. The pulser exhibited a double pulsing
-  phenomena, indicated by the dotted line.}
-  \label{fig:waveform}
-\end{figure}
-a typical voltage waveform with overlaid arrows indicating the reflected pulses.
-These can be attributed to the impedance discontinuity at the electrode. Also
-observable in the waveform is a second pulse and its associated reflection. This
-is believed to be a peculiarity of the particular power supply used. The
-majority of the presented results, particularly those concerning the fast
-dynamics will only consider the initial pulse.
-
 \section{Field Calculations}
 
 The electric field characteristics of the discharge system was analyzed using a
@@ -279,6 +178,117 @@ the field along the axis peaks at about 1.5 kV/cm. At a distance of 2 cm from
 the anode, the electric field magnitude is roughly the same regardless of the
 radial coordinate. At the measurement locations of 3.83, 11.45, and 19.07 cm,
 the vacuum electric field was $4.8 \times 10^5$, 750, and 11 V/m respectively. 
+
+\section{Operating Procedures}
+
+One of two operating procedures was selected depending on how recently the
+plasma had last been turned on. If it had been greater than one hour, a full
+startup procedure was used. Otherwise, an abbreviated process was used. 
+
+In order to obtain consistent discharge characteristics, it was necessary to
+develop two sets of operating procedures for the \acs{rpnd}. In the case that
+the discharge had not been operated for over an hour, the roughing pump was
+turned on and the primary pump path valve was opened as was the first shutoff
+valve upstream of the discharge chamber, seen in figure~\ref{fig:pump}.
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/experiment/figures/pump.eps}
+  \caption{Simplified diagram of the gas flow path and pumping system.}
+  \label{fig:pump}
+\end{figure}
+The system was then allowed to pump down to its base pressure. Afterward the
+final shutoff valve upstream of the pump path was opened and the system was
+again allowed to reach base pressure. At this point the helium flow was turned
+on and set to 25.0 sccm. The primary pump path was then closed and the needle
+valve bypasses were used to adjust the system pressure to 3.0 Torr.
+
+Next, the delay generator was turned on and the output for triggering the power
+supply was activated. Then, the \acs{fid} power supply was then turned on. This
+would produce an easily visible plasma within the discharge tube. The system was
+allowed to operate at this condition for one hour in order to remove potential
+contamination on the walls and electrodes. At the end of this period, the pulse
+voltage waveform was checked to ensure that it was consistent with previous
+waveforms. Once this was confirmed, the pressure was adjusted to the desired
+operating condition.
+
+The plasma was shutdown by first shutting off the power supply, followed by the
+delay generator. Then, the helium flow was shut off, and the primary pump path
+was opened. The system was allowed to come to base pressure before the two
+upstream shutoff valves were closed, after which the primary pump path was
+closed. The roughing pump was then shut off.
+
+In the cases that the plasma had been operated within the last hour, it was
+possible to use an abbreviated startup procedure. This process was fundamentally
+the same as the previous one, however the plasma only required five minutes to
+reach a steady state. This was verified with multiple measurements of the
+current and voltage characteristics as well as the plasma emissions. At times
+prior to this five minute equilibration period, the reflected pulse energy was
+noticeably higher, and the delay between the trigger pulse and the output pulse
+was variable.
+
+\section{Electrical Characteristics}
+
+The general voltage waveform of the \acs{rpnd} showed a number of
+characteristics. Figure~\ref{fig:waveform}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/experiment/figures/waveform.eps}
+  \caption{Typical voltage waveform of the \acs{rpnd}. Arrows indicate
+    reflections back to the power supply. The dotted line delineates the time at
+    which the power supply begins to exhibit double pulsing.}
+  \label{fig:waveform}
+\end{figure}
+is a plot of a typical voltage waveform of the \acs{rpnd}. It begins with an
+incident pulse with a small foot at $t = 0.0$. This followed by a reflected
+pulse 138 ns afterward. The reflected pulse is somewhat attenuated, proportional
+to the energy deposited in the plasma. Additional reflections are visible at
+integer multiples of 138 ns, however they are highly attenuated. This suggests
+that after the first pulse initiates the discharge, energy is much more easily
+coupled into the volume. An additional pulse appears after about 800 ns. This is
+believed to be a peculiarity of the power supply. For the most part, analysis of
+the \acs{rpnd} will focus on the first 138 ns in order to isolate the effects of
+a single pulse.
+
+The independent variable for most operating conditions was the pressure of the
+system. The properties of the \acs{rpnd} were examined at: 0.3, 0.5, 1.0, 2.0,
+3.0, 4.0, 8.0, and 16.0 Torr. The appearance of the plasma varied with the
+pressure in a continuous fashion, however it was apparent that there were three
+regimes of operation.
+
+At the low pressures, 0.3, 0.5, and 1.0 Torr, it was difficult to initiate the
+discharge. Often, it would be necessary to increase the pressure to initiate the
+discharge, and then reduce the pressure to the desired conditions. The plasma
+appeared dim and relatively constricted to the central axis of the discharge
+tube, with a radial extent of approximately 1 cm. Accompanying these presures
+was a large degree of electronic noise. This manifested in the voltage and
+current waveforms, seen in figure~\ref{fig:waveforms}, 
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/experiment/figures/waveforms.eps}
+  \caption{High resolution views of the voltage and current waveforms for the
+  first incident and reflected pulse, at each of the operating pressures.}
+  \label{fig:waveforms}
+\end{figure}
+as well as a number of equipment malfunctions.
+
+As the pressure was increased, the electrical noise began to subside. The
+waveforms in figure~\ref{fig:waveforms} show significant reductions in the
+ringing that was particularly prominent in the current waveforms. In addition,
+the visual extent of the plasma increased substantially to the point where it
+could be considered volume-filling. The plasma also increased its axial extent
+as well, eventually reaching well past the cathode/ground. This was despite
+attempts to isolate this portion of the apparatus from the plasma. It is
+possible to attribute this to the relatively large surface area of the anode in
+comparison to the cathode. If a sufficiently high electron current is being
+drawn from the cathode, space charge could begin to limit further current
+extraction.
+
+However, the plasma receded back to the intended cathode structure at the higher
+operating pressures, 8.0 and 16.0 Torr. This was accompanied by a decrease in
+the apparent brightness of the plasma to levels similar to that of the low
+pressure conditions. In contrast, the plasma appeared to remain volume-filling.
+While discharge initiation was difficult at the higher pressures, it was not
+accompanied by the electrical noise observed at lower pressures.
 
 \section{Energy Coupling}
 
