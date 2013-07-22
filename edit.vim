@@ -3,25 +3,26 @@ if &cp | set nocp | endif
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~\Repos\dissertation
+cd ~/Repos/dissertation
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1 \Users\Ben\.ssh\github_rsa.pub
+badd +1 UsersBen.sshgithub_rsa.pub
 badd +84 main.tex
-badd +581 chapters\introduction\introduction.tex
+badd +581 chaptersintroductionintroduction.tex
 badd +16 scratch.txt
 badd +1 main.pdf
 badd +37 OUTLINE.md
-badd +582 chapters\theory\theory.tex
-badd +1 chapters\introduction\diagnostics.txt
+badd +582 chapterstheorytheory.tex
+badd +1 chaptersintroductiondiagnostics.txt
 badd +1 mathcommands.tex
-badd +1 chapters\experiment\experiment.tex
+badd +1 chaptersexperimentexperiment.tex
 badd +7 TODO.md
 badd +15 acronyms.tex
+badd +0 chapters/experiment/experiment.tex
 silent! argdel *
-edit chapters\experiment\experiment.tex
+edit chapters/experiment/experiment.tex
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -43,12 +44,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 278 - ((6 * winheight(0) + 28) / 56)
+let s:l = 225 - ((34 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-278
-normal! 0
+225
+normal! 042l
 wincmd w
 argglobal
 edit OUTLINE.md
@@ -61,14 +62,13 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 37 - ((32 * winheight(0) + 28) / 56)
+let s:l = 37 - ((36 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 37
 normal! 0
 wincmd w
-2wincmd w
 exe 'vert 1resize ' . ((&columns * 88 + 88) / 177)
 exe 'vert 2resize ' . ((&columns * 88 + 88) / 177)
 tabnext 1
