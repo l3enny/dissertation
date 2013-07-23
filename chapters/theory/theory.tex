@@ -32,7 +32,7 @@ Boltzmann equation,
   \cdot \nabla_v f_\alpha = \left( \frac{\partial f_\alpha}
   {\partial t}\right)_\mathrm{coll}.
 \end{equation}
-Here, $m$ is the particle mass, $q$ is its charge, $\vec{E}$ is the electric
+Here, $m$ is the particle mass, $q$ is its charg:, $\vec{E}$ is the electric
 field, $\vec{B}$ is the magnetic field, and $(\partial f_\alpha/\partial
 t)_\mathrm{coll}$ is a term which represents changes to the distribution
 function as a result of collisions. Coupled with Maxwell's equations,
@@ -40,33 +40,36 @@ equation~\ref{eq:boltzmann} provides a complete description of the behavior of
 the fields and particles in a plasma.
 
 For a species in equilibrium in the absence of external forces and ($\partial
-f_\alpha/\partial t)_\mathrm{coll} = 0$, it can be shown that the distribution
-of energies is
+f_\alpha/\partial t)_\mathrm{coll} = 0$, it can be shown \cite{Druyvesteyn1940}
+that the distribution of energies is
 \begin{equation}\label{eq:mb}
-  f_{\alpha}(\epsilon) = \frac{3\sqrt{3}}{\sqrt{2\pi}}(\kB T_\alpha)^{-3/2}
-                        \exp{\left(-\frac{3\epsilon}{2\kB T_\alpha}\right)}
+  f\alpha(\epsilon) = C \epsilon^{1/2}
+          \exp\left( -\frac{\epsilon}{\kB T_\alpha}\right)
 \end{equation}
-where $\epsilon$ is the energy, $\kB$ is Boltzmann's constant, and $T_\alpha$ is
-the temperature of the species. This is referred to as the Maxwell-Boltzmann
-distribution. It should be emphasized that this solution only applies when the
-species can be considered to be in equilibrium. Gradients and electromagnetic
-fields can both significantly alter the distribution function of a species. This
-can be of particular importance in the calculation or reaction rates, or the
-measurement of temperatures.
+where $C$ is a normalizing constant, $\epsilon$ is the energy, $\kB$ is
+Boltzmann's constant, and $T_\alpha$ is the temperature of the species. This is
+referred to as the Maxwell-Boltzmann distribution. It should be emphasized that
+this solution only applies when the classical species can be considered to be in
+equilibrium. Gradients and electromagnetic fields can both significantly alter
+the distribution function of a species. This can be of particular importance in
+the calculation or reaction rates, or the measurement of temperatures.
 
 Additionally, the Boltzmann equation may be solved for electrons in equilibrium
-with a small, constant electric field, assuming they only interact through
-elastic collisions. This result was originally presented by Druyvesteyn and
-Penning \cite{Druyvesteyn1940} and has come to be known as the Druyvesteyn
-distribution. It is defined as,
+constant electric field, provided that a constant current density, and only
+elastic collisions. This is generally valid if the electric field strength is
+sufficiently small such that the mean energy of the electrons does not become
+comparable to the threshold energies for inelastic collisions. This result was
+originally presented by Druyvesteyn and Penning \cite{Druyvesteyn1940} and has
+come to be known as the Druyvesteyn distribution. It is defined as,
 \begin{equation}
-  f_{\alpha} = \frac{3\sqrt{3}}{4\Gamma(3/4)}(\kB T_\alpha)^{-3/2}
-  \exp{\left[-\frac{9}{16}\left(\frac{\epsilon}{\kB T_\alpha}\right)\right]}
+  f_\alpha(\epsilon) = C \epsilon^{1/2}
+           \exp\left(-\frac{\epsilon^2}{\langle \epsilon \rangle^2\right)
   \label{eq:druy}
 \end{equation}
-where $\Gamma$ is the gamma function. This solution tends to suppress the
-probability of higher and lower-energy electrons in favor of more intermediate
-values. Figure~\ref{fig:simpledists}
+where $\langle\epsilon\rangle$ is some mean energy, determined by the gas
+properties. This solution tends to suppress the probability of higher and
+lower-energy electrons in favor of more intermediate values.
+Figure~\ref{fig:simpledists}
 \begin{figure}
   \centering
   \includegraphics{./chapters/theory/figures/simpledists.eps}
@@ -81,11 +84,12 @@ illustrates the average energy for the two distributions, which is not the same
 as the most probably energy.
 
 Additional solutions of equation~\ref{eq:boltzmann} in anything but these simple
-cases can be very challenging. Even computational approaches can be stymied by
-the seven-dimension phase space and high dynamic range. In most situations, the
-Boltzmann equation is reduced to more tenable expressions by integrating over
-velocity-space (leaving $f$ as a function of space and time). The first
-so-called moment is the conservation equation or continuity equation,
+cases can be very challenging (c.f.\ chapter 18 of \cite{Lieberman2005}). Even
+computational approaches can be stymied by the seven-dimension phase space and
+high dynamic range. In most situations, the Boltzmann equation is reduced to
+more tenable expressions by integrating over velocity-space (leaving $f$ as a
+function of space and time). The first so-called moment is the conservation
+equation or continuity equation \cite{Liebermain2005},
 \begin{equation}\label{eq:cont}
   \frac{\partial n_\alpha}{\partial t} + \nabla \cdot (n_\alpha \vec{u_\alpha})
   = G_\alpha - L_\alpha.
@@ -103,7 +107,7 @@ where $\sigma$ is the energy-dependent cross section.
 
 The definition of the mean velocity, $\vec{u}$ can be obtained by multiplying
 equation~\ref{eq:boltzmann} by $v$ and integrating over velocity-space, to
-obtain the second moment,
+obtain the second moment \cite{Lieberman2005},
 \begin{equation}
   m_\alpha n_\alpha \left[ \frac{\partial \vec{u_\alpha}}{\partial t}
   + (\vec{u_\alpha} \cdot \nabla) \vec{u_\alpha}\right]
