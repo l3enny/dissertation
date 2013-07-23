@@ -3,37 +3,55 @@ import numpy as np
 from scipy.integrate import simps
 import os
 
-#start = 177e-9
 starts = np.linspace(167e-9, 187e-9)
 reflect = 138e-9
-absorbed = []
-debug = False
+debug = True
 
 t = np.linspace(0,2e3 * 1e-9, 5e3)
 dt = (2e3 * 1e-9) / 5e3
 
 dirs = os.walk('.')
 
+start = 200e-9
+delay = 138e-9
+bounds = [start, start + delay, start + 2*delay] 
+ends = np.linspace(0, 40e-9)
+
 for d in dirs:
     if 'current.csv' in d[2]:
         print "Maximizing absorption\n"
-        current = np.loadtxt(d[0] + '\\current.csv', delimiter=',')
-        voltage = np.loadtxt(d[0] + '\\voltage.csv', delimiter=',')
+        current = np.loadtxt(d[0] + '/current.csv', delimiter=',')
+        voltage = np.loadtxt(d[0] + '/voltage.csv', delimiter=',')
         absorbed = []
-        for start in starts:
-            i = round(start/dt, 0)
-            j = round((start + reflect)/dt, 0)
-            k = round((start + 2*reflect)/dt, 0)
+        for end in ends:
+            i = round(bounds[0]/dt, 0)
+            j = round(bounds[1]/dt, 0)
+            k = round((bounds[2] + end)/dt, 0)
             power = voltage*current
-
             incident = simps(power[i:j], t[i:j])
             reflected = - simps(power[j:k], t[j:k])
             #absorbed = incident - reflected
             absorbed.append(incident - reflected)
 
-            #print "Incident (J) =", incident
-            #print "Reflected (J) =", reflected
-            #print "Absorbed (J) =", absorbed
+        if debug:
+            plt.plot(ends, absorbed)
+            plt.xlabel('Domain Extension (ns)')
+            plt.ylabel('Energy Absorbed (J)')
+            plt.show()
+        #for start in starts:
+        #    i = round(start/dt, 0)
+        #    j = round((start + reflect)/dt, 0)
+        #    k = round((start + 2*reflect)/dt, 0)
+        #    power = voltage*current
+
+        #    incident = simps(power[i:j], t[i:j])
+        #    reflected = - simps(power[j:k], t[j:k])
+        #    #absorbed = incident - reflected
+        #    absorbed.append(incident - reflected)
+
+        #    #print "Incident (J) =", incident
+        #    #print "Reflected (J) =", reflected
+        #    #print "Absorbed (J) =", absorbed
 
 
         #index = np.argmax(absorbed)

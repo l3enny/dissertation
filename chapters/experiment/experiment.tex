@@ -1,5 +1,3 @@
-
-
 \section{Discharge Apparatus}
 
 The design of the \acs{rpnd} apparatus was similar to the coaxial geometry used
@@ -255,13 +253,13 @@ system. The properties of the \acs{rpnd} were examined at: 0.3, 0.5, 1.0, 2.0,
 pressure in a continuous fashion, however it was apparent that there were three
 regimes of operation.
 
-At the low pressures, 0.3, 0.5, and 1.0 Torr, it was difficult to initiate the
-discharge. Often, it would be necessary to increase the pressure to initiate the
-discharge, and then reduce the pressure to the desired conditions. The plasma
-appeared dim and relatively constricted to the central axis of the discharge
-tube, with a radial extent of approximately 1 cm. Accompanying these presures
-was a large degree of electronic noise. This manifested in the voltage and
-current waveforms, seen in figure~\ref{fig:waveforms}, 
+At the low pressures, 0.3 and 0.5, it was difficult to initiate the discharge.
+Often, it would be necessary to increase the pressure to initiate the discharge,
+and then reduce the pressure to the desired conditions. The plasma appeared dim
+and relatively constricted to the central axis of the discharge tube, with a
+radial extent of approximately 1 cm. Accompanying these presures was a large
+degree of electronic noise. This manifested in the voltage and current
+waveforms, seen in figure~\ref{fig:waveforms},
 \begin{figure}
   \centering
   \includegraphics{./chapters/experiment/figures/waveforms.eps}
@@ -271,13 +269,13 @@ current waveforms, seen in figure~\ref{fig:waveforms},
 \end{figure}
 as well as a number of equipment malfunctions.
 
-As the pressure was increased, the electrical noise began to subside. The
-waveforms in figure~\ref{fig:waveforms} show significant reductions in the
-ringing that was particularly prominent in the current waveforms. In addition,
-the visual extent of the plasma increased substantially to the point where it
-could be considered volume-filling. The plasma also increased its axial extent
-as well, eventually reaching well past the cathode/ground. This was despite
-attempts to isolate this portion of the apparatus from the plasma. It is
+As the pressure was increased (from 1.0-4.0 Torr), the electrical noise began to
+subside. The waveforms in figure~\ref{fig:waveforms} show significant reductions
+in the ringing that was particularly prominent in the current waveforms. In
+addition, the visual extent of the plasma increased substantially to the point
+where it could be considered volume-filling. The plasma also increased its axial
+extent as well, eventually reaching well past the cathode/ground. This was
+despite attempts to isolate this portion of the apparatus from the plasma. It is
 possible to attribute this to the relatively large surface area of the anode in
 comparison to the cathode. If a sufficiently high electron current is being
 drawn from the cathode, space charge could begin to limit further current
@@ -292,20 +290,17 @@ accompanied by the electrical noise observed at lower pressures.
 
 \section{Energy Coupling}
 
-The energy coupling to the plasma for the first pulse was calculated by
-integration of the current and voltage product for the first incident and
-reflected pulse. Figure~\ref{fig:energy}
-\begin{figure}
-  \centering
-  \includegraphics{./chapters/experiment/figures/energy.eps}
-  \caption{Higher resolution plot of the initial voltage and current pulse.}
-  \label{fig:energy}
-\end{figure}
-is a closer view of the time domain under consideration at the 4.0 Torr
-condition. The voltage signal appears to be relatively unmarred by distortion or
-ringing. The current signal from the shunt does appear to involve a moderate
-degree of ringing. The ringing in the current signal increased at lower and
-higher pressures and was most noticeable in the reflected pulse measurements.
+The product of the voltage and current waveforms as seen in
+figure~\ref{fig:waveforms} gives the power deposited in the plasma as a function
+of time. Subsequently, the power integrated over time gives the total energy
+deposited in the plasma. However, this approach is somewhat complicated several
+features of the \acs{rpnd}. As previously mentioned, the pulses produced by the
+power supply are not completely absorbed by the plasma. Therefore, the
+integration must be carried out over both the incident and the reflected pulse.
+Additionally, there is the concern that the oscillations in the current
+measurements could introduce fluctuations in the calculated energy deposition.
+However, the small voltage signal limits the error introduced by these
+fluctuations to less than 1\%.
 
 Figure~\ref{fig:energies}
 \begin{figure}
@@ -315,25 +310,28 @@ Figure~\ref{fig:energies}
   a function of pressure.}
   \label{fig:energies}
 \end{figure}
-shows the energy coupled to the plasma for the first incident pulse as a result
-of the above analysis. The coupled energy peaks at a pressure of 1.0 Torr and
-5.5 mJ, before slowly decreasing. The uncertainty of these calculations is
-difficult to estimate as error may be introduced by the ringing of the current
-signal as well as timing differences between the current and voltage signals. 
+gives the total energy deposited for the first pulse at each of the operating
+conditions. The energy coupled to the plasma peaks at an energy of 5.5 mJ at a
+pressure of 1.0 Torr, after which it slowly decreases. This peak in the coupled
+energy is coincident with the peak brightness of the plasma. Together, these
+suggest that the density of excited states will be optimized at intermediate
+pressures. 
 
-There are no literature values for the energy coupling of a helium \acs{rpnd} to
-compare to. However, several values exist for similar systems in other gases.
-Nishihara et al.\ recorded energy coupling which ranged from 1-2 mJ in 250 Torr
-of nitrogen \cite{Nishihara2006}. Pancheshnyi et al., in the study of an
+Though there appear to be no direct comparisons available in the literature,
+several papers report on energy coupling for similar systems. Macheret,
+Schneider, and Murray studied a parallel plate \acs{rpnd} in air, at 1-10 Torr
+and reported a total energy deposition of 0.30-0.36 mJ, increasing with pressure
+\cite{Macheret2006}. Nishihara et al.\ recorded values of 1-2 mJ in a nitrogen
+\acs{rpnd} \cite{Nishihara2006}. Pancheshnyi et al., in the study of an
 air-propane mixture at 750 Torr, found that each pulse deposited about 1.9 mJ of
-energy. Laroussi and Lu's study of a atmospheric-pressure helium plasma jet
-estimated that the energy deposited per pulse was about 6-18 mJ based on the
-power consumption of the power supply \cite{Laroussi2005}. Finally, Adamovich et
-al.\ used semi-analytic solution to one-dimensional drift equations to estimate
-the per pulse energy density in 40 Torr of air as 0.02-0.07 mJ/cm$^{-3}$
-\cite{Adamovich2009}. The energy density for the results in
-figure~\ref{fig:energies} ranged from about 0.01-0.02 mJ/cm$^{-3}$.
-Interestingly, Adamovich et al.\ observe that the majority of the energy
-deposition occurs in a very short time span after the initial breakdown of the
-gas. A similar model by Nikandrov et al.\ produced similar results
-\cite{Nikandrov2008}.
+energy.
+
+From an applications standpoint, potential existence of a condition which
+optimizes the production of excited states is an interesting one. From a
+physical standpoint, the growth and decline of energy deposition is with power
+is compelling as it suggests two or more competing processes. Though this kind
+of competition is reminiscent of Paschen's law, the duration of the pulse is too
+short for appreciable ion drift (about 3 mm for the maximum field from the
+electrostatic simulations), therefore secondary electron emission is not
+important. These observations provide additional impetus for a closer
+examination of the \acs{rpnd} properties, particularly the excited states.
