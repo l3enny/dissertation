@@ -1,14 +1,13 @@
 \section{Discharge Apparatus}
 
-The design of the \acs{rpnd} apparatus was similar to the coaxial geometry used
-by Vasilyak and others in \acs{fiw} studies \cite{Vasilyak1994}. Broadly, it was
-comprised of cylindrical inner conductor, surrounded by a dielectric, surrounded
-by an outer conductor. In this case, two electrodes and the \acs{rpnd} between
-them served as the inner conductor. The dielectric was provided by a glass tube
-and an air gap. Finally, the outer conductor was an aluminum shell. This
-configuration has the benefit of minimizing the undesired inductance of the
-system which could inhibit the propagation of the exciting voltage pulse.
-The geometry and its electrical equivalent are sketched in
+The \acs{rpnd} apparatus used in the forthcoming experiments was similar in
+design to the coaxial geometry used by Vasilyak and others in their \acs{fiw}
+studies \cite{Vasilyak1994}. It can be described as a cylindrical inner
+conductor, surrounded by a dielectric, covered by an outer conductor. In this
+case, the anode and the \acs{rpnd} served as the inner conductor. The dielectric
+was provided by a glass tube and an air gap. Finally, the outer conductor was a
+series electrically connected metal shells which served as the current return
+path. The geometry and its electrical equivalent are sketched in
 figure~\ref{fig:appschem}.
 \begin{figure}
   \centering
@@ -19,84 +18,101 @@ figure~\ref{fig:appschem}.
   \label{fig:appschem}
 \end{figure}
 Following from right to left, the inner conductor was composed of a vacuum
-window, a Conflat nipple, a double-sided flange tapped for an \textsc{npt}
-connection, and the discharge tube containing the plasma.
+window, a nipple, a double-sided flange tapped for an \textsc{npt} connection,
+and the discharge tube containing the \acs{rpnd}. Unless otherwise noted, all
+vacuum components featured \smaller{DN35} CF flanges with copper gaskets.
 
-The tube was composed of borosilicate glass with 2.75 in Conflat flanges on both
-ends. The plasma was generated inside the glass tube after it had been evacuated
-of air and filled with the desired pressure of helium. The tube had an inner
-diameter of 3.3 cm, an outer diameter of 4.0 cm, and a length of 22.9 cm. The
-overall length of the tube with the flanges was 30 cm. In the figure shown here,
-the right electrode served as the anode, and the left electrode was the cathode.
+The tube was composed of borosilicate glass with metal vacuum flanges on both
+ends. The flanges of the tube also acted as the electrodes for the generation of
+the \acs{rpnd}. The glass tube had an inner diameter of 3.3 cm, an outer
+diameter of 4.0 cm, and a length of 22.9 cm. The overall length of the tube
+including the flanges was 30 cm. In the figure shown here, the right electrode
+served as the anode, and the left electrode was the cathode.
 
 The dielectric surrounding the inner conductor was composed of several
 components. The vacuum window, nipple, double-sided flange, and anode were
 separated from the outer conductor by an air gap and a polytetrafluoroethylene
-(\acs{ptfe}) tube (hatched in the figure), 20 cm in length with an inner
-diameter of about 7.5 cm, and an outer diameter of 10 cm. The plasma portion of
-the inner conductor was separated from the outer conductor by an air gap and the
-glass tube.
+(\acs{ptfe}) tube, 20 cm in length with an inner diameter of about 7.5 cm, and
+an outer diameter of 10 cm. The \acs{rpnd} portion of the inner conductor was
+separated from the outer conductor by the glass tube and an air gap of about
+2.54 cm.
 
-The cathode connected to the outer conductor and served as part of the current
-return path. Attached to the cathode was an aluminum tube (referred to as the
-ground shell), held in place by a acetyl resin shaft collar and copper
-shim.\footnote{While all of the aluminum tube is nominally at ground, it is
-likely that it would float to a finite voltage with each pulse.} Radial optical
-access to the discharge was provided by two slots milled into the ground shell.
-The slots were positioned on opposite sides of the shell and were 3.8 by 25.4 cm
-in length. The tube itself was 30 cm in length.
+The left side of the discharge tube, or cathode, connected to the outer
+conductor and served as part of the current return path. Directly attached to
+the cathode was an alumninum tube, held in place by an acetyl resin shaft collar
+and a copper shim. Radial optical access to the discharge was provided by two
+slots milled into the ground shell. The slots were positioned on opposite sides
+of the shell and were 3.8 by 25.4 cm in length. The tube itself was 30 cm in
+length.
 
-At the end nearest to the anode, the aluminum tube was affixed to a copper
-sheet, 10 cm square, with conductive copper tape. A 5 cm diameter hole was cut
-into the copper sheet to allow the discharge tube to pass through it. The sheet
-was secured to the \acs{ptfe} tube by nylon screws. Surrounding the \acs{ptfe}
-tube was a second shell, made of copper sheet. This was connected to the
-aluminum tube by a braided copper strap. The right end of the \acs{ptfe} tube
-was covered by a second copper sheet, 10 cm square. The sheet was secured to the
+The end of the aluminum tube nearest the anode was affixed to a copper sheet
+which was oriented perpendicular with respect to the tube's axis of rotation.
+The sheet was 10 cm square, and was attached to the tube with conductive copper
+tape. A 5 cm diameter hole was cut into the copper sheet to allow the discharge
+tube to pass through it. The sheet was secured to the edge of the \acs{ptfe}
+tube by nylon screws. Surrounding the \acs{ptfe} tube was a second shell, made
+of rolled copper sheet. This was electrically connected to the aluminum tube by
+a braided copper strap. The right end of the \acs{ptfe} tube was covered by a
+second copper sheet, 10 cm square. Again, the sheet was secured to the
 \acs{ptfe} tube by nylon screws and in electrical contact with the copper shell.
 In the center of the copper sheet was a HN bulkhead adapter for connection to
 the transmission line. The inner conductor of the bulkhead adapter was connected
 by a straight run of 5 cm of silicone-coated wire to the vacuum window flange.
+The outer conductor of the bulkhead adapter provided the ground connection for
+the discharge apparatus.\footnote{Measurements confirmed that the entirety of
+the outer conductor had a low DC impedance to ground. However, it is likely that
+at frequencies relevant to the \acs{rpnd}, the impedance is not negligible. As a
+result, the outer conductor likely floats to a finite voltage during operation.}
 
 The voltage pulse was generated by a \acs{fid} power supply, supplied by
 \textsc{anvs}, Inc. (model \smaller{PT510NM}). The amplitude of each pulse was
 fixed at 6.4 kV with a repetition rate of 1.0 kHz. Each pulse had a fixed width
 of 25 ns, with a 10\%-90\% rise time of approximately 4 ns and was roughly
-Gaussian in shape. From a practical standpoint, the high impedance prior to
-breakdown should effectively double the peak voltage at the anode. A
-\textsc{srs} \smaller{DG645} delay generator was used to trigger the power
-supply output for all experiments and provided a reference time base for all
-measurements.
+Gaussian in shape.A \textsc{srs} \smaller{DG645} delay generator was used to
+trigger the power supply output for all experiments and provided a reference
+time base for all measurements.
 
 Preliminary experiments revealed multiple reflections between the power supply
 and the anode. A 13.7 m transmission line, made of RG213 coaxial cable, was used
-to isolate the reflections so that the effect of individual pulses could be
-examined. The calculated delay of the transmission line was 69.2 ns, for a total
-separation time between the pulse and the reflection of 138.4 ns. The calculated
-delay was found to be a close match in the measured delay.
+to temporally separate the reflections so that the effects of the individual
+pulses could be studied. The calculated delay introduced by the transmission
+line was 69.2 ns. As the reflection would have to cross the length of the
+transmission line twice before it reached the anode again, the total separation
+time between the initial pulse and each subsequent reflection was 138.4 ns. This
+calculated delay was found to be a close match in the measured delay.
 
-The gas inlet connection was made through the double-sided flange via a 1/8"
-\textsc{npt} hole. A 1/4" polyethylene tube was attached to the \textsc{npt}
-connection via a \textsc{npt} to 1/4" Swagelok adapater. The tube was then
-connected to a source of ultra-high purity (99.999\%) helium. Throughout the
-experiment, the helium flow rate was fixed at 25.0 sccm with a digital flow
-controller, regardless of the operating pressure.
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/experiment/figures/pump.eps}
+  \caption{Simplified diagram of the gas flow path and pumping system.}
+  \label{fig:pump}
+\end{figure}
+A simplified version of the gas flow system can be seen in
+figure~\ref{fig:pump}. The gas supply was provided by a bottle of ultra-high
+purity helium. Following the regulator, the helium passed through a digital flow
+controller which was set at 25.0 sccm for all experiments. The helium then
+entered a gas distribution manifold, followed by a shutoff valve, a short run of
+1/4" stainless steel tubing, another shutoff valve, about 2 m of 1/4"
+polyethylene tubing, and then the discharge tube via the double-sided flange. 
 
-The discharge apparatus was pumped down by a oil-based roughing pump with an
-upstream zeolite trap. The pump was connected to the discharge tube by a second
-glass tube, intended to electrically isolate it from the cathode. The base
-pressure of the system was approximately 15 mTorr. The leak rate was measured
-several times by evacuating the apparatus and then sealing it from the pump with
-a bellows valve. The leak rate was found to be $2.0\times 10^{-3}$ sccm. Given a
-constant flow rate of 25.0 sccm, the fractional impurity can be conservatively
-estimated to be 80 ppm.
+The gas exited the discharge tube via an identical tube, on the side opposite
+the inlet, see figure~\ref{fig:appschem}. This second tube was intended to
+electrically isolate the discharge portion of the apparatus so that only a
+single conductive path to ground existed. The pressure was monitored downstream
+of the second tube with two capacitance manometers (one with a full scale range
+of 10 Torr, the other with a range of 100). Following that, the second tube was
+connected to an oil-seal roughing pump via three independent paths. The primary
+pump path had the highest gas conductance and was controlled by a bellows valve.
+However, this path was typically closed in favor of two needle valve bypasses.
+The needle valves were used to control the pumping speed and obtain the desired
+operating pressure. Immediately upstream of the roughing pump was a zeolite trap
+in order to limit oil backstreaming.
 
-A \textsc{mks} \smaller{PDR-C-2C} power supply and readout, and two capacitance
-manometers were used to measure the pressure. One manometer had a full scale
-range of 10 Torr, while the other had a range of 100 Torr. The desired pressure
-was obtained by sealing the system from the pump with the bellows valve. Two
-bypass pump lines, fitted with needle valves, were then used to adjust pumping
-speed and system pressure.
+The base pressure of the system was measured to be approximately 15 mTorr. The
+leak rate was measured several times by evacuating the apparatus and then
+sealing it from the pump by all three pump paths. The leak rate was found to be
+$2.0\times 10^{-3}$ sccm. Given a constant flow rate of 25.0 sccm, the
+fractional impurity can be conservatively estimated to be 80 ppm.
 
 The assembled discharge apparatus can be seen in figure~\ref{fig:appphoto}.
 \begin{figure}
@@ -110,26 +126,36 @@ The assembled discharge apparatus can be seen in figure~\ref{fig:appphoto}.
 The \acs{rpnd} apparatus was supported two 1.5 in mounting posts with angle
 brackets. The mounting posts attached to a 4 ft by 2.5 ft optical breadboard,
 supported by urethane shock absorbers, and a rigid frame. The roughing pump was
-attached to the apparatus with flanged bellows in order to reduce vibrations. 
+attached to the apparatus with flanged bellows in order to reduce mechanical
+vibrations.
 
 All electrical measurements were made with a LeCroy \smaller{6100A} WaveRunner
 oscilloscope which had a bandwidth of 1.0 GHz. Electrical connections to the
 oscilloscope were made with \smaller{RG 50/U} coaxial cable and standard
-\textsc{bnc} connectors, terminated at 50 $\Omega$ unless otherwise noted. The
-voltage of the pulses was monitored from $1:1000$ divider built into the power
-supply. The current was measured from a current shunt located in a break of the
-outer conductor of the transmission line. The current shunt was composed of 9,
-low inductance, $1.0 \Omega$ resistors connected in parallel.
-Figure~\ref{fig:bcs}
+\textsc{bnc} connectors. All connections were terminated at 50 $\Omega$ unless
+otherwise noted. The voltage of the pulses was monitored from a $1:1000$ divider
+built into the power supply. The current was measured from a current shunt which
+crossed a small electrical break in the outer conductor of the transmission
+line. The shunt was built into the transmission line as close as possible to the
+power supply, about 3 cm from the output connector.
+
+The current shunt was composed of nine, low inductance, $1.0 \Omega$ resistors
+connected in parallel. As illustrated in figure~\ref{fig:cbcs}
 \begin{figure}
   \centering
-  \setlength\fboxsep{0pt}
-  \setlength\fboxrule{1.0pt}
-  \fbox{\includegraphics{./chapters/experiment/figures/bcs.jpg}}
-  \caption{Photograph of the back-current shunt used to measure the current
-  characteristics of the \acs{rpnd}.}
-  \label{fig:bcs}
+  \includegraphics{./chapters/experiment/figures/cbcs.eps}
+  \caption{Sketch of the unassembled back-current shunt, and a photograph of it
+  assembled around the transmission line.}
+  \label{fig:cbcs}
 \end{figure}
+the resistors were soldered to two strips of copper foil. This assembly was then
+wrapped around the electrical break in the transmission line, bridging it. Two
+short lengths of No.\ 18 copper wire were soldered to each side of the shunt
+assembly. These were then attached to a \textsc{bnc} bulkhead connector, fitted
+to a metal project box. The voltage across the resistors was used to measure the
+current traveling through the outer conductor of the transmission line. The
+copper foil was then secured to the outer conductor with several wraps of
+aluminum foil, followed by a layer of polyimide tape.
 
 Data were retrieved from the oscilloscope with a desktop computer via the
 \textsc{gpib} interface. Instrument control, data acquisition, and data storage
@@ -139,8 +165,9 @@ lock-in amplifier.
 
 \section{Field Calculations}
 
-The electric field characteristics of the discharge system was analyzed using a
-two-dimensional, electrostatic solver, Ansoft Maxwell 9. Figure~\ref{fig:fields}
+The electric field characteristics of the discharge apparatus were analyzed
+using Ansoft Maxwell 9, a two-dimensional, electrostatic solver. At the top of
+figure~\ref{fig:cfields}
 \begin{figure}
   \centering
   \includegraphics{./chapters/experiment/figures/cfields.eps}
@@ -148,86 +175,73 @@ two-dimensional, electrostatic solver, Ansoft Maxwell 9. Figure~\ref{fig:fields}
   discharge apparatus.}
   \label{fig:cfields}
 \end{figure}
-is a heat map on a logarithmic scale, of the electric field magnitude, with
-overlaid electric field vectors (in magenta). The electric field varies
-significantly over the length of the discharge apparatus, with a peak near the
-axial location of the glass tube followed by a monotonic decline. These
-characteristics are a large departure from simple case of two parallel
-electrodes in which the field is uniform throughout. This can be attributed to
-the presence of the external ground shield. Though this does complicate the
-field characteristics, the proximity of the ground results in a much higher
-electric field than would otherwise be achievable.
+is a logarithmic heat map of the electric field magnitudes within the device.
+Overlaid are the electric field vectors in magenta. Below this is a plot of the
+electric field on a linear scale, across the central axis of the apparatus and
+along the outer edge, adjacent to the glass tube. It is apparent that the field
+strength is the strongest at the triple point which occurs near the glass-metal
+seal. Also noticeable is the fast fall off of the electric field with distance
+from the anode. The presence of the external ground shield produces an electric
+field contour vastly different from that of two parallel plates. This is also
+reflected in the electric field vectors. Specifically, the many locations
+possess fields with strong radial components, especially those near the anode.
 
-While the off-axis field lines all feature notable radial components,
-particularly close to the anode the center line does not.
-Figure~\ref{fig:centere}
-\begin{figure}
-  \centering
-  \includegraphics{./chapters/experiment/figures/centere.eps}
-  \caption{The magnitude of the electric field along the center and outside of
-  the discharge apparatus.}
-  \label{fig:centere}
-\end{figure}
-is a plot of the magnitude of the electric field along the central axis of the
-discharge apparatus and the outside, adjacent to the glass tube. The location of
-the anode is defined as the location of the glass-to-metal seal. The field close
-to the triple point at the seal is the highest at approximately 3.5 kV/cm, while
-the field along the axis peaks at about 1.5 kV/cm. At a distance of 2 cm from
-the anode, the electric field magnitude is roughly the same regardless of the
-radial coordinate. At the measurement locations of 3.83, 11.45, and 19.07 cm,
-the vacuum electric field was $4.8 \times 10^5$, 750, and 11 V/m respectively. 
+These characteristics should result in a discharge that is somewhat different
+than the one-dimensional description of a streamer in chapter~\ref{chp:theory}.
+First, assume that the electrons are distributed uniformly throughout the
+discharge tube, prior to the pulse. As a pulse is applied, ionization would
+preferentially take place near the anode. As the electrons would be drawn toward
+the anode, and leave behind some amount of positive space charge. However, as
+the positive space charge builds up, it would begin to act as a virtual anode,
+increasing the electric field further from the physical anode. The virtual anode
+would then begin to draw its own electron current, predominantly from around the
+edges, near the wall. In this manner, the discharge would propagate away from
+the anode, leaving a quasineutral ionized gas in the center of the discharge
+tube and a positive space charge region along the wall.
 
 \section{Operating Procedures}
 
-One of two operating procedures was selected depending on how recently the
-plasma had last been turned on. If it had been greater than one hour, a full
-startup procedure was used. Otherwise, an abbreviated process was used. 
+One of two operating procedures for the \acs{rpnd} was used depending on how
+recently the discharge had last been turned on. If it had been greater than one
+hour, a full startup procedure was used. Otherwise, an abbreviated process was
+used.
 
-In order to obtain consistent discharge characteristics, it was necessary to
-develop two sets of operating procedures for the \acs{rpnd}. In the case that
-the discharge had not been operated for over an hour, the roughing pump was
-turned on and the primary pump path valve was opened as was the first shutoff
-valve upstream of the discharge chamber, seen in figure~\ref{fig:pump}.
-\begin{figure}
-  \centering
-  \includegraphics{./chapters/experiment/figures/pump.eps}
-  \caption{Simplified diagram of the gas flow path and pumping system.}
-  \label{fig:pump}
-\end{figure}
-The system was then allowed to pump down to its base pressure. Afterward the
-final shutoff valve upstream of the pump path was opened and the system was
-again allowed to reach base pressure. At this point the helium flow was turned
-on and set to 25.0 sccm. The primary pump path was then closed and the needle
-valve bypasses were used to adjust the system pressure to 3.0 Torr.
+In the case that the discharge had not been operated for over an hour, the
+roughing pump was turned on and the primary pump path valve was opened as was
+the first shutoff valve upstream of the discharge chamber, seen in
+figure~\ref{fig:pump}. The system was then allowed to pump down to its base
+pressure. Afterward the second upstream shutoff valve was opened and the system
+was again allowed to reach base pressure. At this point the helium flow was
+turned on and set to 25.0 sccm. The primary pump path was then closed and the
+needle valve bypasses were used to adjust the system pressure to 3.0 Torr.
 
 Next, the delay generator was turned on and the output for triggering the power
-supply was activated. Then, the \acs{fid} power supply was then turned on. This
-would produce an easily visible plasma within the discharge tube. The system was
+supply was activated. Then, the \acs{fid} power supply was turned on. This would
+produce an easily visible discharge within the discharge tube. The system was
 allowed to operate at this condition for one hour in order to remove potential
-contamination on the walls and electrodes. At the end of this period, the pulse
+contamination on the walls and electrodes. At the end of this period, the
 voltage waveform was checked to ensure that it was consistent with previous
-waveforms. Once this was confirmed, the pressure was adjusted to the desired
+experiments. Once this was confirmed, the pressure was adjusted to the desired
 operating condition.
 
-The plasma was shutdown by first shutting off the power supply, followed by the
-delay generator. Then, the helium flow was shut off, and the primary pump path
-was opened. The system was allowed to come to base pressure before the two
+The discharge was shutdown by first shutting off the power supply, followed by
+the delay generator. Then, the helium flow was shut off, and the primary pump
+path was opened. The system was allowed to come to base pressure before the two
 upstream shutoff valves were closed, after which the primary pump path was
 closed. The roughing pump was then shut off.
 
-In the cases that the plasma had been operated within the last hour, it was
+In the cases that the discharge had been operated within the last hour, it was
 possible to use an abbreviated startup procedure. This process was fundamentally
-the same as the previous one, however the plasma only required five minutes to
-reach a steady state. This was verified with multiple measurements of the
-current and voltage characteristics as well as the plasma emissions. At times
+the same as the previous one, however the discharge only required five minutes
+to reach a steady state. This was verified with multiple measurements of the
+current and voltage characteristics as well as the discharge emissions. At times
 prior to this five minute equilibration period, the reflected pulse energy was
 noticeably higher, and the delay between the trigger pulse and the output pulse
 was variable.
 
 \section{Electrical Characteristics}
 
-The general voltage waveform of the \acs{rpnd} showed a number of
-characteristics. Figure~\ref{fig:waveform}
+The typical voltage waveform, as seen in figure~\ref{fig:waveform},
 \begin{figure}
   \centering
   \includegraphics{./chapters/experiment/figures/waveform.eps}
@@ -236,30 +250,27 @@ characteristics. Figure~\ref{fig:waveform}
     which the power supply begins to exhibit double pulsing.}
   \label{fig:waveform}
 \end{figure}
-is a plot of a typical voltage waveform of the \acs{rpnd}. It begins with an
-incident pulse with a small foot at $t = 0.0$. This followed by a reflected
-pulse 138 ns afterward. The reflected pulse is somewhat attenuated, proportional
-to the energy deposited in the plasma. Additional reflections are visible at
-integer multiples of 138 ns, however they are highly attenuated. This suggests
-that after the first pulse initiates the discharge, energy is much more easily
-coupled into the volume. An additional pulse appears after about 800 ns. This is
-believed to be a peculiarity of the power supply. For the most part, analysis of
-the \acs{rpnd} will focus on the first 138 ns in order to isolate the effects of
-a single pulse.
+exhibited a number of features. It begins with an incident pulse at $t = 0.0$.
+138 ns later, it is followed by the pulse that has been reflected from the
+anode. The reflected pulse is somewhat smaller, proportional to the energy
+deposited in the discharge. Additional reflections are visible at integer
+multiples of 138 ns. These subsequent reflections are much smaller than the
+initial one, suggesting that much of the remaining pulse energy was dissipated
+after the first reflection reached the anode. Curiously, a second pulse appears
+at 800 ns. This is believed to be a peculiarity of the power supply. For the
+most part, analysis of the \acs{rpnd} will focus on the times which precede 280
+ns (the incident pulse and first reflected pulse).
 
-The independent variable for most operating conditions was the pressure of the
-system. The properties of the \acs{rpnd} were examined at: 0.3, 0.5, 1.0, 2.0,
-3.0, 4.0, 8.0, and 16.0 Torr. The appearance of the plasma varied with the
-pressure in a continuous fashion, however it was apparent that there were three
-regimes of operation.
-
-At the low pressures, 0.3 and 0.5, it was difficult to initiate the discharge.
-Often, it would be necessary to increase the pressure to initiate the discharge,
-and then reduce the pressure to the desired conditions. The plasma appeared dim
-and relatively constricted to the central axis of the discharge tube, with a
-radial extent of approximately 1 cm. Accompanying these presures was a large
-degree of electronic noise. This manifested in the voltage and current
-waveforms, seen in figure~\ref{fig:waveforms},
+The properties of the \acs{rpnd} were examined at: 0.3, 0.5, 1.0, 2.0, 3.0, 4.0,
+8.0, and 16.0 Torr. The appearance of the discharge varied with the pressure in
+a continuous fashion, however it was apparent that there were three regimes of
+operation. At the low pressures, 0.3 and 0.5, it was difficult to initiate the
+discharge. Often, it would be necessary to increase the pressure to initiate the
+discharge, and then reduce the pressure to the desired conditions. The discharge
+appeared dim and relatively constricted about the central axis of the discharge
+tube, with a radial extent of approximately 1 cm. Accompanying these pressures
+was a large degree of electronic noise. This manifested primarily in the current
+waveforms, as seen in figure~\ref{fig:waveforms},
 \begin{figure}
   \centering
   \includegraphics{./chapters/experiment/figures/waveforms.eps}
@@ -270,50 +281,48 @@ waveforms, seen in figure~\ref{fig:waveforms},
 as well as a number of equipment malfunctions.
 
 As the pressure was increased (from 1.0-4.0 Torr), the electrical noise began to
-subside. The waveforms in figure~\ref{fig:waveforms} show significant reductions
-in the ringing that was particularly prominent in the current waveforms. In
-addition, the visual extent of the plasma increased substantially to the point
-where it could be considered volume-filling. The plasma also increased its axial
-extent as well, eventually reaching well past the cathode/ground. This was
-despite attempts to isolate this portion of the apparatus from the plasma. It is
-possible to attribute this to the relatively large surface area of the anode in
-comparison to the cathode. If a sufficiently high electron current is being
-drawn from the cathode, space charge could begin to limit further current
-extraction.
+subside. The current waveforms in showed significant reductions in the ringing
+that was particularly prominent at lower pressures. In addition, the visual
+extent of the discharge increased substantially, to the point where it could be
+considered volume-filling. The discharge also increased its axial extent as
+well, eventually reaching well past its intended limit at the cathode. This
+occurred despite attempts to isolate the downstream pump sections from the
+discharge. It is possible to attribute this to the relatively large surface area
+of the anode in comparison to the cathode. 
 
-However, the plasma receded back to the intended cathode structure at the higher
+The discharge receded back to the intended cathode structure at the higher
 operating pressures, 8.0 and 16.0 Torr. This was accompanied by a decrease in
-the apparent brightness of the plasma to levels similar to that of the low
-pressure conditions. In contrast, the plasma appeared to remain volume-filling.
+the apparent brightness of the discharge to levels similar to that of the low
+pressure conditions. In contrast, the discharge appeared to remain volume-filling.
 While discharge initiation was difficult at the higher pressures, it was not
 accompanied by the electrical noise observed at lower pressures.
 
 \section{Energy Coupling}
 
-The product of the voltage and current waveforms as seen in
-figure~\ref{fig:waveforms} gives the power deposited in the plasma as a function
-of time. Subsequently, the power integrated over time gives the total energy
-deposited in the plasma. However, this approach is somewhat complicated several
-features of the \acs{rpnd}. As previously mentioned, the pulses produced by the
-power supply are not completely absorbed by the plasma. Therefore, the
-integration must be carried out over both the incident and the reflected pulse.
-Additionally, there is the concern that the oscillations in the current
-measurements could introduce fluctuations in the calculated energy deposition.
-However, the small voltage signal limits the error introduced by these
-fluctuations to less than 1\%.
+The product of the voltage and current waveforms, as seen in
+figure~\ref{fig:waveforms}, gives the power deposited in the discharge as a
+function of time. Subsequently, the power integrated over time gives the total
+energy deposited in the discharge. However, this approach is somewhat
+complicated by several features of the \acs{rpnd}. As previously mentioned, the
+pulses produced by the power supply are not completely absorbed by the
+discharge. Therefore, the integration must be carried out over both the incident
+and the reflected pulse. Additionally, there is the concern that the
+oscillations in the current measurements could introduce fluctuations in the
+calculated energy deposition. However, the small voltage signal limits the error
+introduced by these fluctuations to less than 1\%.
 
 Figure~\ref{fig:energies}
 \begin{figure}
   \centering
   \includegraphics{./chapters/experiment/figures/energies.eps}
-  \caption{Plot of the energy coupled into the plasma with the first pulse as
+  \caption{Plot of the energy coupled into the discharge with the first pulse as
   a function of pressure.}
   \label{fig:energies}
 \end{figure}
 gives the total energy deposited for the first pulse at each of the operating
-conditions. The energy coupled to the plasma peaks at an energy of 5.5 mJ at a
+conditions. The energy coupled to the discharge peaks at an energy of 5.5 mJ at a
 pressure of 1.0 Torr, after which it slowly decreases. This peak in the coupled
-energy is coincident with the peak brightness of the plasma. Together, these
+energy is coincident with the peak brightness of the discharge. Together, these
 suggest that the density of excited states will be optimized at intermediate
 pressures. 
 
@@ -324,14 +333,15 @@ and reported a total energy deposition of 0.30-0.36 mJ, increasing with pressure
 \cite{Macheret2006}. Nishihara et al.\ recorded values of 1-2 mJ in a nitrogen
 \acs{rpnd} \cite{Nishihara2006}. Pancheshnyi et al., in the study of an
 air-propane mixture at 750 Torr, found that each pulse deposited about 1.9 mJ of
-energy.
+energy. Overall, the measured values for the deposited energy appear to be in
+comparable with those previously measured.
 
-From an applications standpoint, potential existence of a condition which
-optimizes the production of excited states is an interesting one. From a
-physical standpoint, the growth and decline of energy deposition is with power
-is compelling as it suggests two or more competing processes. Though this kind
-of competition is reminiscent of Paschen's law, the duration of the pulse is too
-short for appreciable ion drift (about 3 mm for the maximum field from the
-electrostatic simulations), therefore secondary electron emission is not
-important. These observations provide additional impetus for a closer
-examination of the \acs{rpnd} properties, particularly the excited states.
+From an applications standpoint, the potential existence of a condition which
+optimizes the production of excited states is an interesting one. This behavior
+is also compelling from a physical standpoint as it suggests a phase change in
+the competition of two or more processes. Though this kind of competition is
+reminiscent of Paschen's law, the duration of the pulse is too short for
+appreciable ion drift to occur (an estimated maximum of 3 mm), therefore
+secondary electron emission is not important. These observations provide further
+impetus for a close examination of the \acs{rpnd} properties, particularly the
+excited state dynamics.

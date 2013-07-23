@@ -1,12 +1,12 @@
-In order to properly understand the \acs{rpnd}, the experimental measurements,
+In order to properly understand the \acs{rpnd}--the experimental measurements,
 and the models, it is necessary to develop a theoretical underpinning. The
-\acs{rpnd} is a form of plasma, which is in turn a type of ionized gas.
+\acs{rpnd} is an ionized gas, and, dependent on its characteristics, a plasma.
 Therefore, we begin with a review of the statistical description of an ionized
 gas, equilibrium solutions, and several approximations. Subsequently, the
 discharge initiation process is considered from the perspective of a single
 avalanche. The Townsend model is briefly reviewed, followed by a more detailed
 explanation of the streamer model. This naturally leads to the development of a
-homogeneous discharge condition based on the preionization density; the basis
+homogeneous discharge condition based on the preionization density--the basis
 for the \acs{rpnd}. Following this, a qualitative introduction to atomic
 structure is provided in order to introduce spectroscopic concepts such as
 energy levels, transitions, lineshapes, and absorption cross sections.
@@ -14,10 +14,11 @@ energy levels, transitions, lineshapes, and absorption cross sections.
 \section{Ionized Gas}
 An ionized gas is a volume of gas in which some fraction of the neutral atoms
 and/or molecules have been separated into electron and ion pairs. For a
-sufficiently large number of particles, the behavior of each species in the
-ionized gas can be described by a continuous distribution function.
+sufficiently large number of particles and collision rate, the behavior of each
+species in the ionized gas can be described by a continuous distribution
+function.
 
-This function is an expression of the likelihood of finding a particle with a
+This function is an expression of the likelihood of finding a particle within a
 specific range of velocities in a specific volume, as a function of time. This
 function is denoted as $f_\alpha(\vec{r}, \vec{v}, t)$, where the subscript
 $\alpha$ denotes the species, $f$ is the distribution function, $\vec{r}$ is the
@@ -27,12 +28,12 @@ The behavior of $f_\alpha$ can be shown \cite{Bellan2008} to be governed by the
 Boltzmann equation,
 \begin{equation}\label{eq:boltzmann}
   \frac{\partial f_\alpha}{\partial t} + \vec{v}\cdot\nabla f_\alpha +
-  q_\alpha \left(\vec{E} + \vec{v}\times\vec{B}\right)
+  \frac{q_\alpha}{m_\alpha} \left(\vec{E} + \vec{v}\times\vec{B}\right)
   \cdot \nabla_v f_\alpha = \left( \frac{\partial f_\alpha}
   {\partial t}\right)_\mathrm{coll}.
 \end{equation}
-Here, $q$ is the charge of the species, $\vec{E}$ is the electric field,
-$\vec{B}$ is the magnetic field, and $(\partial f_\alpha/\partial
+Here, $m$ is the particle mass, $q$ is its charge, $\vec{E}$ is the electric
+field, $\vec{B}$ is the magnetic field, and $(\partial f_\alpha/\partial
 t)_\mathrm{coll}$ is a term which represents changes to the distribution
 function as a result of collisions. Coupled with Maxwell's equations,
 equation~\ref{eq:boltzmann} provides a complete description of the behavior of
@@ -623,3 +624,5 @@ cross section by half, then the intensity limit for a two-state system is,
 \end{equation}
 where $h$ is Planck's constant, and $\nu_0$ is the nominal frequency of the
 transition.
+
+
