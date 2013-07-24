@@ -63,7 +63,7 @@ originally presented by Druyvesteyn and Penning \cite{Druyvesteyn1940} and has
 come to be known as the Druyvesteyn distribution. It is defined as,
 \begin{equation}
   f_\alpha(\epsilon) = C \epsilon^{1/2}
-           \exp\left(-\frac{\epsilon^2}{\langle \epsilon \rangle^2\right)
+           \exp\left(-\frac{\epsilon^2}{\langle \epsilon \rangle^2} \right)
   \label{eq:druy}
 \end{equation}
 where $\langle\epsilon\rangle$ is some mean energy, determined by the gas
@@ -89,7 +89,7 @@ computational approaches can be stymied by the seven-dimension phase space and
 high dynamic range. In most situations, the Boltzmann equation is reduced to
 more tenable expressions by integrating over velocity-space (leaving $f$ as a
 function of space and time). The first so-called moment is the conservation
-equation or continuity equation \cite{Liebermain2005},
+equation or continuity equation \cite{Lieberman2005},
 \begin{equation}\label{eq:cont}
   \frac{\partial n_\alpha}{\partial t} + \nabla \cdot (n_\alpha \vec{u_\alpha})
   = G_\alpha - L_\alpha.
@@ -119,12 +119,16 @@ This expresses the conservation of momentum by the plasma. It provides a means
 by which to solve for the mean velocity of the system, however it also
 introduces two additional terms. $\vec{f}|_\mathrm{coll}$ deals with the forces
 transferred to $\alpha$ via collisions. This is often approximated as the Krook
-collision operator, which is only dependent on known quantities. The second
-term, $\vec{\Pi}$, is the pressure tensor and can only be defined by the third
-moment of the Boltzmann equation. In fact, each additional moment introduces a
-new term requiring a higher order moment, \emph{ad infinitum}. In most
-situations, this chain of equations is terminated after the first two or three
-moments by the use of an additional assumption such as an equation of state.
+collision operator, which is only dependent on known quantities: $m$, $n$,
+$\vec{u}$, $G$, $L$, and the momentum transfer frequency, $\nu_\mathrm{m}$, for
+the species $\alpha$ and all species it interacts with. The second term,
+$\vec{\Pi}$, is the pressure tensor and can only be defined by the third moment
+of the Boltzmann equation. In fact, each additional moment introduces a new term
+requiring a higher order moment, \emph{ad infinitum}. In most situations, this
+chain of equations is terminated after the first two or three moments by the use
+of an additional assumption such as an equation of state. One common example of
+an equation of state is the isothermal relation, $p = n\kB T$, which can be used
+to remove the pressure tensor.
 
 For the purposes of this paper, one more moment will suffice. Assuming that the
 pressure is isotropic, one can multiply equation~\ref{eq:boltzmann} by $mv^2/2$,
@@ -160,8 +164,8 @@ electromagnetic forces, unlike gases in which short-range collisions dominate.
 As a result, plasmas frequently exhibit large scale structure and organization.
 Examples of these structures are ubiquitous in astronomy where phenomena such as
 the aurora borealis, coronal mass ejections, and even interstellar media are all
-plasmas. There are three criteria which form a more exact definition of what
-constitutes a plasma.
+plasmas \cite{Chen1984}. There are three criteria which form a more exact
+definition of what constitutes a plasma.
 
 \subsection{Debye Length}
 If an electrical perturbation is introduced into an ionized gas, the charged
@@ -177,10 +181,12 @@ it to be considered a plasma.
 \subsection{Debye Sphere}
 However, the above condition by itself is not sufficient for shielding to occur.
 It is possible that an ionized gas may have a relatively small Debye length, but
-also lack enough charged particles for shield to occur. More simply put, it
+also lack enough charged particles for shielding to occur. More simply put, it
 would be impossible for a single electron to shield out even the smallest of
 perturbations. For that reason, the number of particles in a Debye sphere must
-be greater than unity in a plasma, or $n_0(4\pi \lambda_D^3/3) >> 1$.
+be greater than unity in a plasma, or $n_0(4\pi \lambda_D^3/3) >>
+1$.\footnote{This condition is also implied in the derivation of the Debye
+length.}
 
 \subsection{Plasma Oscillations}
 Finally, a plasma may exhibit Debye shielding, but lack the collective behavior
@@ -197,14 +203,14 @@ Figure~\ref{fig:regimes}
   \centering
   \includegraphics{./chapters/theory/figures/regimes.pdf}
   \caption{Illustration of the various regimes of plasma in terms of
-    electron temperature and density with the \acs{rpnd} regime highlighted
-    \cite{Huba2011}.}
+    electron temperature and density with the \acs{rpnd} regime highlighted,
+    adapted from \cite{Huba2011}.}
   \label{fig:regimes}
 \end{figure}
 shows several categories of plasma, plotted as a function of their electron
-density and temperature. As can be seen, the electron densities span seven
-decades, and the densities cover in excess of 20. This broad range of conditions
-presents a particularly challenging problem for both simulations and
+density and temperature. As can be seen in this example, the electron densities
+span seven decades, and the densities cover in excess of 20. This broad range of
+conditions presents a particularly challenging problem for both simulations and
 experimental measurements. Also highlighted in the figure is the range spanned
 by the \acs{rpnd}.
 
@@ -212,45 +218,46 @@ by the \acs{rpnd}.
 The Boltzmann equation is a continuous, statistical description of a plasma. By
 comparison, the initial breakdown of a plasma is a highly discontinuous process
 marked by its stochasticity. The initiation of a discharge is typically the
-result of electron avalanches which occur randomly throughout a volume of gas.
-Often, the seed electrons for a plasma are the products of ionizing cosmic rays.
-At sea level this results in a few electrons per cubic-centimeter. As a result,
-it is necessary to consider the initiation of a discharge separately from a
-pre-existing plasma.
+result of electron avalanches which occur randomly throughout a volume of gas
+\cite{Druyvesteyn1940}. Often, the seed electrons for a plasma are the products
+of ionizing cosmic rays. At sea level this results in a few electrons per
+cubic-centimeter. As a result, it is necessary to consider the initiation of a
+discharge separately from a pre-existing plasma.
 
 \subsection{Townsend Mechanism}
 
 Classically, plasmas are created by two different mechanisms, the applicability
 of which depends on primarily on the strength of the electric field relative to
-the neutral gas density, a value called the reduced electric field. At lower
-reduced fields, the Townsend mechanism is responsible for the formation of a
-plasma. Consider two electrodes separated by a gap filled with some gas. An
-electron starting near the cathode will drift toward the anode. For a large
-enough electric field the electron will gain sufficient kinetic energy to ionize
-a neutral atom, producing a second electron. The two electrons are now
-accelerated by the field, instigating further ionization of the background gas.
-The population of electrons quickly grows, thus the process is referred to as an
-electron avalanche. Eventually, the avalanche electrons are collected at the
-anode.
+the neutral gas density, a value called the reduced electric field
+\cite{Huxley1966}. At lower reduced fields, the Townsend mechanism is
+responsible for the formation of a plasma. Consider two electrodes separated by
+a gap filled with some gas. An electron starting near the cathode will drift
+toward the anode. For a large enough electric field, the electron will gain
+sufficient kinetic energy to ionize a neutral atom, producing a second electron.
+The two electrons are now accelerated by the field, instigating further
+ionization of the background gas. The population of electrons quickly grows,
+thus the process is referred to as an electron avalanche. Eventually, the
+avalanche electrons are collected at the anode.
 
 In their wake are ions which slowly drift toward the cathode. As the ions impact
 the surface of the cathode, they occasionally cause a secondary electron to be
 emitted. This secondary electron initiates a new avalanche and helps to sustain
-the discharge. A steady state electric discharge occurs when the electron
-multiplication in the avalanche compensates for the finite probability that an
-ion striking the cathode releases a secondary electron. Therefore, the
-characteristic time for a Townsend discharge to develop is approximately equal
-to the time it takes an ion to drift across the gap (for a gap of several cm
-this can be on the order of 10$^{-4}$ s).
+the discharge. A steady state electric discharge occurs when the current of the
+ion collection at the cathode matches the current of the electron collection at
+the anode. The time scale of the Townsend discharge is usually determined by the
+positive ions, as their large mass results in slow drift velocities. For an
+electric field of 50 V/cm at 200 mTorr, the drift velocity of a helium ion in
+helium is about $7\times10^4$ cm/s \cite{Hornbeck1951}. For a gap of 10 cm, this
+gives a drift time on the order of $10{-4}$ s.
 
 The Townsend mechanism is characterized by two parameters: $\alpha$ and
 $\gamma$, the first and second Townsend coefficients. $\alpha$ is the number of
 ionization events that occur per unit length, often expressed as a function of
-the reduced field. The second Townsend coefficient is the probability that an
-ion impinging on the cathode produces a secondary electron. The values for
-$\gamma$ can vary widely and depend on the type of ion, its energy, the cathode
-material, contamination of the surface, and many other factors. That said,
-typical values are around 0.01-0.1.
+the reduced field \cite{Druyvesteyn1940}. The second Townsend coefficient is the
+probability that an ion impinging on the cathode produces a secondary electron.
+The values for $\gamma$ can vary widely and depends on the type of ion, its
+energy, the cathode material, contamination of the surface, and many other
+factors. That said, typical values are around 0.01-0.1 \cite{Lieberman2005}.
 
 \subsection{Streamer Mechanism}
 
@@ -266,9 +273,10 @@ figure~\ref{fig:streamer}.
   \caption{An illustration of the development of a single streamer. (a)
     A seed electron is accelerated by the applied electric field. (b) The
     initial electron develops into an avalanche which leaves a large region
-    of positive space charge, halting further advance. (c) The streamer
+    of positive space charge, slowing further advance. (c) The streamer
     propagates toward the cathode via photoionization and the anode via
-    nonlocal electrons and photoionization.}
+    nonlocal electrons and photoionization. Adapted from \cite{Levatter1980} and
+    \cite{Kunhardt1980}.}
   \label{fig:streamer}
 \end{figure}
 As with the Townsend discharge, this electron initiates an avalanche which moves
@@ -276,19 +284,20 @@ toward the anode. As the electrons travel toward the anode, they randomly
 collide and diffuse, leaving behind a cone of ions, as seen in part (b).
 However, the higher reduced field drastically increases $\alpha$. This causes
 the space charge of the avalanche to create an electric field comparable to the
-one that is applied, quickly halting the avalanche.
+one that is applied, slowing the propagation of the avalanche.
 
-Once stalled, the avalanche can no longer continue to advance toward either
-electrode. At this point the avalanche can be considered a streamer as it begins
-to increase its extent by several other processes. The large internal fields of
-the avalanche can accelerate individual electrons and ``inject'' them in the
+At this point the avalanche can be considered a streamer as it begins to
+increase its extent by several additional processes. The large internal fields
+of the avalanche can accelerate individual electrons and ``inject'' them in the
 direction of the anode \cite{Kunhardt1980}. In addition, as the excited atoms in
 the wake of the avalanche begin to radiate, they can cause photoionization
 throughout the volume. Photoelectrons generated close enough to the negative
 head, or positive tail of the streamer will initiate secondary avalanches which
-eventually connect to the primary one. Both of these methods take place
-primarily along the axis of the original avalanche, thus the streamer remains
-relatively constricted in the direction transverse to the electric field.
+eventually connect to the primary one. While photoelectrons may cause some
+additional broadening of the streamer, the injection of electrons toward the
+anode is aligned with the direction of the internal field of the avalanche. As a
+result, the ionization caused by these electrons do not appreciably increase the
+radius of the streamer.
 
 \subsection{Homogeneity Condition}
 
@@ -296,25 +305,26 @@ However, these processes are not critical in the formation of a large-volume
 discharge by an \acs{rpnd}. This description of a streamer only considers an
 avalanche generated by a single electron. In reality, many can form
 simultaneously assuming that there is more than one seed electron in the volume.
-With sufficient preionization of the volume, the strong fields of the
-individual avalanches can begin to overlap. This smoothes out the field
-gradients which would otherwise radially constrict the streamers. Instead,
-ionization progresses homogeneously throughout the volume.
+With moderate preionization of the volume, the strong fields of the individual
+avalanches can begin to overlap\footnote{If the preionization of the volume is
+too large, it can effectively short out the electric field.}. This smoothes out
+the field gradients which would otherwise radially constrict the streamers.
+Instead, ionization progresses homogeneously throughout the volume.
 
 In order to determine the necessary preionization density, we refer to the work
 done by Levatter and Lin on gas laser discharges \cite{Levatter1980}. First, the
 electron drift velocity in an applied field can be expressed as the product of
-the field and the electron mobility $\mu$. The electron mobility is the
-steady-state drift velocity for an electron in an applied field and represents
-the balance between the frictional force of the neutral gas collisions and the
-electric field. Consequently, the mean velocity of electrons drifting in a
-time-varying field $E(t)$ can be expressed as
+the field and the electron mobility $\mu$. The electron mobility multiplied by
+the electric field is the steady-state drift velocity for an electron in that
+field and represents the balance between the frictional force of the neutral gas
+collisions and the electric field. Consequently, the mean velocity of electrons
+drifting in a time-varying field $E(t)$ can be expressed as
 \begin{equation}
   u(t) = \mu(E) E(t).
 \end{equation}
 
-This allows the length of the avalanche can then be written as an integral
-quantity,
+The length of the avalanche can be written as a time-integrated function of the
+electron drift velocity,
 \begin{equation}
   \xi = \int_{t_0}^t u(t) dt.
   \label{eq:s_xi}
@@ -326,7 +336,7 @@ avalanche.
 
 The electric field in the head of the avalanche depends on its radius, which is
 dependent on the diffusion of the electrons as they cross the gap. This is
-governed by the free diffusion coefficient, $D = \lambda v_mathrm{th}(E)/3$,
+governed by the free diffusion coefficient, $D = \lambda v_\mathrm{th}(E)/3$,
 where $\lambda$ is the mean free path of the electrons, and $v_\mathrm{th}$ is
 their thermal velocity. The diffusion radius is then equal to
 \begin{equation}
@@ -368,7 +378,7 @@ linearly increasing electric field, figure~\ref{fig:he_avalanche}
   \includegraphics{./chapters/theory/figures/he_avalanche.eps}
   \caption{Numerical calculations of the preionization density for homogeneous
     excitation, avalanche length, and avalanche radius in helium at a pressure
-    of 1.0 Torr as a function of the slope of the electric field.}
+    of 1.0 Torr as a function of the slope of the electric field, $dE/dt$.}
   \label{fig:he_avalanche}
 \end{figure}
 shows the results of such calculations for an avalanche in 1.0 Torr of helium,
@@ -383,11 +393,12 @@ from around 13 ns for the shortest breakdown delay, and 330 ns for the longest.
 From this, a criteria for homogeneous breakdown of the gas can be developed. In
 order for the field gradients to be smoothed out, the individual avalanche heads
 should roughly overlap by the time they have stalled. Assuming that all seed
-electrons in the volume initiate avalanches, this is equivalent to the
-requirement that $n_{e,c} > r_c^{-3}$, where $n_{e,c}$ is the critical electron
-density, and $r_c$ is the avalanche radius at stall. As seen in
+electrons in the volume initiate avalanches, this can be approximated as
+$n_{e,c} > r_c^{-3}$, where $n_{e,c}$ is the critical electron density, and
+$r_c$ is the avalanche radius at stall. As seen in
 figure~\ref{fig:he_avalanche}, this suggests that a preionization density of
-10$^{11}$ to 10$^{15}$ is required for the breakdown times under consideration.
+10$^{11}$ to 10$^{15}$ cm$^{-3}$ is required for the breakdown times under
+consideration.
 
 Based on this formulation for the homogeneous breakdown condition, tt is
 apparent that as the avalanche radius increases, the necessary preionization
@@ -401,10 +412,11 @@ a longer period of time to diffuse in the system, thus the increased radius.
 As described, much of the experimental work presented will concern the use of
 spectroscopic techniques. Careful measurements of the light emitted from excited
 atomic states can yield electron densities and temperatures, excited state
-densities and temperatures, electric fields, and magnetic fields. The topic of
-spectroscopy is extensive and it is neither necessary nor desirable to cover it
-in full. Instead we will only consider what is necessary to understand the
-emissions from a singly-excited, multi-electron atom.
+densities and temperatures, electric fields, and magnetic fields
+\cite{Griem2005}. The topic of spectroscopy is extensive and it is neither
+necessary nor desirable to cover it in full. Instead we will only consider what
+is necessary to understand the emissions from a singly-excited, multi-electron
+atom.
 
 An atom is composed of a small, positively charged nucleus, orbited by
 negatively charged electrons. The actual position of any single electron is
