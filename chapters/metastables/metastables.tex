@@ -72,7 +72,7 @@ that provides simple spatial selectivity, at intensities which can easily exceed
 the saturation limit \cite{Millard1998}.
 
 As with the study by Millard et al., the decision was made to study the
-transition from the triplet metastable to the 2$^3$P$^\cdot_{0,1,2}$ (at
+transition from the triplet metastable to the 2$^3$P$^\mathrm{o}_{0,1,2}$ (at
 approximately 1083 nm). This was done for several reasons. For one, the closest
 helium transition is over 7 nm away, making it relatively isolated. In addition,
 the different levels or values of $J$ are all within the tuning range of a
@@ -81,12 +81,56 @@ absorption varies depending on the selected level. Thus, the absorption strength
 can be increased for low densities, or decreased at high densities, improving
 the dynamic range of the diagnostic.
 
-The laser used was a distribute feedback laser diode, produced by Toptica,
-model LD-1083-0070-DFB-1. The specified linewidth of the laser was 3 MHz, well
-below the natural linewidth of the transition, 10.2 MHz. This situation can be
+The laser used was a distribute feedback laser diode, produced by Toptica, model
+LD-1083-0070-DFB-1. The specified linewidth of the laser was 3 MHz, well below
+the natural linewidth of the transition, 10.2 MHz. This situation can be
 exploited to directly measure the gas temperature of the system, as will be seen
-in the next section. 
+in the next section. The diode was rated for a total output power of 70 mW, with
+a beam size of 1 mm by 3 mm and a vertical polarization. The diode was housed in
+a Toptica DL DFB housing which incorporated the collimating optics. A Toptica
+DCC 110 was used to provide current control for the diode laser, and a Toptica
+DTC 110 was used to control the thermoelectric cooler for the diode.
 
+The layout in figure~\ref{fig:laser}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/metastables/figures/laser.eps}
+  \caption{Optical beam path of the laser in the absorption spectroscopy
+  experiment. DFB - Distributed feedback laser diode; FI - Faraday isolator; ND -
+  neutral density filter; S - shutter; PD - photodiode; AP - aperture.}
+  \label{fig:laser}
+\end{figure}
+reflects the optical beam path used in the absorption experiment. The laser
+light is produced by the distributed feedback laser diode (DFB). It then enters
+a Electro-Optics Technology, Inc. Faraday isolator (FI) which prevents
+back-reflections from entering the diode. Without the isolator in place, such
+back-reflections can cause mode-hopping, resulting in unreliable tuning. The
+laser intensity is then reduced by a neutral density filter (ND). Afterward, the
+laser passes through a Vincent Associates electronic shutter (S). Then, the beam
+is split by a Thorlabs BSF10-C beam sampler at a 45$^\circ$ angle. This reduced
+the laser intensity below the saturation intensity (0.45 mW/cm$^2$) of the
+transition. Collimation to a 1 mm circle, and alignment were provided by two
+apertures (AP) on both sides of the discharge apparatus. The beam exiting the
+apparatus was then sent through a final aperture to spatially filter plasma
+emissions before being a Thorlabs F240SMA-780 collimation package was used to
+couple the light into an optical fiber.
+
+Behind the beam sampler was a Thorlabs DET300 germanium photodiode. The signal
+from this photodiode was terminated at 1 M$\Omega$ and used to monitor the beam.
+The opposite end of the optical fiber was affixed to a Thorlabs DET410 InGaAs
+photodiode. The photodiode signal was amplified by a Femto HVA-200M-40-B voltage
+amplifier before being sent to the oscilloscope.
+
+In order to measure the absorption of the laser, it was first necessary to tune
+the laser to the correct wavelength. This matter was complicated by the lack of
+a wavemeter with sufficient precision and accuracy. As a result, a signal
+generator was used to sweep the laser current so as to cover a frequency range
+of 40 GHz. The temperature of the diode was then slowly adjusted until
+absorption peaks corresponding to the 2$^3$S$_1$-2$^3$P$_{0,1,2}^\mathrm{o}$
+transition were observed. The conversion between diode and wavelength was
+measured with a CVI Melles Griot ET-25.4-10.00-30, solid dielectric etalon. It
+was found that a temperature of 36$^\circ$ C and a current of 63 mA produced
+resulted in an output wavelength of approximately 1082.9 nm.
 
 \section{Absorption Analysis}
 
