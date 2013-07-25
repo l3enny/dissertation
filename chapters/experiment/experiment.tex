@@ -5,9 +5,9 @@ design to the coaxial geometry used by Vasilyak and others used in \acs{fiw}
 studies \cite{Vasilyak1994}. As depicted in figure~\ref{fig:appschem}, it is
 essentially a cylindrical inner conductor, surrounded by a dielectric, covered
 by an outer conductor. An electrode, connected to the transmission line, and the
-RPND serve as the inner conductor. The dielectric took the form of a glass tube
-and an air gap. Finally, the outer conductor consisted of a series electrically
-connected metal shells which served as the current return path.
+\acs{rpnd} serve as the inner conductor. The dielectric took the form of a glass
+tube and an air gap. Finally, the outer conductor consisted of a series
+electrically connected metal shells which served as the current return path.
 \begin{figure}
   \centering
   \includegraphics{./chapters/experiment/figures/appschem.eps}
@@ -124,7 +124,7 @@ The assembled discharge apparatus can be seen in figure~\ref{fig:appphoto}.
   \label{fig:appphoto}
 \end{figure}
 The \acs{rpnd} apparatus was supported two 1.5 in mounting posts with angle
-brackets. The mounting posts attached to a 4 ft by 2.5 ft optical breadboard,
+brackets. The mounting posts attached to a 122 cm by 76 cm optical breadboard,
 supported by urethane shock absorbers, and a rigid frame. The roughing pump was
 attached to the apparatus with flanged bellows in order to reduce mechanical
 vibrations.
@@ -170,11 +170,11 @@ figure~\ref{fig:cfields}
 \begin{figure}
   \centering
   \includegraphics{./chapters/experiment/figures/cfields.eps}
-  \caption{Heat map and vector plot of the electric field in the \acs{rpnd}
+  \caption{Heatmap and vector plot of the electric field in the \acs{rpnd}
   discharge apparatus.}
   \label{fig:cfields}
 \end{figure}
-is a logarithmic heat map of the electric field magnitudes within the device.
+is a logarithmic heatmap of the electric field magnitudes within the device.
 Overlaid are the electric field vectors in magenta. Below this is a plot of the
 electric field on a linear scale, across the central axis of the apparatus and
 along the outer edge, adjacent to the glass tube. It is apparent that the field
@@ -185,25 +185,27 @@ field contour vastly different from that of two parallel plates. This is also
 reflected in the electric field vectors. Specifically, the many locations
 possess fields with strong radial components, especially those near the anode.
 
-These characteristics should result in a discharge that is somewhat different
-than the one-dimensional description of a streamer in chapter~\ref{chp:theory}.
-First, assume that the electrons are distributed uniformly throughout the
-discharge tube, prior to the pulse. As a pulse is applied, ionization would
-preferentially take place near the anode. As the electrons would be drawn toward
-the anode, and leave behind some amount of positive space charge. However, as
-the positive space charge builds up, it would begin to act as a virtual anode,
-increasing the electric field further from the physical anode. The virtual anode
-would then begin to draw its own electron current, predominantly from around the
-edges, near the wall. In this manner, the discharge would propagate away from
-the anode, leaving a quasineutral ionized gas in the center of the discharge
-tube and a positive space charge region along the wall.
+These static fields are only valid in the absence of free charge within the
+system. However, these characteristics suggest that the discharge formation will
+be somewhat different than the one-dimensional description of a streamer in
+chapter~\ref{chp:theory}. First, assume that the electrons are distributed
+uniformly throughout the discharge tube, prior to the pulse. As a pulse is
+applied, ionization would preferentially take place near the anode. As the
+electrons would be drawn toward the anode, and leave behind some amount of
+positive space charge. However, as the positive space charge builds up, it would
+begin to act as a virtual anode, increasing the electric field further from the
+physical anode. The virtual anode would then begin to draw its own electron
+current, predominantly from around the edges, near the wall. In this manner, the
+discharge would propagate away from the anode, leaving a quasineutral ionized
+gas in the center of the discharge tube and a positive space charge region along
+the wall.
 
 \section{Operating Procedures}
 
 One of two operating procedures for the \acs{rpnd} was used depending on how
-recently the discharge had last been turned on. If it had been greater than one
-hour, a full startup procedure was used. Otherwise, an abbreviated process was
-used.
+recently the discharge had last been turned on. If the discharge was inactive
+for over one hour, then a full startup procedure was used. Otherwise, an abbreviated
+process was used.
 
 In the case that the discharge had not been operated for over an hour, the
 roughing pump was turned on and the primary pump path valve was opened as was
@@ -231,12 +233,24 @@ closed. The roughing pump was then shut off.
 
 In the cases that the discharge had been operated within the last hour, it was
 possible to use an abbreviated startup procedure. This process was fundamentally
-the same as the previous one, however the discharge only required five minutes
-to reach a steady state. This was verified with multiple measurements of the
-current and voltage characteristics as well as the discharge emissions. At times
-prior to this five minute equilibration period, the reflected pulse energy was
-noticeably higher, and the delay between the trigger pulse and the output pulse
-was variable.
+the same as the previous one, however once the pump-related procedures were
+complete the discharge only required five minutes to reach a steady state. This
+was verified with multiple measurements of the current and voltage
+characteristics as well as the discharge emissions. At times prior to this five
+minute equilibration period, the reflected pulse energy was noticeably higher,
+and the delay between the trigger pulse and the output pulse was variable.
+
+It seems likely that the increased reflected pulse energy during the
+equilibration period is due to poor matching between the output impedance of the
+power supply and the plasma load \cite{Pancheshnyi2006}. When the pulse train is
+initiated, the first series of pulses perceive an almost open load. During this
+time, the plasma density tends to increase more with each pulse than is lost
+between pulses. This increase in plasma density, reduces its impedance and
+improves energy coupling to the plasma. At the same time, the increasing plasma
+density results in an increasing shielding effect of the applied voltage.
+Eventually, these effects balance out and the density increased caused by each
+pulse equals the density decrease which occurs between pulses. At this point the
+energy coupled into the plasma with each pulsed remains essentially fixed.
 
 \section{Electrical Characteristics}
 
@@ -279,21 +293,29 @@ waveforms, as seen in figure~\ref{fig:waveforms},
 \end{figure}
 as well as a number of equipment malfunctions.
 
-As the pressure was increased (from 1.0-4.0 Torr), the electrical noise began to
-subside. The current waveforms in showed significant reductions in the ringing
-that was particularly prominent at lower pressures. In addition, the visual
-extent of the discharge increased substantially, to the point where it could be
-considered volume-filling. The discharge also increased its axial extent as
-well, eventually reaching well past its intended limit at the cathode. This
-occurred despite attempts to isolate the downstream pump sections from the
-discharge. It is possible to attribute this to the relatively large surface area
-of the anode in comparison to the cathode. 
+As the pressure was increased (from 1.0-4.0 Torr), the electrical noise was
+observed to subside. The current waveforms showed significant reductions in the
+ringing that was particularly prominent at lower pressures. In addition, the
+visual extent of the discharge increased substantially, to the point where it
+could be considered volume-filling. The discharge also increased its axial
+extent as well, eventually reaching well past its intended limit at the cathode.
+This occurred despite attempts to isolate the downstream pump sections from the
+discharge. 
 
-The discharge receded back to the intended cathode structure at the higher
-operating pressures, 8.0 and 16.0 Torr. This was accompanied by a decrease in
-the apparent brightness of the discharge to levels similar to that of the low
-pressure conditions. In contrast, the discharge appeared to remain volume-filling.
-While discharge initiation was difficult at the higher pressures, it was not
+Such behavior is similar to that observed in plasma bullets \cite{Lu2006} where
+the discharge is able to continue far past the cathode. This suggests that
+development of the \acs{rpnd} along the discharge tube led by a large region of
+positive space charge, as suggested in the discussion of the field
+characteristics. The ions that produce this positive space charge are eventually
+collected at the cathode or neutralized at the walls, however their low mobility
+(as noted in chapter~\ref{chp:theory}) prevents this from happening on time
+scales relevant to the \acs{rpnd} formation.
+
+At higher operating pressure (8.0 and 16.0 Torr), the discharge receded back
+toward the cathode. This was accompanied by a decrease in the apparent
+brightness of the discharge to levels similar to that of the low pressure
+conditions. In contrast, the discharge appeared to remain volume-filling. While
+discharge initiation was difficult at the higher pressures, it was not
 accompanied by the electrical noise observed at lower pressures.
 
 \section{Energy Coupling}
@@ -319,11 +341,11 @@ Figure~\ref{fig:energies}
   \label{fig:energies}
 \end{figure}
 gives the total energy deposited for the first pulse at each of the operating
-conditions. The energy coupled to the discharge peaks at an energy of 5.5 mJ at a
-pressure of 1.0 Torr, after which it slowly decreases. This peak in the coupled
-energy is coincident with the peak brightness of the discharge. Together, these
-suggest that the density of excited states will be optimized at intermediate
-pressures. 
+conditions. The energy coupled to the discharge peaks at an energy of 5.5 mJ
+(out of a total incident energy of 8.8 mJ) at a pressure of 1.0 Torr, after
+which it slowly decreases. This peak in the coupled energy is coincident with
+the peak brightness of the discharge. Together, these suggest that the density
+of excited states will be optimized at intermediate pressures.
 
 Though there appear to be no direct comparisons available in the literature,
 several papers report on energy coupling for similar systems. Macheret,
