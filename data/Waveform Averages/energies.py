@@ -13,9 +13,9 @@ dt = (2e3 * 1e-9) / 5e3
 dirs = os.walk('.')
 
 start = 200e-9
+ends = np.linspace(0, 40e-9)
 delay = 138e-9
 bounds = [start, start + delay, start + 2*delay] 
-ends = np.linspace(0, 40e-9)
 
 for d in dirs:
     if 'current.csv' in d[2]:
