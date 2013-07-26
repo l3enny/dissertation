@@ -119,7 +119,9 @@ Behind the beam sampler was a Thorlabs DET300 germanium photodiode. The signal
 from this photodiode was terminated at 1 M$\Omega$ and used to monitor the beam.
 The opposite end of the optical fiber was affixed to a Thorlabs DET410 InGaAs
 photodiode. The photodiode signal was amplified by a Femto HVA-200M-40-B voltage
-amplifier before being sent to the oscilloscope.
+amplifier before being sent to the oscilloscope. The time resolution of the
+metastable measurements was determined by the InGaAs photodiode which had a
+specified rise time of 5 ns.
 
 In order to measure the absorption of the laser, it was first necessary to tune
 the laser to the correct wavelength. This matter was complicated by the lack of
@@ -144,23 +146,94 @@ locations: 5.08, 12.7, and 20.32 cm, relative to the glass-metal seal of the
 anode. In reference to their location relative to the gas inlet these will be
 referred to as the `upstream', `midstream', and `downstream' locations,
 respectively. For each combination of location and pressure, absorption spectra
-were measured over $\pm4.0$ GHz relative to the nominal transition frequency of
-the 2$^3$S$_1$-2$^3$P$_0^\mathrm{o}$ transition. The absorption spectra were
-measured for time domains of $-300$-$1700$ ns relative to the voltage pulse.
-Additional measurements were made at the midstream position of the metastable
-densities from $-88$-$712$ $\mu$s in order to investigate the loss mechanisms of
-the metastables.
+were measured over $\pm3.85$ GHz relative to the nominal transition frequency of
+the 2$^3$S$_1$-2$^3$P$_0^\mathrm{o}$ transition at intervals of 154 MHz. The
+absorption spectra were measured for time domains of $-300$-$1700$ ns relative
+to the voltage pulse. Additional measurements were made at the midstream
+position of the metastable densities from $-88$-$712$ $\mu$s in order to
+investigate the loss mechanisms of the metastables.
 
 The broadband electronic noise emitted by the fast pulses was a persistent issue
 and presented one the greatest challenges to measurements during the \acs{rpnd}
-development.
+development. As described above, the InGaAs photodiode was removed from the
+immediate area surrounding the discharge by an optical fiber. The optical fiber
+was routed through a small opening in a grounded metal box where both the
+photodiode and the voltage amplifier resided. In addition, the DC power supply
+of the voltage amplifier was connected to an outlet on a Tripp-lite Isobar
+intended to provide additional isolation. The photodiode was connected directly
+to the input terminal of the amplifier, while the amplifier was connected to a
+BNC bulkhead adapter by a 10 cm length of RG 50/U. The final connection to the
+oscilloscope was made by an additional 10 cm length of RG 50/U, running from the
+BNC bulkhead connection.
 
-Several measures were required in order to limit the impact of the broadband
-electronic noise associated with the fast pulses. To some extent, the ground
-shell of the discharge apparatus helped to mitigate the 
+Figure~\ref{fig:transmitted}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/metastables/figures/transmitted.eps}
+  \caption{Measurement of the transmitted laser light at the nominal transition
+  wavelength at 4.0 Torr of helium.}
+  \label{fig:transmitted}
+\end{figure}
+shows the transmission signal measured at the nominal transition wavelength for
+a \acs{rpnd} in 4.0 Torr of helium. The signal is the average of 200 independent
+pulses, further sampling had no appreciable effect on the waveform. As can be
+seen, despite the efforts to limit the electrical interference, there is still a
+substantial amount of noise present in the transmission signal. This is most
+noticeable in the large ringing which occurs for the first 200 ns after the
+voltage pulse. Without any kind of compensation, it would be impossible to
+obtain reliable measurements of the transmission signal
 
 \section{Absorption Analysis}
 
+The noise produced by the \acs{rpnd} was relatively consistent between pulses
+and over the duration of each experiment. As a result, it was possible to
+correct for the electrical noise, as well as any spontaneous plasma emissions,
+by measuring the signal from the photodiode in the absence of the laser. The
+acquisition process proceeded as follows:
+\begin{enumerate}
+  \item Set desired laser wavelength.
+  \item Wait 5 s for laser output to settle.
+  \item Acquire 200 waveforms from photodiode.
+  \item Close shutter.
+  \item Acquire 200 waveforms from photodiode.
+  \item Repeat
+\end{enumerate}
+The second set of waveforms was then subtracted from the first in the
+post-processing stage. The effect of this subtraction can be seen in
+figure~\ref{fig:contours}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/metastables/figures/contours.eps}
+  \caption{Heatmaps of the transmitted laser signal for the 4.0 Torr condition at 
+  various stages of post-processing.}
+  \label{fig:contours}
+\end{figure}
+where the top heatmap shows the initial set of acquisitions with the laser on,
+and the middle heatmap shows the transmitted signal with the noise subtracted.
+
+As the laser diode current was changed in order to scan the wavelength across
+the transition, the output power also changed by a small but significant amount.
+The produces the gradient-like appearance of the top two plots in
+figure~\ref{fig:contours}. In order to obtain a measurement of the unattenuated
+laser power, the above acquisition procedure was repeated with the plasma off
+for each operating condition. This made it possible to correct for the varying
+laser power and to produce properly scaled transmission spectra.
+
+These transmission spectra were then analyzed using a transmission model based
+on the absorption cross sections described in chapter~\ref{chp:theory}. In a
+one-dimensional system, the change in intensity of an incident photon field
+(below the saturation limit), can be expressed as
+\begin{equation}
+  \frac{dI(x)}{dx} = -\sigma I
+\end{equation}
+where $I$ is the intensity of the photon field as a function of distance $x$,
+for an interaction cross section of $\sigma$. This equation has the simple
+solution,
+\begin{equation}
+  T = \frac{I(x)}{I_0} = \exp(-\sigma x),
+\end{equation}
+where $T$ is the transmitted intensity fraction, and $I_0$ is the initial
+intensity of the photon field.
 
 \section{Results}
 
