@@ -224,17 +224,57 @@ on the absorption cross sections described in chapter~\ref{chp:theory}. In a
 one-dimensional system, the change in intensity of an incident photon field
 (below the saturation limit), can be expressed as
 \begin{equation}
-  \frac{dI(x)}{dx} = -\sigma I
+  \frac{dI(x, \omega)}{dx} = -\sigma(\omega) N(x) I(x, \omega)
 \end{equation}
 where $I$ is the intensity of the photon field as a function of distance $x$,
-for an interaction cross section of $\sigma$. This equation has the simple
-solution,
+$\omega$ is the frequency of the photons, $N$ is the density of the interacting
+species, and $\sigma$ is the interaction cross section. This equation has the
+simple solution,
 \begin{equation}
-  T = \frac{I(x)}{I_0} = \exp(-\sigma x),
+  T(\omega) = \frac{I(x, \omega)}{I_0(\omega)}
+            = \exp(-\sigma(\omega) \int_0^x N(x') dx'),
+  \label{eq:transmitted}
 \end{equation}
 where $T$ is the transmitted intensity fraction, and $I_0$ is the initial
-intensity of the photon field.
+intensity of the photon field. The absorption can be trivially obtained from the
+equation $A(\omega) = 1 - T(\omega)$.
+
+For the purpose of analyzing the absorption, a quantity called the
+line-integrated density will be defined. This is simply, $\nint = \int_0^x
+N(x')dx'$. Equation~\ref{eq:absorb} can be used to determine the absorption
+cross section. However, this requires that a lineshape be specified. If
+possible, it is preferable to select either a purely Gaussian or purely
+Lorentzian lineshape as the Voigt profile (equation~\ref{eq:voigt}) is
+accompanied by a significantly larger computational cost. This can be determined
+by a comparison of the relative widths of the different broadening mechanisms.
+For a temperature of 300 K and a pressure of 8.0 Torr, it is found that $\dwd =
+1.7$ GHz and $\dwa = 0.21$ GHz. Because neither broadening mechanism is
+significantly dominant, the choice was made to analyze the data with a Voigt
+profile, despite the added computational cost.
+
+Equations~\ref{eq:transmitted},~\ref{eq:absorb}, and~\ref{eq:voigt} can be
+combined to form a model equation for the transmitted spectrum. It can be seen
+that only two unknowns exist: the gas temperature, $T_g$, and the
+line-integrated density, $\nint$. For each time step, this model equation was
+matched to the measured spectrum using the Levenburg-Marquardt algorithm
+\cite{Marquardt1963} as implemented by the SciPy library \cite{Jones2001}.
+During the matching process, it was observed that the diode current for which
+absorption was optimized would shift over time. This was assumed to be the
+result of small, long-term variations in the diode temperature that were not
+adequately compensated for by the temperature control system. This corresponded
+to a frequency drift of $\pm60$ MHz between experiments. For each experiment,
+this frequency offset was measured for the spectrum with the largest absorption
+signal and was then used to correct the analysis of all other spectra.
 
 \section{Results}
 
 
+
+
+As indicated in equation~\ref{eq:transmitted}, the density of the interacting
+species (in this case the triplet metastables) can change along the path-length
+of the laser. This makes it difficult to obtain the actual radial density
+profiles of the metastables. If measurements were available along a number of
+chords, it would be possible to reproduce the radial profile via Abel inversion
+\cite{Hutchison2005}. In this case, it is necessary to assume a specific radial
+distribution in order to obtain absolute density values. 
