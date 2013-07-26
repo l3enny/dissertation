@@ -232,7 +232,7 @@ species, and $\sigma$ is the interaction cross section. This equation has the
 simple solution,
 \begin{equation}
   T(\omega) = \frac{I(x, \omega)}{I_0(\omega)}
-            = \exp(-\sigma(\omega) \int_0^x N(x') dx'),
+            = \exp\left[-\sigma(\omega) \int_0^x N(x') dx'\right],
   \label{eq:transmitted}
 \end{equation}
 where $T$ is the transmitted intensity fraction, and $I_0$ is the initial
@@ -268,13 +268,29 @@ signal and was then used to correct the analysis of all other spectra.
 
 \section{Results}
 
+The matching algorithm proved robust enough to automatically match the
+transmission spectrum at each time step with no user intervention.
+Figure~\ref{fig:matching}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/metastables/figures/matching.eps}
+  \caption{Comparison of the measured transmission profile (open symbols) and
+  the computer-generated matches for at several different times for the 4.0 Torr
+  operating condition.}
+  \label{fig:matching}
+\end{figure}
+shows three examples of the measured transmission spectra along with the
+computer-generated matches. The measure data far from the peak coincide almost
+perfectly with an unabsorbed signal. In addition, the spectrum at 120 ns shows
+no evidence of the noise caused by the discharge. The variation in the baseline
+transmission signal is approximately 0.02. This sets a minimum line-integrated
+detection limit of approximately $3.0 \times 10^{14}$ m$^{-2}$, though the
+actual value will depend to some extent on the pressure and temperature.
+
+\subsection{Temperatures}
 
 
 
-As indicated in equation~\ref{eq:transmitted}, the density of the interacting
-species (in this case the triplet metastables) can change along the path-length
-of the laser. This makes it difficult to obtain the actual radial density
-profiles of the metastables. If measurements were available along a number of
-chords, it would be possible to reproduce the radial profile via Abel inversion
-\cite{Hutchison2005}. In this case, it is necessary to assume a specific radial
-distribution in order to obtain absolute density values. 
+\subsection{Line-integrated Densities}
+
+
