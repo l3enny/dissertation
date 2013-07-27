@@ -32,9 +32,11 @@ Outline
   3. Operating Procedure & Conditions
   4. Electrical Characteristics
 4. Metastable Measurements
-    1. Theory
-    2. Setup (as necessary)
+    1. Setup
+    2. Absorption Analysis
     3. Results
+      1. Temperatures
+      2. Line-Integrated Densities
 5. Emission Measurements
     1. Theory
     2. Setup (as necessary)
