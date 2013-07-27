@@ -20,9 +20,10 @@ badd +1 mathcommands.tex
 badd +1 chaptersexperimentexperiment.tex
 badd +7 TODO.md
 badd +15 acronyms.tex
-badd +0 chapters/experiment/experiment.tex
+badd +225 chapters/experiment/experiment.tex
+badd +292 chapters/metastables/metastables.tex
 silent! argdel *
-edit chapters/experiment/experiment.tex
+edit chapters/metastables/metastables.tex
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -32,8 +33,8 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 88 + 88) / 177)
-exe 'vert 2resize ' . ((&columns * 88 + 88) / 177)
+exe 'vert 1resize ' . ((&columns * 89 + 89) / 178)
+exe 'vert 2resize ' . ((&columns * 88 + 89) / 178)
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -44,12 +45,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 225 - ((34 * winheight(0) + 35) / 70)
+let s:l = 292 - ((55 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-225
-normal! 042l
+292
+normal! 0
 wincmd w
 argglobal
 edit OUTLINE.md
@@ -62,15 +63,15 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 37 - ((36 * winheight(0) + 35) / 70)
+let s:l = 37 - ((30 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 37
 normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 88 + 88) / 177)
-exe 'vert 2resize ' . ((&columns * 88 + 88) / 177)
+exe 'vert 1resize ' . ((&columns * 89 + 89) / 178)
+exe 'vert 2resize ' . ((&columns * 88 + 89) / 178)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
