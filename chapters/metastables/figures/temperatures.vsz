@@ -1,7 +1,7 @@
-# Veusz saved document (version 1.15)
-# Saved at 2013-07-26T21:53:35.813515
+# Veusz saved document (version 1.17.1)
+# Saved at 2013-07-27T13:30:39.776888
 
-AddImportPath(u'/home/ben/Repos/dissertation/chapters/metastables/figures')
+AddImportPath(u'/Users/ben/Repos/dissertation/chapters/metastables/figures')
 ImportFileCSV(u'../../../simulations/Fast LAS/Downstream/0.3Torr.csv', headermode='none', linked=True, dsprefix=u'Downstream/0.3Torr.csv')
 ImportFileCSV(u'../../../simulations/Fast LAS/Downstream/0.5Torr.csv', headermode='none', linked=True, dsprefix=u'Downstream/0.5Torr.csv')
 ImportFileCSV(u'../../../simulations/Fast LAS/Downstream/1.0Torr.csv', headermode='none', linked=True, dsprefix=u'Downstream/1.0Torr.csv')
@@ -27,6 +27,8 @@ ImportFileCSV(u'../../../simulations/Fast LAS/Upstream/3.0Torr.csv', headermode=
 ImportFileCSV(u'../../../simulations/Fast LAS/Upstream/4.0Torr.csv', headermode='none', linked=True, dsprefix=u'Upstream/4.0Torr.csv')
 ImportFileCSV(u'../../../simulations/Fast LAS/Upstream/8.0Torr.csv', headermode='none', linked=True, dsprefix=u'Upstream/8.0Torr.csv')
 SetDataRange(u't', 5000, (-3e-07, 1.7e-06), linked=True)
+Set('width', u'6in')
+Set('height', u'8in')
 Set('StyleSheet/Line/width', u'1pt')
 Set('StyleSheet/Font/font', u'TeX Gyre Termes')
 Set('StyleSheet/Font/size', u'12pt')
