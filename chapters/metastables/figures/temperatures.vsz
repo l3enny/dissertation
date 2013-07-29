@@ -1,7 +1,7 @@
-# Veusz saved document (version 1.18)
-# Saved at 2013-07-29T02:44:24.007000
+# Veusz saved document (version 1.15)
+# Saved at 2013-07-29T19:06:22.371296
 
-AddImportPath(u'C:\\Users\\Ben\\Repos\\dissertation\\chapters\\metastables\\figures')
+AddImportPath(u'/home/ben/Repos/dissertation/chapters/metastables/figures')
 ImportFileCSV(u'../../../simulations/Fast LAS/Downstream/0.3Torr.csv', headermode='1st', linked=True, dsprefix=u'Downstream/0.3Torr.csv')
 ImportFileCSV(u'../../../simulations/Fast LAS/Downstream/0.5Torr.csv', headermode='1st', linked=True, dsprefix=u'Downstream/0.5Torr.csv')
 ImportFileCSV(u'../../../simulations/Fast LAS/Downstream/1.0Torr.csv', headermode='1st', linked=True, dsprefix=u'Downstream/1.0Torr.csv')
@@ -158,7 +158,7 @@ Set('PlotLine/style', u'dotted')
 To('..')
 Add('label', name='label1', autoadd=False)
 To('label1')
-Set('label', u'0.3 Torr')
+Set('label', u'0.5 Torr')
 Set('xPos', [0.7])
 Set('yPos', [0.8])
 To('..')
