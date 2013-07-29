@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.15)
-# Saved at 2013-07-29T15:08:28.796921
+# Saved at 2013-07-29T16:25:08.321468
 
 AddImportPath(u'/home/ben/Repos/dissertation/chapters/metastables/figures')
 ImportFileCSV(u'../../../data/Waveform Averages/results.txt', headermode='1st', linked=True)
@@ -24,7 +24,7 @@ Add('graph', name='graph1', autoadd=False)
 To('graph1')
 Add('axis', name='x', autoadd=False)
 To('x')
-Set('label', u'Energy (mJ)')
+Set('label', u'Energy/N (mJ\\cdot{}cm^{3})')
 Set('min', 1e-18)
 Set('max', 1e-15)
 Set('log', True)
