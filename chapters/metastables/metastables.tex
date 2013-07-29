@@ -308,18 +308,68 @@ densities (a very broad absorption spectrum).
 It is not possible to precisely calculate the error for the matching process at
 each time step, however it is possible to estimate the standard deviation. In
 all cases, the estimated standard deviation is less than 10 K by the end of the
-measurement period. Overall, no significant temperature trends appear with
-regard to time, axial location or pressure. Furthermore, the temperature of the
-gas in the \acs{rpnd} appears to remain at room temperature, approximately 300
-K, for all conditions.
+measurement period. Based on the covariance estimates, there appear to be no
+meaningful trends over the measurement period or between measurement locations.
 
-This lack of change contrasts with previous studies of gas heating in
-\acs{rpnd}s and \acs{fiws} \cite{Popov2011, Zuzeek2011, Pai2009}. Likewise,
-recent measurements of the optical emissions from a \acs{rpnd} in air showed
-significant heating, see appendix~\ref{chp:oes}. 
+In order to more clearly compare the temperatures at the different operating
+conditions, the results for each location were combined and averaged over the
+final 200 ns. This was then plotted with respect to the energy deposition
+calculations from chapter~\ref{chp:experimental}, divided by the gas density.
+The results are shown in figure~\ref{fig:tvp}.
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/metastables/figures/tvp.eps}
+  \caption{Plot of the average gas temperature as a function of deposited
+  energy.}
+  \label{fig:tvp}
+\end{figure}
+For the majority of operating conditions, there is little to know statistical
+difference between the results and room temperature. The one exceptional
+condition is the 16.0 Torr operating condition at 4.33$\times10^{-18}$
+mJ/cm$^3$ with a mean temperature of 255 K. As the glass of the discharge tube
+as at room temperature for all experimental conditions, this does not appear to
+be a reasonable result for the temperature. Examination of the individual
+absorption spectra did not reveal any obvious errors in the calculated matches.
+However, as will be seen later, the metastables were the least dense at 16.0
+Torr. This, coupled with the large variation of the temperatures in
+figure~\ref{fig:temperatures} suggest that the standard deviation is potentially
+lager than 10 K. Such a situation would explain the unreasonable temperature
+obtained for this condition.
 
-with \acs{rpnd}s and \acs{fiw}s in molecular
-gases
+The literature provides only a limited number of direct temperature measurements
+for similar systems. The most similar work in appears to be that of Walsh et al.
+\cite{Walsh2010} in which the temperature of a \acs{rpnd} in helium with a small
+admixture of oxygen was measured by optical emissions. The geometry consisted of
+two cylindrical steel electrodes separated by 2 mm with a single dielectric
+barrier between the two, a gas flow rate of 5 slm, at atmospheric pressure.
+Temperatures ranged from 300-340 K, depending on the average power dissipated in
+the plasma. Walsh et al. suggest that the observed temperature increase is a
+result of Joule heating, that is, heating of the gas as a result of electrons
+colliding with neutral particles. As the neutral collision frequency scales
+linearly with pressure, this would certainly explain the negligible heating
+observed in figure~\ref{fig:tvp}. The presence of a large fraction of a
+molecular gas (oxygen) presents another potential heating mechanism when
+dissociation occurs, called Franck-Condon heating, and excitation of rotational
+and vibrational states which relax to translational energy
+\cite{Kiehlbauch2003}.
+
+Other experiments have demonstrated minimal gas heating, as in the case of
+plasma bullets \cite{Laroussi2005, Lu2006}, while others have measured final
+temperatures ranging from 400-1000 K \cite{Pai2009, Popov2011, Zuzeek2011} (see
+appendix~\ref{chp:oes} for detailed study in air). From the available
+literature, measurable heating only appeared to coincide with measurements of
+\acs{rpnd}s in molecular gases. This emphasizes the importance of the heating
+mechanisms mentioned earlier and likely plays a large role in the nonthermal
+nature of the atmospheric pressure helium plasmas.
+
+Recent simulations and rate calculations \cite{Takashima2011, Aleksandrov2007}
+have provided estimates of the electron temperature in the range of 10-20 eV. As
+a result, all of the discharges mentioned are very much nonthermal in nature.
+That said, the negligible heating in the helium \acs{rpnd} studied here presents
+a significant advantage for many applications, as even the moderate temperature
+increases in molecular discharges can threaten material integrity. For example,
+most commercial polymers are only rated to 300$^\circ$ C, making them
+susceptible to damage without careful thermal management.
 
 \subsection{Line-integrated Densities}
 
