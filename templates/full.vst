@@ -1,5 +1,5 @@
 # Veusz exported stylesheet (version 1.15)
-# Saved at 2013-07-30T14:42:47.887229
+# Saved at 2013-07-30T14:42:33.647903
 
 Set('StyleSheet/Line/width', u'1pt')
 Set('StyleSheet/Line/color', 'black')
@@ -248,8 +248,8 @@ Set('StyleSheet/contour/Fills/hide', False)
 Set('StyleSheet/contour/SubLines/lines', [('dot1', '1pt', 'black', False)])
 Set('StyleSheet/contour/SubLines/numLevels', 5)
 Set('StyleSheet/contour/SubLines/hide', True)
-Set('StyleSheet/document/width', u'3in')
-Set('StyleSheet/document/height', u'2in')
+Set('StyleSheet/document/width', u'6in')
+Set('StyleSheet/document/height', u'8in')
 Set('StyleSheet/document/englishlocale', True)
 Set('StyleSheet/ellipse/hide', False)
 Set('StyleSheet/ellipse/xPos', [0.5])
