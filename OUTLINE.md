@@ -37,11 +37,9 @@ Outline
     3. Results
       1. Temperatures
       2. Line-Integrated Densities
-5. Emission Measurements
-    1. Theory
-    2. Setup (as necessary)
-    3. Results
-6. Modeling
+      3. Metastable Destruction
+    4. Summary
+5. Modeling
     1. Global Model Development
       1. Electron Impact Coefficients
       2. Optical Emission Coefficients
@@ -49,6 +47,11 @@ Outline
     2. Effect of Distributions
     3. Effect of Pulse Shape
     4. Plasma Parameters
+    5. Summary
+6. Emission Measurements
+  1. Setup
+  2. Comparison to Model
+  3. Summary
 7. Conclusions
     1. Overview of Results
     2. Future Work
