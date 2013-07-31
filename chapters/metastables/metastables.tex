@@ -1,95 +1,104 @@
 As was noted in chapter~\ref{chp:introduction}, measurements of the \acs{rpnd}
-been mostly limited to the afterglow plasma or time-integrated quantites.
+have been mostly limited to the afterglow plasma or time-integrated quantites.
 Electric field measurements, either with capacitive probes or nonlinear
-wave-mixing, thus far provide the only detail of the \acs{rpnd} during its
-development. Though the electric field can be used to estimate electron
-densities and reaction rates in the plasma, this requires a number of additional
-assumptions.
+wave-mixing, thus far provide the only insight on the development of the
+\acs{rpnd}. Though the electric field can be used to estimate electron densities
+and reaction rates in the plasma, this requires a number of additional
+assumptions such as electron locality, and equilibrium with the applied field.
 
-As a result, there is a lack of reliable information on the particle properties
-of the \acs{rpnd} during its development. That said, such information is
-essential to confirming the present understanding of how these discharges
-develop, optimizing them for specific applications, and providing important
-benchmarks for numerical simulations. Therefore, a clear need exists for direct
-measurements of the \acs{rpnd} particle properties.
+As a result, there is a lack of reliable information on particle properties of
+the \acs{rpnd} during its development. That said, such information is necessary
+to confirm the present understanding of how these discharges develop, how they
+may be optimized for specific applications, and how to improve existing
+numerical simulations. Therefore, a clear need exists for direct measurements of
+the \acs{rpnd} particle properties.
 
-Unfortunately, these measurements present a significant challenge for most
-traditional plasma diagnostics. In most situations, the obvious choice would be
-the Langmuir probe for its simplicity and ease of implementation. However, the
-fast variations in the plasma potential, slow response of the ion, and high
-collisionality all preclude this approach \cite{Lieberman2005}. Furthermore, any
-physical probe would act as a significant perturbation in the system.
+Unfortunately, this presents a significant challenge for most traditional plasma
+diagnostics. In most situations, the obvious choice would be the Langmuir probe
+given its simplicity and ease of implementation. However, the fast variations in
+the plasma potential, slow response of the ions, and high collisionality all
+preclude this approach \cite{Lieberman2005}. Furthermore, any physical probe
+could potentially act as a large perturbation to the very system it is
+measuring.
 
 The logical alternative to physical probes is the use of optical diagnostics,
 however these have their own associated difficulties. Electrons cannot be
-studied by their emissions because, with the exception of bremsstrahlung, they
-do not emit light. This leaves the light emitted from excited atoms. Atomic
-emission spectroscopy can be used to measure many different plasma quantities,
-from electron density, to local electric field strength. Unfortunately,
-spontaneous emission can be a slow process compared to the development of the
-\acs{rpnd}. For example, the fastest neutral helium transition in visible
-wavelengths (3$^3$D$_3$-2$^3$P$_2^\cdot$) has a radiative life of 14 ns
-\cite{Ralchenko2011}.
+studied by their light emissions because, with the exception of bremsstrahlung
+and cyclotron radiation, they do not emit. This leaves the light emitted from
+excited atoms. Atomic emission spectroscopy can be used to measure many
+different plasma quantities, from electron density, to local electric field
+strength. Unfortunately, spontaneous emission can be a slow process compared to
+the development of the \acs{rpnd}. For example, the fastest neutral helium
+transition in visible wavelengths (3$^3$D$_3$-2$^3$P$_2^\cdot$) has a decay rate
+of 14 ns \cite{Ralchenko2011}.
 
 This suggests that instead of waiting for spontaneous emission to occur, it may
 be better to use some form of active spectroscopy. Though the added complexity
-of a well-characterized light source is undesirable, it adds several interesting
-possibilities. For example, Thomson scattering provides a means for direct
-interaction with electrons. In addition, it has a high spatial and temporal
-resolution and is able to measure the electron density and temperature
-simultaneously \cite{VanGessel2012}. However, the electron density limit of
-$5\times10^{12}$ cm$^{-3}$ is too low for use with the \acs{rpnd} which may have
-electron densities well below this \cite{Pai2009}.
+of a well-characterized light source is undesirable, it allows for several
+interesting opportunities. For example, a sufficiently intense laser can be used
+to directly interact with the electrons through Thomson scattering. It has a
+high spatial and temporal resolution and is able to measure the electron density
+and temperature simultaneously \cite{VanGessel2012}. However, the \acs{rpnd} may
+have densities well below the interaction limit of $5\times10^{12}$ cm$^{-3}$
+\cite{Pai2009}.
 
-With the ability to directly interact with electrons, the next alternative is to
-target one of the excited states of helium. The lowest such state, the triplet
-metastable (2$^3$S), resides at 19.82 eV. This is a relatively large energy gap
-for an atom and indicates that virtually no such states should exist at room
-temperature. The triplet metastable (and all higher-energy states in helium)
-will be populated exclusively by energetic electrons. Therefore, a measurement
-of the triplet metastable level is a useful indicator of the degree of helium
-excitation as the \acs{rpnd} develops, and could potentially be used to infer
-some properties of the electron population.
+If it is not possible to directly interact with the electrons, the next
+alternative is interact with the atomic population. Probing of the ground state
+is difficult given its large separation from any excited state. Furthermore, the
+high densities of the neutral states would completely absorb all incident
+radiation, even over short pathlengths (leaving nothing to measure). Instead it
+makes more sense to probe an excited atomic state. The lowest lying one is the
+triplet metastable (2$^3$S), which resides at 19.82 eV above ground. This
+relatively large energy gap assures that no such states will be naturally
+present at room temperature. The triplet metastable (and all higher-energy
+states in helium) will be populated almost exclusively by energetic electrons.
+Therefore, the triplet metastable density is a useful indicator of the electron
+energetics in the \acs{rpnd} as it develops. With a sufficiently complex model,
+it may even be used to infer properties of the electron population.
 
-Perhaps the most straightforward approach to a measurement of the triplet
+Perhaps the most straightforward means by which to measure the triplet
 metastable density is with absorption spectroscopy. This approach has a long
-history in the study of metastables in gas discharges, going back at least six
-decades \cite{Phelps1953}. At its most basic, the technique involves
-illuminating a plasma with light matching a transition between the metastable,
-and some upper level and measuring the amount of light transmitted. The amount
-of light transmitted is proportional to the metastable density integrated along
-the path of the light traversing the plasma. The bandwidth of this measurement
-is only limited by the time required for the light to pass through the plasma.
+history in the study of gas discharges, going back at least six decades
+\cite{Phelps1953}. At its most basic, the technique involves illuminating a
+plasma with light matching a transition between the metastable, and some upper
+level. The amount of transmitted light is then measured with a detector on the
+opposite side of the plasma. The amount of transmitted light is proportional to
+the metastable density, integrated along the path of the light. As the temporal
+bandwidth of this technique is only limited by the time require for the light to
+traverse the plasma, it presents a promising approach for particle measurements
+during the development of the \acs{rpnd}.
 
 \section{Setup}
 
 Traditionally, the light used in absorption spectroscopy has been supplied by
-discharge tubes with the same gas as the system under study. Though
-straightforward, this approach is limited by the luminosity of the discharge
-tube, and the fact that the emitted radiation is isotropic. More recently,
-Millard et al. noted that diode lasers provide a greatly improved light source
-that provides simple spatial selectivity, at intensities which can easily exceed
-the saturation limit \cite{Millard1998}.
+discharge tubes of same gas as the system under study. Though straightforward,
+this approach is limited by the luminosity of the discharge tube, and the fact
+that the emitted radiation is isotropic. More recently, Millard et al.\ noted
+that diode lasers provide a greatly improved light source for absorption
+experiments. The laser light is easily directed and collimated for spatial
+selectivity, and has more than sufficient intensity \cite{Millard1998}.
+Therefore, it was decided to use a diode laser in the measurement of the triplet
+metastable level.
 
 As with the study by Millard et al., the decision was made to study the
-transition from the triplet metastable to the 2$^3$P$^\mathrm{o}_{0,1,2}$ (at
-approximately 1083 nm). This was done for several reasons. For one, the closest
-helium transition is over 7 nm away, making it relatively isolated. In addition,
-the different levels or values of $J$ are all within the tuning range of a
-single diode. As each level has a different degeneracy, $g$, the strength of
-absorption varies depending on the selected level. Thus, the absorption strength
-can be increased for low densities, or decreased at high densities, improving
-the dynamic range of the diagnostic.
+transition from the triplet metastable to the 2$^3$P$^\mathrm{o}_{0,1,2}$ state
+(a transition wavelength of approximately 1083 nm). This was done for several
+reasons. For one, the closest helium transition is over 7 nm away, making it
+relatively isolated. In addition, the different levels or values of $J$ are all
+within the tuning range of a single diode. As each level has a different
+degeneracy, $g$, the strength of absorption varies depending on the selected
+level. Thus, the absorption strength can be increased for low densities, or
+decreased at high densities, improving the dynamic range of the diagnostic.
 
-The laser used was a distribute feedback laser diode, produced by Toptica, model
-LD-1083-0070-DFB-1. The specified linewidth of the laser was 3 MHz, well below
-the natural linewidth of the transition, 10.2 MHz. This situation can be
-exploited to directly measure the gas temperature of the system, as will be seen
-in the next section. The diode was rated for a total output power of 70 mW, with
-a beam size of 1 mm by 3 mm and a vertical polarization. The diode was housed in
-a Toptica DL DFB housing which incorporated the collimating optics. A Toptica
-DCC 110 was used to provide current control for the diode laser, and a Toptica
-DTC 110 was used to control the thermoelectric cooler for the diode.
+The laser used was a distributed feedback laser diode, produced by Toptica,
+model LD-1083-0070-DFB-1. The specified linewidth of the laser was 3 MHz, well
+below the natural linewidth of the transition at 10.2 MHz. This can be exploited
+to directly measure the gas temperature of the system, as will be seen in the
+next section. The diode was rated for a total output power of 70 mW, with a beam
+size of 1 mm by 3 mm and vertical polarization. The diode was housed in a
+Toptica DL DFB housing which incorporated the collimating optics. A Toptica DCC
+110 was used to provide current control for the diode laser, and a Toptica DTC
+110 was used to control the thermoelectric cooler for the diode.
 
 The layout in figure~\ref{fig:laser}
 \begin{figure}
@@ -102,18 +111,17 @@ The layout in figure~\ref{fig:laser}
 \end{figure}
 reflects the optical beam path used in the absorption experiment. The laser
 light is produced by the distributed feedback laser diode (DFB). It then enters
-a Electro-Optics Technology, Inc. Faraday isolator (FI) which prevents
+an Electro-Optics Technology, Inc. Faraday isolator (FI) which prevents
 back-reflections from entering the diode. Without the isolator in place, such
 back-reflections can cause mode-hopping, resulting in unreliable tuning. The
-laser intensity is then reduced by a neutral density filter (ND). Afterward, the
-laser passes through a Vincent Associates electronic shutter (S). Then, the beam
-is split by a Thorlabs BSF10-C beam sampler at a 45$^\circ$ angle. This reduced
-the laser intensity below the saturation intensity (0.45 mW/cm$^2$) of the
-transition. Collimation to a 1 mm circle, and alignment were provided by two
-apertures (AP) on both sides of the discharge apparatus. The beam exiting the
-apparatus was then sent through a final aperture to spatially filter plasma
-emissions before being a Thorlabs F240SMA-780 collimation package was used to
-couple the light into an optical fiber.
+laser intensity is then reduced by a neutral density filter (ND). After which,
+the laser passes through a Vincent Associates electronic shutter (S). Then, the
+beam is split by a Thorlabs BSF10-C beam sampler at a 45$^\circ$ angle. This
+reduced the laser intensity below the saturation intensity (0.45 mW/cm$^2$) of
+the transition. The beam was collimated with two apertures (AP) on both sides of
+the discharge apparatus. The beam exiting the apparatus was then sent through a
+final aperture to filter nearly-colinear plasma emissions before it was coupled
+into an optical fiber by a Thorlabs F240SMA-780 collimation package.
 
 Behind the beam sampler was a Thorlabs DET300 germanium photodiode. The signal
 from this photodiode was terminated at 1 M$\Omega$ and used to monitor the beam.
@@ -127,44 +135,48 @@ In order to measure the absorption of the laser, it was first necessary to tune
 the laser to the correct wavelength. This matter was complicated by the lack of
 a wavemeter with sufficient precision and accuracy. As a result, a signal
 generator was used to sweep the laser current so as to cover a frequency range
-of 40 GHz. The temperature of the diode was then slowly adjusted until
-absorption peaks corresponding to the 2$^3$S$_1$-2$^3$P$_{0,1,2}^\mathrm{o}$
-transition were observed. The conversion between diode and wavelength was
-measured with a CVI Melles Griot ET-25.4-10.00-30, solid dielectric etalon. It
-was found that a temperature of 36$^\circ$ C and a current of 63 mA produced
-resulted in an output wavelength of approximately 1082.9 nm.
+of 40 GHz while the plasma was operating. The temperature of the diode was then
+slowly adjusted until absorption peaks corresponding to the 2$^3$S$_1$ -
+2$^3$P$_{0,1,2}^\mathrm{o}$ transition were observed in the output of the InGaAs
+photodiode. This allowed the laser current to be tuned to coincide with the
+desired transition and provided a rough conversion between changes in the diode
+current and changes in the laser wavelength. A more accurate measurement of this
+relation was made with a CVI Melles Griot ET-25.4-10.00-30, solid dielectric
+etalon. It was found that a temperature of 36$^\circ$ C and a current of 63 mA
+produced resulted in an output wavelength of approximately 1082.9 nm and the
+conversion between diode current and wavelength was $0.6067$ mA/GHz.
 
 As described in chapter~\ref{chp:experiment}, data acquisition was handled by a
-LabView program, connected to the oscilloscope by GPIB\@. The auxiliary outputs of
-the SRS SR850 lock-in amplifier were used to adjust the diode laser current (via
-the DCC 110 module), and to trigger the electronic shutter. One of the auxiliary
-inputs of the lock-in amplifier was used to read out the pressure from the
-pressure controller.
+LabView program, connected to the oscilloscope by a GPIB cable. The auxiliary
+outputs of the SRS SR850 lock-in amplifier were used to adjust the diode laser
+current (via the DCC 110 module), and to trigger the electronic shutter. One of
+the auxiliary inputs of the lock-in amplifier was used to read out the pressure
+from the pressure controller.
 
-Data were acquired for a range of pressure 0.3-16.0 Torr, and at three axial
-locations: 5.08, 12.7, and 20.32 cm, relative to the glass-metal seal of the
-anode. In reference to their location relative to the gas inlet these will be
-referred to as the `upstream', `midstream', and `downstream' locations,
+Data were acquired for a range of pressures from 0.3-16.0 Torr, and at three
+axial locations: 5.08, 12.7, and 20.32 cm, relative to the glass-metal seal of
+the anode. In reference to their location relative to the gas inlet these will
+be referred to as the `upstream', `midstream', and `downstream' locations,
 respectively. For each combination of location and pressure, absorption spectra
 were measured over $\pm3.85$ GHz relative to the nominal transition frequency of
 the 2$^3$S$_1$-2$^3$P$_0^\mathrm{o}$ transition at intervals of 154 MHz. The
 absorption spectra were measured for time domains of $-300$-$1700$ ns relative
 to the voltage pulse. Additional measurements were made at the midstream
-position of the metastable densities from $-88$-$712$ $\mu$s in order to
+position of the metastable densities from $-88$-$700$ $\mu$s in order to
 investigate the loss mechanisms of the metastables.
 
 The broadband electronic noise emitted by the fast pulses was a persistent issue
 and presented one the greatest challenges to measurements during the \acs{rpnd}
 development. As described above, the InGaAs photodiode was removed from the
-immediate area surrounding the discharge by an optical fiber. The optical fiber
-was routed through a small opening in a grounded metal box where both the
-photodiode and the voltage amplifier resided. In addition, the DC power supply
-of the voltage amplifier was connected to an outlet on a Tripp-lite Isobar
-intended to provide additional isolation. The photodiode was connected directly
-to the input terminal of the amplifier, while the amplifier was connected to a
-BNC bulkhead adapter by a 10 cm length of RG 50/U. The final connection to the
-oscilloscope was made by an additional 10 cm length of RG 50/U, running from the
-BNC bulkhead connection.
+immediate area surrounding the discharge by the use of an optical fiber. The
+optical fiber was routed through a small opening in a grounded metal box where
+both the photodiode and the voltage amplifier resided. In addition, the DC power
+supply of the voltage amplifier was connected to an outlet on a Tripp-lite
+Isobar intended to provide additional isolation. The photodiode was connected
+directly to the input terminal of the amplifier, while the amplifier was
+connected to a BNC bulkhead adapter by a 10 cm length of RG 50/U. The final
+connection to the oscilloscope was made by an additional 10 cm length of RG
+50/U, running from the BNC bulkhead connection.
 
 Figure~\ref{fig:transmitted}
 \begin{figure}
@@ -175,21 +187,22 @@ Figure~\ref{fig:transmitted}
   \label{fig:transmitted}
 \end{figure}
 shows the transmission signal measured at the nominal transition wavelength for
-a \acs{rpnd} in 4.0 Torr of helium. The signal is the average of 200 independent
-pulses, further sampling had no appreciable effect on the waveform. As can be
+a \acs{rpnd} in 4.0 Torr of helium. The signal is an average of 200 independent
+pulses. Further sampling had no appreciable effect on the waveform. As can be
 seen, despite the efforts to limit the electrical interference, there is still a
 substantial amount of noise present in the transmission signal. This is most
 noticeable in the large ringing which occurs for the first 200 ns after the
 voltage pulse. Without any kind of compensation, it would be impossible to
-obtain reliable measurements of the transmission signal
+obtain reliable measurements of the transmission signal.
 
 \section{Absorption Analysis}
 
-The noise produced by the \acs{rpnd} was relatively consistent between pulses
-and over the duration of each experiment. As a result, it was possible to
-correct for the electrical noise, as well as any spontaneous plasma emissions,
-by measuring the signal from the photodiode in the absence of the laser. The
-acquisition process proceeded as follows:
+The noise produced by the \acs{rpnd} was relatively consistent between pulses as
+well as over the duration of each experiment. As a result, it was possible to
+correct for the electrical noise and any spontaneous plasma emissions by
+measuring the signal from the photodiode in the absence of the laser and
+subtracting this from the signal with the laser. The acquisition process
+proceeded as follows:
 \begin{enumerate}
   \item Set desired laser wavelength.
   \item Wait 5 s for laser output to settle.
@@ -198,9 +211,7 @@ acquisition process proceeded as follows:
   \item Acquire 200 waveforms from photodiode.
   \item Repeat
 \end{enumerate}
-The second set of waveforms was then subtracted from the first in the
-post-processing stage. The effect of this subtraction can be seen in
-figure~\ref{fig:contours}
+The effect of this subtraction can be seen in figure~\ref{fig:contours}
 \begin{figure}
   \centering
   \includegraphics{./chapters/metastables/figures/contours.eps}
@@ -211,9 +222,8 @@ figure~\ref{fig:contours}
 where the top heatmap shows the initial set of acquisitions with the laser on,
 and the middle heatmap shows the transmitted signal with the noise subtracted.
 
-As the laser diode current was changed in order to scan the wavelength across
-the transition, the output power also changed by a small but significant amount.
-The produces the gradient-like appearance of the top two plots in
+As the wavelength of the laser diode changed, so did the output power. The
+produces the gradient-like appearance of the top two plots in
 figure~\ref{fig:contours}. In order to obtain a measurement of the unattenuated
 laser power, the above acquisition procedure was repeated with the plasma off
 for each operating condition. This made it possible to correct for the varying
