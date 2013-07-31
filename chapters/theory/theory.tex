@@ -336,19 +336,14 @@ avalanche.
 
 The electric field in the head of the avalanche depends on its radius, which is
 dependent on the diffusion of the electrons as they cross the gap. This is
-governed by the free diffusion coefficient, $D = \lambda v_\mathrm{th}(E)/3$,
-where $\lambda$ is the mean free path of the electrons, and $v_\mathrm{th}$ is
-their thermal velocity. The diffusion radius is then equal to
-\begin{equation}
-  R(\xi) = \int_{0}^{\xi} \lambda v_\mathrm{th}(\xi') d\xi'.
-  \label{eq:s_rad}
-\end{equation}
-For the calculations below, $\lambda$ is assumed to be fixed. In contrast, the
-thermal velocity of the electrons is expected to grow as the electric field
-deposits energy in the electrons. As a result, it is necessary to integrate the
-diffusion coefficient over the avalanche in order to determine $R$.
+governed by the free diffusion coefficient, $D$. For a fixed diffusion constant,
+the final avalanche radius would simply be $R = \sqrt{2D\Delta t}$, where
+$\Delta t$ is the time after breakdown. As the diffusion coefficient typically
+varies with the applied electric field, the final avalanche radius will be
+assumed to be equal to $R = \sqrt{2\bar{D}\Delta t}$, where $\bar{D}$ is the
+time-averaged diffusion coefficient.
 
-Levatter and Lin assume that the avalanche stalls when the peak field of the
+Levatter and Lin assume that the avalanche slows when the peak field of the
 avalanche is equal to the applied field. Assuming that the electrons diffuse
 equally in all directions, the electric field of the avalanche head can be
 expressed as
@@ -361,7 +356,7 @@ where $r$ is the radius with respect to the center of the avalanche, $N_e$ is
 the number of electrons in the avalanche, $\mathrm{erf}$ is the error function.
 $F$ is a dimenionless function which has a peak value of $0.428$. Provided
 $\alpha$ as a function of reduced field, the number of electrons in the
-avalanche is equal to 
+avalanche is equal to
 \begin{equation}
   N_e = \int_0^\xi \alpha(\xi')d\xi'.
   \label{eq:s_pop}
@@ -370,42 +365,51 @@ avalanche is equal to
 Here, Levatter and Lin make a number of assumptions in order to develop an
 analytic and dimensionless solution for $E_{a,\mathrm{max}}(t) = E(t)$. However,
 it is possible to numerically integrate equations~\ref{eq:s_xi},~\ref{eq:s_rad},
-and~\ref{eq:s_pop} to determine the time required for the avalanche to stall.
+and~\ref{eq:s_pop} to determine the time required for the avalanche to slow.
 This should provide a more accurate, but less general result. Assuming a
-linearly increasing electric field, figure~\ref{fig:he_avalanche}
+linearly increasing electric field, figure~\ref{fig:avalanche_lengths}
 \begin{figure}
   \centering
-  \includegraphics{./chapters/theory/figures/he_avalanche.eps}
-  \caption{Numerical calculations of the preionization density for homogeneous
-    excitation, avalanche length, and avalanche radius in helium at a pressure
-    of 1.0 Torr as a function of the slope of the electric field, $dE/dt$.}
-  \label{fig:he_avalanche}
+  \includegraphics{./chapters/theory/figures/avalanche_lengths.eps}
+  \caption{Numerical calculations of the avalanche length and avalanche radius for
+    in helium at a pressure of 4.0 Torr as a function of the slope of the electric
+    field, $dE/dt$.}
+  \label{fig:avalanche_lengths}
 \end{figure}
-shows the results of such calculations for an avalanche in 1.0 Torr of helium,
+shows the results of such calculations for an avalanche in 4.0 Torr of helium,
 as a function of various breakdown delays. The breakdown delay is defined as the
-time it takes for $\alpha > 0$. The mobilities, mean velocities, and Townsend
-coefficients were interpolated from solutions of the Boltzmann equation provided
-by the BOLSIG+ code with Phelps' cross sections \cite{Phelps2002}. For this
-range of breakdown delays, the avalanche was able to develop up to 6 cm in
-length before it stalled. The times required for the avalanche to stall ranged
-from around 13 ns for the shortest breakdown delay, and 330 ns for the longest.
+time it takes for $\alpha > 0$. The mobilities, diffusion coefficients, and
+Townsend coefficients were interpolated from solutions of the Boltzmann equation
+provided by the BOLSIG+ code with Phelps' cross sections \cite{Phelps2002}. For
+this range of breakdown delays, the avalanche was able to develop up to nearly
+10 cm in length before it slowed. The times required for the avalanche to slow
+ranged from around 23 ns for the shortest breakdown delay, and 389 ns for the
+longest.
 
 From this, a criteria for homogeneous breakdown of the gas can be developed. In
 order for the field gradients to be smoothed out, the individual avalanche heads
-should roughly overlap by the time they have stalled. Assuming that all seed
+should roughly overlap by the time they have slowed. Assuming that all seed
 electrons in the volume initiate avalanches, this can be approximated as
 $n_{e,c} > r_c^{-3}$, where $n_{e,c}$ is the critical electron density, and
-$r_c$ is the avalanche radius at stall. As seen in
-figure~\ref{fig:he_avalanche}, this suggests that a preionization density of
-10$^{11}$ to 10$^{15}$ cm$^{-3}$ is required for the breakdown times under
-consideration.
-
-Based on this formulation for the homogeneous breakdown condition, it is
-apparent that as the avalanche radius increases, the necessary preionization
-density decreases. It is less obvious as to why the avalanche radius decreases
-as the breakdown delay increases. This can be explained by the lower slope,
-implied by the long breakdown delays. As the slope decreases, the avalanche has
-a longer period of time to diffuse in the system, thus the increased radius.
+$r_c$ is the avalanche radius when it has slowed. As seen in
+figure~\ref{fig:avalanche_densities},
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/theory/figures/avalanche_densities.eps}
+  \caption{Minimum preionization densities required at a variety of pressures
+    and breakdown delays. The dotted line indicates the background ionization
+    level as a results of cosmic radiation.}
+  \label{fig:avalanche_densities}
+\end{figure}
+the required preionization density depends on both the breakdown delay and the
+operating pressure. Generally, the preionization density increases with pressure
+and decreases with breakdown delay. The dotted line in the figure indicates the
+anticipated background electron density from cosmic radiation. This suggests
+that, for the breakdown delays in question, the discharge will almost always be
+homogeneous at pressures below 100 Torr. While the plot suggests that large
+values of $dE/dt$ might guarantee homogeneous breakdown at near-atmospheric
+pressure, the increasing likelihood of ionization instabilities \cite{Johns1972}
+will preclude homogeneous discharge development.
 
 \section{Atomic Spectroscopy \& Notation}
 
