@@ -436,23 +436,25 @@ figure~\ref{fig:metastables}.
 In addition to the fast metastable dynamics, measurements were made of the
 long-term trends in metastable population. As previously mentioned, afterglow
 measurements such as these are less subject to the noise and bandwidth
-limitations of the short timescale measurements. Additionally, without the
-applied electric field the compelling nonequilibrium dynamics of the system will
-rapidly disappear. Therefore, these measurements do not provide much insight on
-the development of the \acs{rpnd}.
+limitations of the short timescale measurements. This makes it possible to
+obtain relatively clean and precise values for the metastable densities.
+However, without the applied electric field the nonequilibrium dynamics of the
+system rapidly disappear. Therefore, these measurements do not provide much
+insight on the development of the \acs{rpnd}.
 
-However, a large body of work has been conducted on helium afterglow discharges,
-making this regime attractive as a point of comparison. In addition, these
-measurements capture the peak metastable population which is missing from
-figure~\ref{fig:metastables}. As seen in figure~\ref{fig:grotrian}, all excited
-states in the triplet manifold will eventually decay to the triplet metastable
-level. At 19.6 eV above the ground state, this large metastable population
-provides a long-lived energy source that can produced charged particles through
-Penning ionization well after the voltage pulse. Therefore, it is important to
-understand the full dynamics of the metastable atoms as they play a role in
-establishing stable \acs{rpnd}s.
+That said, a large body of work has been conducted on helium afterglow
+discharges, which makes this regime attractive as a point of comparison.
+Furthermore, these measurements include the peak metastable populations for each
+operating pressure (which are missing from figure~\ref{fig:metastables}). The
+peak metastable densities and the lifetime of the metastable populations are of
+interest as they can produce charged particles through Penning ionization of
+each other or impurities. This extends the ionization period in rare gas
+\acs{rpnd}s well past the voltage pulse itself. Also, as seen in
+figure~\ref{fig:grotrian}, all excited states in the triplet manifold will
+eventually decay to the triplet metastable level. Thus, a substantial portion of
+the energy deposited in the plasma is contained in this one level.
 
-The trends in figure~\ref{fig:long}Additionally, each
+Figure~\ref{fig:long}
 \begin{figure}
   \centering
   \includegraphics{./chapters/metastables/figures/long.eps}
@@ -460,18 +462,111 @@ The trends in figure~\ref{fig:long}Additionally, each
   Exponential fits are indicated by the dotted lines.}
   \label{fig:long}
 \end{figure}
-show the evolution of the metastables over time for each operating condition.
+contains logarithmic plots of the metastable populations for each operating
+condition, all measured at the midstream location. In addition, an exponential
+function was fit to the tail of each trend, represented by the dotted line. On
+these time scales, the destruction of metastables in the \acs{rpnd} apparatus
+can be described by four different mechanisms: diffusion, Penning ionization of
+impurities, Penning ionization between metastables, and three-body collisions
+resulting in helium dimer formation. All processes with the exception of the
+Penning ionization between metastables have an exponential dependence, thus any
+deviation from an exponential decay is likely a result of this process
+\cite{Deloche1976}.
 
+As can be seen, a number of the decay curves deviate from a strictly exponential
+decline. This deviation appears to be more substantial at the lower pressures,
+as by the 16.0 Torr case the decay appears strictly exponential. Penning
+ionization is proportional to the square of the metastable density, thus it
+would be expected that the deviation from the exponential decay would be most
+severe for the highest metastable densities. However, per
+figure~\ref{fig:peaknm},
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/metastables/figures/peaknm.eps}
+  \caption{Peak line-integrated metastable densities as a function of pressure.}
+  \label{fig:peaknm}
+\end{figure}
+this suggests that the deviation from the exponential decay should be lessened
+at the lower pressures, contrary to what was observed.
 
-The long term metastable trends were measured for each pressure at the midstream
-location
+Ultimately, the behavior of the metastable populations in the afterglow can be
+best understood by a comparison of the depopulation rates for each process.
+Figure~\ref{fig:decay}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/metastables/figures/decay.eps}
+  \caption{Comparison of the decay rates for various processes at 0.3 Torr as a
+  function of metastable density.}
+  \label{fig:decay}
+\end{figure}
+illustrates the aforementioned decay processes at 0.3 Torr, for a variety of
+metastable densities. The rate constants for these processes were obtained from
+the study by Deloche et al.~\cite{Deloche1976} and the work of Pouvesle et
+al.~\cite{Pouvesle1988} (specifically for the rate of Penning ionization of
+nitrogen impurities). The gas impurities were assumed to be nitrogen, and the
+mole fraction was assumed to be 80 ppm, as was estimated in
+chapter~\ref{chp:experiment}.
 
+As can be seen, the dominant loss mechanism above metastable densities of
+$2\times10^{17}$ m$^{-3}$ was Penning ionization between two metastable atoms.
+Below this density, three-body process responsible for dimer formation was
+dominant. However, the three-body process scales with the square of the neutral
+gas pressure. As a result, this loss mechanism quickly overtakes all others as
+the pressure is increased. Therefore, the exponential dependence of the decay at
+higher pressures is not representative of any change in the importance of
+Penning ionization between metastables, but rather the increasing importance of
+three-body collisions. This indicates that the effectiveness of the metastable
+population as a long-lived source of ionization decreases as the pressure is
+increased.
+
+From figures~\ref{fig:decay} and~\ref{fig:long}, it can be seen that the decay
+curves are well matched by the exponential functions at lower line-integrated
+metastable densities. As a result, it is possible to use the fitting functions
+to estimate the pre-pulse metastable densities as a function of pressure. These
+values are compiled in table~\ref{tbl:prepulse}.
+\begin{table}
+  \centering
+  \caption{Listing of the extrapolated, pre-pulse line-integrated metastable 
+  densities, and decay coefficients as a function of pressure.}
+  \begin{tabular}{lll}
+    \toprule
+    Pressure (Torr) & Integral Density (m$^{-2}$) & Decay Constant (s$^{-1}$) \\
+    \midrule
+    0.3  & $1.34\times10^{14}$ & $4.23\times10^3$ \\
+    0.5  & $3.36\times10^{14}$ & $3.47\times10^3$ \\
+    1.0  & $4.29\times10^{14}$ & $3.65\times10^3$ \\
+    2.0  & $2.60\times10^{14}$ & $4.48\times10^3$ \\
+    3.0  & $3.94\times10^{13}$ & $6.47\times10^3$ \\
+    4.0  & $5.04\times10^{12}$ & $8.73\times10^3$ \\
+    8.0  & $7.08\times10^{6}$  & $2.20\times10^4$ \\
+    16.0 & $4.74\times10^{0}$  & $3.56\times10^4$ \\
+    \bottomrule
+  \end{tabular}
+  \label{tbl:prepulse}
+\end{table}
+For the conditions under which it was possible to measure the pre-pulse
+line-integrated densities, these extrapolations show reasonable agreement
+(within a factor of two). This implies that the other extrapolated pre-pulse
+values are likely accurate. The decay constants are about an order of magnitude
+larger than those recorded by Phelps and Molnar \cite{Phelps1953} at similar
+pressures. This almost certainly reflects the impact of the impurities present
+in the system. Figure~\ref{fig:decay} shows that impurities are a moderate
+contributor to the decay of the metastable atoms even at low pressures. If the
+impurities remain a fixed fraction of the helium in the system, then their
+impact can be expected to rise as the operating pressure is increased. The
+measurements and calculations of Deloche et al.~\cite{Deloche1976} also give
+lower decay constants, emphasizing this conclusion. Their work also showed a
+relatively consistent proportionality between the electron density and
+metastable density (on the order of one for every ten). Therefore, the results
+presented above may be used as a rough estimate of the line-integrated electron
+densities in the system.
 
 \subsection{Radial Density Maps}
 
-
-
-With the exception of the data from the downstream location at low pressures,
-these results are among the first direct measurements of \acs{rpnd} properties
-on timescales relevant to its formation. The final temporal resolution was
-determined by the photodiode, with a rise time of approximately 5 ns. 
+Thus far, the measurements have only concerned line-integrated densities. This
+is a consequence of the use of laser absorption spectroscopy. There are several
+approaches which may be used to ascertain actual densities and radial density
+maps of the \acs{rpnd}. One of the more common approaches is the use of an Abel
+inversion. This is a mathematical technique which can reconstruct the density
+distribution from measurements along several chords of a cylindrically symmetric
+system. 
