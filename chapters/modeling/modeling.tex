@@ -12,7 +12,7 @@ dimensions, for as long as was required to reach equilibrium.
 
 Unfortunately, these requirements are somewhat problematic. Scale lengths of 10
 $\mu$m are required in order to resolve the sheath effects, resulting in
-approximately $2\times10%{13}$ spatial cells. Conservatively, the time steps
+approximately $2\times10^{13}$ spatial cells. Conservatively, the time steps
 would be about 1 ns in length. At a minimum, the system required about five
 minutes to reach equilibrium, thus necessitating $3\times10^{11}$ solution
 steps. The largest velocity can be estimated as an electron accelerated across
@@ -72,12 +72,13 @@ assumption will affect the accuracy of the inferred plasma parameters, however
 future improvements in the understanding of these radial variations can be
 easily incorporated into the described model.
 
-\subsection{Modeling Equations}
+\subsection{Continuity Equation}
 
 The global model begins with equation~\ref{eq:cont}, the continuity equation.
 Having assumed that the spatial variations are zero, the equation reduces to,
 \begin{equation}
   \frac{d n_\alpha}{dt} = G_\alpha - L_\alpha,
+  \label{eq:zdmcont}
 \end{equation}
 where $\alpha$ identifies the particle species, $G$ is the gain term, and $L$ is
 the loss term. The gain and loss terms represent a large range of possible
@@ -95,6 +96,7 @@ given consideration for inclusion in the model.
   \item Electron impact ionization 
   \item Electron impact (de)excitation 
   \item Atomic impact (de)excitation
+  \item Atomic excitation transfer
   \item Dielectronic recombination
   \item Three-body recombination
   \item Radiative decay
@@ -104,11 +106,88 @@ As with the impurities and dimer formation, diffusion occurs on a much longer
 time scale, and thus is neglected. Three-body recombination in the volume of the
 discharge is not important at the estimated temperatures and densities
 \cite{Lieberman2005}, therefore this too is neglected. Dielectronic
-recombination is also uncommon, 
+recombination is also quite rare, however the process was incorporated as part
+of the early models and thus maintained through the final revision. Inter-atomic
+excitation and de-excitation is not generally considered important given the low
+energies of the atoms in a discharge. However, excitation \emph{transfer} can be
+an important process in gaseous discharges \cite{Lieberman2005}, making their
+inclusion necessary. Also important are the electron impact ionizations and
+excitations, as well as the radiative decay of the atoms.
 
-\subsection{Cross Sections \& Optical Transitions}
+Given these processes, it is possible to rewrite equation~\ref{eq:zdmcont} as,
+\begin{equation}
+  \frac{dN_i}{dt} =   n_e \left[       \sum_{j\neq i} N_j K^e_{ji}(T_e) 
+                                 - N_i \sum_{j\neq i}     K^e_{ij}(T_e) \right]
+                        + \left[       \sum_{j\neq i} N_j K^o_{ji} 
+                                 - N_i \sum_{j\neq i}     K^o_{ij}      \right]
+                    + N_g \left[       \sum_{j\neq i} N_j K^a_{ji}
+                                 - N_i \sum_{j\neq i}     K^a_{ij}      \right].
+  \label{eq:gcont}
+\end{equation}
+In these equations, the subscripts of $i$ and $j$ represent states of helium,
+$N$ is a state density, $K$ is a rate coefficient, $T_e$ is the electron
+temperature, and $N_g$ is the neutral helium density. The first subscript of the
+rate coefficients represents is the initial excited state while the second
+coefficent represents the final excited state. Therefore, $K_{ij}$ represents a
+process that depopulates state $i$ in favor of state $j$.
 
-\subsection{Distributions \& Rate Coefficients}
+This equation is split into three sets of processes, represented by the
+superscripts of the rate coefficients: $e$ - electronic, $o$ - optical, and $a$
+- atomic. The first bracketed term on the right hand side contains all the rate
+coefficients for electron impact excitation and de-excitation, including
+ionization processes. The second bracketed term contains the rate coefficients
+for optical transitions in and out of the state. The final bracketed term
+contains the gains and losses as a result of excitation transfer caused by
+collisions with the ground state. Collisions between excited states are
+neglected given their relatively low densities.
+
+The rate coefficients in equation~\ref{eq:gcont} are compiled from a number of
+different sources. This is particularly straight forward in the case of the
+optical and atomic transitions, as neither features any dependence on the
+\acs{eedf}. The optical transition rates and level energies were obtained from
+the NIST Atomic Spectra Database \cite{Kramida2012}. The excitation transfer
+rate coefficients were from the studies of Catherinot and Dubreuil
+\cite{Catherinot1981, Dubreuil1980}. These coefficients only covered the
+transitions of $\Delta n=0$ for $n=3,4$ and no constants were found for other
+$n$ or $\Delta n\neq 0$.
+
+The semi-empirical relations derived by Ralchenko et al. \cite{Ralchenko2008}
+were used to calculate the electron (de)excitation and ionization cross sections
+through $n=4$. These represent the most accurate set of cross sections available
+for neutral helium and have a quoted accuracy of 10-30\% for $\Delta S=0$, and
+$\ge30$\% for $\Delta S \neq 0$. These cross sections can be used to calculate
+the rate coefficients for each reaction using equation~\ref{eq:rate}. However,
+this poses the problem of what kind of energy distribution to use.
+
+\subsection{Distribution Effects}
+
+Starikovskaia and Starikovskii \cite{Starikovskaia2001} showed that the
+\acs{eedf} changes rapidly over the duration of a \acs{fiw} in nitrogen. It is,
+therefore, reasonable to expect that the same would apply to electrons in a
+helium \acs{rpnd}. Furthermore, their results showed that a large number of
+runaway electrons were present ahead of the discharge front. They found that the
+two-term Boltzmann solvers commonly used in fluid codes did not adequately
+capture the dynamics of the nitrogen \acs{fiw} front, but they did fare well in
+the plasma after the front had passed.
+
+As has been discussed, there are several differences between \acs{fiw}s and
+\acs{rpnd}s. Likewise, rare gas discharges are also quite different from those
+in molecular gases. It was therefore desirable to conduct a similar study of the
+\acs{eedf} in the helium \acs{rpnd} under consideration. Three different
+approaches were compared: an assumed Maxwell-Boltzmann distribution, a two-term
+Boltzmann solver, and a particle-in-cell (\acs{pic}) code with Monte-Carlo
+collisions.
+
+BOLSIG+ was used as the Boltzmann solver \cite{Hagelaar2005}. The input cross
+sections came from the work of Phelps \cite{Phelps2002}. The solutions of the
+Boltzmann equation were calculated for a range of reduced electric fields from
+1-500 Td. The mean energy calculated by BOLSIG+ was used to generate the
+Maxwell-Boltzmann distributions for comparison.
+
+These same values of the electric field were used in the XPDP1 \acs{pic} code at
+a pressure of 2.0 Torr. 
+
+\subsection{Energy Equation}
 
 \section{Pulse Shape}
 
