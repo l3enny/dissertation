@@ -21,20 +21,28 @@ badd +1 chaptersexperimentexperiment.tex
 badd +7 TODO.md
 badd +15 acronyms.tex
 badd +225 chapters/experiment/experiment.tex
-badd +292 chapters/metastables/metastables.tex
+badd +291 chapters/metastables/metastables.tex
+badd +0 chapters/modeling/modeling.tex
 silent! argdel *
-edit chapters/metastables/metastables.tex
+edit chapters/modeling/modeling.tex
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
 1wincmd h
 wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 89 + 89) / 178)
-exe 'vert 2resize ' . ((&columns * 88 + 89) / 178)
+exe 'vert 1resize ' . ((&columns * 88 + 88) / 177)
+exe '2resize ' . ((&lines * 35 + 36) / 72)
+exe 'vert 2resize ' . ((&columns * 88 + 88) / 177)
+exe '3resize ' . ((&lines * 34 + 36) / 72)
+exe 'vert 3resize ' . ((&columns * 88 + 88) / 177)
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -45,12 +53,30 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 292 - ((55 * winheight(0) + 29) / 59)
+let s:l = 1 - ((0 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-292
+1
 normal! 0
+wincmd w
+argglobal
+edit main.tex
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 74 - ((20 * winheight(0) + 17) / 35)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+74
+normal! 041l
 wincmd w
 argglobal
 edit OUTLINE.md
@@ -63,15 +89,18 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 37 - ((30 * winheight(0) + 29) / 59)
+let s:l = 37 - ((17 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 37
 normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 89 + 89) / 178)
-exe 'vert 2resize ' . ((&columns * 88 + 89) / 178)
+exe 'vert 1resize ' . ((&columns * 88 + 88) / 177)
+exe '2resize ' . ((&lines * 35 + 36) / 72)
+exe 'vert 2resize ' . ((&columns * 88 + 88) / 177)
+exe '3resize ' . ((&lines * 34 + 36) / 72)
+exe 'vert 3resize ' . ((&columns * 88 + 88) / 177)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
