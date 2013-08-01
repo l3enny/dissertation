@@ -1,0 +1,70 @@
+The measurements of the metastable dynamics may be used to better understand the
+development of the \acs{rpnd} by the use of a plasma model. Working from the
+metastable densities, it may be possible to predict electron characteristics,
+such as temperature, density, as well as the densities of other excited states.
+The ideal model would solve the Boltzmann equation (equation~\ref{eq:boltzmann})
+for each species, over the entire geometry, in all dimensions, for as long as
+was required to reach equilibrium.
+
+Unfortunately, these requirements are somewhat problematic. Scale lengths of 10
+$\mu$m are required in order to resolve the sheath effects, resulting in
+approximately $2\times10%{13}$ spatial cells. Conservatively, the time steps
+would be about 1 ns in length. At a minimum, the system required about five
+minutes to reach equilibrium, thus necessitating $3\times10^{11}$ solution
+steps. The largest velocity can be estimated as an electron accelerated across
+the full applied potential (6.6 keV), and the lowest velocity would be room
+temperature (0.04 eV). This produces a velocity discretization of about
+$6\times10^7$ cells. Thus the size of the parameter space in question is about
+$3.6\times10^{32}$. Given that the fastest computer in the world operates at 39
+petaflops, a calculation of this magnitude would take around 0.3 billion years.
+Of course, this is for only a single particle species, the total number in the
+system is runs in the dozens (not including the impurities).
+
+\section{Model Development}
+
+It should be apparent that the Boltzmann equation must be simplified in order to
+model the system in a reasonable amount of time. As discussed in
+chapter~\ref{chp:theory}, the most common approach to this is the use of moments
+of the Boltzmann equation which drastically simplifies the velocity terms.
+Frequently, the moments of the Boltzmann equation are used to develop various
+fluid approximations for plasmas \cite{Chen1984} (e.g.\ the two fluid equations,
+the magnetohydrodynamic equations, etc.). This approach has been tremendously
+successful in the description of everything from plasma display panels
+\cite{Rauf1999b} to interstellar plasmas \cite{Linde1998}.
+
+There are some limitation to the capabilities of these fluid descriptions. For
+one, they require some assumption on the form of the \acs{eedf}. Often, the
+distribution is assumed to be a Maxwell-Boltzmann or Druyvesteyn, depending on
+the plasma conditions. In others, an approximate solution of the Boltzmann
+equation may be used to tabulate rate coefficients as a function of the mean
+energy \cite{Hagelaar2005}. In addition to this issue of the \acs{eedf}, fluid
+models in large or complex geometries can still be quite computationally
+expensive. This can limit the number of species and reactions which can be
+addressed \cite{Lieberman2005}.
+
+In order to obtain an estimate of the detailed dynamics which occur as the
+\acs{rpnd} develops, it is necessary to consider additional simplifications of
+the Boltzmann equation. One such possibility is the use of a global model where
+the spatial dependence of the plasma parameters is assumed. This allows global
+model simulations to ignore the geometry of the system and focus on the particle
+interactions for long periods of time with reasonable computational
+requirements.
+
+
+
+The metastable measurements from the previous chapter showed little axial
+variation for the majority of the operating conditions. Radial variations in the
+emission intensity and excited state density have been observed
+\cite{Vasilyak1994, Weatherford}, however the mechanism for this is poorly
+understood.
+
+
+
+\section{Distribution Effects}
+
+\section{Pulse Shape Changes}
+
+\section{Plasma Parameters}
+
+\section{Summary}
+
