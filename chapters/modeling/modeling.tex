@@ -115,15 +115,15 @@ inclusion necessary. Also important are the electron impact ionizations and
 excitations, as well as the radiative decay of the atoms.
 
 Given these processes, it is possible to rewrite equation~\ref{eq:zdmcont} as,
-\begin{equation}
+\begin{multline}
   \frac{dN_i}{dt} =   n_e \left[       \sum_{j\neq i} N_j K^e_{ji}(T_e) 
                                  - N_i \sum_{j\neq i}     K^e_{ij}(T_e) \right]
                         + \left[       \sum_{j\neq i} N_j K^o_{ji} 
-                                 - N_i \sum_{j\neq i}     K^o_{ij}      \right]
-                    + N_g \left[       \sum_{j\neq i} N_j K^a_{ji}
+                                 - N_i \sum_{j\neq i}     K^o_{ij}      \right] \\
+                    + N_g \left[       \sum_{j\neq i} N_j K^a_{ji} 
                                  - N_i \sum_{j\neq i}     K^a_{ij}      \right].
   \label{eq:gcont}
-\end{equation}
+\end{multline}
 In these equations, the subscripts of $i$ and $j$ represent states of helium,
 $N$ is a state density, $K$ is a rate coefficient, $T_e$ is the electron
 temperature, and $N_g$ is the neutral helium density. The first subscript of the
@@ -184,14 +184,22 @@ Boltzmann equation were calculated for a range of reduced electric fields from
 1-500 Td. The mean energy calculated by BOLSIG+ was used to generate the
 Maxwell-Boltzmann distributions for comparison.
 
-These same values of the electric field were used in the XPDP1 \acs{pic} code at
-a pressure of 2.0 Torr. 
+\acs{pic} codes approach the simulation of plasmas from a different direction
+than a direct solution of the Boltzmann equation. Instead, they directly
 
 \subsection{Energy Equation}
 
+
+
 \section{Pulse Shape}
+
+
 
 \section{Plasma Parameters}
 
+
+
 \section{Summary}
+
+
 
