@@ -68,7 +68,7 @@ for fn in os.listdir('.'):
         xi = np.zeros((resolution, 2))
         xi[:, 0] = high_res
         xi[:, 1] = temperature
-        boltzmann_eedf = griddata(points, z, xi)
+        boltzmann_eedf = griddata(points, z, xi, method='cubic')
 
         # Save normalized EEDFs to output array
         pic_eedfs[step, :] = normed_eedf
