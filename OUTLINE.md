@@ -48,9 +48,10 @@ Outline
     3. Effect of Pulse Shape
     4. Plasma Parameters
     5. Summary
-6. Emission Measurements
-  1. Setup
-  2. Comparison to Model
+6. Population Kinetics
+  1. Emission Measurements
+  2. Electron Temperature Estimates
+  2. Model Comparisons
   3. Summary
 7. Conclusions
     1. Overview of Results
