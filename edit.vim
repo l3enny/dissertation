@@ -22,7 +22,7 @@ badd +7 TODO.md
 badd +15 acronyms.tex
 badd +225 chapters/experiment/experiment.tex
 badd +291 chapters/metastables/metastables.tex
-badd +0 chapters/modeling/modeling.tex
+badd +259 chapters/modeling/modeling.tex
 silent! argdel *
 edit chapters/modeling/modeling.tex
 set splitbelow splitright
@@ -53,11 +53,11 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 35) / 70)
+let s:l = 310 - ((52 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+310
 normal! 0
 wincmd w
 argglobal
@@ -76,7 +76,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 74
-normal! 041l
+normal! 039l
 wincmd w
 argglobal
 edit OUTLINE.md
