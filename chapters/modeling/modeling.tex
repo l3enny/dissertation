@@ -116,12 +116,12 @@ excitations, as well as the radiative decay of the atoms.
 
 Given these processes, it is possible to rewrite equation~\ref{eq:zdmcont} as,
 \begin{multline}
-  \frac{dN_i}{dt} =   n_e \left[       \sum_{j\neq i} N_j K^e_{ji}(T_e) 
-                                 - N_i \sum_{j\neq i}     K^e_{ij}(T_e) \right]
-                        + \left[       \sum_{j\neq i} N_j K^o_{ji} 
-                                 - N_i \sum_{j\neq i}     K^o_{ij}      \right] \\
-                    + N_g \left[       \sum_{j\neq i} N_j K^a_{ji} 
-                                 - N_i \sum_{j\neq i}     K^a_{ij}      \right].
+  \frac{dN_i}{dt} =   n_e \left[       \sum_{j\neq i} N_j K^e_{j,i}(T_e) 
+                                 - N_i \sum_{j\neq i}     K^e_{i,j}(T_e) \right]
+                        + \left[       \sum_{j > i}   N_j K^o_{j,i} 
+                                 - N_i \sum_{j < i}       K^o_{i,j}      \right] \\
+                    + N_g \left[       \sum_{j\neq i} N_j K^a_{j,i} 
+                                 - N_i \sum_{j\neq i}     K^a_{i,j}      \right].
   \label{eq:gcont}
 \end{multline}
 In these equations, the subscripts of $i$ and $j$ represent states of helium,
@@ -155,9 +155,20 @@ The semi-empirical relations derived by Ralchenko et al. \cite{Ralchenko2008}
 were used to calculate the electron (de)excitation and ionization cross sections
 through $n=4$. These represent the most accurate set of cross sections available
 for neutral helium and have a quoted accuracy of 10-30\% for $\Delta S=0$, and
-$\ge30$\% for $\Delta S \neq 0$. These cross sections can be used to calculate
-the rate coefficients for each reaction using equation~\ref{eq:rate}. However,
-this poses the problem of what kind of energy distribution to use.
+$\ge30$\% for $\Delta S \neq 0$. The work of Ralchenko only provides the
+inelastic cross sections for collisions which increase the energy of the excited
+state. The inverse or superelastic cross sections can be calculated using the
+principle of detailed balance \cite{Kunze2009},
+\begin{equation}
+  \sigma_{ji}(\epsilon) = \frac{\epsilon}{\epsilon\Delta\epsilon_{ij}}
+    \frac{g_j^2}{g_i}\sigma_{ij},
+\end{equation}
+where $\Delta\epsilon$ is the threshold energy of the $ij$ reaction and the $g$
+values are the statistical degeneracy of the states. Dielectronic recombination
+rates were adapted from the work of Nahar \cite{Nahar2010}. These cross sections
+can be used to calculate the rate coefficients for each reaction using
+equation~\ref{eq:rate}. However, this poses the problem of what kind of energy
+distribution to use.
 
 \subsection{Distribution Effects}
 
@@ -374,25 +385,141 @@ these phenomena replace the term on the RHS of equation~\ref{eq:energy2} with,
   \label{eq:energyparts}
 \end{equation}
 where $E(t)$ is the time-varying electric field, $k_m$ is the electron momentum
-transfer frequency, and $\Delta\epsilon_{ij}$ is the energy lost or gained by
-the electron in atomic (de)excitation reactions. The first term includes the DC
-conductivity \cite{Lieberman2005} of the plasma, and accounts for the heating of
-the electrons by the electric field. The second term is the elastic cooling of
-the electrons by the neutral atoms, where the gas temperature is assumed fixed.
-The third term is the energy gained or lost by the electrons in atomic
-(de)excitation reactions. Equation~\ref{eq:energyparts}, with
-equations~\ref{eq:energy2} and~\ref{eq:gcont} are sufficient to solve for the
-evolution of the electron temperatures, electron densities, excited state
+transfer frequency from Pack et al. \cite{Pack1992}, and $\Delta\epsilon_{ij}$
+is the energy lost or gained by the electron in atomic (de)excitation reactions.
+The first term includes the DC conductivity \cite{Lieberman2005} of the plasma,
+and accounts for the heating of the electrons by the electric field. The second
+term is the elastic cooling of the electrons by the neutral atoms, where the gas
+temperature is assumed fixed. The third term is the energy gained or lost by the
+electrons in atomic (de)excitation reactions. Equation~\ref{eq:energyparts},
+with equations~\ref{eq:energy2} and~\ref{eq:gcont} are sufficient to solve for
+the evolution of the electron temperatures, electron densities, excited state
 densities, and plasma emissions as functions of time.
 
 \subsection{Model Solutions}
 
+Equation~\ref{eq:gcont} can be rewritten for each atomic state, $i$, resulting
+in a set of linear, first order differential equations,
+\begin{multline}
+  \frac{d}{dt}
+  \begin{pmatrix}
+    N_1 \\
+    N_2 \\
+    \vdots \\
+    N_M
+  \end{pmatrix}
+  = n_e
+  \begin{pmatrix}
+    -\sum_{j\neq 1}K^e_{1,j} & K^e_{2,1}      & \hdots & K^e_{M,1} \\
+    K^e_{1,2}      & -\sum_{j\neq 2}K^e_{2,j} & \hdots & K^e_{M,2} \\
+    \vdots         & \vdots         & \ddots & \vdots    \\
+    K^e_{1,M}      & K^e_{2,M}      & \hdots & -\sum_{j\neq M}K^e_{M,j}
+  \end{pmatrix}
+  \cdot
+  \begin{pmatrix}
+    N_1 \\
+    N_2 \\
+    \vdots \\
+    N_M
+  \end{pmatrix} \\
+  +
+  \begin{pmatrix}
+    0      & K^o_{2,1}              & \hdots & K^o_{M,1} \\
+    0      & -\sum_{j < 2}K^e_{2,j} & \hdots & K^o_{M,2} \\
+    \vdots & \vdots                 & \ddots & \vdots    \\
+    0      & 0                      & \hdots & -\sum_{j < M}K^e_{M,j}
+  \end{pmatrix}
+  \cdot
+  \begin{pmatrix}
+    N_1 \\
+    N_2 \\
+    \vdots \\
+    N_M
+  \end{pmatrix} \\
+  + N_g
+  \begin{pmatrix}
+    -\sum_{j\neq 1}K^a_{1,j} & K^a_{2,1}      & \hdots & K^a_{M,1} \\
+    K^a_{1,2}      & -\sum_{j\neq 2}K^a_{2,j} & \hdots & K^a_{M,2} \\
+    \vdots         & \vdots         & \ddots & \vdots    \\
+    K^a_{1,M}      & K^a_{2,M}      & \hdots & -\sum_{j\neq M}K^a_{M,j}
+  \end{pmatrix}
+  \cdot
+  \begin{pmatrix}
+    N_1 \\
+    N_2 \\
+    \vdots \\
+    N_M
+  \end{pmatrix}, \\
+\end{multline}
+where $M$ is the total number of atomic states and $\epsilon_i <
+\epsilon_{i+1}$. An additional equation can be added to separately account for
+electrons as well as electron-specific processes, however the model assumed
+quasineutrality by enforcing the relation $N_{ion}=n_e$. Changes in the density
+of each atomic state were calculated by numerical integration of these
+equations. The range of time scales exhibited by the \acs{rpnd} made it
+desirable to implement adaptive control of the time step size. For this reason,
+the Runge-Kutta-Fehlberg method, adapted from Bradie \cite{Bradie2006}, was
+used.
 
-\section{Plasma Parameters}
+Initial metastable densities were determined from the \acs{las} measurements.
+Initial electron densities were determined from \acs{lcif} measurements made by
+Weatherford \cite{Weatherford2012a}. However, these measurements were only
+available for 1.0, 4.0, and 8.0 Torr. Exploratory simulations found that the
+final metastable density was a sensitive function of the initial electron
+population. As a result, model simulations were only conducted at these three
+conditions.
+
+No electron temperature measurements were possible at the low densities in the
+pre-pulse period, therefore a temperature of 0.2 eV was assumed. This
+temperature was used to generate the equilibrium excited state densities for
+non-metastable states. As the \acs{las} measurements showed no appreciable
+change in gas temperature, the neutral gas temperature was fixed at 300 K for
+the duration of the simulation.  
+
+Though the applied potential is well known, the actual form of $E(t)$ is
+significantly less clear. Again, \acs{fiw} measurements such as those performed
+by Takashima et al. \cite{Takashima2011}, as well as the \acs{rpnd} measurements
+of Ito et al. \cite{Ito2010}, and M\"{u}ller \cite{Muller2011a} provide some
+idea of what to expect. Each study measured a Gaussian-like peak as the wave
+crossed the measurement point. In the quiescent period following the wave, a
+relatively small background electric field persisted, with a magnitude on the
+order of 20-25\% of the of the wave. The duration and magnitude of this
+persistent field varied substantially between studies. Given the indeterminate
+value of this persistent field, the following simulations assumed a single
+Gaussian pulse for the form of the electric field. The time domain of the
+simulation was 190 ns, with the peak of the electric field pulse at 40 ns.
+
+\section{Sensitivity Study}
+
+The global model simulations depended, to a large extent, on the initial
+conditions of the system. Without a clear process by which to calculate the
+error in the results of the simulations, it was desirable to investigate the
+sensitivity of the results to various factors. Of particular interest was how
+each variable effected the shape of the metastable dynamics. For this reason,
+the metastable trends are all normalized to their the densities at the end of
+each simulation. The initial conditions from the 4.0 Torr measurements will be
+used to initialize each simulation.
+
+\subsection{Pressure}
+
+
+
+\subsection{Initial Electron Density}
+
+
+
+\subsection{Electric Field}
+
+
+
+\subsection{Pulsewidth}
+
+
+
+\section{Plasma Dynamics}
 
 
 
 \section{Summary}
-
 
 
