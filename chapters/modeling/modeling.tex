@@ -464,10 +464,10 @@ used.
 Initial metastable densities were determined from the \acs{las} measurements.
 Initial electron densities were determined from \acs{lcif} measurements made by
 Weatherford \cite{Weatherford2012a}. However, these measurements were only
-available for 1.0, 4.0, and 8.0 Torr. Exploratory simulations found that the
-final metastable density was a sensitive function of the initial electron
-population. As a result, model simulations were only conducted at these three
-conditions.
+available for 1.0, 4.0, and 8.0 Torr. Previous studies have found that initial
+electron density can have a significant effect on the parameters of a helium
+\acs{fiw} \cite{Takashima2011}, therefore subsequent simulations were limited to
+the three conditions for which electron density measurements were available.
 
 No electron temperature measurements were possible at the low densities in the
 pre-pulse period, therefore a temperature of 0.2 eV was assumed. This
@@ -489,29 +489,77 @@ value of this persistent field, the following simulations assumed a single
 Gaussian pulse for the form of the electric field. The time domain of the
 simulation was 190 ns, with the peak of the electric field pulse at 40 ns.
 
-
-
-\section{Sensitivity Study}
+\section{Perturbation Study}
 
 The global model simulations depended, to a large extent, on the initial
 conditions of the system. Without a clear process by which to calculate the
 error in the results of the simulations, it was desirable to investigate the
-sensitivity of the results to various factors. Of particular interest was how
-each variable affected the shape of the metastable dynamics. In order to examine
-these effects, a preliminary fit was made to the 4.0 Torr measurements, and the
+sensitivity of the results to various factors. In order to examine these
+effects, a preliminary fit was made to the 4.0 Torr measurements, and the
 conditions of this fit were independently perturbed by $\pm10\%$. The conditions
 studied were pressure, peak electric field, pulse-width, and initial electron
 density.
 
-The results of these simulations are shown in figure~\ref{fig:perturbed}
+The nominal conditions of the simulation are recorded in table~\ref{tbl:nominal}
+\begin{table}
+  \centering
+  \caption{Nominal simulation parameters for the 4.0 Torr operating condition.}
+  \begin{tabular}{lll}
+    \toprule
+    Pressure (Torr) & Initial Electron Density (m$^{-3}$) & Pulse-width (ns) &
+    Peak Electric Field (Td) \\
+    \midrule
+    4.0 & 5.36$\times10^{13}$ & 40 & 207
+    \bottomrule
+  \end{tabular}
+  \label{tbl:nominal}
+\end{table}
+and results of these simulations are shown in figure~\ref{fig:perturbed}.
 \begin{figure}
   \centering
-  \includegraphics{./chapters/modeling/perturbed.eps}
+  \includegraphics{./chapters/modeling/figures/perturbed.eps}
   \caption{Simulations showing the effects of perturbations to the initial
   conditions on the metastable dynamics.}
   \label{fig:perturbed}
 \end{figure}
+Based on the results of the global model, it is apparent that the initial
+electron density has a relatively small impact on the metastable dynamics.
+Closer examination of the results reveal that the final metastable densities
+change by approximately $\pm10\%$ in concert with the perturbations to the
+electron density. In contrast, changes to the pulse-width produce much more
+significant changes in the metastable densities. As the pulse-width is
+increased, the metastable densities increase. Knowing that the electric field is
+fixed, this change can be attributed to the increase in energy deposited in the
+electron population.
 
+The two largest factors in the determination of the metastable densities were
+the neutral gas pressure and the electric field. Small changes to either value
+resulted in large changes in the metastable densities. As can be seen in
+figure~\ref{fig:perturbed}, increases in pressure corresponded to a decrease in
+metastable densities. Changes to the neutral gas pressure tend to affect the
+system via several different mechanisms. As seen in
+equation~\ref{eq:energyparts}, increases to the gas pressure tend to decrease
+the energy deposited in the electrons, and increases losses due to elastic
+scattering, thus reducing the energy that can be deposited in excited states.
+This competes with the increased number of ground state atoms available for
+excitation.
+
+The significant impact of the electric field can be traced back to changes in
+the ionization rate for each condition. As seen in figure~\ref{fig:ionrates},
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/modeling/figures/ionrates.eps}
+  \caption{Ionization rates coefficients corresponding to the perturbed electric
+  field simulations.}
+  \label{fig:ionrates}
+\end{figure}
+the magnitude of the ionization rate coefficient corresponds to the magnitude of
+the electric field. While the changes are somewhat modest, as seen in
+Chapter~\ref{chp:theory}, ionization processes are exponential with time. This
+means that small changes to the rate coefficient manifest as large differences
+in the final electron density. Since the rate of metastable generation is
+proportional to the electron density, these changes to the electron density
+equate to changes in the metastable density.
 
 \section{Plasma Dynamics}
 
