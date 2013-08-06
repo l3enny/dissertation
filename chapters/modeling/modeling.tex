@@ -28,7 +28,7 @@ system is runs in the dozens (not including the impurities).
 
 It should be apparent that the Boltzmann equation must be simplified in order to
 model the system in a reasonable amount of time. As discussed in
-chapter~\ref{chp:theory}, the most common approach to this is the use of moments
+Chapter~\ref{chp:theory}, the most common approach to this is the use of moments
 of the Boltzmann equation which drastically simplifies the velocity terms.
 Frequently, the moments of the Boltzmann equation are used to develop various
 fluid approximations for plasmas \cite{Chen1984} (e.g.\ the two fluid equations,
@@ -86,7 +86,7 @@ processes which are determined, in part, by the species under consideration. In
 this model, only helium, excited helium states, helium ions, and electrons will
 be treated. While impurities and dimers are very much a part of the discharge,
 this occurs on time scales that are relatively long in comparison to the
-excitation period. As was noted in chapter~\ref{chp:metastables}, only 140 ns
+excitation period. As was noted in Chapter~\ref{chp:metastables}, only 140 ns
 elapse before the reflection arrives at the plasma, while the e-folding time of
 the fastest decay is about 25 $\mu$s.
 
@@ -172,7 +172,7 @@ distribution to use.
 
 \subsection{Distribution Effects}
 
-Per the discussion of the Boltzmann equation in chapter~\ref{chp:theory}, there
+Per the discussion of the Boltzmann equation in Chapter~\ref{chp:theory}, there
 are two readily available equilibrium solutions: the Maxwell-Boltzmann
 distribution, and the Druyvesteyn distribution. However, research by
 Starikovskaia and Starikovskii \cite{Starikovskaia2001} has shown that the
@@ -367,7 +367,7 @@ Using the isothermal equation of state, $p=n\kB T$, this can be rewritten as,
 The term on the RHS is the collision operator which expresses energy gained or
 lost by electrons\footnote{In some plasmas, it is desirable to also treat gas
 heating with a similar equation as it can have an appreciable impact on certain
-rate constants. However, as noted in chapter~\ref{chp:metastables}, the gas
+rate constants. However, as noted in Chapter~\ref{chp:metastables}, the gas
 temperature of the \acs{rpdn} in question remains at room temperature.} in
 particle collisions.
 
@@ -489,16 +489,28 @@ value of this persistent field, the following simulations assumed a single
 Gaussian pulse for the form of the electric field. The time domain of the
 simulation was 190 ns, with the peak of the electric field pulse at 40 ns.
 
+
+
 \section{Sensitivity Study}
 
 The global model simulations depended, to a large extent, on the initial
 conditions of the system. Without a clear process by which to calculate the
 error in the results of the simulations, it was desirable to investigate the
 sensitivity of the results to various factors. Of particular interest was how
-each variable effected the shape of the metastable dynamics. For this reason,
-the metastable trends are all normalized to their the densities at the end of
-each simulation. The initial conditions from the 4.0 Torr measurements will be
-used to initialize each simulation.
+each variable affected the shape of the metastable dynamics. In order to examine
+these effects, a preliminary fit was made to the 4.0 Torr measurements, and the
+conditions of this fit were independently perturbed by $\pm10\%$. The conditions
+studied were pressure, peak electric field, pulse-width, and initial electron
+density.
+
+The results of these simulations are shown in figure~\ref{fig:perturbed}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/modeling/perturbed.eps}
+  \caption{Simulations showing the effects of perturbations to the initial
+  conditions on the metastable dynamics.}
+  \label{fig:perturbed}
+\end{figure}
 
 
 \section{Plasma Dynamics}
