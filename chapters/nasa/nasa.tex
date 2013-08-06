@@ -39,8 +39,19 @@ can impact material processing and ionization efficiency. As such, it is
 important to develop reliable temperature diagnostics for \acs{rpnd}s in
 molecular gases.
 
-This appendix records the development of two diagnostics for a air \acs{rpnd} at
-NASA Glenn Research Center.
+This appendix records the development of two diagnostics for an air \acs{rpnd}
+at NASA Glenn Research Center. Measurement of the density was accomplished using
+millimeter-wave interferometry. Plasma interferometry measures changes in the
+phase and amplitude of an electromagnetic wave which has passed through the
+plasma \cite{Lieberman2005}. The phase shift is proportional to the density of
+electrons while the change in amplitude is related to the electron-neutral
+collision frequency. As with other wave-based techniques, the density resulting
+from this approach is line integrated. The translational temperature of the
+system was measured via 
+
+The light emissions of the second positive system of nitrogen were carefully
+modeled and measured in the \textsc{rpnd}. This resulted in time-resolved values
+of the rotational and kinetic temperatures of the system.
 
  of such a diagnostic for a moderate
 pressure \acs{rpnd} in air. The approach used measured the rotational spectra of
@@ -59,21 +70,6 @@ survey of the available programs revealed little documentation about the
 calculation methods and none which provided the necessary flexibility how the
 spectra were generated. This necessitated the development of a program to
 automate the generation and matching of rotational spectra.
-
-\section{Diagnostic Techniques}
-
-Measurement of the density was accomplished using interferometry. Plasma
-interferometry measures changes in phase and amplitude of an electromagnetic
-wave which has passed through the plasma. The phase shift is proportional to the
-density of electrons while the change in amplitude is related to the
-electron-neutral collision frequency.
-
-Optical emission spectroscopy \textsc{oes} can provide a vast amount of
-information on a plasma. Excited molecules will often give off bands of light
-which are related to the population of their various rotational quantum states.
-The light emissions of the second positive system of nitrogen were carefully
-modeled and measured in the \textsc{pnd}. This resulted in time-resolved values
-of the rotational and kinetic temperatures of the system.
 
 \section{Experiment}
 
@@ -96,7 +92,7 @@ was made to increase the durability of the apparatus for longer experimental
 operation.
 \begin{figure}
   \centering
-  \includegraphics{./figures/electrodes.pdf}
+  \includegraphics{./chapters/nasa/figures/electrodes.pdf}
   \caption{The electrodes used in the \textsc{pnd} at \textsc{nasa grc}. The
     electrodes are made of copper with a ceramic sheath made of
     Mykroy.}
