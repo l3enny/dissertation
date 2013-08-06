@@ -9,20 +9,26 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +1 UsersBen.sshgithub_rsa.pub
-badd +84 main.tex
+badd +77 main.tex
 badd +581 chaptersintroductionintroduction.tex
 badd +16 scratch.txt
 badd +1 main.pdf
-badd +37 OUTLINE.md
+badd +39 OUTLINE.md
 badd +582 chapterstheorytheory.tex
 badd +1 chaptersintroductiondiagnostics.txt
 badd +1 mathcommands.tex
 badd +1 chaptersexperimentexperiment.tex
 badd +7 TODO.md
-badd +15 acronyms.tex
-badd +225 chapters/experiment/experiment.tex
-badd +291 chapters/metastables/metastables.tex
+badd +7 acronyms.tex
+badd +311 chapters/experiment/experiment.tex
+badd +605 chapters/metastables/metastables.tex
 badd +259 chapters/modeling/modeling.tex
+badd +14 chapters/theory/theory.tex
+badd +1 ~/tmp
+badd +45 ~/tmp/test.tex
+badd +242 chapters/introduction/introduction.tex
+badd +53 chapters/oes/oes.tex
+badd +116 ~/Dropbox/school/fellowships/gsrp/Final\ Report/chapters/oes/oes.tex
 silent! argdel *
 edit chapters/modeling/modeling.tex
 set splitbelow splitright
@@ -53,15 +59,15 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 310 - ((52 * winheight(0) + 35) / 70)
+let s:l = 526 - ((61 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-310
-normal! 0
+526
+normal! 073l
 wincmd w
 argglobal
-edit main.tex
+edit chapters/metastables/metastables.tex
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -71,30 +77,32 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 74 - ((20 * winheight(0) + 17) / 35)
+let s:l = 576 - ((13 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-74
-normal! 039l
+576
+normal! 09l
+lcd ~/Repos/dissertation
 wincmd w
 argglobal
-edit OUTLINE.md
+edit ~/Repos/dissertation/main.tex
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
-setlocal fdl=99
+setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 37 - ((17 * winheight(0) + 17) / 34)
+let s:l = 77 - ((20 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-37
-normal! 0
+77
+normal! 011l
+lcd ~/Repos/dissertation
 wincmd w
 exe 'vert 1resize ' . ((&columns * 88 + 88) / 177)
 exe '2resize ' . ((&lines * 35 + 36) / 72)
