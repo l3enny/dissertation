@@ -5,72 +5,85 @@ electrons, a vast array of other excited states, and the electric fields. In an
 effort to expand on the details of what is occurring within the \acs{rpnd}, it
 is desirable to develop a model which can infer other properties from the
 metastable measurements. This is possible, because the electrons which gain
-energy from the electric fields are those which excite the metastables, other
-excited states, and ions. The ideal model would solve the Boltzmann equation
-(equation~\ref{eq:boltzmann}) for each species, over the entire geometry, in all
-dimensions, for as long as was required to reach equilibrium.
+energy from the electric fields are responsible for the excitation of the
+metastables, other atomic states, and ions. The ideal model would solve the
+Boltzmann equation (equation~\ref{eq:boltzmann}) for each species, over the
+entire geometry, in all dimensions, for as long as was required to reach
+equilibrium.
 
-Unfortunately, these requirements are somewhat problematic. Scale lengths of 10
-$\mu$m are required in order to resolve the sheath effects, resulting in
-approximately $2\times10^{13}$ spatial cells. Conservatively, the time steps
-would be about 1 ns in length. At a minimum, the system required about five
-minutes to reach equilibrium, thus necessitating $3\times10^{11}$ solution
-steps. The largest velocity can be estimated as an electron accelerated across
-the full applied potential (6.6 keV), and the lowest velocity would be room
-temperature (0.04 eV). This produces a velocity discretization of about
-$6\times10^7$ cells. Thus the size of the parameter space in question is about
-$3.6\times10^{32}$. Given that the fastest computer in the world operates at 39
-petaflops, a calculation of this magnitude would take around 0.3 billion years.
-Of course, this is for only a single particle species, the total number in the
-system is runs in the dozens (not including the impurities).
+Unfortunately, these requirements are somewhat problematic. Solutions to the
+Boltzmann equation alone are difficult \cite{Lieberman2005}, let alone for the
+dozens of species which may be present in the \acs{rpnd}. The spatial
+discretization can be estimated as the cube of the largest length scale (the
+discharge apparatus length, about 30 cm) divided by the smallest length scale
+(on the order of the Debye length, about 20 $\mu$m). This approximation suggests
+the need for $2\times10^{12}$ spatial cells. Similar calculations can be made
+for the time (from nanoseconds to minutes) and velocity (from thermal to 100s of
+eV) scales. It is immediately apparent that a numerical system of this size
+would exceed the capabilities of any existing computer.
 
 \section{Model Development}
 
-It should be apparent that the Boltzmann equation must be simplified in order to
-model the system in a reasonable amount of time. As discussed in
-Chapter~\ref{chp:theory}, the most common approach to this is the use of moments
-of the Boltzmann equation which drastically simplifies the velocity terms.
-Frequently, the moments of the Boltzmann equation are used to develop various
-fluid approximations for plasmas \cite{Chen1984} (e.g.\ the two fluid equations,
-the magnetohydrodynamic equations, etc.). This approach has been tremendously
-successful in the description of everything from plasma display panels
-\cite{Rauf1999b} to interstellar plasmas \cite{Linde1998}.
+Therefore, some approximations of the Boltzmann equation were required in order
+to obtain a computationally tractable problem. As discussed in
+Chapter~\ref{chp:theory}, the most common approach, and the one applied here, is
+the use of \emph{moments} of the Boltzmann equation. These moments average out
+the velocity dependence of the Boltzmann equation in favor of macroscopic
+properties such as particle densities and mean velocities. They are often used
+to develop various fluid approximations for plasmas \cite{Chen1984} (e.g.\ the
+two fluid model, the magnetohydrodynamic equations, etc.). Solutions of
+these fluid equations have been tremendously successful in the description of
+everything from plasma display panels \cite{Rauf1999b} to interstellar plasmas
+\cite{Linde1998}.
 
-There are some limitation to the capabilities of these fluid descriptions. For
-one, they require some assumption on the form of the \acs{eedf}. Often, the
-distribution is assumed to be a Maxwell-Boltzmann or Druyvesteyn, depending on
-the plasma conditions. In others, an approximate solution of the Boltzmann
-equation may be used to tabulate rate coefficients as a function of the mean
-energy \cite{Hagelaar2005}. In addition to this issue of the \acs{eedf}, fluid
-models in large or complex geometries can still be quite computationally
-expensive. This can limit the number of species and reactions which can be
-addressed \cite{Lieberman2005}.
+The use of moments of the Boltzmann equation does introduce some additional
+problems. Reaction rates, such as ionization and excitation, are very sensitive
+to changes in the distribution of particle velocities. This presents a problem
+as the moments of the Boltzmann equation average out the velocity dependence.
+Therefore, a distribution function must be assumed or calculated in order to
+determine the reaction rates. The Maxwell-Boltzmann and Druyvesteyn
+distributions from Chapter~\ref{chp:theory} are often used for this purpose.
+However, they require a number of assumptions which are not necessarily true for
+most plasmas. In cases when these distributions cannot be applied, approximate
+solutions of the Boltzmann equation are often used \cite{Hagelaar2005} which
+employ detailed reaction cross sections. The choice between the simple
+equilibrium solutions and the more complex approximations is not easy as the
+\acs{eedf} is rarely known \emph{a priori}. This topic is considered more
+thoroughly in section~\ref{sec:dists}.
 
-In order to obtain an estimate of the detailed dynamics which occur as the
-\acs{rpnd} develops, it is necessary to consider additional simplifications of
-the Boltzmann equation. One such possibility is the use of a global model where
-the spatial dependence of the plasma parameters is assumed. This allows global
-model simulations to ignore the geometry of the system and focus on the particle
-interactions for long periods of time with reasonable computational
-requirements.
+From another perspective, fluid models in multiple dimensions are still
+computationally expensive. In large geometries, this can limit the number of
+species and reactions which can be considered by the simulation
+\cite{Lieberman2005}. For this reason, simulations often limit themselves to one
+or a few excited states, preventing detailed comparisons to spectroscopic data.
+However, such comparisons can reveal information about the degree of equilibrium
+in the plasma and the electron temperatures, both of interest in the \acs{rpnd}.
+Therefore, additional simplifications were necessary in order include additional
+excited states.
 
-Here, a global model will be developed to describe the evolution of the plasma
-parameters along the measurement chords during the first pulse, and before the
-reflection. As was seen in the metastable measurements, there was little axial
-variation over the length of the discharge. Thus, as far as the model is
-concerned, variations across the beam radius are negligible. However, it has
-been noted that a similar \acs{fiw} \cite{Vasilyak1994} and the same \acs{rpnd}
-\cite{Weatherford2012} exhibit radial variations in emission intensity, electron
-density, and metastable density. Furthermore, these variations appear to depend
-strongly on the operating pressure. Unfortunately, the cause of this is not
-clearly understood, though it has been suggested that high-energy electrons from
-the walls may be responsible \cite{Weatherford2012a}. Lacking any empirical,
-theoretical, or numerical results that provide the evolution of the radial
-profile during the discharge, it is necessary to assume one. In this case, the
-plasma will be assumed to be uniform across the diameter of the discharge. This
-assumption will affect the accuracy of the inferred plasma parameters, however
-future improvements in the understanding of these radial variations can be
-easily incorporated into the described model.
+As simplifications had already been made to the velocity space, the choice was
+between reduced temporal resolution and reduced spatial resolution. A reduction
+in temporal resolution was unreasonable given the fixed duration of the pulse
+and its afterglow. In contrast, the metastable measurements were already made on
+small spatial scale relative to the metastable gradients seen in
+Chapter~\ref{chp:metastables}. Therefore, the spatial dependence was eliminated
+to produce what is known as a ``global model.'' The final model tracked a total
+of 32 different excited states of helium from before the pulse until the return
+of the first reflection.
+
+In order to compare the metastable measurements to the global results, it was
+necessary to convert the line-integrated densities to densities along the path
+of the laser. It has been noted that a similar \acs{fiw} \cite{Vasilyak1994} and
+the same \acs{rpnd} \cite{Weatherford2012} exhibit radial variations in emission
+intensity, electron density, and metastable density. Unfortunately, the cause of
+this is not clearly understood, though it has been suggested that high-energy
+electrons from the walls may be responsible \cite{Weatherford2012a}. Lacking any
+empirical, theoretical, or numerical results which describe the evolution of the
+radial profile during the discharge, it was necessary to assume one. In this
+report, the plasma was assumed to be uniform across the diameter of the
+discharge. This assumption likely affects the inferred plasma parameters,
+however more accurate results are possible provided time-resolved measurements
+of the radial metastable density or an improved understanding of the \acs{rpnd}.
 
 \subsection{Continuity Equation}
 
@@ -81,40 +94,44 @@ Having assumed that the spatial variations are zero, the equation reduces to,
   \label{eq:zdmcont}
 \end{equation}
 where $\alpha$ identifies the particle species, $G$ is the gain term, and $L$ is
-the loss term. The gain and loss terms represent a large range of possible
-processes which are determined, in part, by the species under consideration. In
-this model, only helium, excited helium states, helium ions, and electrons will
-be treated. While impurities and dimers are very much a part of the discharge,
-this occurs on time scales that are relatively long in comparison to the
-excitation period. As was noted in Chapter~\ref{chp:metastables}, only 140 ns
-elapse before the reflection arrives at the plasma, while the e-folding time of
-the fastest decay is about 25 $\mu$s.
+the loss term. The gain and loss terms represent all possible reactions which
+can alter the population of the species under consideration. In the presented
+model, only helium, excited helium states, helium ions, and electrons were
+treated. Also present, to some degree, were gaseous impurities and helium dimers.
+As observed in Chapter~\ref{chp:metastables}, the combined effects of these
+species on the metastable densities took place with an e-folding time of about
+25 $\mu$s. As the simulations are limited to the period of time before the first
+reflection arrives (140 ns), these species were neglected in the model.
 
-Given the species of the system, there are several processes that should be
-given consideration for inclusion in the model.
+There were several possible processes that were considered for inclusion in the
+model:
 \begin{enumerate}
-  \item Electron impact ionization 
-  \item Electron impact (de)excitation 
-  \item Atomic impact (de)excitation
-  \item Atomic excitation transfer
-  \item Dielectronic recombination
-  \item Three-body recombination
-  \item Radiative decay
-  \item Diffusion
+  \item electron impact ionization,
+  \item electron impact (de)excitation,
+  \item atomic impact (de)excitation,
+  \item atomic excitation transfer,
+  \item dielectronic recombination,
+  \item three-body recombination,
+  \item radiative decay, and
+  \item diffusion.
 \end{enumerate}
 As with the impurities and dimer formation, diffusion occurs on a much longer
-time scale, and thus is neglected. Three-body recombination in the volume of the
-discharge is not important at the estimated temperatures and densities
-\cite{Lieberman2005}, therefore this too is neglected. Dielectronic
-recombination is also quite rare, however the process was incorporated as part
-of the early models and thus maintained through the final revision. Inter-atomic
-excitation and de-excitation is not generally considered important given the low
-energies of the atoms in a discharge. However, excitation \emph{transfer} can be
-an important process in gaseous discharges \cite{Lieberman2005}, making their
-inclusion necessary. Also important are the electron impact ionizations and
-excitations, as well as the radiative decay of the atoms.
+time scale, and was subsequently neglected. Three-body recombination in the
+volume of the discharge is not important at the estimated temperatures and
+densities \cite{Lieberman2005}, therefore this too was neglected. In general,
+dielectronic recombination is a rare process \cite{Nahar2010}, however it was
+incorporated during early versions and was retained through the final revision.
+Inter-atomic excitation and de-excitation is not generally considered important
+given the low energies of the atoms in discharges.
 
-Given these processes, it is possible to rewrite equation~\ref{eq:zdmcont} as,
+The remaining processes were found to be the most important for the \acs{rpnd}.
+This included electron-impact ionization and excitation which were, by far, the
+most significant. In addition, excitation transfer between atoms was found to
+occur at relevant rates \cite{Lieberman2005}. Finally, radiative decay between
+states was included as this allowed the prediction of plasma emissions as well
+as the cascade of excited states down to the metastable level.
+
+Given these processes, equation~\ref{eq:zdmcont} was rewritten as,
 \begin{multline}
   \frac{dN_i}{dt} =   n_e \left[       \sum_{j\neq i} N_j K^e_{j,i}(T_e) 
                                  - N_i \sum_{j\neq i}     K^e_{i,j}(T_e) \right]
@@ -124,63 +141,64 @@ Given these processes, it is possible to rewrite equation~\ref{eq:zdmcont} as,
                                  - N_i \sum_{j\neq i}     K^a_{i,j}      \right].
   \label{eq:gcont}
 \end{multline}
-In these equations, the subscripts of $i$ and $j$ represent states of helium,
-$N$ is a state density, $K$ is a rate coefficient, $T_e$ is the electron
-temperature, and $N_g$ is the neutral helium density. The first subscript of the
-rate coefficients represents is the initial excited state while the second
-coefficent represents the final excited state. Therefore, $K_{ij}$ represents a
-process that depopulates state $i$ in favor of state $j$.
+Here, the subscripts of $i$ and $j$ represent states of helium, $N$ is the state
+density, $K$ is a rate coefficient, $T_e$ is the electron temperature, and $N_g$
+is the neutral helium density. The first subscript of the rate coefficients
+represents the initial excited state while the second coefficient represents the
+final excited state. Therefore, $K_{ij}$ represents a process that transfers an 
+atom from state $i$ to state $j$.
 
 This equation is split into three sets of processes, represented by the
-superscripts of the rate coefficients: $e$ - electronic, $o$ - optical, and $a$
-- atomic. The first bracketed term on the right hand side contains all the rate
-coefficients for electron impact excitation and de-excitation, including
-ionization processes. The second bracketed term contains the rate coefficients
-for optical transitions in and out of the state. The final bracketed term
-contains the gains and losses as a result of excitation transfer caused by
-collisions with the ground state. Collisions between excited states are
-neglected given their relatively low densities.
+superscripts of the rate coefficients: $e$ - electron impact processes, $o$ -
+radiative decay, and $a$ - atomic excitation transfer. The first bracketed term
+on the right hand side contains all the rate coefficients for electron impact
+excitation and de-excitation, including ionization processes. The second
+bracketed term contains the rate coefficients for optical transitions in and out
+of the excited state. The final bracketed term contains the gains and losses as
+a result of excitation transfer caused by collisions with the ground state.
+Collisions between excited states are neglected as their low densities result in
+small reaction rates.
 
 The rate coefficients in equation~\ref{eq:gcont} are compiled from a number of
 different sources. This is particularly straight forward in the case of the
 optical and atomic transitions, as neither features any dependence on the
-\acs{eedf}. The optical transition rates and level energies were obtained from
-the NIST Atomic Spectra Database \cite{Kramida2012}. The excitation transfer
-rate coefficients were from the studies of Catherinot and Dubreuil
-\cite{Catherinot1981, Dubreuil1980}. These coefficients only covered the
-transitions of $\Delta n=0$ for $n=3,4$ and no constants were found for other
-$n$ or $\Delta n\neq 0$.
+\acs{eedf}. The optical transition rates and the energies of each level were
+obtained from the NIST Atomic Spectra Database \cite{Kramida2012}. The
+excitation transfer rate coefficients came from the studies of Catherinot and
+Dubreuil \cite{Catherinot1981, Dubreuil1980}. These coefficients only covered
+the transitions of $\Delta n=0$ for $n=3,4$ and no constants were found for
+other $n$ or $\Delta n\neq 0$. Dielectronic recombination rates were adapted
+from the work of Nahar \cite{Nahar2010}.
 
-The semi-empirical relations derived by Ralchenko et al. \cite{Ralchenko2008}
-were used to calculate the electron (de)excitation and ionization cross sections
-through $n=4$. These represent the most accurate set of cross sections available
-for neutral helium and have a quoted accuracy of 10-30\% for $\Delta S=0$, and
-$\ge30$\% for $\Delta S \neq 0$. The work of Ralchenko only provides the
-inelastic cross sections for collisions which increase the energy of the excited
-state. The inverse or superelastic cross sections can be calculated using the
-principle of detailed balance \cite{Kunze2009},
+As for the electron-impact processes, the semi-empirical relations derived by
+Ralchenko et al. \cite{Ralchenko2008} were used to calculate the electron
+(de)excitation and ionization cross sections for levels through $n=4$. These
+represented the most accurate set of cross sections available for neutral helium
+and have a quoted accuracy of 10-30\% for $\Delta S=0$, and $>30$\% for $\Delta
+S \neq 0$. Only the inelastic cross sections for collisions which increased the
+energy of the excited state were provided. The inverse or superelastic cross
+sections were calculated using the principle of detailed balance
+\cite{Kunze2009},
 \begin{equation}
-  \sigma_{ji}(\epsilon) = \frac{\epsilon}{\epsilon\Delta\epsilon_{ij}}
+  \sigma_{ji}(\epsilon) = \frac{\epsilon}{\epsilon - \Delta\epsilon_{ij}}
     \frac{g_j^2}{g_i}\sigma_{ij},
 \end{equation}
-where $\Delta\epsilon$ is the threshold energy of the $ij$ reaction and the $g$
-values are the statistical degeneracy of the states. Dielectronic recombination
-rates were adapted from the work of Nahar \cite{Nahar2010}. These cross sections
-can be used to calculate the rate coefficients for each reaction using
-equation~\ref{eq:rate}. However, this poses the problem of what kind of energy
-distribution to use.
+where $\Delta\epsilon$ is the threshold energy of the $ij$ reaction and $g$ is
+the statistical degeneracy of the corresponding state. These cross sections can
+be used to calculate the rate coefficients for each reaction using
+equation~\ref{eq:rate}. However, this leads back to the question of which
+\acs{eedf} is appropriate for the \acs{rpnd}.
 
-\subsection{Distribution Effects}
+\subsection{Distribution Effects}\label{sec:dists}
 
 Per the discussion of the Boltzmann equation in Chapter~\ref{chp:theory}, there
 are two readily available equilibrium solutions: the Maxwell-Boltzmann
 distribution, and the Druyvesteyn distribution. However, research by
 Starikovskaia and Starikovskii \cite{Starikovskaia2001} has shown that the
-\acs{eedf} in a nitrogen \acs{fiw} can deviate from both of these solutions.
-Such a result is not too surprising given the non-equilibrium nature of the
-\acs{fiw} discharge. Since the \acs{rpnd} shares many of these same properties,
-it is possible that the equilibrium solutions do not apply to the \acs{rpnd}
-either.
+\acs{eedf} in a nitrogen \acs{fiw} can deviate from both. Such a result is not
+too surprising given the non-equilibrium nature of the \acs{fiw} discharge.
+Since the \acs{rpnd} shares many of these same properties, it is possible that
+the equilibrium solutions do not apply to the \acs{rpnd} either.
 
 In order to better understand how the energy distributions may behave in a
 \acs{rpnd}, a numerical study of the \acs{eedf} in a helium \acs{rpnd} was
@@ -560,6 +578,18 @@ means that small changes to the rate coefficient manifest as large differences
 in the final electron density. Since the rate of metastable generation is
 proportional to the electron density, these changes to the electron density
 equate to changes in the metastable density.
+
+There is a high degree of confidence in the pressure measurements, therefore it
+remained fixed throughout the simulations. Likewise, the initial electron
+density measurements are considered reliable and remained fixed. As was
+previously mentioned, the electric field is not well-known in the \acs{rpnd}
+wave front. However, equally unknown is the pulse-width.
+
+As a result,
+the only parameters available to match the metastable dynamics were the electric
+field and the pulse-widths. Unfortunately, there is no clear process by which to
+adjust these values in order to obtain an optimal match to the metastable data.
+
 
 
 
