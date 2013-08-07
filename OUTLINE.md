@@ -41,13 +41,13 @@ Outline
     4. Summary
 5. Modeling
     1. Global Model Development
-      1. Electron Impact Coefficients
-      2. Optical Emission Coefficients
-      3. PIC Simulations
-    2. Effect of Distributions
-    3. Effect of Pulse Shape
-    4. Plasma Parameters
-    5. Summary
+      1. Continuity Equation
+      2. Distribution Effects
+      3. Energy Equation
+      4. Model Solutions
+    2. Perturbation Study
+    3. Plasma Parameters
+    4. Summary
 6. Population Kinetics
   1. Emission Measurements
   2. Electron Temperature Estimates
