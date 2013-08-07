@@ -364,43 +364,39 @@ the cross sections. The only reactions available to electrons in the \acs{pic}
 simulations are elastic scattering, excitation (19.6 eV threshold), and
 ionization (24.6 eV threshold). As the inelastic processes turn on at energies
 in excess of the 20 eV, the electron population begins to be depleted. Likewise,
-the electron population begins to rebound at higher energies as th
+the electron population begins to rebound at higher energies as the cross
+sections fall off.
 
-as the inelastic
-processes turn off. The Maxwell-Boltzmann solutions are quite simple and do not
-account for the variation of the cross sections with respect to energy. This
-explains the increased consistency of the \acs{pic} and BOLSIG+ results at high
-electric field values.
-
-Generally, the Maxwell-Boltzmann results appear to provide the best match to the
-\acs{pic} simulations at electric fields of 100 Td and below. At higher fields,
-the BOLSIG+ results provide a better approximation of the \acs{pic} results. If
-the electric fields measured by Takashima et al.\ are the same as those in the
-\acs{rpnd} studied here, then the Boltzmann solver would be the best choice at
-the peak field values \cite{Takashima2011}. However, for a very large fraction
-of the time, the Maxwell-Boltzmann distribution would appear to provide the best
-approximation of the electron distributions in the system. As a result, it was
-decided to use this distribution for the development of the global model.
+Unlike Starikovskaia and Starikovskii's results \cite{Starikovskaia2001} the
+various approaches produce comparable \acs{eedf}s. Generally, the
+Maxwell-Boltzmann results provide the best match to the \acs{pic} simulations at
+electric fields of 100 Td and below. Conversely, the BOLSIG+ results better
+represent the \acs{eedf} past 100 eV at the higher field values. That said,
+these electrons do not provide a large contribution to the excited states of the
+plasma. They are well past the excitation and ionization cross section peaks and
+are relatively few in number. Given the larger computational burden of the
+Boltzmann solver and the small perceived benefit, it was concluded that the that
+the Maxwell-Boltzmann distributions provided an adequate representation of
+the \acs{eedf} for the global model.
 
 \subsection{Energy Equation}
 
-Given a form for the distribution function, it is now possible to calculate the
-rate coefficients in equation~\ref{eq:gcont} at each time step. However, as was
-s een in figure~\ref{fig:picmb}, the distribution function changes over time. In
-that case, the \acs{pic} simulations were used to calculate the mean electron
-energy which, in turn, was used to determine the appropriate Maxwell-Boltzmann
-distribution. However, as of yet, no mechanism has been provided to evolve the
-mean electron energy in the absence of such simulations.
+The \acs{eedf} provides a means by which to calculate the rate coefficients in
+equation~\ref{eq:gcont}. However, as was seen in figure~\ref{fig:picmb}, the
+distribution function changes over time. Previously, the \acs{pic} simulations
+were used to calculate the time evolution of the mean electron energy, but an
+alternate approach was required for the global model.
 
 With suitable assumptions, equation~\ref{eq:energy} (the second moment of the
 Boltzmann equation) can provide the means to evolve the mean energy with each
 time step. Given the assumptions underlying the global model, the spatial
-derivatives can be neglected so that
+derivatives can be neglected such that
 \begin{equation}
   \frac{d}{dt}\left(\frac{3}{2}p_e\right) =
   \frac{d}{dt}\left(\frac{3}{2}p_e\right)\bigg|_\mathrm{coll}.
 \end{equation}
-Using the isothermal equation of state, $p=n\kB T$, this can be rewritten as,
+Using the isothermal equation of state \cite{Lieberman2005}, $p=n\kB T$, this
+can be rewritten as,
 \begin{equation}
   \frac{d}{dt}\left(\frac{3}{2}n_e\kB T_e \right) =
   \frac{d}{dt}\left(\frac{3}{2}n_e\kB T_e \right)\bigg|_\mathrm{coll}.
