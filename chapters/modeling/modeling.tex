@@ -291,7 +291,7 @@ The internal set of cross sections were used. These included: elastic
 scattering, excitation, and charge exchange. The cross sections were of a
 semi-empirical form which increased linearly with energy to a peak value, after
 which, they declined as the logarithm of the energy, divided by the energy
-\cite{verboncoeur1993}. The time domain of the simulation was 10 ns. This period
+\cite{Verboncoeur1993}. The time domain of the simulation was 10 ns. This period
 of time was long enough to observe fast \acs{eedf} dynamics associated with the
 impulse electric field. The distributions from the \acs{pic} simulations were
 sampled every 0.25 ns. The spatial domain was discretized at 1 $\mu$m intervals
@@ -409,13 +409,12 @@ rate constants. However, as noted in Chapter~\ref{chp:metastables}, the gas
 temperature of the \acs{rpdn} in question remains at room temperature.} in
 particle collisions.
 
-Several different forms of particles collisions must be considered by the global
-model. Once the electron population surpasses the 19.6 eV threshold, a great
-deal of energy will be exchanged with excited helium species through inelastic
-collisions. In addition, the electron population will tend to thermalize with
-the background gas over long periods of time via elastic collisions. Finally,
-energy is gained by the electrons through the applied electric field. Together,
-these phenomena replace the term on the RHS of equation~\ref{eq:energy2} with,
+Several different types of energy transfer were considered by the global model.
+The first was the heating caused by the electric field. This was followed by
+electron energy losses as a result of elastic scattering by the atoms. Finally,
+inelastic collisions with all helium states through $n=4$ were considered.
+Together, these phenomena replace the term on the RHS of
+equation~\ref{eq:energy2} with,
 \begin{equation}
   \frac{e^2n_eE(t)^2}{m_ek_m(T_e)N_g}
   - n_ek_m(T_e)N_g\left(\frac{3m_e}{M}\right)\frac{3}{2}\kB(T_e-T_g)
@@ -428,16 +427,18 @@ is the energy lost or gained by the electron in atomic (de)excitation reactions.
 The first term includes the DC conductivity \cite{Lieberman2005} of the plasma,
 and accounts for the heating of the electrons by the electric field. The second
 term is the elastic cooling of the electrons by the neutral atoms, where the gas
-temperature is assumed fixed. The third term is the energy gained or lost by the
-electrons in atomic (de)excitation reactions. Equation~\ref{eq:energyparts},
-with equations~\ref{eq:energy2} and~\ref{eq:gcont} are sufficient to solve for
-the evolution of the electron temperatures, electron densities, excited state
-densities, and plasma emissions as functions of time.
+temperature. The third term is the energy gained or lost by the electrons in
+atomic (de)excitation reactions. The
+equations~\ref{eq:energyparts},~\ref{eq:energy2} and~\ref{eq:gcont} form the
+main components of the global model. Together they provide the means to solve
+for the evolution of the electron temperatures, electron densities, excited
+state densities, and plasma emissions as functions of time.
 
 \subsection{Model Solutions}
 
-Equation~\ref{eq:gcont} can be rewritten for each atomic state, $i$, resulting
-in a set of linear, first order differential equations,
+For the purposes of computation, equation~\ref{eq:gcont} can be rewritten for
+each atomic state, $i$, resulting in a set of linear, first order differential
+equations,
 \begin{multline}
   \frac{d}{dt}
   \begin{pmatrix}
@@ -491,52 +492,67 @@ in a set of linear, first order differential equations,
 \end{multline}
 where $M$ is the total number of atomic states and $\epsilon_i <
 \epsilon_{i+1}$. An additional equation can be added to separately account for
-electrons as well as electron-specific processes, however the model assumed
-quasineutrality by enforcing the relation $N_{ion}=n_e$. Changes in the density
-of each atomic state were calculated by numerical integration of these
-equations. The range of time scales exhibited by the \acs{rpnd} made it
-desirable to implement adaptive control of the time step size. For this reason,
-the Runge-Kutta-Fehlberg method, adapted from Bradie \cite{Bradie2006}, was
-used.
+electrons as well as electron-specific processes, however the global model used
+here assumed quasineutrality by enforcing the relation $N_\mathrm{ion}=n_e$.
+Changes in the density of each atomic state were calculated by numerical
+integration of these equations. The range of time scales exhibited by the
+\acs{rpnd} made it desirable to implement adaptive control of the time step
+size. For this reason, the Runge-Kutta-Fehlberg method, adapted from Bradie
+\cite{Bradie2006}, was used as the integration scheme.
 
-Initial metastable densities were determined from the \acs{las} measurements.
-Initial electron densities were determined from \acs{lcif} measurements made by
-Weatherford \cite{Weatherford2012a}. However, these measurements were only
-available for 1.0, 4.0, and 8.0 Torr. Previous studies have found that initial
-electron density can have a significant effect on the parameters of a helium
-\acs{fiw} \cite{Takashima2011}, therefore subsequent simulations were limited to
-the three conditions for which electron density measurements were available.
+Initial metastable densities were determined from the \acs{las} measurements and
+initial electron densities were determined from \acs{lcif} measurements made by
+Weatherford \cite{Weatherford2012a}. However, the \acs{lcif} electron density
+measurements were only available for 1.0, 4.0, and 8.0 Torr. Therefore,
+subsequent analyses only consider these conditions. Sensitivity to changes in
+the initial electron density will be addressed in the following section.
 
-No electron temperature measurements were possible at the low densities in the
-pre-pulse period, therefore a temperature of 0.2 eV was assumed. This
-temperature was used to generate the equilibrium excited state densities for
-non-metastable states. As the \acs{las} measurements showed no appreciable
-change in gas temperature, the neutral gas temperature was fixed at 300 K for
-the duration of the simulation.  
+No measurements of the electron temperature in the pre-pulse period were
+available. Therefore, it was necessary to assume an electron temperature. Given
+the relatively long period of time between pulses, an in initial temperature of
+0.2 eV was used. Exploratory simulations found that changes in the initial
+electron temperature had a negligible impact on the final distribution of
+excited states. Initial excited state densities (not including ions and
+metastables) were determined by their values in equilibrium with the 0.2 eV
+electrons. Per the results from Chapter~\ref{chp:metastables}, the neutral gas
+temperature was fixed at 300 K for the duration of the simulation.
 
-Though the applied potential is well known, the actual form of $E(t)$ is
-significantly less clear. Again, \acs{fiw} measurements such as those performed
-by Takashima et al. \cite{Takashima2011}, as well as the \acs{rpnd} measurements
-of Ito et al. \cite{Ito2010}, and M\"{u}ller \cite{Muller2011a} provide some
-idea of what to expect. Each study measured a Gaussian-like peak as the wave
-crossed the measurement point. In the quiescent period following the wave, a
-relatively small background electric field persisted, with a magnitude on the
-order of 20-25\% of the of the wave. The duration and magnitude of this
-persistent field varied substantially between studies. Given the indeterminate
-value of this persistent field, the following simulations assumed a single
-Gaussian pulse for the form of the electric field. The time domain of the
-simulation was 190 ns, with the peak of the electric field pulse at 40 ns.
+Despite access to the waveform of the applied potential, the actual
+time-evolution of the electric field at the metastable measurement points is not
+well known. This is a result of the distinctly nonlinear impedance of the
+\acs{rpnd} plasma. Takashima et al.\ performed measurements of the electric
+field in a \acs{fiw} using a capacitive probe and found it to be significantly
+different from the vacuum field. Separately, Ito et al. \cite{Ito2010} and
+M\"{u}ller et al. \cite{Muller2011a}, measured the electric fields in a
+\acs{rpnd} with a 1.2 mm gap between parallel electrodes using a wave-mixing
+approach. They too found a large difference between the vacuum field and the
+actual field.
+
+In all three cases, the evolution of the electric field could be best described
+by a Gaussian-like pulse, followed by a small, persistent electric field. This
+persistent field was on the order of 20-25\% of the peak field value, and would
+remain for at least several tens of nanoseconds. The total duration and
+magnitude of the persistent field varied between studies and some, such as the
+work of Anikin et al. \cite{Anikin1998}, did not appear to record it. Given the
+uncertainty associated with the nature of this persistent field, the global
+model simulations only considered a single Gaussian pulse. The time domain of
+the simulations covered 190 ns with the peak of the pulse centered at 40 ns.
 
 \section{Perturbation Study}
 
-The global model simulations depended, to a large extent, on the initial
-conditions of the system. Without a clear process by which to calculate the
-error in the results of the simulations, it was desirable to investigate the
-sensitivity of the results to various factors. In order to examine these
-effects, a preliminary fit was made to the 4.0 Torr measurements, and the
-conditions of this fit were independently perturbed by $\pm10\%$. The conditions
-studied were pressure, peak electric field, pulse-width, and initial electron
-density.
+The input values for the global model were relatively fixed, with the exception
+of the peak electric field and the width of the pulse. It was initially expected
+that the pulse-width would be approximately equal to the width of the applied
+pulse, 25 ns. The global models were matched to the metastable measurements by
+iterative adjustment of the peak electric field and the pulse-width. However,
+there was no clear means by which to estimate the error in the global model
+calculations.
+
+In order to provide a partial quantization of this error, a preliminary fit of
+the 4.0 Torr data was made and used as a benchmark. Subsequent simulations were
+run with small perturbations to the peak electric field, pressure, pulse-width,
+and initial electron density. In each case, the benchmark value was perturbed by
+$\pm10\%$.
 
 The nominal conditions of the simulation are recorded in table~\ref{tbl:nominal}
 \begin{table}
@@ -560,30 +576,31 @@ and results of these simulations are shown in figure~\ref{fig:perturbed}.
   conditions on the metastable dynamics.}
   \label{fig:perturbed}
 \end{figure}
-Based on the results of the global model, it is apparent that the initial
-electron density has a relatively small impact on the metastable dynamics.
-Closer examination of the results reveal that the final metastable densities
-change by approximately $\pm10\%$ in concert with the perturbations to the
-electron density. In contrast, changes to the pulse-width produce much more
-significant changes in the metastable densities. As the pulse-width is
-increased, the metastable densities increase. Knowing that the electric field is
-fixed, this change can be attributed to the increase in energy deposited in the
-electron population.
+The metastable trends suggest that the initial electron density has a relatively
+small impact on the metastable dynamics. Closer examination reveals that the
+final metastable densities change by approximately $\pm10\%$, almost one-to-one
+with the initial electron density. In contrast, changes to the pulse-width
+produce much more significant changes in the metastable densities. As the
+pulse-width is increased, the metastable densities increase. Knowing that the
+electric field is fixed, this change can be attributed to the increase in energy
+deposited in the electron population.
 
 The two largest factors in the determination of the metastable densities were
-the neutral gas pressure and the electric field. Small changes to either value
-resulted in large changes in the metastable densities. As can be seen in
-figure~\ref{fig:perturbed}, increases in pressure corresponded to a decrease in
-metastable densities. Changes to the neutral gas pressure tend to affect the
-system via several different mechanisms. As seen in
+the neutral gas pressure and the electric field. The perturbations to these
+quantities resulted in largest changes in the final metastable densities. As can
+be seen in figure~\ref{fig:perturbed}, increases in pressure corresponded to a
+decrease in metastable densities. Changes to the neutral gas pressure tend to
+affect the system via several different mechanisms. As seen in
 equation~\ref{eq:energyparts}, increases to the gas pressure tend to decrease
 the energy deposited in the electrons, and increases losses due to elastic
 scattering, thus reducing the energy that can be deposited in excited states.
 This competes with the increased number of ground state atoms available for
-excitation.
+excitation. That the increase in gas pressure results in a reduced metastable
+density indicates that the reduced energy deposition in the electrons is more
+important than the increased availability of neutral atoms.
 
-The significant impact of the electric field can be traced back to changes in
-the ionization rate for each condition. As seen in figure~\ref{fig:ionrates},
+The large impact of the electric field can be traced back to changes in the
+ionization rate for each condition. As seen in figure~\ref{fig:ionrates},
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/ionrates.eps}
@@ -593,29 +610,91 @@ the ionization rate for each condition. As seen in figure~\ref{fig:ionrates},
 \end{figure}
 the magnitude of the ionization rate coefficient corresponds to the magnitude of
 the electric field. While the changes are somewhat modest, as seen in
-Chapter~\ref{chp:theory}, ionization processes are exponential with time. This
+Chapter~\ref{chp:theory}, ionization processes exponentially with time. This
 means that small changes to the rate coefficient manifest as large differences
 in the final electron density. Since the rate of metastable generation is
 proportional to the electron density, these changes to the electron density
 equate to changes in the metastable density.
 
-There is a high degree of confidence in the pressure measurements, therefore it
-remained fixed throughout the simulations. Likewise, the initial electron
-density measurements are considered reliable and remained fixed. As was
-previously mentioned, the electric field is not well-known in the \acs{rpnd}
-wave front. However, equally unknown is the pulse-width.
-
-As a result,
-the only parameters available to match the metastable dynamics were the electric
-field and the pulse-widths. Unfortunately, there is no clear process by which to
-adjust these values in order to obtain an optimal match to the metastable data.
-
-
-
-
 \section{Plasma Dynamics}
 
+The plasma dynamics for the 1.0, 4.0, and 8.0 Torr conditions were obtained by
+iteratively matching the pulse-width and peak electric field to the metastable
+density immediately before the arrival of the reflected pulse. The process was
+somewhat complicated by the fact that multiple combinations of the peak field
+and pulse-width could produce the same metastable density. Therefore, it was
+necessary to fix or otherwise predict one of the values.
 
+Of the two, the pulse-width was the most promising to eliminate as a variable.
+The characteristics of the applied pulse already provide reasonable bounds on
+the possible widths. Therefore, the 4.0 Torr condition was simulated with a
+range of pulse-widths from 5-50 ns with the peak field selected to produce the
+same final metastable density in each case. 
+
+The metastable density trend for each pulse-width is compiled in
+figure~\ref{fig:widths}.
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/modeling/figures/widths.eps}
+  \caption{Effect of the electric field-pulse width on metastable density
+  dynamics.}
+  \label{fig:widths}
+\end{figure}
+Several features are immediately apparent. The most obvious is the clear need
+for a pulse-width that is \emph{longer} than the applied electric field. This
+result was quite unexpected and suggested an unknown contribution to the
+population of the metastable states. Also evident in the plots 
+
+
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/modeling/figures/double.eps}
+  \caption{Evidence of return stroke in the double-peaking of plasma emissions.}
+  \label{fig:double}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/modeling/figures/fieldtau.eps}
+  \caption{The required peak field strengths as a function of the pulse-width.}
+  \label{fig:fieldtau.eps}
+\end{figure}
+ 
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/modeling/figures/nmcomp.eps}
+  \caption{Comparison of the measured metastable densities to the global model
+  simulations.}
+  \label{fig:nmcomp}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/modeling/figures/necomp.eps}
+  \caption{Global model predictions of the electrons densities at the simulated
+  conditions.}
+  \label{fig:necomp}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/modeling/figures/etemps.eps}
+  \caption{Global model predictions of the electron temperatures at the
+  simulated conditions.}
+  \label{fig:etemps}
+\end{figure}
+
+\begin{table}
+  \caption{Summary of the peak values for several plasma parameters from the
+  global model simulations.}
+  \begin{tabular}{lll}
+    \toprule \\
+    Pressure & E/N  & T$_\mathrm{e}$ & N$_\mathrm{m}$ & n$_\mathrm{e}$ \\
+    (Torr)   & (Td) & (eV)           &  (m$^{-3}$)    & (m$^{-3}$) \\
+    \midrule \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \section{Summary}
 
