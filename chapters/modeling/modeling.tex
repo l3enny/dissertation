@@ -224,10 +224,17 @@ computer particles and physical particles--most plasma involve more particles
 than can be reasonably simulated. Instead, they consider a population of
 macro-particles, each of which possesses some statistical weight
 \cite{Birdsall1991}. This weight allows the macro-particle to represent a group
-of physical particles. 
+of physical particles. Additionally, the velocity and position of the particles
+are continuous within the limits of floating point representation. However, the
+electromagnetic fields are discretized. This necessitates a mapping of the
+particle-related fields to the discretized coordinates, and the force of the
+fields from the discretized coordinates to the particles.
 
-The process by which the \acs{pic} simulation is conducted is illustrated in
-figure~\ref{fig:pic}.
+Each \acs{pic} simulation begins with the definition of a system geometry and
+any external fields. Additionally, simulations are usually initialized with some
+number of macro-particles with a specified temperature. After these
+initialization steps have been completed, the physics loop illustrated in
+figure~\ref{fig:pic},
 \begin{figure}
   \centering
   \input{./chapters/modeling/figures/pic.tex}
@@ -235,21 +242,22 @@ figure~\ref{fig:pic}.
     from \cite{Birdsall1991}.}
   \label{fig:pic}
 \end{figure}
-The process begins with the definition of a system geometry and an applied
-electromagnetic field, $\vec{E}$ and $\vec{B}$. In this case, the system is
-strictly one-dimensional, so each macro-particle only possess one spatial
-component, $x$. However, to account for magnetic field effects, each
-macro-particles possesses three velocity components, $\vec{v}$. This is followed
-by an initialization of the particle positions and velocities. The number of
-particles and the their positions are usually chosen to given a specific plasma
-density, and the velocities are often chosen to represent some initial
-distribution of energy. The Lorentz equation, $\vec{F} = q(\vec{E} +
-\vec{v}\times\vec{B})$, is then used to push each particle to a new position for
-a given time step, $\Delta t$. Particles born or lost at the boundaries are then
-accounted for. This is followed by a modeling of collisions (including
-ionization and excitation) using Monte Carlo techniques \cite{Birdsall1991}. The
-charges of the macro-particles are then weighted to a spatial grid, and the
-fields are recalculated, and the next time step begins.
+begins. The equation in the loop reflect a one-dimensional system, thus each
+macro particle possesses only one spatial component, $x$. However, an external
+magnetic field can cause motion perpendicular to the simulation domain, thus
+each macro-particle possesses a velocity vector, $\vec{v}$, with three
+components.
+
+The loop generally begins with an initial field calculation based on the
+external fields and those of the particles. This is followed by a particle
+``push'' where the Lorentz equation, $\vec{F} = q(\vec{E} +
+\vec{v}\times\vec{B})$, is used to calculate a new position for a given time
+step, $\Delta t$. Afterward, particles which have moved out of the boundaries of
+the system are removed from the simulation. Next, collisions (including
+ionization and excitation) are modeled using Monte Carlo techniques
+\cite{Birdsall1991}. Finally, the charges of the macro-particles are then
+weighted to the spatial grid, and the fields are recalculated, and the next time
+step begins.
 
 The XPDP1 code, developed by Verboncoeur et al. \cite{Verboncoeur1993}, was used
 to conduct the \acs{pic} simulations. The code was originally designed to
