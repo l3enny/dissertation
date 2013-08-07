@@ -260,60 +260,70 @@ weighted to the spatial grid, and the fields are recalculated, and the next time
 step begins.
 
 The XPDP1 code, developed by Verboncoeur et al. \cite{Verboncoeur1993}, was used
-to conduct the \acs{pic} simulations. The code was originally designed to
-simulate a one-dimensional discharge between two parallel electrodes. However,
-the electrodes complicate the study of the \acs{eedf}. Charged particle
-collection near the boundaries will introduce spatial variations in the
-\acs{eedf}. In addition, such collection can lead to large regions of space
-charge which can shield out the applied electric field. In order to address
-these issues, the code was modified to use periodic boundary conditions. Such
-conditions result in a quasi zero-dimensional simulation, equivalent to a plasma
-of infinite extent. This eliminates the issue of spatial variations in the
-\acs{eedf}.
+for the \acs{pic} simulations. The code was originally designed to simulate a
+one-dimensional discharge between two parallel electrodes. However, collection
+at these electrodes complicates a study of the \acs{eedf} and does not match the
+zero-dimensional nature of the global model. Charged particle collection near
+the boundaries induces spatial variations in the \acs{eedf}. Additionally, the
+high mobility of electrons often means that they are preferentially collected on
+short time scales. This leads to the formation of large regions of positive
+space charge which shields the plasma from the applied electric field. In order
+to address these issues, the code was modified to use periodic boundary
+conditions. Such conditions result in a quasi zero-dimensional simulation,
+equivalent to a plasma of infinite extent. This eliminates the issue of spatial
+variations in the \acs{eedf} and produces a closer match to the assumptions
+underlying the global model.
 
 Previous measurements of the electric field in a similar \acs{fiw} suggested
 that the electric field values varied from 0-350 Td \cite{Takashima2011}. Based
 on this, it was decided to examine the distribution characteristics from 10-600
-Td. This range should be adequate to cover all conditions within the \acs{rpnd}
-in question. The background gas was helium at a pressure of 2.0 Torr. The
-initial plasma was assumed to be quasineutral with a density of
-$1.0\times10^{8}$ cm$^{-3}$ and 10$^4$ macro-particles. Electrons were
+Td. This range should be adequate to cover all conditions of the \acs{rpnd} in
+question. The field was applied immediately after the simulation began. Though
+the real field was expected to have a more gradual rise and fall, this was done
+in order to exacerbate any non-equilibrium characteristics of the \acs{eedf}.
+The background gas was helium at a pressure of 2.0 Torr. The initial plasma was
+assumed to be quasineutral with a density of $1.0\times10^{8}$ cm$^{-3}$ and one
+computational particle for every $10^6$ physical particles. Electrons were
 initialized with a thermal energy of 2.0 eV, and the helium ions were given an
-initial energy of 0.025 eV. 
+initial energy of 0.025 eV.
 
-The internal set of cross sections, which include elastic scattering,
-excitation, and charge exchange were used. The cross sections have a
-semi-empirical form which increases linearly with energy to a peak value after
-which it declines as the logarithm of the energy, divided by the energy. The
-time domain of the simulation was 10 ns, approximately the time required for the
-\acs{eedf} to reach equilibrium with the applied field. The distributions from
-the \acs{pic} simulations were sampled every 0.25 ns. The spatial domain was
-discretized at 1 $\mu$m intervals over a total domain of 10 cm. Based on the
-highest energy electrons in the system, a time step of $4\times10^{-13}$ s was
-chosen in order to satisfy the Courant-Friedrich-Lewy stability condition.
+The internal set of cross sections were used. These included: elastic
+scattering, excitation, and charge exchange. The cross sections were of a
+semi-empirical form which increased linearly with energy to a peak value, after
+which, they declined as the logarithm of the energy, divided by the energy
+\cite{verboncoeur1993}. The time domain of the simulation was 10 ns. This period
+of time was long enough to observe fast \acs{eedf} dynamics associated with the
+impulse electric field. The distributions from the \acs{pic} simulations were
+sampled every 0.25 ns. The spatial domain was discretized at 1 $\mu$m intervals
+over a total domain of 10 cm. Based on the highest energy electrons in the
+system, a time step of $4\times10^{-13}$ s was chosen in order to satisfy the
+Courant-Friedrich-Lewy stability condition.
 
 BOLSIG+ was used to obtain the approximate solutions of the Boltzmann equation
 \cite{Hagelaar2005}. This is a publicly available computer code which uses the
-two-term expansion of the Boltzmann equation to solve for the \acs{eedf} for a
-given electric field. In this approach, Legendre polynomials are used to expand
-the \acs{eedf} into an equilibrium solution and a relatively small
-non-equilibrium component. This implied assumption, that the distribution is
-accurately represented by a small perturbation superimposed on an equilibrium
-solution, puts constraints on the magnitude of the reduced electric field. In
-the case of BOLSIG+, the solver fails to converge for fields approaching 1000
-Td.
+two-term expansion of the Boltzmann equation to solve for the equilibrium
+\acs{eedf} for a given electric field. In this approach, Legendre polynomials
+are used to expand the \acs{eedf} into a unperturbed component with a small,
+superimposed, perturbation. This assumption, that the distribution is accurately
+represented by a small perturbation superimposed on an equilibrium solution,
+limits the magnitude of the electric fields which the solver can treat. In the
+case of the BOLSIG+ calculations for helium, solutions fail to converge for
+fields approaching 1000 Td.
 
-The solver was inititialized with the cross sections for helium generated by
-Alves and Ferreira \cite{Alves2013}. The temporal growth model for electrons was
-used, and the electron-electron collisions were not neglected as a result of the
-low ionization fraction in the \acs{rpnd}. Solutions were calculated for a range
-of electric fields and then tabulated according to their mean energy. A nearest
-neighbor interpolation scheme was used to generate an \acs{eedf} for the mean
-energies from the \acs{pic} simulations.
+The solver was initialized with the cross sections for helium generated by Alves
+and Ferreira \cite{Alves2013}. The temporal growth model for electrons was used,
+and the electron-electron collisions were neglected as a result of the low
+ionization fraction in the \acs{rpnd} (about 10$^{-5}$). Solutions were
+calculated for mean energies covering the range of those determined from the
+\acs{pic} simulations, from 2-50 eV. The \acs{eedf}s for these solutions were
+then tabulated according to their mean energy. A cubic, nearest-neighbor
+interpolation scheme was then used to generate an approximate \acs{eedf} for the
+precise mean energies from the \acs{pic} simulations.
 
-These same energies were used to determine equivalent Maxwell-Boltzmann
-distributions for comparison. The results of these calculations can be seen in
-figure~\ref{fig:picmb},
+These same mean energies were used to determine equivalent Maxwell-Boltzmann
+distributions for comparison. The \acs{eedf}s generated by the \acs{pic}
+simulations, approximate Boltzmann solutions, and Maxwell-Boltzmann
+distributions can be seen in figure~\ref{fig:picmb},
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/picmb.eps}
@@ -322,61 +332,61 @@ figure~\ref{fig:picmb},
     of electric fields.}
   \label{fig:picmb}
 \end{figure}
-as a series of contour plots comparing the results for each approach. The
-jaggedness of the \acs{pic} simulations results from the finite number of
-particles in the system and the low probability of high energy electrons. This
-problem is ameliorated at higher electric fields where the probability of
-high-energy electrons increases. An increase in the number of electron
-macro-particles, resulting from ionization, also helps to reduce this effect.
+as a series of contour plots. The jaggedness of the \acs{pic} simulations
+results from the finite number of particles in the system and the low
+probability of high energy electrons. This problem is ameliorated at higher
+electric fields where the probability of high-energy electrons increases. It is
+also helped by the ionization processes which begin to occur after the first few
+nanoseconds.
 
 At 10 Td, the \acs{eedf}s are relatively unchanged over the duration of the
 simulation. The subtle slopes of the contours suggest a small increase in the
-overall temperature and energy of the system. The rate of increase in
-temperature increases as the value of the electric field is increased. At 30 Td,
-the contours of each approach are essentially linear with similar slopes. The
-only noticeable deviation is the closer spacing of the contours from BOLSIG+.
-Thus the probability distribution falls off faster with energy for this case
-relative to the \acs{pic} simulations and the corresponding Maxwell-Boltzmann
-distributions.
+overall temperature and energy of the system as a function of time. This is more
+noticeable at 30 Td, where the contours have a more distinct slope. The spacing
+between the slopes is relatively constant for each case--equivalent to a
+Maxwell-Boltzmann distribution. However, there is some deviation at low energies
+in the case of the BOLSIG+ solutions.
 
-At 60 and 100 Td, the \acs{pic} results and Maxwell-Boltzmann distributions
-continue to feature contour spacings which increase linearly with time. In
-contrast, the BOLSIG+ solutions have contour spacings which are monotonically
-increasing, but at a rate which varies in time. Additionally, the spacing
-between the various levels is less consistent than for the \acs{pic} simulations
-or the Maxwell-Boltzmann distributions. By the end of the simulation period, the
-overall width of BOLSIG+ contours is less than either of the other approaches.
+At 60 and 100 Td, the \acs{pic} results begin to exhibit contour spacings which
+are consistent at low energies, but begin to grow at higher energies. This is
+evidence of a growing population of high-energy electrons, in excess of what
+exists in a Maxwell-Boltzmann distribution. Interestingly, the BOLSIG+ solutions
+exhibit unique contour shapes which are inconsistent with the other two cases.
+Additionally, the spacing of the contours is less consistent, and there is a
+dearth of high energy electrons compared to the other cases.
 
-However, by 300 and 600 Td the situation has slight changed. The
-Maxwell-Boltzmann distributions show consistently less breadth than the
-\acs{pic} results of the BOLSIG+ solutions. Close examination shows that the
-\acs{pic} simulations have larger populations of low energy (less than 20 eV)
-and high energy (greater than 100 eV) electrons. This can be traced back to the
-form of the helium cross sections used in XPDP1. The only reactions available to
-electrons in the simulation are elastic scattering, excitation (19.6 eV
-threshold), and ionization (24.6 eV threshold). Thus the electron population is
-depleted at values above around 20 eV, as a result of these inelastic processes.
-Likewise, the electron population begins to rebound at higher energies as the
-inelastic processes turn off. The Maxwell-Boltzmann solutions are quite simple
-and do not account for the variation of the cross sections with respect to
-energy. This explains the increased consistency of the \acs{pic} and BOLSIG+
-results at high electric field values.
+By 300 and 600 Td the situation is reversed, as the Maxwell-Boltzmann
+distributions begin to underestimate the population of high energy electrons.
+Examination of the individual distributions shows that the \acs{pic} \acs{eedf}s
+have a larger population of low energy (less than 20 eV) and high energy
+(greater than 100 eV) electrons. This can be explained by the general shape of
+the cross sections. The only reactions available to electrons in the \acs{pic}
+simulations are elastic scattering, excitation (19.6 eV threshold), and
+ionization (24.6 eV threshold). As the inelastic processes turn on at energies
+in excess of the 20 eV, the electron population begins to be depleted. Likewise,
+the electron population begins to rebound at higher energies as th
+
+as the inelastic
+processes turn off. The Maxwell-Boltzmann solutions are quite simple and do not
+account for the variation of the cross sections with respect to energy. This
+explains the increased consistency of the \acs{pic} and BOLSIG+ results at high
+electric field values.
 
 Generally, the Maxwell-Boltzmann results appear to provide the best match to the
 \acs{pic} simulations at electric fields of 100 Td and below. At higher fields,
-the BOLSIG+ results provide a better approximation of the \acs{pic} results.
-If the electric fields measured by Takashima et al.\ are the same as those in the
+the BOLSIG+ results provide a better approximation of the \acs{pic} results. If
+the electric fields measured by Takashima et al.\ are the same as those in the
 \acs{rpnd} studied here, then the Boltzmann solver would be the best choice at
-the peak field values. However, for a very large fraction of the time, the
-Maxwell-Boltzmann distribution would appear to provide the best approximation of
-the electron distributions in the system. As a result, it was decided to use
-this distribution for the development of the global model.
+the peak field values \cite{Takashima2011}. However, for a very large fraction
+of the time, the Maxwell-Boltzmann distribution would appear to provide the best
+approximation of the electron distributions in the system. As a result, it was
+decided to use this distribution for the development of the global model.
 
 \subsection{Energy Equation}
 
 Given a form for the distribution function, it is now possible to calculate the
 rate coefficients in equation~\ref{eq:gcont} at each time step. However, as was
-seen in figure~\ref{fig:picmb}, the distribution function changes over time. In
+s een in figure~\ref{fig:picmb}, the distribution function changes over time. In
 that case, the \acs{pic} simulations were used to calculate the mean electron
 energy which, in turn, was used to determine the appropriate Maxwell-Boltzmann
 distribution. However, as of yet, no mechanism has been provided to evolve the
