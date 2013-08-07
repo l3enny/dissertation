@@ -87,8 +87,9 @@ of the radial metastable density or an improved understanding of the \acs{rpnd}.
 
 \subsection{Continuity Equation}
 
-The global model begins with equation~\ref{eq:cont}, the continuity equation.
-Having assumed that the spatial variations are zero, the equation reduces to,
+The equation~\ref{eq:cont}, the continuity equation, forms the basis for
+tracking the populations of the excited states in the plasma. Having assumed
+that the spatial variations are zero, the equation reduces to,
 \begin{equation}
   \frac{d n_\alpha}{dt} = G_\alpha - L_\alpha,
   \label{eq:zdmcont}
@@ -97,15 +98,16 @@ where $\alpha$ identifies the particle species, $G$ is the gain term, and $L$ is
 the loss term. The gain and loss terms represent all possible reactions which
 can alter the population of the species under consideration. In the presented
 model, only helium, excited helium states, helium ions, and electrons were
-treated. Also present, to some degree, were gaseous impurities and helium dimers.
-As observed in Chapter~\ref{chp:metastables}, the combined effects of these
-species on the metastable densities took place with an e-folding time of about
-25 $\mu$s. As the simulations are limited to the period of time before the first
-reflection arrives (140 ns), these species were neglected in the model.
+treated. Also present, to some degree, were gaseous impurities and helium
+dimers. As observed in Chapter~\ref{chp:metastables}, the combined effects of
+these species on the metastable densities took place with an e-folding time of
+about 25 $\mu$s. As the simulations are limited to the period of time before the
+first reflection arrives (140 ns), these species were neglected in the model.
 
 There were several possible processes that were considered for inclusion in the
 model:
-\begin{enumerate}
+\begin{itemize}
+  \singlespacing
   \item electron impact ionization,
   \item electron impact (de)excitation,
   \item atomic impact (de)excitation,
@@ -114,7 +116,7 @@ model:
   \item three-body recombination,
   \item radiative decay, and
   \item diffusion.
-\end{enumerate}
+\end{itemize}
 As with the impurities and dimer formation, diffusion occurs on a much longer
 time scale, and was subsequently neglected. Three-body recombination in the
 volume of the discharge is not important at the estimated temperatures and
@@ -192,33 +194,37 @@ equation~\ref{eq:rate}. However, this leads back to the question of which
 \subsection{Distribution Effects}\label{sec:dists}
 
 Per the discussion of the Boltzmann equation in Chapter~\ref{chp:theory}, there
-are two readily available equilibrium solutions: the Maxwell-Boltzmann
-distribution, and the Druyvesteyn distribution. However, research by
-Starikovskaia and Starikovskii \cite{Starikovskaia2001} has shown that the
-\acs{eedf} in a nitrogen \acs{fiw} can deviate from both. Such a result is not
-too surprising given the non-equilibrium nature of the \acs{fiw} discharge.
-Since the \acs{rpnd} shares many of these same properties, it is possible that
-the equilibrium solutions do not apply to the \acs{rpnd} either.
+are two analytic equilibrium solutions: the Maxwell-Boltzmann distribution, and
+the Druyvesteyn distribution. However, research by Starikovskaia and
+Starikovskii \cite{Starikovskaia2001} has shown that the \acs{eedf} in a
+nitrogen \acs{fiw} can deviate from both. Such a result is not too surprising
+given the non-equilibrium nature of the \acs{fiw} discharge. Since the
+\acs{rpnd} shares many of these same properties, it is possible that the
+equilibrium solutions do not apply to the \acs{rpnd} either.
 
 In order to better understand how the energy distributions may behave in a
 \acs{rpnd}, a numerical study of the \acs{eedf} in a helium \acs{rpnd} was
-conducted. First, \acs{pic} code was used to simulate the effect of a voltage
-pulse on electrons in a quasi zero-dimensional geometry. This provided a series
-of baseline \acs{eedf}s which varied with respect to time. Then, at each time
-point, the mean energy was calculated from the \acs{pic} results. The mean
-energy was then used to generate equivalent approximate solutions of the
-Boltzmann equation, and Maxwell-Boltzmann distributions.
+conducted. First, a particle-in-cell (\acs{pic}) code was used to simulate the
+effect of a voltage pulse on electrons in a quasi zero-dimensional geometry.
+This generated the evolution of the \acs{eedf} in a helium plasma as a function
+of time. Then, the mean energy for the \acs{eedf} at each time was calculated.
+This was then used to generate similar equivalent Maxwell-Boltzmann
+distributions and solutions of the Boltzmann equation.
 
-\acs{pic} simulations do not attempt to solve the Boltzmann equation directly.
-In essence, they are a model of an actual experiment and can have one, two, and
-three dimensional geometries. They consider a population of discrete
-macro-particles within the specified geometry, subject to specified fields, and
-governed by the basic laws of motion \cite{Birdsall1991}. While each
-macro-particle has a specific location, velocity, charge, and mass, it is not
-the same as a single physical particle. It also possesses a statistical weight
-which allows it to represent a \emph{group} of physical particles. Provided
-enough macro-particles, their velocities can be compiled to construct an
-estimate of the real \acs{eedf}.
+The \acs{pic} simulations do not attempt to solve the Boltzmann equation
+directly. Instead, they simulate the behavior of many plasma particles in an
+experimental geometry using the basic laws of motion and electromagnetism
+\cite{Birdsall1991}. A discrete \acs{eedf} can then be calculated from the
+particle population (or subset thereof). As the number of simulated particles
+increases the discrete \acs{eedf} will approach the continuous \acs{eedf} which
+would result from a solution of the Boltzmann equation.
+
+Generally, \acs{pic} simulations do not make a one-to-one correspondence between
+computer particles and physical particles--most plasma involve more particles
+than can be reasonably simulated. Instead, they consider a population of
+macro-particles, each of which possesses some statistical weight
+\cite{Birdsall1991}. This weight allows the macro-particle to represent a group
+of physical particles. 
 
 The process by which the \acs{pic} simulation is conducted is illustrated in
 figure~\ref{fig:pic}.
