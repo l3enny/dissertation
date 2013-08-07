@@ -641,25 +641,55 @@ figure~\ref{fig:widths}.
   \label{fig:widths}
 \end{figure}
 Several features are immediately apparent. The most obvious is the clear need
-for a pulse-width that is \emph{longer} than the applied electric field. This
-result was quite unexpected and suggested an unknown contribution to the
-population of the metastable states. Also evident in the plots 
+for a pulse-width that is \emph{longer} than the applied electric field. For the
+range of pulse-widths considered, the 40 ns value provides the best match to the
+measured metastable data. This result was quite unexpected and suggested an
+unknown contribution to the population of the metastable states. Also evident in
+the plots
 
-
+The emissions from the 4$^1$P$^\mathrm{o}$-2$^1$S were measured as a function of
+time in order to understand the origin of the extended excitation period of the
+metastable states (Chapter~\ref{chp:emissions} provides more detail on the
+measurement procedure). Figure~\ref{fig:double}
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/double.eps}
   \caption{Evidence of return stroke in the double-peaking of plasma emissions.}
   \label{fig:double}
 \end{figure}
+shows these emissions for each operating condition overlaid on the applied
+voltage pulse. The voltage pulse clearly coincides with the initial excitation
+of helium atoms to the 4$^1$P$^\mathrm{o}$ state. Soon after, another increase
+in the population of the 4$^1$P$^\mathrm{o}$ state is clearly visible,
+particularly at 1.0 and 4.0 Torr. This second burst is similar to the return
+strokes observed in early streamer research \cite{Snoddy1936, Loeb1940,
+Mitchell1947}. The observation of return strokes in similar, contemporary
+studies \cite{Vasilyak1994, Pai2009, Starikovskiy2013} suggests that this is a
+reasonable explanation for the double-peaked emissions. Furthermore, the
+existence of a return stroke would be a reasonable explanation for the need to
+use a pulse-width of 40 ns as compared to the 25 ns width of the applied
+voltage pulse.
 
+Figure~\ref{fig:fieldtau}
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/fieldtau.eps}
   \caption{The required peak field strengths as a function of the pulse-width.}
   \label{fig:fieldtau.eps}
 \end{figure}
+is a scatter plot of the peak electric fields necessary to obtain the same final
+metastable density as a function of the pulse-width. Initially, as the
+pulse-width is decreased from 50 ns, only small increases of the electric field
+are required to obtain the same number of metastable atoms by the end of the
+simulation period. However, as the pulse-width is decreased further, the rate at
+which the electric field must increased grows substantially. Eventually, the
+model cannot 
+
+as the
+pulse-width is decreased, the strength of the electric field must be increased
+to compensate. 
  
+
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/nmcomp.eps}
@@ -668,6 +698,7 @@ population of the metastable states. Also evident in the plots
   \label{fig:nmcomp}
 \end{figure}
 
+
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/necomp.eps}
@@ -675,6 +706,7 @@ population of the metastable states. Also evident in the plots
   conditions.}
   \label{fig:necomp}
 \end{figure}
+
 
 \begin{figure}
   \centering
