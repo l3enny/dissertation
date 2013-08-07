@@ -9,11 +9,15 @@
 \usepackage{xcolor}
 \usepackage{mathspec}
 \usepackage{cite}
-\usepackage{scalefnt}
+%\usepackage{scalefnt}
 \usepackage{booktabs}
-%\usepackage{xfrac}
+\usepackage{enumitem}
 %\usepackage{listings}
 
+% Fix list paragraph-list spacing
+\setlist{nolistsep}
+
+% Set fonts to TeX Gyre equivalents of Times, Helvetica, and Courier
 \defaultfontfeatures{Mapping=tex-text, Ligatures={Common}}
 \setmainfont{TeX Gyre Termes}
 \setsansfont{TeX Gyre Heros}
@@ -81,10 +85,6 @@
   \appendix
     \chapter{Measurements in an Air RPND}\label{chp:nasa}
       \input{chapters/nasa/nasa.tex}
-
-  %    \input{chapters/mmw/mmw.tex}
-  %  \chapter{Rotational Spectroscopy}\label{chp:oes}
-  %    \input{chapters/oes/oes.tex}
 
   \bibliographystyle{unsrt}
   \bibliography{./Thesis}
