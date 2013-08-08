@@ -681,7 +681,7 @@ Figure~\ref{fig:fieldtau}
   \centering
   \includegraphics{./chapters/modeling/figures/fieldtau.eps}
   \caption{The required peak field strengths as a function of the pulse-width.}
-  \label{fig:fieldtau.eps}
+  \label{fig:fieldtau}
 \end{figure}
 is a scatter plot of the peak electric fields necessary to obtain the same final
 metastable density as a function of the pulse-width. Initially, as the
@@ -719,8 +719,10 @@ Figure~\ref{fig:nmcomp}
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/nmcomp.eps}
-  \caption{Comparison of the measured metastable densities to the global model
-  simulations.}
+  \caption{Comparison of the measured metastable densities (open circles) to
+    the global model simulations. The shaded region illustrates the applied
+    voltage pulse. The parentheses following the 8.0 Torr labels indicate the
+    axial location of the measurement.}
   \label{fig:nmcomp}
 \end{figure}
 shows the comparison of the measured metastable densities for 1.0, 4.0, and 8.0
@@ -731,7 +733,41 @@ position were simulated independently.
 
 Notably, the global model simulations show excellent agreement across all cases.
 This includes the fast transients near the beginning of the pulse as well as
-later in the afterglow. 
+later in the afterglow. The greatest disagreement between the simulations and
+the experiment occur at 1.0 Torr. As will be seen later, the predicted reduced
+fields for this condition were the largest, peaking at almost 350 Td. As was
+noted in the analysis of the different distributions, this value approaches the
+region where the assumption of a Maxwell-Boltzmann distribution begins to fail.
+
+In addition to capturing the behavior during the pulse, the global simulations
+show good agreement in the afterglow (around 40 ns after the pulse). 
+
+Table~\ref{tbl:simsum}
+\begin{table}
+  \centering
+  \caption{Summary of the peak values for several plasma parameters from the
+  global model simulations.}
+  \label{tbl:simsum}
+  \begin{tabular}{lllll}
+    \toprule \\
+    Pressure         & E/N  & T$_\mathrm{e}$ & N$_\mathrm{m}$ & n$_\mathrm{e}$ \\
+    (Torr)           & (Td) & (eV)           &  (m$^{-3}$)    & (m$^{-3}$) \\
+    \midrule \\
+    1.0              & 346  & 74.6           & 1.62$\times10^{17}$ & 
+      5.06$\times10^{17}$ \\
+    4.0              & 207  & 16.3           & 1.87$\times10^{17}$ &
+      3.36$\times10^{17}$ \\
+    8.0 (Upstream)   & 154  & 11.5           & 1.88$\times10^{17}$ &
+      2.57$\times10^{17}$ \\
+    8.0 (Midstream)  & 152  & 11.4           & 1.57$\times10^{17}$ & 
+      2.14$\times10^{17}$ \\
+    8.0 (Downstream) & 150  & 11.3           & 1.21$\times10^{17}$ &
+      1.65$\times10^{17}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+summarizes the peak values for several of the plasma parameters from the
+simulation.
 
 
 \begin{figure}
@@ -752,19 +788,6 @@ later in the afterglow.
   \label{fig:etemps}
 \end{figure}
 
-
-
-\begin{table}
-  \caption{Summary of the peak values for several plasma parameters from the
-  global model simulations.}
-  \begin{tabular}{lll}
-    \toprule \\
-    Pressure & E/N  & T$_\mathrm{e}$ & N$_\mathrm{m}$ & n$_\mathrm{e}$ \\
-    (Torr)   & (Td) & (eV)           &  (m$^{-3}$)    & (m$^{-3}$) \\
-    \midrule \\
-    \bottomrule
-  \end{tabular}
-\end{table}
 
 
 
