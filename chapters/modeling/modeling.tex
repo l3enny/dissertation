@@ -642,10 +642,12 @@ figure~\ref{fig:widths}.
 \end{figure}
 It is immediately apparent that the short pulse-widths do not provide an optimal
 description of the data. Even the metastable densities for the 25 ns simulation
-grow significantly faster than those of the experiment. This suggests that the
-effective pulse-width in the \acs{rpnd} is longer than the duration of the
-applied voltage. Indeed, the best match of the data for the illustrated
-simulations occurs for a pulse-width of 40 ns.
+grow significantly faster than those of the experiment. The experimental limit
+on the time resolution was the photodiode, with a response time of 5 ns,
+therefore the slow rise of the metastable states appears to be a real phenomena.
+This suggested that the effective pulse-width in the \acs{rpnd} extended longer
+than the duration of the applied voltage. Indeed, the best match of the data for
+the illustrated simulations occurs for a pulse-width of 40 ns.
 
 The results of the pulse-width comparison suggest that additional excitation is
 taking place in addition to the applied pulse. In order to determine the origin
@@ -671,7 +673,8 @@ Starikovskiy2013} suggests that this is a reasonable explanation for the
 double-peaked emissions. If the forward and return stroke possess durations
 equal to the applied voltage (25 ns), separated by 15 ns, then the excitation
 period would be approximately 40 ns. This is consistent with the pulse-width
-required to match the observed data.
+required to match the observed data. For this reason, a pulse-width of 40 ns was
+used for all subsequent simulations.
 
 Figure~\ref{fig:fieldtau}
 \begin{figure}
@@ -712,7 +715,7 @@ runaway electrons which can be generated at these field strengths, described by
 Vasilyak \cite{Vasilyak1994} among others, could help increase the discharge
 volume and homogeneity via nonlocal energy deposition.
 
-
+Figure~\ref{fig:nmcomp}
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/nmcomp.eps}
@@ -720,7 +723,15 @@ volume and homogeneity via nonlocal energy deposition.
   simulations.}
   \label{fig:nmcomp}
 \end{figure}
+shows the comparison of the measured metastable densities for 1.0, 4.0, and 8.0
+Torr. Only the midstream measurements were simulated for the 1.0 and 4.0 Torr
+conditions as no significant axial variation was observed. However, given the
+changes observed in the case of 8.0 Torr, the metastable trends for each axial
+position were simulated independently.
 
+Notably, the global model simulations show excellent agreement across all cases.
+This includes the fast transients near the beginning of the pulse as well as
+later in the afterglow. 
 
 
 \begin{figure}
