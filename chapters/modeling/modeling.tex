@@ -640,35 +640,43 @@ figure~\ref{fig:widths}.
   dynamics.}
   \label{fig:widths}
 \end{figure}
-Several features are immediately apparent. The most obvious is the clear need
-for a pulse-width that is \emph{longer} than the applied electric field. For the
-range of pulse-widths considered, the 40 ns value provides the best match to the
-measured metastable data. This result was quite unexpected and suggested an
-unknown contribution to the population of the metastable states. Also evident in
-the plots
+Several features are immediately apparent. Evident in the plots is a change of
+what might be considered the breakdown delay. As the electric field is
+increased, observable growth of the metastable density occurs earlier in the
+simulation, though the peak electric field remains at the same point in time.
+This reflects the faster growth of the electron temperatures during the short
+pulse-widths. Increases in the growth rate of the electron temperature allows
+the population of electrons to more quickly reach the optimal portions of the
+reaction cross sections. Most surprising is the clear need for a pulse-width
+that is \emph{longer} than the applied electric field. For the range of
+pulse-widths considered, the 40 ns value provides the best match to the measured
+metastable data.
 
-The emissions from the 4$^1$P$^\mathrm{o}$-2$^1$S were measured as a function of
-time in order to understand the origin of the extended excitation period of the
-metastable states (Chapter~\ref{chp:emissions} provides more detail on the
-measurement procedure). Figure~\ref{fig:double}
+The results of the pulse-width comparison suggest that additional excitation is
+taking place in addition to the applied pulse. In order to determine the origin
+of this excitation, a survey was made of the neutral emissions spectra. The
+details of these measurements will be discussed in more detail in
+Chapter~\ref{chp:emissions}. The strongest signal was observed at 396 nm,
+corresponding to the 4$^1$P$^\mathrm{o}$-2$^1$S transition. Measuring these
+emissions as a function of time produced figure~\ref{fig:double}
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/double.eps}
   \caption{Evidence of return stroke in the double-peaking of plasma emissions.}
   \label{fig:double}
 \end{figure}
-shows these emissions for each operating condition overlaid on the applied
-voltage pulse. The voltage pulse clearly coincides with the initial excitation
-of helium atoms to the 4$^1$P$^\mathrm{o}$ state. Soon after, another increase
-in the population of the 4$^1$P$^\mathrm{o}$ state is clearly visible,
-particularly at 1.0 and 4.0 Torr. This second burst is similar to the return
-strokes observed in early streamer research \cite{Snoddy1936, Loeb1940,
-Mitchell1947}. The observation of return strokes in similar, contemporary
-studies \cite{Vasilyak1994, Pai2009, Starikovskiy2013} suggests that this is a
-reasonable explanation for the double-peaked emissions. Furthermore, the
-existence of a return stroke would be a reasonable explanation for the need to
-use a pulse-width of 40 ns as compared to the 25 ns width of the applied
-voltage pulse.
+where the emissions for each operating condition have been overlaid on the
+applied voltage pulse. The voltage pulse clearly coincides with an initial
+increase in the number of helium atoms in the 4$^1$P$^\mathrm{o}$ state. 15 ns
+later, another increase is visible, particularly at 1.0 and 4.0 Torr. This
+second transient is similar to the return strokes observed in early streamer
+research \cite{Snoddy1936, Loeb1940, Mitchell1947}. The observation of return
+strokes in similar, contemporary studies \cite{Vasilyak1994, Pai2009,
+Starikovskiy2013} suggests that this is a reasonable explanation for the
+double-peaked emissions. If the forward and return stroke possess durations
+equal to the applied voltage (25 ns), separated by 15 ns, then the excitation
+period would be approximately 40 ns. This is consistent with the pulse-width
+required to match the observed data.
 
 Figure~\ref{fig:fieldtau}
 \begin{figure}
@@ -682,13 +690,33 @@ metastable density as a function of the pulse-width. Initially, as the
 pulse-width is decreased from 50 ns, only small increases of the electric field
 are required to obtain the same number of metastable atoms by the end of the
 simulation period. However, as the pulse-width is decreased further, the rate at
-which the electric field must increased grows substantially. Eventually, the
-model cannot 
+which the electric field must increased grows substantially.
 
-as the
-pulse-width is decreased, the strength of the electric field must be increased
-to compensate. 
- 
+Eventually, it is no longer possible to maintain the same metastable density,
+despite further increases in the electric field. This occurs for the same reason
+that the \acs{eedf} from the \acs{pic} simulations was depressed between 20 and
+100 eV--eventually, the cross sections fall off with increasing electron energy.
+This places an upper limit on the rate coefficient as a function of electron
+temperature. Figure~\ref{fig:longrates}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/modeling/figures/longrates.eps}
+  \caption{Ionization and metastable rate coefficients as functions of
+    electron temperature.}
+  \label{fig:longrates}
+\end{figure}
+shows the ionization and metastable rate coefficients as functions of the
+electron temperatures in the system. The ionization rate coefficient peaks at
+approximately 320 eV, while the metastable rate coefficient peaks much lower at
+around 23 eV. These rate coefficients, along with the general form of the cross
+sections for the reactions, show that there is an optimal field strength for
+ionization and excited state generation. Further increases in the electric field
+would only serve to reduce to reduce the final density of these particles.
+However, there may still be additional benefits in a higher electric field. The
+runaway electrons which can be generated at these field strengths, described by
+Vasilyak \cite{Vasilyak1994} among others, could help increase the discharge
+volume and homogeneity via nonlocal energy deposition.
+
 
 \begin{figure}
   \centering
@@ -697,6 +725,7 @@ to compensate.
   simulations.}
   \label{fig:nmcomp}
 \end{figure}
+
 
 
 \begin{figure}
@@ -708,6 +737,7 @@ to compensate.
 \end{figure}
 
 
+
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/etemps.eps}
@@ -715,6 +745,8 @@ to compensate.
   simulated conditions.}
   \label{fig:etemps}
 \end{figure}
+
+
 
 \begin{table}
   \caption{Summary of the peak values for several plasma parameters from the
@@ -727,6 +759,8 @@ to compensate.
     \bottomrule
   \end{tabular}
 \end{table}
+
+
 
 \section{Summary}
 
