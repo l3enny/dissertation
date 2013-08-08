@@ -154,41 +154,43 @@ where $r$ is the position of the electron, $e$ is the elementary charge,
 $\nu_\mathrm{eff}$ is the effective rate of momentum transfer, and $m_e$ is the
 mass of the electron.
 
-A sinusoidal electric field can be expressed as $E_0 e^{i\omega t}$ where
-$E_0$ represents the peak field strength and $\omega$ is the angular frequency.
-The form of $E$ suggests a sinusoidal solution such that $r \propto e^{i\omega
-t}$. Solving the differential equation for $\dot{r}$ yields
-    \begin{equation}
-        \dot{r} = -\frac{eE}{m_e}\frac{\nu_\mathrm{eff} + i\omega}
-                                      {\nu_\mathrm{eff}^2 + \omega^2}.
-    \end{equation}
-This drift velocity can be used to solve for the complex plasma conductivity
-and subsequently the dielectric constant. Finally, the complex propagation
-constant can be written,
-    \begin{equation}
-        \gamma = \alpha + i\beta,
-    \end{equation}
-where $\alpha$ is the responsible for the amplitude decay and $\beta$ is
-responsible for the phase shift. These are given by Akhtar as
-    \newcommand{\ts}{\frac{\omega_p^2}{\omega^2 + \nu_\mathrm{eff}^2}}
-    \begin{align}
-        \beta & = \frac{\omega}{c} \left\{ \frac{1}{2} \left(1 - \ts \right)
-                  + \frac{1}{2} \left[ \left( 1 - \ts \right)^2
-                  + \left( \ts \frac{\nu_\mathrm{eff}}{\omega} \right)^2
-                  \right]^{1/2} \right\}^{1/2}, \\
-        \alpha & = \frac{\omega}{c} \left\{ -\frac{1}{2} \left(1 - \ts \right)
-                   + \frac{1}{2} \left[ \left( 1 - \ts \right)^2
-                   + \left( \ts \frac{\nu_\mathrm{eff}}{\omega} \right)^2
-                   \right]^{1/2} \right\}^{1/2}.
-    \end{align}
-The electron density and collision frequency may be solved for explicitly such that
-    \begin{align}
-        \nu_\mathrm{eff} & = 2 \frac{c^2}{\omega}\frac{\alpha\beta}{\xi}, \\
-        n_e & = \frac{m_e\epsilon_0}{e^2}\xi
-                \left(\omega^2+\nu_\mathrm{eff}^2\right), 
-    \end{align}
+The electric field of the incident \acs{mmw} can be expressed as $E_0 e^{i\omega
+t}$ where $E_0$ represents the peak field strength and $\omega$ is the angular
+frequency. The form of $E$ suggests a sinusoidal solution such that $r \propto
+e^{i\omega t}$. Solving the differential equation for $\dot{r}$ yields
+  \begin{equation}
+    \dot{r} = -\frac{eE}{m_e}\frac{\nu_\mathrm{eff} + i\omega}
+                                  {\nu_\mathrm{eff}^2 + \omega^2}.
+  \end{equation}
+This is the drift velocity of the electron. It can be used to solve for the
+complex plasma conductivity and, subsequently, the dielectric constant. This
+allows one to write the complex propagation coefficient for the \acs{mmw},
+  \begin{equation}
+    \gamma = \alpha + i\beta,
+  \end{equation}
+where the real component, $\alpha$, results in a decay of the wave amplitude.
+$\beta$ on the other hand, induces a phase shift in the wave. The full solution
+for the separate propagation components is given by Akhtar \cite{Akhtar2003} as,
+\newcommand{\ts}{\frac{\omega_p^2}{\omega^2 + \nu_\mathrm{eff}^2}}
+\begin{align}
+  \beta & = \frac{\omega}{c} \left\{ \frac{1}{2} \left(1 - \ts \right)
+          + \frac{1}{2} \left[ \left( 1 - \ts \right)^2
+          + \left( \ts \frac{\nu_\mathrm{eff}}{\omega} \right)^2
+              \right]^{1/2} \right\}^{1/2}, \\
+    \alpha & = \frac{\omega}{c} \left\{ -\frac{1}{2} \left(1 - \ts \right)
+          + \frac{1}{2} \left[ \left( 1 - \ts \right)^2
+          + \left( \ts \frac{\nu_\mathrm{eff}}{\omega} \right)^2
+              \right]^{1/2} \right\}^{1/2}.
+\end{align}
+From these components, explicit solutions can be derived for the electron
+density and effective collision frequency,
+\begin{align}
+  \nu_\mathrm{eff} & = 2 \frac{c^2}{\omega}\frac{\alpha\beta}{\xi}, \\
+  n_e & = \frac{m_e\epsilon_0}{e^2}\xi
+         \left(\omega^2+\nu_\mathrm{eff}^2\right), 
+\end{align}
 where $\xi = 1 - (\beta^2-\alpha^2)c^2/\omega^2$. The values for $\alpha$ and
-$\beta$ come from experimental measures of the phase shift and change in
+$\beta$ come from the experimental measures of the phase shift and change in
 amplitude,
     \begin{align}
         \Delta \phi &= \int_0^d \left( \beta_0 - \beta\right)dr, \qquad
@@ -198,34 +200,124 @@ amplitude,
 where $\Delta \phi$ is the phase change, $\Delta A$ is the amplitude change, $d$
 is the pathlength through the plasma, and $\alpha_0$ and $\beta_0$ are free
 space propagation values. As any measurements are integrated over the pathlength
-of the system, it is common eliminate any spatial dependence by solving for
-pathlength-averaged values.
+of the system, it is necessary to make some assumption about the variation of
+the density with respect to the path of the wave. In this case, the density will
+be assumed to be constant along the path of the wave.
 
-pathlength-averaged values.
+\subsection{Experiment}
 
-\section{Experiment}
-    The mmW interferometry was conducted using an HP 8510C network analyzer operating at 75 GHz. The network analyzer was managed by a Labview script and had a maximum sample rate of 5 Hz. Each sample required approximately 100 $\mu$s to complete. The horns used to transmit and receive the mmW were align by maximizing the amplitude of the transmitted signal without the plasma present. The pathlength of the wave through the plasma was assumed to be 2.5 cm, however this is likely an underestimate as a result of diffusion.
+The \acs{mmw} interferometry was conducted using an HP 8510C network analyzer
+operating at 75 GHz. The network analyzer was controlled by a LabView script and
+had a maximum sample rate of 5 Hz. Each sample required approximately 100 $\mu$s
+to complete.
 
-    The actual operating pressures ranged from 19.9-22.6 Torr. The \textsc{fid} power supply was set up for bipolar operation at $\pm$9 kV with one electrode pulsed negative and the other positive. A DC sustainer discharge, as described in \cite{Schneider2009a}, was used in several cases. The sustainer is simply a set of electrodes perpendicular to the discharge axis of the \textsc{pnd}. The sustainer electrodes are held at a potential difference close to, but less than the DC breakdown voltage. The intended effect is an increase in ionization efficiency and a reduced recombination rate.
-\section{Results}
-    \subsection{Time Evolution}
-        The first goal was to evaluate how the plasma changed over long periods of operation. The lack of a circulating air flow suggested that the discharge might change significantly from one minute to the next. This has significant implications for measurements that require acquisitions on the same time scale. One such example is gated passive spectroscopy; the light emitted by the \textsc{pnd} is extremely dim for sub-nanosecond measurements, making it necessary to accumulate light from several hundred or thousand individual pulses. Depending on the duty factor of the imaging device, such a measurement may require tens of minutes.
+The \acs{mmw} signal was transmitted between two test sets which produced a
+variable frequency signal covering all of the V band (50-75 GHz). The output of
+each test set was connected to a high gain horn. The horns were aligned
+perpendicular to the axis of the discharge and transmitted through quartz
+windows on either side of the vacuum chamber. The horns were aligned by a
+maximization of the transmission through the chamber. During data analysis, the
+pathlength of the signal through the plasma was assumed to be 2.5 cm, however
+diffusion results in the transport of electrons outside of the discharge region,
+making this value an underestimate.
 
-        The evolution of the plasma was captured over a period of 30 minutes. Longer duration acquisitions were limited by electromagnetic interference (\textsc{emi}) from the \textsc{pnd}. In particular, the master clock was particularly susceptible to interference. Despite extensive efforts to provide adequate shielding to the clock and all signal cables, a large number of experiments were halted as a result of this interference.
+During operation, the actual pressures within the vacuum chamber varied from
+19.9 to 22.6 Torr. The power supply was operated in a bipolar mode with one
+electrode pulsed to $+9$ kV and the other pulsed to $-9$ kV. Previous interest
+in the use of a DC sustainer discharge \cite{Schneider2009a} prompted an
+investigation of the effects of the sustainer on the time-averaged electron
+density. The sustainer consisted of a pair of floating electrodes, perpendicular
+to the \acs{rpnd}. The sustainer electrodes were held at a potential difference
+that was slightly less than the DC breakdown voltage. The intended effect of the
+sustainer was to increase the time-averaged plasma density through additional
+ionization.
 
-        \begin{figure}
-            \centering
-            \includegraphics{./figures/densev.pdf}
-            \caption{The evolution of the density (---) and the collision frequency (\raisebox{2.5pt}{${\scriptscriptstyle \centerdot \centerdot \centerdot}$}) in a \textsc{pnd} over a period of 30 minutes. These quantities reach their respective maximum and minimum after approximately five minutes, however these are not equilibrium values. The \textsc{pnd} continues to change over long durations.}\label{fig:densev}
-        \end{figure}
-        Figure \ref{fig:densev} shows a measurement of the density and collision frequency evolution over a period of thirty minutes for a \textsc{pnd} operating at 20 kHz, with applied voltages of $\pm$ 9 kV, and no DC sustainer. As hypothesized, there is an observable change in the average electron density on the order of minutes. It reaches a peak after five minutes, after which it shows a moderate decline. The collision frequency ranges from approximately 10-18 GHz. It reaches a minimum at five minutes, the same time that the electron density reaches its maximum, and subsequently rises. The actual average density ranged from approximately $2.25\times 10^{11}$ cm$^{-3}$ to $3.25\times 10^{11}$ cm$^{-3}$. The magnitude of the electron density is somewhat less than anticipated; other papers such as \cite{Aleksandrov2007}, \cite{Pancheshnyi1999}, and \cite{Macheret2006} state densities exceeding $10^{12}$ cm$^{-3}$. Separate experiments (not shown here) demonstrated similar electron densities and collision frequencies. However, the time for the system to reach its quasi-equilibrium varied and, in some cases, required 10 minutes.
-        
-        The observed increase in collision frequency was, perhaps, a result of increasing pressure and gas temperature in the chamber. Meanwhile, the change in electron density may be a result of a changing chemical composition. It is not immediately clear what mechanism is responsible for this, but it is well-known that electrons will readily attach to water molecules. As they are destroyed through dissociation, the attachment rate would decline and it would be reasonable to expect an increase in electron density.
+\subsection{Results}
 
-    \subsection{DC Sustainer}
-        Six separate experiments were run with the DC sustainer discharge on at approximately 750 V (current limited), and four experiments were run with the sustainer off (electrodes floating). Difficulties with \text{emi} prevented a more complete evaluation of the sustainer's effect. Therefore, an absolute statement on the influence of the DC sustainer is not possible. However, experiments without the DC sustainer exhibited consistently higher, but variable, densities.
+The original intent was to obtain a measurement of the electron density as it
+evolved during and after the pulse. However, the acquisition rate of 5 Hz
+prevented acquisition of the electron density evolution for a single pulse.
+Instead, it necessitated measurements spanning several minutes and many
+thousands of pulses. This made it necessary to determine the repeatability of
+the plasma produced by these pulses.
 
-        It is believed that the sustainer may have caused increased energy transfer to the excited states of atoms and molecules, but was ineffective at increasing the electron density. Indeed, the sustainer voltage was insufficient to produce a glow discharge independent of the high voltage pulses. As such, one may conclude that it will tend to extract more electrons than it produces. This being the case, a DC sustainer may be useful in situations requiring fast gas heating, but at the cost of a reduced ionization efficiency.
+This is generally not an issue in systems which feature gas flows, such as those
+studied by Adamovich et al. \cite{Adamovich2009}. However, in this case, the
+vacuum chamber was sealed. This mode of operation can cause a slow accumulation
+of chemical species, increases in gas temperature, deposits on electrode
+surfaces, and more. Each of these has the ability to slowly alter the nature of
+the discharge and can complicate analysis of data acquired after different
+pulses.
+
+Measurements were made of the electron density for a period of 30 minutes at a
+rate of 5 Hz. A SRS DG535 was used to trigger the network analyzer at the same
+delay after each pulse. Acquisition for longer periods were prevented as a
+result of significant electromagnetic interference \acs{emi}. The master clock
+was particularly susceptible to this electrical noise. This would occasionally
+shut off the triggering signal or alter its frequency. Several attempts were
+made to limit the interference to the signal generator through shielding of the
+transmission cables and of the signal generator, however these attempts resulted
+in minimal benefit.
+
+Figure~\ref{fig:densev}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/nasa/figures/densev.pdf}
+  \caption{The evolution of the density (---) and the collision frequency
+    (\raisebox{2.5pt}{${\scriptscriptstyle \centerdot \centerdot \centerdot}$}) in
+    a \acs{rpnd} over a period of 30 minutes. These quantities reach their
+    respective maximum and minimum after approximately five minutes, however these
+    are not equilibrium values. The \acs{rpnd} continues to change over long
+    durations.}
+  \label{fig:densev}
+\end{figure}
+shows the calculation of the electron densities and collision frequencies from
+the measured phase and amplitude changes. The data shown does not include the
+operation of the DC sustainer. The data appear to confirm the concern that the
+sealed vacuum chamber causes long-term variations in the plasma. The electron
+density changes by nearly 50\% during the first five minutes of operation and is
+followed by a slow decline over the next 25 minutes. Simultaneously, the
+effective collisions frequency of the electrons ranges from 10-18 GHz. Overall,
+the electron density ranged from 2.25-3.25 $\times10^{11}$ cm$^{-3}$. This is
+somewhat less than the anticipated density. As previously noted, other studies
+in \acs{fiw} discharges \cite{Aleksandrov2007, Pancheshnyi199, Macheret2006}
+measured densities well in excess of 10$^{12}$ cm$^{-3}$.
+
+
+
+$2.25\times 10^{11}$ cm$^{-3}$ to $3.25\times 10^{11}$ cm$^{-3}$. The magnitude
+of the electron density is somewhat less than anticipated; other papers such as
+\cite{Aleksandrov2007}, \cite{Pancheshnyi1999}, and \cite{Macheret2006} state
+densities exceeding $10^{12}$ cm$^{-3}$. Separate experiments (not shown here)
+demonstrated similar electron densities and collision frequencies. However, the
+time for the system to reach its quasi-equilibrium varied and, in some cases,
+required 10 minutes.
+
+The observed increase in collision frequency was, perhaps, a result of
+increasing pressure and gas temperature in the chamber. Meanwhile, the change in
+electron density may be a result of a changing chemical composition. It is not
+immediately clear what mechanism is responsible for this, but it is well-known
+that electrons will readily attach to water molecules. As they are destroyed
+through dissociation, the attachment rate would decline and it would be
+reasonable to expect an increase in electron density.
+
+\subsection{DC Sustainer}
+
+Six separate experiments were run with the DC sustainer discharge on at
+approximately 750 V (current limited), and four experiments were run with the
+sustainer off (electrodes floating). Difficulties with \acs{emi} prevented a
+more complete evaluation of the sustainer's effect. Therefore, an absolute
+statement on the influence of the DC sustainer is not possible. However,
+experiments without the DC sustainer exhibited consistently higher, but
+variable, densities.
+
+It is believed that the sustainer may have caused increased energy transfer to
+the excited states of atoms and molecules, but was ineffective at increasing the
+electron density. Indeed, the sustainer voltage was insufficient to produce a
+glow discharge independent of the high voltage pulses. As such, one may conclude
+that it will tend to extract more electrons than it produces. This being the
+case, a DC sustainer may be useful in situations requiring fast gas heating, but
+at the cost of a reduced ionization efficiency.
 
 \section{Rotational Spectroscopy}
 
