@@ -40,21 +40,81 @@ important to develop reliable temperature diagnostics for \acs{rpnd}s in
 molecular gases.
 
 This appendix records the development of two diagnostics for an air \acs{rpnd}
-at NASA Glenn Research Center. Measurement of the density was accomplished using
-millimeter-wave interferometry. Plasma interferometry measures changes in the
-phase and amplitude of an electromagnetic wave which has passed through the
-plasma \cite{Lieberman2005}. The phase shift is proportional to the density of
-electrons while the change in amplitude is related to the electron-neutral
-collision frequency. As with other wave-based techniques, the density resulting
-from this approach is line integrated. The translational temperature of the
-system was measured via 
+at \acs{nasa} Glenn Research Center (\acs{grc}). Measurement of the electron
+density was accomplished using millimeter-wave interferometry. Plasma
+interferometry measures changes in the phase and amplitude of an electromagnetic
+wave which has passed through the plasma \cite{Lieberman2005}. The phase shift
+is proportional to the density of electrons while the change in amplitude is
+related to the electron-neutral collision frequency. As with other wave-based
+techniques, the density resulting from this approach is line integrated. The
+translational temperature of the system was measured via
 
-The light emissions of the second positive system of nitrogen were carefully
-modeled and measured in the \textsc{rpnd}. This resulted in time-resolved values
-of the rotational and kinetic temperatures of the system.
+Translational temperatures were measured by analysis of the rotational spectra
+associate with the second positive system of nitrogen. Rotational spectra result
+from changes in the rotational quanta of a molecule. As the energy spacing of
+the rotational levels is generally quite small (often on the order of $10^{-4}$
+eV), inter-molecular collisions can easily redistribute them
+\cite{Herzberg1950}. Provided enough collisions, the distribution of rotational
+states should reflect the distribution of translational energy for the
+molecules.
 
- of such a diagnostic for a moderate
-pressure \acs{rpnd} in air. The approach used measured the rotational spectra of
+\section{Experiment}
+
+Experiments were conducted in a cylindrical vacuum chamber, reproduced in
+figure~\ref{fig:nasachamber},
+\begin{figure}
+  \centering
+  \setlength\fboxsep{0pt}
+  \setlength\fboxrule{1.0pt}
+  \fbox{\includegraphics{./chapters/nasa/figures/VF-69.jpg}}
+  \caption{Vacuum chamber used in \acs{rpnd} experiments at the \acs{nasa}
+    \acs{grc}.}
+  \label{fig:nasachamber}
+\end{figure}
+with a volume of approximately 30 L. The chamber was evacuated by a Varian
+TriScroll 300, scroll pump and the pressure was monitored by a capacitance
+manometer. Before each experiment the chamber pressure was reduced to below 100
+mTorr, after which the chamber was sealed from the pump by a bellows valve. The
+chamber was then back-filled with ambient air until the pressure reached 20.0
+Torr.
+
+The discharge was sustained between two parallel cylindrical electrodes, 2.5 cm
+in diameter and 0.625 cm in length. In the interferometry experiment, the
+electrodes were mounted in a silicone-based dielectric epoxy, cast such that it
+was flush with the faces of the electrode. Optical emission experiments
+eliminated the dielectric epoxy in favor of a machinable ceramic and slightly
+different geometry, seen in figure~\ref{fig:electrodes}.
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/nasa/figures/electrodes.pdf}
+  \caption{The electrodes used in the \acs{rpnd} at \acs{nasa} \acs{grc}. The
+    electrodes are made of copper with a ceramic sheath made of Mykroy.}
+  \label{fig:electrodes}
+\end{figure}
+
+
+This was later replaced by a Mykroy
+fitting, seen in figure~\ref{fig:electrodes}, for the optical emission
+experiment. This change was made to increase the durability of the apparatus for
+longer experimental operation.
+
+The power supply was built by FID (model FPG 60-100-MC4-S5) and supplied voltage
+pulses of up to 60 kV at repetition rates from 6-100 kHz with pulsewidths of 5
+ns. Unless otherwise stated, all measurements were made with the power supply
+operating at 20 kHz using a Wavetek FG3C as the master clock.
+
+When the discharge was
+initiated for the first time after a pump down, the chamber pressure would rise
+by approximately 2 Torr after several minutes of operation. Afterward, the
+pressure would continue to increase at a greatly reduced rate, on the order of
+several tenths of a Torr per minute.
+\section{Millimeter-Wave Interferometry}
+
+
+
+\section{Rotational Spectroscopy}
+
+The approach used measured the rotational spectra of
 a molecular system and used this information to infer the rotational
 temperature. As a result of the close energy-spacing of the rotational levels,
 this temperature is usually a good measure of the translational temperature of
@@ -70,35 +130,3 @@ survey of the available programs revealed little documentation about the
 calculation methods and none which provided the necessary flexibility how the
 spectra were generated. This necessitated the development of a program to
 automate the generation and matching of rotational spectra.
-
-\section{Experiment}
-
-All experiments were conducted in a vacuum chamber at \textsc{nasa grc}. Before
-operation, the vacuum chamber was evacuated to the desired pressure
-(approximately 20 Torr in all presented cases). After the desired pressure was
-reached, the chamber was valved off. As a result, the pressure was subject to
-some variation in each of the experiments. When the discharge was initiated for
-the first time after a pump down, the chamber pressure would rise by
-approximately 2 Torr after several minutes of operation. Afterward, the pressure
-would continue to increase at a greatly reduced rate, on the order of several
-tenths of a Torr per minute.
-
-The discharge was sustained by two parallel cylindrical electrodes, 2.5 cm in
-diameter and 0.625 cm in length. For the interferometry experiment, the
-electrodes were mounted in dielectric epoxy cast such that it was flush with the
-electrode faces. This was later replaced by a Mykroy fitting, seen in
-figure~\ref{fig:electrodes}, for the optical emission experiment. This change
-was made to increase the durability of the apparatus for longer experimental
-operation.
-\begin{figure}
-  \centering
-  \includegraphics{./chapters/nasa/figures/electrodes.pdf}
-  \caption{The electrodes used in the \textsc{pnd} at \textsc{nasa grc}. The
-    electrodes are made of copper with a ceramic sheath made of
-    Mykroy.}
-  \label{fig:electrodes}
-\end{figure}
-The power supply was built by FID (model FPG 60-100-MC4-S5) and supplied voltage
-pulses of up to 60 kV at repetition rates from 6-100 kHz with pulsewidths of 5
-ns. Unless otherwise stated, all measurements were made with the power supply
-operating at 20 kHz using a Wavetek FG3C as the master clock.
