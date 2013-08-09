@@ -659,7 +659,8 @@ emissions as a function of time produced figure~\ref{fig:double}
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/double.eps}
-  \caption{Evidence of return stroke in the double-peaking of plasma emissions.}
+  \caption{The emissions of the 4$^1$P$^\mathrm{o}$-2$^1$S transition in the
+  \acs{rpnd}, overlaid on top of the voltage pulse.}
   \label{fig:double}
 \end{figure}
 where the emissions for each operating condition have been overlaid on the
@@ -680,7 +681,8 @@ Figure~\ref{fig:fieldtau}
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/fieldtau.eps}
-  \caption{The required peak field strengths as a function of the pulse-width.}
+  \caption{The electric fields necessary to generate the same metastable density
+    at 4.0 Torr as a function of the pulse-width.}
   \label{fig:fieldtau}
 \end{figure}
 is a scatter plot of the peak electric fields necessary to obtain the same final
@@ -726,8 +728,11 @@ Figure~\ref{fig:nmcomp}
   \label{fig:nmcomp}
 \end{figure}
 shows the comparison of the measured metastable densities for 1.0, 4.0, and 8.0
-Torr. As seen in chapter~\ref{chp:metastables}, there was little axial variation
-in the metastable measurements at 1.0 and 4.0 Torr. For this reason, simulations
+Torr overlaid atop the applied voltage pulse\footnote{The relative timing of the
+metastable measurements and the voltage pulse are approximate. Corrections were
+made in post-processing to account for different cable lengths in the system.}.
+As seen in chapter~\ref{chp:metastables}, there was little axial variation in
+the metastable measurements at 1.0 and 4.0 Torr. For this reason, simulations
 were conducted only for the measurements at the midstream positions. In
 contrast, the axial distribution of metastables showed noticeable variation at
 8.0 Torr. Therefore, each location was considered independently in the
@@ -770,7 +775,6 @@ table~\ref{tbl:simsum}
   \centering
   \caption{Summary of the peak values for several plasma parameters from the
   global model simulations.}
-  \label{tbl:simsum}
   \begin{tabular}{lllll}
     \toprule \\
     Pressure         & E/N  & T$_\mathrm{e}$ & N$_\mathrm{m}$ & n$_\mathrm{e}$ \\
@@ -788,6 +792,7 @@ table~\ref{tbl:simsum}
       1.65$\times10^{17}$ \\
     \bottomrule
   \end{tabular}
+  \label{tbl:simsum}
 \end{table}
 the electric field approaches 350 Td for the 1.0 Torr discharge. This
 corresponds to the regime in which the Maxwell-Boltzmann distribution (as well
@@ -799,24 +804,62 @@ metastable states. This suggests that the assumption of a Maxwell-Boltzmann
 distribution would tend to overestimate the metastable generation at large
 electric fields, consistent with what is observed in figure~\ref{fig:nmcomp}.
 
-As the pressure is increased, the electric field required to match the measured
-metastable densities begins to decrease, though the final metastable densities
-remain approximately the same.
+As the global model is applied to increasing pressures, the reduced electric
+field begins to fall. Likewise, the electron temperatures are also reduced, from
+about 75 eV down to 12 eV. Despite these changes, the final metastable densities
+remain approximately the same. Though the temperatures are lower, they still
+peak near the maximum in the metastable rate coefficient in
+figure~\ref{fig:longrates}. Additionally, the large number of neutral gas
+particles ensures that the total metastable production rate remains large.
 
+Notably, the metastable densities and electron densities peak for different
+conditions. The electron density trends can be observed in
+figure~\ref{fig:necomp}
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/necomp.eps}
   \caption{Global model predictions of the electrons densities at the simulated
-  conditions.}
+  conditions overlaid on the reduced electric field.}
   \label{fig:necomp}
 \end{figure}
+overlaid on the reduced electric fields. The electron density peaks at the
+lowest simulated pressure whereas the metastable density peaks at 4.0 Torr.
+Again, this can be seen as a result of the rate coefficients for the respective
+reactions. The ionization rate coefficient continues to increase well past 100
+eV, whereas the metastable rate coefficient decreases after 23 eV. While the
+increase in electron density competes with the decline in the metastable rate
+coefficient, ultimately the rate coefficient falls too quickly. 
 
+Also observable in the evolution of the electron densities is a time-delay
+between the peak electric field and peak electron production rate for all
+conditions. For the cases under consideration the peak ionization rate occurs at
+about 23.5 ns at 1.0 Torr, 16.4 ns at 4.0 Torr, and 15.5 ns at 8.0 Torr. In
+contrast, the electron temperatures in figure~\ref{fig:etemps} show little to no
+such delay. In part, this behavior reflects the need for a finite amount of time
+before the background electrons gain ionization-relevant energies. Additionally,
+the electron growth process is relatively slow at first given the low initial
+densities. This causes a further delay in the growth of the electrons.
 
-
-
-
-
+Finally, the behavior axial behavior in the 8.0 Torr condition exhibits several
+interesting characteristics. At the position closest to the anode, the peak
+metastable density exceeds that of operation at 4.0 Torr. This contrasts with
+the position furthest from the anode which features the lowest measured
+metastable density for this range of conditions. However, the electric field and
+electron temperatures across all three locations only vary by about one percent.
+This recalls the electric field sensitivity that was noted in the earlier
+perturbation study and suggests that even small variations in the electric field
+of the \acs{rpnd} can have large implications on its homogeneity.
 
 \section{Summary}
 
+
+
+The higher electron density and correspondingly high ionization fraction occur
+at the same condition as optimal energy coupling to the plasma, as seen in
+Chapter~\ref{chp:experiment}. Simultaneously, as will be seen in
+Chapter~\ref{chp:emissions}, the peak metastable density is associated with the
+peak brightness of the plasma, the largest number of excited states, and the
+highest wave velocity. These contrasting results demonstrate that the \acs{rpnd}
+can be optimized for one of two conditions: production of excited atomic states,
+or ionization.
 
