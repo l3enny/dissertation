@@ -726,23 +726,46 @@ Figure~\ref{fig:nmcomp}
   \label{fig:nmcomp}
 \end{figure}
 shows the comparison of the measured metastable densities for 1.0, 4.0, and 8.0
-Torr. Only the midstream measurements were simulated for the 1.0 and 4.0 Torr
-conditions as no significant axial variation was observed. However, given the
-changes observed in the case of 8.0 Torr, the metastable trends for each axial
-position were simulated independently.
+Torr. As seen in chapter~\ref{chp:metastables}, there was little axial variation
+in the metastable measurements at 1.0 and 4.0 Torr. For this reason, simulations
+were conducted only for the measurements at the midstream positions. In
+contrast, the axial distribution of metastables showed noticeable variation at
+8.0 Torr. Therefore, each location was considered independently in the
+simulations.
 
-Notably, the global model simulations show excellent agreement across all cases.
-This includes the fast transients near the beginning of the pulse as well as
-later in the afterglow. The greatest disagreement between the simulations and
-the experiment occur at 1.0 Torr. As will be seen later, the predicted reduced
-fields for this condition were the largest, peaking at almost 350 Td. As was
-noted in the analysis of the different distributions, this value approaches the
-region where the assumption of a Maxwell-Boltzmann distribution begins to fail.
+Despite the assumptions involved in the development of the global model, the
+simulation results show impressive agreement with the measurements. This
+includes the period of 0-40 ns when the metastable growth rate is the largest.
+The plasma behavior in during this time is dominated by energetic electrons that
+have been accelerated by the large electric fields. Given the relatively short
+time period, inter-atomic and radiative processes play a relatively unimportant
+role. The most significant discrepancies appear in the 1.0 Torr simulations
+where the global appears to overestimate the metastable density during the
+pulse.
 
-In addition to capturing the behavior during the pulse, the global simulations
-show good agreement in the afterglow (around 40 ns after the pulse). 
+The global model also performs well in the afterglow period, from 40 ns to the
+end of the measurements. After the pulse, the electrons begin to undergo rapid
+cooling, as seen in figure~\ref{fig:etemps}.
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/modeling/figures/etemps.eps}
+  \caption{Global model predictions of the electron temperatures at the
+  simulated conditions, overlaid on the corresponding electric field.}
+  \label{fig:etemps}
+\end{figure}
+By 50 ns, the electron temperatures have fallen below 10 eV in all cases, and by
+the end of the simulation they are all below 3 eV. As a result of this rapid
+cooling, the rate of electron-induced reactions falls significantly. As was seen
+in figure~\ref{fig:longrates}, the rate for metastable and ion generation begin
+to undergo a fast decline at temperatures below 10 eV. This indicates that much
+of the metastable growth after 50 ns can be attributed to radiative transitions
+from upper excited states. Again, the most significant discrepancies appear for
+the measurements at 1.0 Torr. In this case, the simulations appear to
+underestimate the total metastable population.
 
-Table~\ref{tbl:simsum}
+The issues in accurately simulating the 1.0 Torr case may be a result of the
+large electric field present in the system. As can be observe in
+table~\ref{tbl:simsum}
 \begin{table}
   \centering
   \caption{Summary of the peak values for several plasma parameters from the
@@ -766,9 +789,19 @@ Table~\ref{tbl:simsum}
     \bottomrule
   \end{tabular}
 \end{table}
-summarizes the peak values for several of the plasma parameters from the
-simulation.
+the electric field approaches 350 Td for the 1.0 Torr discharge. This
+corresponds to the regime in which the Maxwell-Boltzmann distribution (as well
+as the BOLSIG+ results) begin to deviate from the \acs{pic} predictions.
+Specifically, the Maxwell-Boltzmann distribution tended to overestimate the
+number of electron in the range of 20-100 eV at high electric fields. These are
+precisely the electrons which are responsible for the generation of the
+metastable states. This suggests that the assumption of a Maxwell-Boltzmann
+distribution would tend to overestimate the metastable generation at large
+electric fields, consistent with what is observed in figure~\ref{fig:nmcomp}.
 
+As the pressure is increased, the electric field required to match the measured
+metastable densities begins to decrease, though the final metastable densities
+remain approximately the same.
 
 \begin{figure}
   \centering
@@ -780,13 +813,6 @@ simulation.
 
 
 
-\begin{figure}
-  \centering
-  \includegraphics{./chapters/modeling/figures/etemps.eps}
-  \caption{Global model predictions of the electron temperatures at the
-  simulated conditions.}
-  \label{fig:etemps}
-\end{figure}
 
 
 
