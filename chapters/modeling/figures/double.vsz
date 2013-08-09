@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-08-07T20:33:10.469081
+# Saved at 2013-08-09T13:55:00.938067
 
 AddImportPath(u'/home/ben/Repos/dissertation/chapters/modeling/figures')
 ImportFileCSV(u'../../../data/Emissions/1.0Torr/C139600000.txt', headermode='1st', linked=True, dsprefix=u'1torr', rowsignore=4)
@@ -67,6 +67,7 @@ To('..')
 Add('axis', name=u'V', autoadd=False)
 To(u'V')
 Set('hide', True)
+Set('min', 0.0)
 Set('direction', u'vertical')
 Set('otherPosition', 1.0)
 To('..')
