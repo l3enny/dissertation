@@ -21,8 +21,8 @@ badd +1 chaptersexperimentexperiment.tex
 badd +7 TODO.md
 badd +7 acronyms.tex
 badd +311 chapters/experiment/experiment.tex
-badd +211 chapters/metastables/metastables.tex
-badd +217 chapters/modeling/modeling.tex
+badd +648 chapters/metastables/metastables.tex
+badd +686 chapters/modeling/modeling.tex
 badd +14 chapters/theory/theory.tex
 badd +1 ~/tmp
 badd +45 ~/tmp/test.tex
@@ -30,8 +30,9 @@ badd +242 chapters/introduction/introduction.tex
 badd +53 chapters/oes/oes.tex
 badd +116 ~/Dropbox/school/fellowships/gsrp/Final\ Report/chapters/oes/oes.tex
 badd +188 tex/thesis-umich.cls
+badd +0 chapters/emissions/emissions.tex
 silent! argdel *
-edit chapters/modeling/modeling.tex
+edit chapters/emissions/emissions.tex
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -45,11 +46,11 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 86 + 90) / 180)
-exe '2resize ' . ((&lines * 34 + 31) / 62)
-exe 'vert 2resize ' . ((&columns * 93 + 90) / 180)
-exe '3resize ' . ((&lines * 25 + 31) / 62)
-exe 'vert 3resize ' . ((&columns * 93 + 90) / 180)
+exe 'vert 1resize ' . ((&columns * 86 + 90) / 181)
+exe '2resize ' . ((&lines * 26 + 27) / 55)
+exe 'vert 2resize ' . ((&columns * 94 + 90) / 181)
+exe '3resize ' . ((&lines * 26 + 27) / 55)
+exe 'vert 3resize ' . ((&columns * 94 + 90) / 181)
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -60,15 +61,15 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 686 - ((44 * winheight(0) + 30) / 60)
+let s:l = 1 - ((0 * winheight(0) + 26) / 53)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-686
-normal! 012l
+1
+normal! 0
 wincmd w
 argglobal
-edit OUTLINE.md
+edit chapters/modeling/modeling.tex
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -78,38 +79,38 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 50 - ((21 * winheight(0) + 17) / 34)
+let s:l = 896 - ((25 * winheight(0) + 13) / 26)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-50
-normal! 04l
-lcd ~/Repos/dissertation
-wincmd w
-argglobal
-edit ~/Repos/dissertation/chapters/metastables/metastables.tex
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let s:l = 648 - ((24 * winheight(0) + 12) / 25)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-648
+896
 normal! 0
 lcd ~/Repos/dissertation
 wincmd w
-exe 'vert 1resize ' . ((&columns * 86 + 90) / 180)
-exe '2resize ' . ((&lines * 34 + 31) / 62)
-exe 'vert 2resize ' . ((&columns * 93 + 90) / 180)
-exe '3resize ' . ((&lines * 25 + 31) / 62)
-exe 'vert 3resize ' . ((&columns * 93 + 90) / 180)
+argglobal
+edit ~/Repos/dissertation/OUTLINE.md
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 53 - ((19 * winheight(0) + 13) / 26)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+53
+normal! 06|
+lcd ~/Repos/dissertation
+wincmd w
+exe 'vert 1resize ' . ((&columns * 86 + 90) / 181)
+exe '2resize ' . ((&lines * 26 + 27) / 55)
+exe 'vert 2resize ' . ((&columns * 94 + 90) / 181)
+exe '3resize ' . ((&lines * 26 + 27) / 55)
+exe 'vert 3resize ' . ((&columns * 94 + 90) / 181)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

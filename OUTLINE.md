@@ -50,9 +50,10 @@ Outline
     4. Summary
 6. Population Kinetics
   1. Emission Measurements
-  2. Electron Temperature Estimates
-  2. Model Comparisons
-  3. Summary
+  2. Wave Velocities
+  3. Electron Temperatures
+  4. Global Model Comparison
+  5. Summary
 7. Conclusions
     1. Overview of Results
     2. Future Work
