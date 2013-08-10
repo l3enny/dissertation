@@ -16,6 +16,41 @@ The emission measurements were made with a ...
 
 \section{Wave Velocities}
 
+In the analysis of \acs{fiw} discharges, one of the most common means of
+comparison is the use of wave velocities. In the studies reported by Vasilyak
+\cite{Vasilyak1994}, the velocities were measured using several approaches. In
+one, capacitive probes were placed in contact with the dielectric of the
+discharge tube, and the time delay between the voltage signals was used as the
+wave velocity. In some cases an intensified \acs{ccd} was used to track the
+propagation of the wave. Alternately, a photomultiplier tube was positioned
+against the dielectric at varying axial locations. This is the approach used
+here.
+
+The maximum detectable velocity was limited by several factors. Data were only
+available at intervals of 1 ns. As the maximum separation of measurement
+locations was 15.24 cm, this set an upper limit of about 1.5$\times10^8$ m/s.
+Additional limitations were imposed by the jitter of the pulser output. Overall,
+the maximum detectable wave velocity was $5.0\times10^7$ m/s.
+
+The velocities were determined as an average of the all the emission curves
+recorded. In each case, the curve at each axial location was interpolated with a
+smoothing spline. The time of the maximum derivate of the emission curves was
+used as the reference point in each case. The distance between the measurement
+locations was then divided by the time delay between the maximum derivatives.
+The results of these calculations are recorded in table~\ref{tbl:velocities}.
+\begin{table}
+  \centering
+  \caption{Wave velocities in the \acs{rpnd}.}
+  \label{tbl:velocities}
+  \begin{tabular}{lll}
+    \toprule                                                      \\
+    Pressure  & Upstream                & Downstream              \\
+    (Torr)    & Velocity (m/s)          & Velocity (m/s)          \\
+    \midrule                                                      \\
+    8.0       & $3.01\pm1.21\times10^7$ & $1.73\pm0.26\times10^7$ \\
+    16.0      & $1.46\pm0.19\times10^7$ & $6.80\pm1.75\times10^6$ \\
+  \end{tabular}
+\end{table}
 
 
 \section{Electron Temperatures}
