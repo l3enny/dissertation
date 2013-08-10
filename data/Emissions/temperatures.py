@@ -17,11 +17,12 @@ if debug:
     import matplotlib.pyplot as plt
 
 locations = ["Upstream", "Midstream", "Downstream"]
-#pressures = ["0.3Torr", "0.5Torr", "1.0Torr", "2.0Torr", "3.0Torr",
-#             "4.0Torr", "8.0Torr", "16.0Torr"]
+pressures = ["0.3Torr", "0.5Torr", "1.0Torr", "2.0Torr", "3.0Torr",
+             "4.0Torr", "8.0Torr", "16.0Torr"]
 pressures = ["4.0Torr", "8.0Torr", "16.0Torr"]
 transitions = [389, 396, 402, 447, 492, 501, 587, 667, 707, 728]
-#transitions = [667]
+wavelengths = np.array([388.86, 396.47, 402.62, 447.15, 471.31, 492.19,
+                        501.57, 587.56, 667.82, 706.52, 728.13]) * 1e-9
 
 for p in pressures:
     print "Analyzing", p[:3], p[-4:], "..."
@@ -54,29 +55,3 @@ for p in pressures:
             # crop data to pre-determined range
             times = times[bounds[0]:bounds[1]]
             intensities = intensities[bounds[0]:bounds[1]]
-
-            # generate derivative of intensities, find peak growth time
-            dI = intensities[1:] - intensities[:-1]
-            Is = spline(times, intensities, s=smooth)
-            tf = np.linspace(min(times), max(times), num=res)
-            dIs = np.zeros(res)
-            for i in range(res):
-                dIs[i] = Is.derivatives(tf[i])[1]
-            #i = np.where(dI == max(dI))
-            i = np.where(dIs ==max(dIs))
-            peak_times.append(tf[i])
-
-        v_a.append(dx / (peak_times[1] - peak_times[0]))
-        v_b.append(dx / (peak_times[2] - peak_times[1]))
-        v_c.append(2 * dx / (peak_times[2] - peak_times[0]))
-
-
-    # Check for validity
-    v_a = filter(lambda x: not(np.isnan(x) or np.isinf(x)), v_a)
-    v_b = filter(lambda x: not(np.isnan(x) or np.isinf(x)), v_b)
-    v_c = filter(lambda x: not(np.isnan(x) or np.isinf(x)), v_c)
-
-    i = np.where(peak_intensities == max(peak_intensities))[0]
-    print "Upstream velocity: %e +/- %e (m/s)" % (np.mean(v_a), np.std(v_a))
-    print "Downstream velocity: %e +/- %e (m/s)" % (np.mean(v_b), np.std(v_b))
-    print "Overall velocity: %e +/- %e (m/s)\n" % (np.mean(v_c), np.std(v_c))
