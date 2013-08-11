@@ -4,11 +4,11 @@ from scipy.interpolate import UnivariateSpline as spline
 import matplotlib.pyplot as plt
 
 
-debug = False        # do stuff that is useful
-dx = 0.0762          # separation of measurement locations
+debug = False         # do stuff that is useful
 bounds = [900, 1080]  # domain of first pulse
-res = 1000           # resolution of interpolation
-smooth = 0.0001      # degree of smoothing
+#dx = 0.0762          # separation of measurement locations
+#res = 1000           # resolution of interpolation
+#smooth = 0.0001      # degree of smoothing
 
 
 #-----------------------------------------------------------------------------
