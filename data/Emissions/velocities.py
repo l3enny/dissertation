@@ -21,7 +21,7 @@ locations = ["Upstream", "Midstream", "Downstream"]
 #             "4.0Torr", "8.0Torr", "16.0Torr"]
 pressures = ["4.0Torr", "8.0Torr", "16.0Torr"]
 transitions = [389, 396, 402, 447, 492, 501, 587, 667, 707, 728]
-#transitions = [667]
+#transitions = [396]
 
 for p in pressures:
     print "Analyzing", p[:3], p[-4:], "..."
