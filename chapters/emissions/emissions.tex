@@ -23,6 +23,9 @@ A photomultiplier tube (\acs{pmt}) of model C31034 was used to record the
 changes in intensity over time. The tube voltage was set to 1900 V and was
 terminated into a 50 $\Omega$ resistor. Specifications could not be found for
 the tube, however measurements demonstrated a rise time of, at most, 3.5 ns.
+Unlike the laser-absorption spectroscopy measurements, each emission curve was
+averaged over 1000 acquisitions and 5 $\mu$s. Otherwise, the acquisition
+settings remained the same.
 
 The range of spectral sensitivity for the photocathode of the \acs{pmt} limited
 measurements to transitions occurring between 350-750 nm. The list of observable
@@ -50,8 +53,11 @@ transitions is recorded in table~\ref{tbl:transitions}.
   \end{tabular}
   \label{tbl:transitions}
 \end{table}
-
-
+Several factors, including the fiber, monochromator grating, and the
+photocathode coating resulted in a nonuniform response with wavelength. This was
+compensated for with spectral measurements of an Optronic Laboratories M-1179
+spectral irradiance standard, powered by an Optronic Laboratories OL 65 power
+supply. 
 
 \section{Wave Velocities}
 
@@ -90,6 +96,17 @@ The results of these calculations are recorded in table~\ref{tbl:velocities}.
     16.0      & $1.46\pm0.19\times10^7$ & $6.80\pm1.75\times10^6$ \\
   \end{tabular}
 \end{table}
+
+Delays in the emissions at the different axial locations only appeared for the
+8.0 and 16.0 Torr conditions. The propagation of the discharge across the
+chamber was essentially instantaneous for all other conditions. The velocities
+recorded are consistent with the range of velocities recorded in early streamer
+and lightning research \cite{Schonland1933}, albeit somewhat lower than those
+reported by Vasilyak et al.~\cite{Vasilyak1994}. However, the latter work
+focused on the development of \acs{fiw}s for applied potentials in excess of 200
+kV and they report that increased voltage amplitudes correspond to higher wave
+velocities.
+
 
 
 \section{Electron Temperatures}
