@@ -22,7 +22,7 @@ badd +7 TODO.md
 badd +7 acronyms.tex
 badd +311 chapters/experiment/experiment.tex
 badd +648 chapters/metastables/metastables.tex
-badd +686 chapters/modeling/modeling.tex
+badd +896 chapters/modeling/modeling.tex
 badd +14 chapters/theory/theory.tex
 badd +1 ~/tmp
 badd +45 ~/tmp/test.tex
@@ -30,7 +30,7 @@ badd +242 chapters/introduction/introduction.tex
 badd +53 chapters/oes/oes.tex
 badd +116 ~/Dropbox/school/fellowships/gsrp/Final\ Report/chapters/oes/oes.tex
 badd +188 tex/thesis-umich.cls
-badd +0 chapters/emissions/emissions.tex
+badd +1 chapters/emissions/emissions.tex
 silent! argdel *
 edit chapters/emissions/emissions.tex
 set splitbelow splitright
@@ -46,11 +46,11 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 86 + 90) / 181)
-exe '2resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 2resize ' . ((&columns * 94 + 90) / 181)
-exe '3resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 3resize ' . ((&columns * 94 + 90) / 181)
+exe 'vert 1resize ' . ((&columns * 90 + 90) / 180)
+exe '2resize ' . ((&lines * 31 + 32) / 64)
+exe 'vert 2resize ' . ((&columns * 89 + 90) / 180)
+exe '3resize ' . ((&lines * 30 + 32) / 64)
+exe 'vert 3resize ' . ((&columns * 89 + 90) / 180)
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -61,15 +61,15 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 26) / 53)
+let s:l = 110 - ((45 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+110
 normal! 0
 wincmd w
 argglobal
-edit chapters/modeling/modeling.tex
+edit chapters/introduction/introduction.tex
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -79,12 +79,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 896 - ((25 * winheight(0) + 13) / 26)
+let s:l = 338 - ((15 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-896
-normal! 0
+338
+normal! 01l
 lcd ~/Repos/dissertation
 wincmd w
 argglobal
@@ -98,19 +98,19 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 53 - ((19 * winheight(0) + 13) / 26)
+let s:l = 37 - ((0 * winheight(0) + 15) / 30)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-53
-normal! 06|
+37
+normal! 05l
 lcd ~/Repos/dissertation
 wincmd w
-exe 'vert 1resize ' . ((&columns * 86 + 90) / 181)
-exe '2resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 2resize ' . ((&columns * 94 + 90) / 181)
-exe '3resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 3resize ' . ((&columns * 94 + 90) / 181)
+exe 'vert 1resize ' . ((&columns * 90 + 90) / 180)
+exe '2resize ' . ((&lines * 31 + 32) / 64)
+exe 'vert 2resize ' . ((&columns * 89 + 90) / 180)
+exe '3resize ' . ((&lines * 30 + 32) / 64)
+exe 'vert 3resize ' . ((&columns * 89 + 90) / 180)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

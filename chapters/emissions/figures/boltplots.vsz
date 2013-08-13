@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-08-12T22:28:50.795181
+# Saved at 2013-08-13T13:44:55.556916
 
 AddImportPath(u'/home/ben/Repos/dissertation/chapters/emissions/figures')
 ImportFileCSV(u'../../../data/Emissions/Downstream/0.3Torr/temperatures.csv', headermode='1st', linked=True, dsprefix=u'03d')
@@ -28,6 +28,8 @@ ImportFileCSV(u'../../../data/Emissions/Midstream/8.0Torr/temperatures.csv', hea
 ImportFileCSV(u'../../../data/Emissions/Upstream/8.0Torr/temperatures.csv', headermode='1st', linked=True, dsprefix=u'8u')
 SetDataRange(u't', 5000, (0.0, 5e-06), linked=True)
 DatasetPlugin('Add', {'ds_out': u't_shift', 'ds_in': u't', 'value': -9.65e-07})
+Set('width', u'6in')
+Set('height', u'8in')
 Add('page', name='page1', autoadd=False)
 To('page1')
 Set('width', u'6in')
