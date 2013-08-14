@@ -108,7 +108,7 @@ for p in pressures:
                     plt.plot(energies / e, y)
                     plt.plot(x / e, f(x))
                     plt.legend(('Measured', 'Fitted'))
-        plt.show()
+                    plt.show()
 
         output = np.zeros((num, 2))
         output[:, 0] = temperatures

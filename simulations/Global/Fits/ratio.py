@@ -6,7 +6,7 @@ from scipy.interpolate import UnivariateSpline
 
 
 debug = False         # do stuff that is useful
-scheme = "n3"
+scheme = "n4"
 
 if scheme == "n3":
     l_ki = np.array([7.06720, 7.283357]) * 1e-7
@@ -14,6 +14,7 @@ if scheme == "n3":
     transitions = [13, 19]
     confile = "temperature_ratio1.csv"
     outname = "ratio1_temperatures.csv"
+    diagname = "ratios1.csv"
 
 if scheme == "n4":
     l_ki = np.array([4.71317110, 4.9219310128]) * 1e-7
@@ -21,6 +22,7 @@ if scheme == "n4":
     transitions = [58, 109]
     confile = "temperature_ratio2.csv"
     outname = "ratio2_temperatures.csv"
+    diagname = "ratios2.csv"
 
 
 #-----------------------------------------------------------------------------
@@ -67,3 +69,5 @@ for d in directories:
 
     with open("/".join((d, outname)), mode="w") as f:
         np.savetxt(f, temperatures, delimiter=",")
+    with open("/".join((d, diagname)), mode="w") as f:
+        np.savetxt(f, ratios, delimiter=",")
