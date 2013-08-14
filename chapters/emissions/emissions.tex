@@ -127,32 +127,87 @@ dynamic system which does not necessarily result in a population of electrons
 with a Maxwell-Boltzmann distribution. In the absence of this property, the
 ``temperature'' quantity can have an ambiguous meaning. Often, the reported
 temperature describes the Maxwell-Boltzmann distribution which best matches
-measured plasma properties. In other cases, the temperature may describe the
-mean electron energy of the \acs{eedf}, such as in Chapter~\ref{chp:modeling} or
-in the work of Starikovskaia and Starikovskii \cite{Starikovskaia2001}.
+measured some choice of plasma properties (such as plasma emissions). In other
+cases, the temperature may describe the mean electron energy of the \acs{eedf},
+such as in Chapter~\ref{chp:modeling} or in the work of Starikovskaia and
+Starikovskii \cite{Starikovskaia2001}.
 
+The temperatures generated in these two cases will coincide only for a limited
+number of situations and the choice of diagnostics. Thus, it is of interest to
+search for useful electron temperature diagnostics which apply to the
+\acs{rpnd}. The electron temperature of a system is most often determined by the
+use of electrostatic probes, such as those discussed by Lieberman
+\cite{Lieberman2005}. However, as was discussed at the beginning of
+Chapter~\ref{chp:metastables}, physical probes are not a reasonable option of
+the \acs{rpnd}. An active optical technique, such as Thomson scattering
+\cite{VanGessel2012}, would be an ideal solution if the electron densities in
+the \acs{rpnd} were not below its sensitivity threshold.
 
+Therefore, several attempts were made to translate the plasma emission
+measurements to electron temperatures. Such techniques have been successful in
+the analysis of steady-state systems with relatively low electron densities,
+however the applicability to very dynamic discharges is not a given and must be
+qualified \cite{Kunze2009}. 
 
-The electron temperature of a system is most often determined by the use of
-electrostatic probes, such as those discussed by Lieberman \cite{Lieberman2005}.
-However, as was discussed at the beginning of Chapter~\ref{chp:metastables},
-physical probes are not a reasonable option of the \acs{rpnd}. An active optical
-technique, such as Thomson scattering \cite{VanGessel2012}, would be an ideal
-solution if the electron densities in the \acs{rpnd} were not below its
-sensitivity threshold.
+\subsection{Boltzmann Plots}
 
-Provided certain assumptions, it is possible to use a variety of passive optical
-emission measurements to determine the electron temperature. Perhaps the most
-common of these approaches are the Boltzmann plot and line ratio methods
-\cite{Kunze2009}. 
+When the population of two excited states are in equilibrium with the electrons,
+the ratio of their densities can be written as \cite{Griem2005}
+\begin{equation}
+  R = \frac{\lambda_{i,j}A_{i,j}g_j}{\lambda_{i',j'}A_{i',j'}g_{j'}}
+      \exp\left( -\frac{\Delta\epsilon_{i,j} - \Delta\epsilon_{i',j'}}
+                       {\kB T_e} \right),
+\end{equation}
+where the subscripts represent different electronic states, $\lambda$ is the
+transition wavelength, $A$ is the spontaneous transition rate, $g$ is
+statistical degeneracy, and $\Delta\epsilon$ is the energy separation between
+the identified states. In this case, the line ratios only depend on the electron
+temperature and physical quantities that are well-tabulated for helium.
 
+This approach can be applied to several successive transitions by plotting the
+quantity
+\begin{equation}
+  \log\left(\frac{I_{i,j}\lambda_{i,j}}{g_jA_{ij}}\right)
+\end{equation}
+with respect to $\Delta\epsilon_{i,j}$, where $I$ is the measured intensity of
+the optical transition. Ideally, the plotted points would form a line where the
+negative reciprocal is equal to the electron temperature. This is most
+frequently referred to as a Boltzmann plot. 
+
+The emissions data for the wavelengths recorded in table~\ref{tbl:transitions}
+was compiled into a series of intensities for each time step. A Boltzmann plot
+was then generated for each time step and a line was fit to the data using a
+least-squares algorithm. This produced the temperature estimates seen in
+figure~\ref{fig:boltcomp}.
 \begin{figure}
   \centering
-  \includegraphics{./chapters/emissions/figures/boltplots.eps}
-  \caption{These aren't as good as I had hoped$\ldots$}
-  \label{fig:boltplots}
+  \includegraphics{./chapters/emissions/figures/boltcomp.eps}
+  \caption{Temperatures estimated using Boltzmann plots of the measured emissions
+    (dashed, red lines) and simulated emissions (dotted, blue lines) compared to
+    the simulated temperatures (solid, black line).}
+  \label{fig:boltcomp}
 \end{figure}
+Negligible plasma emissions occurred prior to the pulse, preventing any analysis
+during that period of time. Estimates of the electron temperature using the
+Boltzmann plot approach proved to provide poor predictions. Peak temperatures
+were underestimated by at least a factor of ten, if not more. This disagreement
+is not altogether unexpected--the assumption of equilibrium between the excited
+states and the electrons is most certainly violated on such short time scales,
+simply as a result of the finite time required for electron-atom collisions to
+occur. This is confirmed by the poor quality of the temperature estimates
+generated from the simulated emissions.
 
+After the pulse, when the electrons are cooling primarily through elastic
+collisions, it might be expected that the atomic state populations would relax
+to an equilibrium distribution. While this is true for a long enough time
+period, this behavior is not observed for the length of time under
+consideration. Instead, the non-equilibrium distribution of atomic states that
+is established during the pulse lasts well into the afterglow. As Kunze notes,
+``one always has to check if indeed the assumption of a Boltzmann distribution
+is justified \ldots, equilibrium may not be reached even if the steady-state
+conditions seem to indicate that.'' 
+
+This can be observed in the individual Boltzmann plots at each of the 
 
 \section{Global Model Comparison}
 

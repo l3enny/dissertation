@@ -9,18 +9,24 @@ debug = True          # do stuff that is useful
 scheme = "n3"
 
 if scheme == "n3":
+    print "--== Ratio of 706.7/728.3 ==--"
     l_ki = np.array([7.06720, 7.283357]) * 1e-7
     A_ki = np.array([2.785e7, 1.830e7])
     transitions = ["707", "728"]
     confile = "temperature_ratio1.csv"
     outname = "ratio1_temperatures.csv"
+    diagname = "ratios1.csv"
+    V_pmt =  np.array([22.95, 10.08]) * 1e-3 
 
 if scheme == "n4":
+    print "--== Ratio of 471.3/492.2 ==--"
     l_ki = np.array([4.71317110, 4.9219310128]) * 1e-7
     A_ki = np.array([0.9521e6, 1.986e7])
     transitions = ["471", "492"]
     confile = "temperature_ratio2.csv"
     outname = "ratio2_temperatures.csv"
+    diagname = "ratios2.csv"
+    V_pmt =  np.array([44.71, 44.74]) * 1e-3 
 
 #-----------------------------------------------------------------------------
 
@@ -55,7 +61,7 @@ def calibration():
 
     # Measured response of fiber/SPEX HR460/etc.--the whole apparatus
     dark = 241e-6
-    I_measured = np.array([44.71, 44.74]) * 1e-3 - dark
+    I_measured = V_pmt - dark
 
     # correction factor
     Q = spline_actual(l_ki) / I_measured
@@ -89,12 +95,16 @@ for p in pressures:
             # calibrate data and insert into record
             spectra[:, i] = Q[i] * intensities
 
+        # calculate ratios and write out
         ratios = spectra[:, 0] / spectra[:, 1]
+        with open("/".join((l, p, diagname)), mode="w") as f:
+            np.savetxt(f, ratios, delimiter=",")
             
+        # load reference conversion file
         conversion = np.loadtxt(confile, delimiter=",", skiprows=1)
 
+        # generate empty array for temperatures
         temperatures = np.zeros(len(ratios))
-
         for i in range(len(ratios)):
             cspline = UnivariateSpline(conversion[200:, 0],
                                        conversion[200:, 1] - ratios[i], s=0)
