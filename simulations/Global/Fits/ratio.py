@@ -5,7 +5,22 @@ import matplotlib.pyplot as plt
 from scipy.interpolate import UnivariateSpline
 
 
-debug = True          # do stuff that is useful
+debug = False         # do stuff that is useful
+scheme = "n3"
+
+if scheme == "n3":
+    l_ki = np.array([7.06720, 7.283357]) * 1e-7
+    A_ki = np.array([2.785e7, 1.830e7])
+    transitions = [13, 19]
+    confile = "temperature_ratio1.csv"
+    outname = "ratio1_temperatures.csv"
+
+if scheme == "n4":
+    l_ki = np.array([4.71317110, 4.9219310128]) * 1e-7
+    A_ki = np.array([0.9521e6, 1.986e7])
+    transitions = [58, 109]
+    confile = "temperature_ratio2.csv"
+    outname = "ratio2_temperatures.csv"
 
 
 #-----------------------------------------------------------------------------
@@ -16,16 +31,9 @@ if debug:
 # File and directory structure as well as analysis conditions
 directories = ["1.0 Torr", "4.0 Torr", "8.0 Torr (D)", "8.0 Torr (M)",
                "8.0 Torr (U)"]
-transitions = [58, 109]
 
 # Physical values for the transitions in question
-l_ki = np.array([4.71317110, 4.9219310128]) * 1e-7
-A_ki = np.array([0.9521e6, 1.986e7])
 energies = (h * c) / l_ki
-
-# number of time points in analysis (something of a hack)
-num = 5002
-
 
 for d in directories:
     print "Analyzing %s" % d
@@ -46,7 +54,7 @@ for d in directories:
         spectra[:, i] = emissions[:, transitions[i]]
 
     ratios = spectra[:, 0] / spectra[:, 1]
-    conversion = np.loadtxt("temperature_ratio2.csv", delimiter=",", skiprows=1)
+    conversion = np.loadtxt(confile, delimiter=",", skiprows=1)
     temperatures = np.zeros(len(ratios))
 
     for i in range(len(ratios)):
@@ -57,7 +65,5 @@ for d in directories:
         except ValueError:
             temperatures[i] = 0.0
 
-    with open("/".join((d, "ratios.csv")), mode="w") as f:
-        np.savetxt(f, ratios, delimiter=",")
-    with open("/".join((d, "ratio_temperatures.csv")), mode="w") as f:
+    with open("/".join((d, outname)), mode="w") as f:
         np.savetxt(f, temperatures, delimiter=",")
