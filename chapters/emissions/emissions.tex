@@ -214,7 +214,50 @@ states, another approach is the use of the coronal model. In this case, the
 states are considered to be excited by electrons, but to decay via optical
 transitions. This model excels at low densities where states are not subject to
 a great degree of mixing and inter-atomic collisions can be neglected. Again,
-this situation 
+these assumptions do not necessarily apply to the \acs{rpnd}.
+
+Per Kunze \cite{Kunze2009}, the line intensity ratio resulting from the coronal
+model may be expressed as
+\begin{equation}
+  R = \frac{\lambda_{i',j'}A_{i,j}\sum A_{i'} K_{0,i}(T_e)}
+  {\lambda_{i,j}A_{i',j'}\sum A_{i} K_{0,i'}(T_e)}
+\end{equation}
+where the sum is over all possible radiative decay pathways, the subscript `0'
+is the ground state, and $K$ is the rate coefficient. Note that the rate
+coefficients are explicitly functions of the electron temperature. The upper
+states used for this line ratio must be carefully chosen so as to limit
+sensitivity to collisional mixing of excited states. Likewise, the rate
+coefficient ratio should exhibit a monotonic trend with electron temperatures.
+
+Several ratios have been suggested by Kunze and others, including:
+3$^3$S-2$^3$P$\odd$ over 3$^1$S-2$^1$P$\odd$, 4$^3$S-2$^3$P$\odd$ over
+4$^1$S-2$^1$P$\odd$, and 4$^3$S-2$^3$P$\odd$ over 4$^1$D-2$^1$P$\odd$. The
+ratios with the upper state in an S subshell are attractive as they are less
+susceptible to collisional mixing between states of equal $n$ \cite{Kunze2009}.
+However, the 4$^1$S-2$^1$P$\odd$ transition emissions were not recorded due to
+their relatively low intensity. Likewise, the transitions for $n=3-2$ proved to
+have too much noise for accurate line ratio measurements.
+
+As a result, the only useful line ratio was 4$^3$S-2$^3$P$\odd$ over
+4$^1$D-2$^1$P$\odd$. Like the other mentioned ratios, it is a comparison of
+transitions in the triplet and singlet manifolds. Triplet-singlet ratios have
+been found to be mostly dependent to electron temperature which makes them ideal
+for this purpose \cite{Griem2005}. Figure~\ref{fig:conversion}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/emissions/figures/conversion.eps}
+  \caption{The emission ratio of 4$^3$S-2$^3$P$\odd$ over 4$^1$D-2$^1$P$\odd$ as
+  a function of the electron temperature.}
+  \label{fig:conversion}
+\end{figure}
+shows the relation between the emission intensity of the two transitions and the
+electron temperature of the system. It should be noted that these ratios are
+produced by rate coefficients calculated using a Maxwell-Boltzmann distribution.
+While the measured ratios may be converted to a temperature by this process, it
+remains to be seen whether it accurately represents the temperatures in the
+\acs{rpnd}.
+
+
 
 \section{Global Model Comparison}
 
