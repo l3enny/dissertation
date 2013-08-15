@@ -1,0 +1,6 @@
+[submodule "code/crammer"]
+	path = code/crammer
+	url = git://github.com/l3enny/crammer.git
+[submodule "code/lasana"]
+	path = code/lasana
+	url = git://github.com/l3enny/lasana.git
