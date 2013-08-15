@@ -35,3 +35,4 @@
 .DS_Store
 *.fls
 *.swp
+*_emissions.csv
