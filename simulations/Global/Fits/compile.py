@@ -25,7 +25,11 @@ transitions = [22, 155, 94, 109, 47, 31, 40, 13, 19]
 for d in directories:
     # load simulation data
     prefix = "".join((d[0], "torr"))
-    emissions = np.loadtxt("/".join((d, prefix)) + "_emissions.csv", delimiter=",")
+    try:
+        emissions = np.loadtxt("/".join((d, prefix)) + "_emissions.csv",
+                               delimiter=",")
+    except ValueError:
+        continue
     times = np.loadtxt("/".join((d, prefix)) + "_times.csv", delimiter=",")
     
     # initialize arrays
