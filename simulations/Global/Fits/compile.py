@@ -28,7 +28,7 @@ for d in directories:
     try:
         emissions = np.loadtxt("/".join((d, prefix)) + "_emissions.csv",
                                delimiter=",")
-    except ValueError:
+    except IOError:
         continue
     times = np.loadtxt("/".join((d, prefix)) + "_times.csv", delimiter=",")
     
