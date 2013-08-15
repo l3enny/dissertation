@@ -6,7 +6,8 @@ from scipy.interpolate import UnivariateSpline
 
 
 debug = False         # do stuff that is useful
-#bounds = [900, 1080]  # domain of first pulse
+sample_rate = 1000    #
+#bounds = [900, 1080] # domain of first pulse
 #dx = 0.0762          # separation of measurement locations
 #res = 1000           # resolution of interpolation
 #smooth = 0.0001      # degree of smoothing
@@ -63,7 +64,7 @@ def calibration():
     return Q
 
 Q = calibration()
-
+samples = np.zeros((1 + num / sample_rate, len(transitions)))
 for p in pressures:
     print "Analyzing", p[:3], p[-4:], "..."
     for l in locations:
@@ -90,7 +91,6 @@ for p in pressures:
         for i in range(num):
             I_ki = spectra[i, :]
             y = np.log(I_ki * l_ki / (g_k * A_ki))
-            #y = np.log(I_ki / (g_k * A_ki))
             try:
                 popt, pconv = curve_fit(lambda x, a, b: a*x + b, energies, y,
                                         p0=(0.5/e, -44))
@@ -101,14 +101,16 @@ for p in pressures:
             temperatures[i] = -1/(popt[0] * e)
             variance[i] = -1/(np.sqrt(pconv[0,0]) * e)
 
+            if i%sample_rate == 0:
+                samples[i / sample_rate, :] = y
+
             if debug:
-                if i%200 == 0:
-                    x = np.linspace(min(energies), max(energies))
-                    f = lambda x: popt[0] * x + popt[1]
-                    plt.plot(energies / e, y)
-                    plt.plot(x / e, f(x))
-                    plt.legend(('Measured', 'Fitted'))
-                    plt.show()
+                x = np.linspace(min(energies), max(energies))
+                f = lambda x: popt[0] * x + popt[1]
+                #plt.plot(energies / e, y)
+                #plt.plot(x / e, f(x))
+                #plt.legend(('Measured', 'Fitted'))
+                #plt.show()
 
         output = np.zeros((num, 2))
         output[:, 0] = temperatures
@@ -117,3 +119,7 @@ for p in pressures:
         with open("/".join((l, p, "temperatures.csv")), mode="w") as f:
             f.write("Temperatures,+-\n")
             np.savetxt(f, output, delimiter=",")
+        with open("/".join((l, p, "samples.csv")), mode="w") as f:
+            np.savetxt(f, samples, delimiter=",")
+        with open("/".join((l, p, "energies.csv")), mode="w") as f:
+            np.savetxt(f, energies / e, delimiter=",")

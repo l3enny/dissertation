@@ -207,6 +207,21 @@ is established during the pulse lasts well into the afterglow. As Kunze notes,
 is justified \ldots, equilibrium may not be reached even if the steady-state
 conditions seem to indicate that.'' \cite{Kunze2009}
 
+Generally, the Boltzmann plots are poor predictors of the electron temperature
+for the time period under consideration. This almost certainly results from the
+inapplicability of the Boltzmann distribution to excited state populations. As
+can be seen in figure~\ref{fig:boltex},
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/emissions/figures/boltex.eps}
+  \caption{Boltzmann plot examples for the \acs{rpnd}}
+  \label{fig:boltex}
+\end{figure}
+the plots show a large deviation from line that would be expected from theory.
+To some extent, this too may be indicative of inaccuracies in the line intensity
+measurements, however even after removing the transitions with relatively small
+signals, no clear lines emerge. 
+
 \subsection{Coronal Model}
 
 In place of the assumption about an equilibrium distribution between excited
@@ -293,12 +308,33 @@ temperature on the line ratio, as seen in figure~\ref{fig:conversion}, this
 seemingly moderate inaccuracy can produce wildly varying results. This effect is
 amplified as the absolute value of the emissions decline.
 
-Likewise, the Boltzmann plots are poor predictors of the electron temperature
-for the time period under consideration.
-
+The use of the coronal model itself may not be relevant to the \acs{rpnd}. Kunze
+\cite{Kunze2009} warns that coronal model may be invalid for large metastable
+populations in helium. Additionally, the collisionality at the higher pressures
+may also lead to a violation of the assumptions in the coronal model. For
+example, the 3$^3$S-2$^3$P$\odd$ over 3$^1$S-2$^1$P$\odd$ ratio was considered
+solely for the simulated emissions. Figure~\ref{fig:rat1comp}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/emissions/figures/rat1comp.eps}
+  \caption{Estimates of the electron temperatures based on the ratio of the
+    3$^3$S-2$^3$P$\odd$ over 3$^1$S-2$^1$P$\odd$ transitions. The estimates from
+    the simulated emissions (dotted, blue lines) are compared to the temperatures
+    from the global model.}
+  \label{fig:rat1comp}
+\end{figure}
+shows that the results for this set of transitions are poor for most cases.
+However, the agreement improves substantially for the 1.0 Torr case. This
+appears to confirm the conclusion that the lack of agreement can, to some
+degree, be attributed to the collisionality of the system and a violation of the
+coronal model.
 
 \section{Global Model Comparison}
 
-
+In light of the disagreement between the line ratios in
+figure~\ref{fig:rat2comp}, it is informative to consider a comparison of the
+measured emission trends to the simulated emission trends. Deviations between
+the two can likely be attributed to one of several causes: measurement error,
+cross section accuracy, and distribution assumptions.
 
 \section{Summary}

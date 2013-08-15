@@ -1,7 +1,7 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-08-15T01:03:12.753469
+# Saved at 2013-08-15T14:29:44.595140
 
-AddImportPath(u'/Users/ben/Repos/dissertation/chapters/emissions/figures')
+AddImportPath(u'/home/ben/Repos/dissertation/chapters/emissions/figures')
 ImportFileCSV(u'../../../data/Emissions/temperature_ratio2.csv', headermode='1st', linked=True)
 Set('StyleSheet/Line/width', u'1pt')
 Set('StyleSheet/Font/font', u'TeX Gyre Termes')
