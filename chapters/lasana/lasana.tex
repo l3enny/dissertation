@@ -2,22 +2,42 @@ The laser-absorption spectroscopy code was written in Python (version 2.7) using
 the standard libraries, NumPy (version 1.6) and SciPy (version 0.11)
 \cite{Jones2001}. The directory structure is as follows
 
-The analysis package can be initialized by running the command `python main.py'
-from the root of the directory. This starts the script which handles all of the
-settings, submodules, and main processing loop. The code listing for
-`main.py' is as follows,
+%\dirtree{ %
+%  .1 /. %
+%  .2 analyze.py. %
+%  .2 atoms. %
+%  .3 __init__.py. %
+%  .3 He.py. %
+%  .2 gui.py. %
+%  .2 lineshapes.py. %
+%  .2 main.py. %
+%  .2 models.py. %
+%  .2 offset.py. %
+%  .2 parse.py. %
+%  .2 preprocess.py. %
+%  .2 transition.py. %
+%}
 
+The analysis package can be initialized by running the command
+\texttt{python main.py} from the root of the directory. This starts the
+script which handles all of the settings, submodules, and main
+processing loop. The code listing for \texttt{main.py} is as follows,
+
+{\singlespacing
 \lstinputlisting{./code/lasana/main.py}
+}
 
 It begins by importing several standard packages to manage directory names,
 followed by the submodules and NumPy. Afterward, the transition class is used to
 define the helium transitions of interest to the absorption analysis. The
 variable names do not matter, but they do need to be compiled into a list called
-`transitions' for use with the lineshape model.
+\texttt{transitions} for use with the lineshape model.
 
 The transition class is defined in the file \emph{transition.py}.
 
+{\singlespacing
 \lstinputlisting{./code/lasana/transition.py}
+}
 
 The class has no built in methods to speak of, instead it is merely acts as a
 simple container for the transition information. Of some note is the fact that

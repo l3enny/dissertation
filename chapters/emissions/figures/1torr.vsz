@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-08-15T18:14:06.937929
+# Saved at 2013-08-16T14:34:14.702719
 
 AddImportPath(u'/home/ben/Repos/dissertation/chapters/emissions/figures')
 ImportFileCSV(u'../../../data/Emissions/Midstream/1.0Torr/spectra.csv', headermode='1st', linked=True, dsprefix=u'measured_')
@@ -105,8 +105,8 @@ Set('datascale', 1000000000.0)
 To('..')
 Add('axis', name='y', autoadd=False)
 To('y')
-Set('min', 10000000.0)
-Set('max', 10000000000000.0)
+Set('min', 0.0)
+Set('max', 1000000000000.0)
 Set('log', False)
 Set('direction', 'vertical')
 To('..')
