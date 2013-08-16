@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.constants import c, h, k, e
-from scipy.optimize import curve_fit, fixed_point, bisect
+from scipy.optimize import curve_fit, bisect
 import matplotlib.pyplot as plt
 from scipy.interpolate import UnivariateSpline
 
@@ -73,12 +73,8 @@ for d in directories:
         if ratios[i] < conversion[-1, 1] or ratios[i] > conversion[1650, 1]:
             temperatures[i] = 0.0
         else:
-            try:
-                #temperatures[i] = fixed_point(cspline, ratios[i])
-                temperatures[i] = bisect(lambda x: cspline(x) - ratios[i],
-                                         conversion[1650, 0], conversion[-1, 0])
-            except ValueError:
-                temperatures[i] = 0.0
+            temperatures[i] = bisect(lambda x: cspline(x) - ratios[i],
+                                     conversion[1650, 0], conversion[-1, 0])
 
     with open("/".join((d, outname)), mode="w") as f:
         np.savetxt(f, temperatures, delimiter=",")

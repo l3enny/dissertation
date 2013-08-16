@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.constants import c, h, k, e
-from scipy.optimize import curve_fit
+from scipy.optimize import curve_fit, bisect
 import matplotlib.pyplot as plt
 from scipy.interpolate import UnivariateSpline
 
@@ -102,16 +102,16 @@ for p in pressures:
             
         # load reference conversion file
         conversion = np.loadtxt(confile, delimiter=",", skiprows=1)
+        cspline = UnivariateSpline(conversion[1650:, 0], conversion[1650:, 1], s=0)
 
         # generate empty array for temperatures
         temperatures = np.zeros(len(ratios))
         for i in range(len(ratios)):
-            cspline = UnivariateSpline(conversion[200:, 0],
-                                       conversion[200:, 1] - ratios[i], s=0)
-            try:
-                temperatures[i] = cspline.roots()
-            except ValueError:
+            if ratios[i] < conversion[-1, 1] or ratios[i] > conversion[1650, 1]:
                 temperatures[i] = 0.0
+            else:
+                temperatures[i] = bisect(lambda x: cspline(x) - ratios[i],
+                                         conversion[1650, 0], conversion[-1, 0])
 
         with open("/".join((l, p, outname)), mode="w") as f:
             np.savetxt(f, temperatures, delimiter=",")
