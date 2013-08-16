@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from scipy.interpolate import UnivariateSpline
 
 
-debug = True          # do stuff that is useful
+debug = False         # do stuff that is useful
 #bounds = [900, 1080]  # domain of first pulse
 #dx = 0.0762          # separation of measurement locations
 #res = 1000           # resolution of interpolation
@@ -77,7 +77,6 @@ for d in directories:
                 plt.plot(energies / e, y)
                 plt.plot(x / e, f(x))
                 plt.legend(('Measured', 'Fitted'))
-    plt.show()
 
     output = np.zeros((len(times), 2))
     output[:, 0] = temperatures
