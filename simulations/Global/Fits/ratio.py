@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.constants import c, h, k, e
-from scipy.optimize import curve_fit
+from scipy.optimize import curve_fit, fixed_point, bisect
 import matplotlib.pyplot as plt
 from scipy.interpolate import UnivariateSpline
 
@@ -15,6 +15,7 @@ if scheme == "n3":
     confile = "temperature_ratio1.csv"
     outname = "ratio1_temperatures.csv"
     diagname = "ratios1.csv"
+    bounds = [0.14442, 3.8352]
 
 if scheme == "n4":
     l_ki = np.array([4.71317110, 4.9219310128]) * 1e-7
@@ -23,6 +24,7 @@ if scheme == "n4":
     confile = "temperature_ratio2.csv"
     outname = "ratio2_temperatures.csv"
     diagname = "ratios2.csv"
+    bounds = [0.14442, 4.6586]
 
 
 #-----------------------------------------------------------------------------
@@ -67,14 +69,18 @@ for d in directories:
 
     conversion = np.loadtxt(confile, delimiter=",", skiprows=1)
     temperatures = np.zeros(len(ratios))
+    cspline = UnivariateSpline(conversion[200:, 0], conversion[200:, 1], s=0)
 
     for i in range(len(ratios)):
-        cspline = UnivariateSpline(conversion[200:, 0],
-                                   conversion[200:, 1] - ratios[i], s=0)
-        try:
-            temperatures[i] = cspline.roots()
-        except ValueError:
+        if ratios[i] < conversion[200, 1] or ratios[i] > conversion[-1, 1]:
             temperatures[i] = 0.0
+        else:
+            try:
+                #temperatures[i] = fixed_point(cspline, ratios[i])
+                temperatures[i] = bisect(lambda x: cspline(x) - ratios[i],
+                                         conversion[200, 0], conversion[-1, 0])
+            except RuntimeError:
+                temperatures[i] = 0.0
 
     with open("/".join((d, outname)), mode="w") as f:
         np.savetxt(f, temperatures, delimiter=",")
