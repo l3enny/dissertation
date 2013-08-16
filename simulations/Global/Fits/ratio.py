@@ -6,7 +6,7 @@ from scipy.interpolate import UnivariateSpline
 
 
 debug = False         # do stuff that is useful
-scheme = "n4"
+scheme = "n3"
 
 if scheme == "n3":
     l_ki = np.array([7.06720, 7.283357]) * 1e-7
@@ -73,12 +73,8 @@ for d in directories:
         if ratios[i] < conversion[-1, 1] or ratios[i] > conversion[1650, 1]:
             temperatures[i] = 0.0
         else:
-            try:
-                #temperatures[i] = fixed_point(cspline, ratios[i])
-                temperatures[i] = bisect(lambda x: cspline(x) - ratios[i],
-                                         conversion[1650, 0], conversion[-1, 0])
-            except ValueError:
-                temperatures[i] = 0.0
+            temperatures[i] = bisect(lambda x: cspline(x) - ratios[i],
+                                     conversion[1650, 0], conversion[-1, 0])
 
     with open("/".join((d, outname)), mode="w") as f:
         np.savetxt(f, temperatures, delimiter=",")
