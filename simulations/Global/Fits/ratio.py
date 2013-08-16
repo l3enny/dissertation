@@ -6,7 +6,7 @@ from scipy.interpolate import UnivariateSpline
 
 
 debug = False         # do stuff that is useful
-scheme = "n4"
+scheme = "n3"
 
 if scheme == "n3":
     l_ki = np.array([7.06720, 7.283357]) * 1e-7
@@ -42,7 +42,11 @@ for d in directories:
 
     # load simulation data
     prefix = "".join((d[0], "torr"))
-    emissions = np.loadtxt("/".join((d, prefix)) + "_emissions.csv", delimiter=",")
+    try:
+        emissions = np.loadtxt("/".join((d, prefix)) + "_emissions.csv",
+                               delimiter=",")
+    except IOError:
+        continue
     times = np.loadtxt("/".join((d, prefix)) + "_times.csv", delimiter=",")
     
     # initialize arrays
@@ -56,6 +60,11 @@ for d in directories:
         spectra[:, i] = emissions[:, transitions[i]]
 
     ratios = spectra[:, 0] / spectra[:, 1]
+
+    # Write out ratio file for in-progress diagnostics
+    with open("/".join((d, diagname)), mode="w") as f:
+        np.savetxt(f, ratios, delimiter=",")
+
     conversion = np.loadtxt(confile, delimiter=",", skiprows=1)
     temperatures = np.zeros(len(ratios))
 
@@ -69,5 +78,3 @@ for d in directories:
 
     with open("/".join((d, outname)), mode="w") as f:
         np.savetxt(f, temperatures, delimiter=",")
-    with open("/".join((d, diagname)), mode="w") as f:
-        np.savetxt(f, ratios, delimiter=",")
