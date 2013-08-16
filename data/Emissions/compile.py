@@ -24,15 +24,15 @@ locations = ["Upstream", "Midstream", "Downstream"]
 pressures = ["0.3Torr", "0.5Torr", "1.0Torr", "2.0Torr", "3.0Torr",
              "4.0Torr", "8.0Torr", "16.0Torr"]
 #pressures = ["16.0Torr"]
-transitions = ["389", "396", "402", "447", "492", "501", "587", "667", "707",
+transitions = ["389", "396", "402", "447", "471", "492", "501", "587", "667", "707",
                "728"]
 
 # Physical values for the transitions in question
-l_ki = np.array([3.8897, 3.9659, 4.0273, 4.4728, 4.9233, 5.0171, 5.8773, 6.6800,
-                 7.0672, 7.2834]) * 1e-7
-A_ki = np.array([9.48e6, 6.95e6, 1.16e7, 2.46e7, 1.99e7, 1.34e7, 7.07e7, 6.37e7,
-                 2.79e7, 1.83e7])
-g_k  = np.array([9,      3,      15,     15,     5,      3,      15,     5,
+l_ki = np.array([3.8897, 3.9659, 4.0273, 4.4728, 4.7145, 4.9233, 5.0171, 5.8773,
+                 6.6800, 7.0672, 7.2834]) * 1e-7
+A_ki = np.array([9.48e6, 6.95e6, 1.16e7, 2.46e7, 9.52e6, 1.99e7, 1.34e7, 7.07e7,
+                 6.37e7, 2.79e7, 1.83e7])
+g_k  = np.array([9,      3,      15,     15,     9,       5,      3,      15,     5,
                  3,      1])
 energies = (h * c) / l_ki
 
@@ -56,7 +56,7 @@ def calibration():
 
     # Measured response of fiber/SPEX HR460/etc.--the whole apparatus
     dark = 241e-6
-    I_measured = np.array([27.63, 32.36, 37.36, 44.63, 44.74, 44.80, 44.67,
+    I_measured = np.array([27.63, 32.36, 37.36, 44.63, 44.71, 44.74, 44.80, 44.67,
                            41.01, 22.95, 10.08]) * 1e-3 - dark
 
     # correction factor
@@ -78,8 +78,11 @@ for p in pressures:
         for i in range(len(transitions)):
             
             # load data for transition
-            data = np.loadtxt("/".join((l, p, "C1" + transitions[i] +
-                              "00000.txt")), delimiter=",", skiprows=5)
+            try:
+                data = np.loadtxt("/".join((l, p, "C1" + transitions[i] +
+                                  "00000.txt")), delimiter=",", skiprows=5)
+            except IOError:
+                continue
 
             # extract data to individual arrays
             times = data[:, 0]

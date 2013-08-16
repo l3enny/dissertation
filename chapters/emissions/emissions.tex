@@ -43,7 +43,7 @@ transitions is recorded in table~\ref{tbl:transitions}.
     4$^1$P$\odd$ & 2$^1$S       & 396.59     & $6.95\EE6$   & $2.52\EE8$        \\
    %5$^3$D       & 2$^3$P$\odd$ & 402.73     & $1.16\EE7$   & $1.64\EE7$        \\
     4$^3$D       & 2$^3$P$\odd$ & 447.28     & $2.46\EE7$   & $3.12\EE7$        \\
-   %4$^3$S       & 2$^3$P$\odd$ & 471.45     & $9.52\EE6$   & $1.60\EE7$        \\
+    4$^3$S       & 2$^3$P$\odd$ & 471.45     & $9.52\EE6$   & $1.60\EE7$        \\
     4$^1$D       & 2$^1$P$\odd$ & 492.33     & $1.99\EE7$   & $2.70\EE7$        \\
     3$^1$P$\odd$ & 2$^1$S       & 501.71     & $1.34\EE7$   & $5.80\EE8$        \\
     3$^3$D       & 2$^3$P$\odd$ & 587.73     & $7.07\EE7$   & $7.07\EE7$        \\
@@ -245,32 +245,34 @@ sensitivity to collisional mixing of excited states. Likewise, the rate
 coefficient ratio should exhibit a monotonic trend with electron temperatures.
 
 Several ratios have been suggested by Kunze and others, including:
-3$^3$S-2$^3$P$\odd$ over 3$^1$S-2$^1$P$\odd$, 4$^3$S-2$^3$P$\odd$ over
-4$^1$S-2$^1$P$\odd$, and 4$^3$S-2$^3$P$\odd$ over 4$^1$D-2$^1$P$\odd$. The
+4$^3$S-2$^3$P$\odd$ over 4$^1$S-2$^1$P$\odd$, 3$^3$S-2$^3$P$\odd$ over
+3$^1$S-2$^1$P$\odd$, and 4$^3$S-2$^3$P$\odd$ over 4$^1$D-2$^1$P$\odd$. The
 ratios with the upper state in an S subshell are attractive as they are less
 susceptible to collisional mixing between states of equal $n$ \cite{Kunze2009}.
-However, the 4$^1$S-2$^1$P$\odd$ transition emissions were not recorded due to
-their relatively low intensity. Likewise, the transitions for $n=3-2$ proved to
-have too much noise for accurate line ratio measurements.
+Limited emission intensity prevented accurate measurements of the
+4$^1$S-2$^1$P$\odd$ transition. As a result, only the former two ratios were
+considered for analysis.
 
-As a result, the only useful line ratio was 4$^3$S-2$^3$P$\odd$ over
-4$^1$D-2$^1$P$\odd$. Like the other mentioned ratios, it is a comparison of
-transitions in the triplet and singlet manifolds. Triplet-singlet ratios have
-been found to be mostly dependent to electron temperature which makes them ideal
-for this purpose \cite{Griem2005}. Figure~\ref{fig:conversion}
+Like the other mentioned ratios, 4$^3$S-2$^3$P$\odd$ over 4$^1$D-2$^1$P$\odd$
+compares a transition from the triplet manifold to one from the singlet
+manifold. Triplet-singlet ratios have been found to be mostly dependent to
+electron temperature which makes them ideal for this purpose \cite{Griem2005}.
+Figure~\ref{fig:conversion}
 \begin{figure}
   \centering
   \includegraphics{./chapters/emissions/figures/conversion.eps}
-  \caption{The emission ratio of 4$^3$S-2$^3$P$\odd$ over 4$^1$D-2$^1$P$\odd$ as
-  a function of the electron temperature.}
+  \caption{The emission ratios of 4$^3$S-2$^3$P$\odd$ over 4$^1$D-2$^1$P$\odd$ 
+    and 3$^3$S-2$^3$P$\odd$ over 3$^1$S-2$^1$P$\odd$, as functions of the
+    electron temperature.}
   \label{fig:conversion}
 \end{figure}
 shows the relation between the emission intensity of the two transitions and the
-electron temperature of the system. It should be noted that these ratios are
-produced by rate coefficients calculated using a Maxwell-Boltzmann distribution.
-While the measured ratios may be converted to a temperature by this process, it
-remains to be seen whether it accurately represents the temperatures in the
-\acs{rpnd}.
+electron temperature of the system. The rate coefficients were calculated with
+the assumption of a Maxwell-Boltzmann distribution, using the cross sections
+produced by Ralchenko et al. \cite{Ralchenko2008}. Though it is possible to
+convert the measured and simulated line ratios to temperatures using these
+results, they may not necessarily correlate to the actual temperatures of the
+system.
 
 The calculated conversion between triplet-singlet ratio was used to estimate the
 temperature of the \acs{rpnd} experiment in addition to the simulated emissions.
@@ -285,56 +287,71 @@ The results can be found in figure~\ref{fig:rat2comp}.
     results from the global model simulation (solid, black lines).}
   \label{fig:rat2comp}
 \end{figure}
-Generally, neither the simulated or measured ratios provide a good estimate of
-the electron temperatures. Unlike the Boltzmann plots, both tend to overestimate
-the temperature in the system, suggesting that the population ratio of the upper
-states is different than expected. Furthermore, with the exception of the 1.0
-Torr condition, the measured emission ratios predict higher temperatures than
-the simulated emission ratios. This suggests an experimental excess of the
-4$^1$D state, a deficit in the 4$^3$S state, or both. Of the two, it seems
-likely that the 4$^1$D state is populated to a greater extent than simulated.
-For one, the $n=5$ states are not included, and therefore the cascade from
-higher states is not captured. Additionally, collisional mixing could serve to
-increase the population of the D subshell compared to S subshell. Similar issues
-with this particular ratio were recorded by Boivin et al. \cite{Boivin2007} who
-suggested that improved data for the $n=5$ transitions could produce better
-results.
+Generally, neither the simulated or measured ratios provided a good estimate of
+the electron temperatures. Unlike the Boltzmann plots, both tended to
+overestimate the temperature of the \acs{rpnd}. As the higher temperatures
+relate to a lower triplet-singlet ratio, this suggests either an excess in
+4$^1$D states, or a deficit of 4$^3$S states. Additionally, both the measured
+and simulated ratios show growing or otherwise elevated temperature well after
+the pulse. This might be a consequence of the collisional mixing described by
+Kunze. Also notable is the disagreement between the measured and simulated
+ratios. For several periods of time the trends are entirely opposite. Similar
+issues were recorded by Boivin et al. \cite{Boivin2007} who suggested that
+improved data for the $n=5$ transitions may lead to better agreement.
 
-Overall, these optical techniques appear to be of limited usefulness in the
-determination of the electron temperature. As noted by Griem \cite{Griem2005},
-even optimal experimental conditions have accuracies of 10\% in line intensity
-measurements. Given the sensitive dependence of the calculated electron
-temperature on the line ratio, as seen in figure~\ref{fig:conversion}, this
-seemingly moderate inaccuracy can produce wildly varying results. This effect is
-amplified as the absolute value of the emissions decline.
-
-The use of the coronal model itself may not be relevant to the \acs{rpnd}. Kunze
-\cite{Kunze2009} warns that coronal model may be invalid for large metastable
-populations in helium. Additionally, the collisionality at the higher pressures
-may also lead to a violation of the assumptions in the coronal model. For
-example, the 3$^3$S-2$^3$P$\odd$ over 3$^1$S-2$^1$P$\odd$ ratio was considered
-solely for the simulated emissions. Figure~\ref{fig:rat1comp}
+As suggested above, the ratio of 3$^3$S-2$^3$P$\odd$ to 3$^1$S-2$^1$P$\odd$, may
+offer a better means by which to measure the electron temperature. The greater
+energy spacing between states of equal $n$ promises to reduce collisional
+mixing. Likewise, both of the upper states are from the S subshell, as
+recommended by Kunze \cite{Kunze2009}. The promise of this approach is
+immediately apparent in figure~\ref{fig:rat1comp}.
 \begin{figure}
   \centering
   \includegraphics{./chapters/emissions/figures/rat1comp.eps}
   \caption{Estimates of the electron temperatures based on the ratio of the
-    3$^3$S-2$^3$P$\odd$ over 3$^1$S-2$^1$P$\odd$ transitions. The estimates from
-    the simulated emissions (dotted, blue lines) are compared to the temperatures
-    from the global model.}
+    3$^3$S-2$^3$P$\odd$ to 3$^1$S-2$^1$P$\odd$, transitions. The estimates were
+    generated for the simulated emissions (dotted, blue lines) and measured
+    emissions (dashed, red lines), and are compared to the actual temperature
+    results from the global model simulation (solid, black lines).}
   \label{fig:rat1comp}
 \end{figure}
-shows that the results for this set of transitions are poor for most cases.
-However, the agreement improves substantially for the 1.0 Torr case. This
-appears to confirm the conclusion that the lack of agreement can, to some
-degree, be attributed to the collisionality of the system and a violation of the
-coronal model.
+The temperature estimates based on the simulated emissions show excellent
+agreement with the temperatures from the global model. This is true both in
+terms of the magnitude of the values and the overall behavior of the trends.
+The initial increase in temperature is captured particularly well, with only
+moderate deviations in the afterglow. The differences in the afterglow are
+likely the result of the radiative cascade which occurs soon after the pulse
+ends. In this process, the relaxation of the higher excited states serves to
+boost the density of the lower states.
+
+In contrast, the experimental results differ vastly from the other two
+temperature trends. In part, this can be attributed to the experimental
+difficulties. The two lines, both in wavelengths approaching the infrared, are
+not well converted into electrons by the photocathode of the \acs{pmt}. As a
+result, the absolute intensities of these lines were particularly low, leading
+to a significant amount of uncertainty. That said, the 4.0 Torr operating
+condition exhibited sufficient intensities for both lines for temperature
+estimates to be made during and after the pulse. In contrast to the temperature
+from the global model, the emission measurements suggest that the temperature
+peaks at 4.9 eV followed by a rapid relaxation to about 0.5 eV.
+
+Given the low intensities, difficulty in obtaining accurate intensity
+measurements \cite{Griem2005}, and the sensitivity of the temperature estimate
+to the line ratio, these results should be considered quite preliminary. The use
+of these transitions is promising for measurements of the electron temperature
+in the \acs{rpnd}--the global model simulations show a good agreement between
+the estimates and the actual temperatures, and the ratio changes quickly enough
+to capture at least some of the \acs{rpnd} dynamics. This measurement could be
+improved by the used of a photocathode with improved response to this spectral
+region and selection of a monochromator grating with better efficiency for these
+lines.
 
 \section{Global Model Comparison}
 
-In light of the disagreement between the line ratios in
-figure~\ref{fig:rat2comp}, it is informative to consider a comparison of the
-measured emission trends to the simulated emission trends. Deviations between
-the two can likely be attributed to one of several causes: measurement error,
-cross section accuracy, and distribution assumptions.
+In light of the disagreement between the measured and simulated line ratios, it
+is informative to consider a comparison of the measured emission trends to the
+simulated emission trends. This process can help to identify additional
+processes, issues with the rate constants or cross sections, and features
+resulting from non-Maxwellian \acs{eedf}s.
 
 \section{Summary}

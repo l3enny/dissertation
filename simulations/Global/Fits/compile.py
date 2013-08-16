@@ -20,7 +20,7 @@ if debug:
 # Directory structure and transition indices
 directories = ["1.0 Torr", "4.0 Torr", "8.0 Torr (D)", "8.0 Torr (M)",
                "8.0 Torr (U)"]
-transitions = [22, 155, 94, 109, 47, 31, 40, 13, 19]
+transitions = [22, 155, 94, 68, 109, 58, 47, 31, 40, 13, 19]
 
 for d in directories:
     # load simulation data

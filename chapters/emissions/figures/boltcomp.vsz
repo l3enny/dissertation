@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-08-14T19:07:39.299029
+# Saved at 2013-08-16T15:52:30.674891
 
 AddImportPath(u'/home/ben/Repos/dissertation/chapters/emissions/figures')
 ImportFileCSV(u'../../../simulations/Global/Fits/1.0 Torr/boltplot.csv', headermode='1st', linked=True, dsprefix=u'1.0_D_bolt')
