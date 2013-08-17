@@ -346,12 +346,70 @@ improved by the used of a photocathode with improved response to this spectral
 region and selection of a monochromator grating with better efficiency for these
 lines.
 
-\section{Global Model Comparison}
+\section{Emission Comparisons}
 
 In light of the disagreement between the measured and simulated line ratios, it
-is informative to consider a comparison of the measured emission trends to the
-simulated emission trends. This process can help to identify additional
-processes, issues with the rate constants or cross sections, and features
-resulting from non-Maxwellian \acs{eedf}s.
+was decided to make a comparison of the measured and simulated emissions for
+several different conditions. This was done in order to obtain more insight on
+the accuracy of the simulations which were subject to a number of assumptions.
+In addition, the measured emissions from the \acs{rpnd} reveal more about the
+excited state dynamics for levels beside the triplet metastable.
+
+\subsection{Measured and Modeled}
+
+As was noted in Chapter~\ref{chp:modeling}, several assumptions were needed to
+develop the global model used to simulate the \acs{rpnd}. Among these were the
+assumption that the \acs{eedf} was always a Maxwell-Boltzmann distribution, and
+that the applied electric field was a Gaussian function in time with a width of
+40 ns. The \acs{pic} simulations as well as the results from Boltzmann plots and
+line ratios suggest that the former assumption is not rigorously true.
+
+The width of the electric field was inferred from the observation of a return
+stroke which appeared to occur 15 ns after the forward stroke. This approach led
+to an excellent fit of the recorded metastable data. That said, the work of
+Takashima et al. \cite{Takashima2011} among others \cite{Ito2010} suggested that
+the electric field and excitation may persist well after the pulse has ended.
+
+Figure~\ref{fig:667comp}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/emissions/figures/667comp.eps}
+  \caption{Comparison of the measured and simulated emissions from the
+  3$^1$D-2$^1$P$\odd$ transition at pressures of 1.0, 4.0, and 8.0 Torr.}
+  \label{fig:667comp}
+\end{figure}
+features a comparison of the normalized measured and simulated emissions for the
+3$^1$D-2$^1$P$\odd$ transition at 668 nm. The transition was chosen because it
+was one of the more prominent transitions and because, at $n=3$, the global
+model results will include its repopulation via radiative cascade from $n=4$.
+The relative timing of the two curves is only approximate, but there is still a
+clear difference between the simulated and measured emissions.
+
+Generally, the \acs{fwhm} of the measured emissions is larger than that of the
+simulated emissions. This lengthened excitation period is most prominent in the
+tail of the \acs{rpnd}, after the peak in the emissions. The slow decay in
+emissions from this transition indicates that the 3$^1$D population persists for
+longer than would be expected from the simulations. This behavior is noticeable
+in the other transitions as well.
+
+There are several possible explanations for this behavior. One possibility is
+the existence of a persistent electric field, similar to what has been observed
+in other studies. This persistent field would continue to energize the electrons
+well after the pulse has ended, resulting in an extended period of excitation.
+
+This appears to be a reasonable conclusion when judged based on previous work,
+however figure~\ref{fig:667comp} shows a clear dependence on pressure which is
+not captured by the global model.
+
+Such behavior may be indicative of a persistent electric field as observed in
+previously mentioned studies. It could be argued that this is simply the
+result of using a single Gaussian to measure the forward and return stroke.
+However, this does not seem to be an adequate explanation for the sheer duration
+of emissions observed at 1.0 Torr. Indeed, it takes nearly 70 ns after the peak
+for the emissions to fall by 50\%. 
+
+
+
+\subsection{Prominent Lines}
 
 \section{Summary}
