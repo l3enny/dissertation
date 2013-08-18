@@ -355,8 +355,6 @@ the accuracy of the simulations which were subject to a number of assumptions.
 In addition, the measured emissions from the \acs{rpnd} reveal more about the
 excited state dynamics for levels beside the triplet metastable.
 
-\subsection{Measured and Modeled}
-
 As was noted in Chapter~\ref{chp:modeling}, several assumptions were needed to
 develop the global model used to simulate the \acs{rpnd}. Among these were the
 assumption that the \acs{eedf} was always a Maxwell-Boltzmann distribution, and
@@ -375,41 +373,95 @@ Figure~\ref{fig:667comp}
   \centering
   \includegraphics{./chapters/emissions/figures/667comp.eps}
   \caption{Comparison of the measured and simulated emissions from the
-  3$^1$D-2$^1$P$\odd$ transition at pressures of 1.0, 4.0, and 8.0 Torr.}
+  3$^1$D-2$^1$P$\odd$ transition at pressures of 1.0, 4.0, and 8.0 Torr. Also
+  shown is the natural radiative decay rate for the transition.}
   \label{fig:667comp}
 \end{figure}
 features a comparison of the normalized measured and simulated emissions for the
-3$^1$D-2$^1$P$\odd$ transition at 668 nm. The transition was chosen because it
-was one of the more prominent transitions and because, at $n=3$, the global
-model results will include its repopulation via radiative cascade from $n=4$.
-The relative timing of the two curves is only approximate, but there is still a
-clear difference between the simulated and measured emissions.
+3$^1$D-2$^1$P$\odd$ transition at 668 nm. Also shown is the theoretical
+intensity decay if there were no additional excitation of the 3$^1$D state after
+the pulse. The transition was chosen because it was one of the more prominent
+transitions and because, at $n=3$, the global model results will include
+re-population effects via radiative transitions from $n=4$. The relative timing
+of the experimental and simulated curves is only approximate, but there is still
+a clear difference between them in all cases.
 
-Generally, the \acs{fwhm} of the measured emissions is larger than that of the
-simulated emissions. This lengthened excitation period is most prominent in the
-tail of the \acs{rpnd}, after the peak in the emissions. The slow decay in
-emissions from this transition indicates that the 3$^1$D population persists for
-longer than would be expected from the simulations. This behavior is noticeable
-in the other transitions as well.
+At 1.0 Torr the experimental emissions take much longer to reach their peak
+value, judging by the time required to go from 10\%-90\% of the peak (27 ns
+versus 10 ns). Likewise, the experimental emissions remain relatively high
+compared to the simulated emissions. Though the simulated emissions decay at a
+greater rate after the peak, the experimental and simulated decay rates approach
+the same value by 140 ns after the pulse.
 
-There are several possible explanations for this behavior. One possibility is
-the existence of a persistent electric field, similar to what has been observed
-in other studies. This persistent field would continue to energize the electrons
-well after the pulse has ended, resulting in an extended period of excitation.
+The same may be said about 4.0 Torr results. After the peak intensity, the
+emissions fall faster in the simulations, but the decay rate approaches that of
+the measured results as the time after the pulse increases. In contrast to the
+1.0 Torr case, the measured intensity increases at about the same rate as the
+simulated results (13 ns versus 14 ns).
 
-This appears to be a reasonable conclusion when judged based on previous work,
-however figure~\ref{fig:667comp} shows a clear dependence on pressure which is
-not captured by the global model.
+This trend continues at 8.0 Torr where the rise time of the measured emissions
+is about 12 ns--noticeably shorter than the 14 ns for the simulated emissions.
+Additionally, though the simulated emission intensity initially falls more
+quickly than is observed in the experiment, the situation is reversed after
+about 50 ns. The reason for this reversal is not entirely clear, but it suggests
+an additional loss process for the 3$^1$D state aside from what is included in
+the global model. Per the earlier discussion of loss processes in the
+development of the global model, Penning ionization of nitrogen impurities is
+the most likely candidate for the accelerated decay of emissions at 8.0 Torr.
 
-Such behavior may be indicative of a persistent electric field as observed in
-previously mentioned studies. It could be argued that this is simply the
-result of using a single Gaussian to measure the forward and return stroke.
-However, this does not seem to be an adequate explanation for the sheer duration
-of emissions observed at 1.0 Torr. Indeed, it takes nearly 70 ns after the peak
-for the emissions to fall by 50\%. 
+Overall, the faster decay of the simulated emission intensities in the afterglow
+suggests a faster decline in the 3$^1$D states. This may be explained if the
+simulated electrons are cooling more rapidly than in the real \acs{rpnd}. This
+is not unreasonable given the simulated distributions in
+Chapter~\ref{chp:modeling}. At the high electric fields which appear to exist in
+the \acs{rpnd}, the \acs{eedf} features a significant population of electrons
+with energies above 100 eV. Reaction cross sections are generally quite low at
+these energies \cite{Ralchenko2008}. Therefore, the electrons may be expected to
+require longer to cool in the case of the \acs{rpnd}.
+
+Additionally, there is the possibility of a persistent electric field, similar
+to that observed by Takashima et al. \cite{Takashima2011} and Ito et al.
+\cite{Ito2010}. Such a field would have the effect of prolonging the excitation
+of the 3$^1$D state, resulting in an extended period of emissions. However, the
+existence of such a field can neither be confirmed nor denied without additional
+measurements.
+
+Radiation trapping \cite{Kunze2009} could also result in an apparent extension
+of the excitation period. This process occurs when an excited atomic state emits
+a photon which is reabsorbed before it can exit the plasma. This effect is most
+important for optical transitions to the ground state, particularly from the
+2$^1$P, 3$^1$P, and 4$^1$P states. This absorption (and later re-emission) can
+be effectively described as a diffusive process. As the number of ground state
+atoms in the system increases, the longer it takes for photon born inside the
+system to exit it.
+
+As these transitions involve deep-UV emissions, they were not directly
+observable with the previously described setup. However, radiation trapping
+results in an effective increase of the lifetime for the atomic states involved.
+This should increase the intensity and duration of transitions involving the
+3$^1$P and 4$^1$P states. Therefore, the measured and simulated results for the
+3$^1$P-2$^1$S transitions were compared. The peak values of the measured and
+simulated 3$^3$P-2$^2$S emissions were used to properly scaled the singlet
+transitions. As the 3$^3$P state is forbidden from a direct transition to the
+ground state, its dynamics should not be affected by trapping effects.
+
+Figure~\ref{fig:pstates}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/emissions/figures/pstates.eps}
+  \caption{Comparison of the measured and simulated 3$^1$P-2$^1$S emissions,
+  scaled by the equivalent triplet transition at 4.0 Torr.}
+  \label{fig:pstates}
+\end{figure}
+shows the results of this comparison for the case of 4.0 Torr. As can be seen,
+the measured and simulated triplet transitions evolve in a manner similar to
+that of the 3$^1$D-2$^1$P$\odd$ transition. There is a stark contrast between
+the trends of the two singlet transitions. In the case of the simulations, the
+state decays away very rapidly. This is primarily the result of the large $A$
+coefficient for the 3$^1$P-1$^1$S transition, 5.66$\times10^{8}$ s$^{-1}$.
+However the measured emissions from this state last long after the applied
+pulse. 
 
 
-
-\subsection{Prominent Lines}
 
 \section{Summary}
