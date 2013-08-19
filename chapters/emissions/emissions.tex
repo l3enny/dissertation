@@ -462,6 +462,42 @@ coefficient for the 3$^1$P-1$^1$S transition, 5.66$\times10^{8}$ s$^{-1}$.
 However the measured emissions from this state last long after the applied
 pulse. 
 
+The effects of resonance radiation trapping has been long been considered from
+the perspective of the light industry. Per the work of Holstein
+\cite{Holstein1951}, the effective lifetime of resonant radiation can be
+expressed as the nominal radiative lifetime multiplied by a trapping factor. The
+trapping factor is dependent on the geometry and the lineshape. For an infinite
+cylinder primarily subject to Doppler broadening, the trapping factor may be
+written as
+\begin{equation}
+  T = \frac{k_0R\left[\pi\log(k_0R)\right]^{1/2}}{1.6},
+\end{equation}
+where $R$ is the radius of the cylinder and $k_0$ is the absorption coefficient
+at the line center,
+\begin{equation}
+  \frac{\lambda_0^3N_1}{8\pi} \frac{g_2}{g_1} \frac{A_{21}}{\pi^{1/2}v_\mathrm{th}}.
+\end{equation}
+Here, $\lambda_0$ is the transition wavelength, $N_1$ is the density of lower
+resonant state, $g$ is the statistical degeneracy of the upper and lower states,
+and $A$ is the natural radiative lifetime. For a gas temperature of 300 K and a
+radius of 1.65 cm, the resulting trapping coefficients and effective lifetimes of
+the 3$^1$P-1$^1$S transition are listed in table~\ref{tbl:lifetimes}.
+\begin{table}
+  \centering
+  \caption{The effective lifetimes of the 3$^1$P-1$^1$S transition resulting
+    from radiation trapping.}
+  \begin{tabular}{lll}
+    \toprule \\
+    Pressure (Torr) & Trapping Factor & Effective Lifetime (s) \\
+    \midrule \\
+    1.0             & 8773            & 1.549$\times10^{-5}$   \\
+    4.0             & 38031           & 6.715$\times10^{-5}$   \\
+    8.0             & 78837           & 1.392$\times10^{-4}$   \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+For comparison, the normal lifetime of this transition is about 1.77 ns.
+Therefore, even at these moderate pressures, the energy entering the 
 
 
 \section{Summary}
