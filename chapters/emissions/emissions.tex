@@ -2,34 +2,39 @@ The global model was used to infer the electric field, electron densities, and
 electron temperatures in the \acs{rpnd} from the metastable measurements.
 However, as was described in the development of the model, it is also capable of
 predicting the densities of other excited states and the optical emissions of
-the \acs{rpnd}. This chapter will describe the measurement of the optical
-emissions of the \acs{rpnd} and then the use of these measurements to determine
-the \acs{rpnd} wave velocity and electrons temperatures. Finally, the electron
-temperatures and the spectral trends will be compared to those obtained from the
-global model.
+the \acs{rpnd}. This chapter describes the measurement of the optical emissions
+of the \acs{rpnd} and their analysis in the determination of wave velocities,
+electron temperatures, and the identification of other phenomena pertinent to
+the development of the \acs{rpnd}.
 
 \section{Emission Measurements}
 
-Emissions spectroscopy was conducted at the same operating conditions as the
-metastable measurements. Light collection was accomplished with a 1 cm diameter
-bundle of optical fibers, butted against the outside of the glass envelope. The
-other end was placed at the entrance slit of a ISA Jobin-Yvon SPEX HR460
-monochromator. A grating with 1200 grooves/mm was installed in the
-monochromator. The entrance slit width was set to 250 $\mu$m and the exit slit
-was set at 500 $\mu$m. This was done so as to collect the integrated intensity
-of each spectral line.
+The emissions of the \acs{rpnd} were studied over the same operating conditions
+as the metastable measurements--for pressures from 0.3-16.0 Torr, and at three
+axial locations. The light from the system was collected by a optical fiber
+bundle, 1 cm in diameter. The bundle was positioned several millimeters from the
+glass envelope and no additional collection optics were used.
 
-A photomultiplier tube (\acs{pmt}) of model C31034 was used to record the
-changes in intensity over time. The tube voltage was set to 1900 V and was
-terminated into a 50 $\Omega$ resistor. Specifications could not be found for
-the tube, however measurements demonstrated a rise time of, at most, 3.5 ns.
-Unlike the laser-absorption spectroscopy measurements, each emission curve was
-averaged over 1000 acquisitions and 5 $\mu$s. Otherwise, the acquisition
-settings remained the same.
+The other side of the bundle was aligned with the entrance slit of an ISA
+Jobin-Yvon SPEX HR460 monochromator. The monochromator had a focal length of 460
+mm, and was fitted with a grating with 1200 grooves/mm. The entrance slit was
+set to 250 $\mu$m, and the exit slit was set to 500 $\mu$m. The specified
+dispersion of the monochromator was 1.76 nm/mm, therefore the approximate
+bandpass of the monochromator was 0.88 nm. This was sufficiently large to
+collect the integrated emissions of a single transition, given proper
+positioning of the grating.
+
+The detector was a photomultiplier tube (\acs{pmt}) of model C31034, but of
+unknown make. The tube voltage was set to 1900 V and was terminated into a 50
+$\Omega$ resistor. Specifications could not be found for the tube, however
+measurements demonstrated a rise time of, at most, 3.5 ns. The emissions of each
+line were measured from approximately 1 $\mu$s prior to the pulse, to 4$\mu$s
+after the pulse. The sampling rate was 1 GHz, and each emission curved was
+average over 1000 separate pulses.
 
 The range of spectral sensitivity for the photocathode of the \acs{pmt} limited
-measurements to transitions occurring between 350-750 nm. The list of observable
-transitions is recorded in table~\ref{tbl:transitions}.
+measurements to transitions occurring between 350-750 nm.
+Table~\ref{tbl:transitions} lists the transitions which were recorded.
 \begin{table}
   \centering
   \caption{Table of the observed optical transitions and their transition
@@ -41,7 +46,6 @@ transitions is recorded in table~\ref{tbl:transitions}.
     \midrule                                                                    \\
     3$^3$P$\odd$ & 2$^3$S       & 388.97     & $9.46\EE6$   & $1.06\EE7$        \\
     4$^1$P$\odd$ & 2$^1$S       & 396.59     & $6.95\EE6$   & $2.52\EE8$        \\
-   %5$^3$D       & 2$^3$P$\odd$ & 402.73     & $1.16\EE7$   & $1.64\EE7$        \\
     4$^3$D       & 2$^3$P$\odd$ & 447.28     & $2.46\EE7$   & $3.12\EE7$        \\
     4$^3$S       & 2$^3$P$\odd$ & 471.45     & $9.52\EE6$   & $1.60\EE7$        \\
     4$^1$D       & 2$^1$P$\odd$ & 492.33     & $1.99\EE7$   & $2.70\EE7$        \\
@@ -53,36 +57,52 @@ transitions is recorded in table~\ref{tbl:transitions}.
   \end{tabular}
   \label{tbl:transitions}
 \end{table}
-Several factors, including the fiber, monochromator grating, and the
-photocathode coating resulted in a nonuniform response with wavelength. This was
-compensated for with spectral measurements of an Optronic Laboratories M-1179
-spectral irradiance standard, powered by an Optronic Laboratories OL 65 power
-supply. 
+The optical response of the system varied with respect to wavelength. This was a
+result of several factors, including the fiber, the grating, photocathode
+coating, and more. An irradiance standard was used to correct for the varying
+spectral sensitivity of the system. The standard was an Optronic Laboratories
+M-1179 tungsten lamp, powered by an Optronic Laboratories OL 65 power supply.
+The fiber was repositioned to collect light from the lamp and the \acs{pmt}
+signal was measured at each of the emission wavelengths listed in
+table~\ref{tbl:transitions}. The measured signals were then combined with the
+tabulated spectrum of the lamp to generate correction factors at each transition
+wavelength.
 
 \section{Wave Velocities}
 
-In the analysis of \acs{fiw} discharges, one of the most common means of
-comparison is the use of wave velocities. In the studies reported by Vasilyak
-\cite{Vasilyak1994}, the velocities were measured using several approaches. In
-one, capacitive probes were placed in contact with the dielectric of the
-discharge tube, and the time delay between the voltage signals was used as the
-wave velocity. In some cases an intensified \acs{ccd} was used to track the
-propagation of the wave. Alternately, a photomultiplier tube was positioned
-against the dielectric at varying axial locations. This is the approach used
-here.
+The breakdown of \acs{rpnd}s and \acs{fiw} is often described in terms of waves.
+This recalls the terminology used by Loeb \cite{Loeb1965} to describe the
+fundamental mechanisms involved. While the wave in question is one of the
+potential gradient in the system, optical measurements have often been used to
+measure its velocity. This assumes the timing of the optical emissions reliably
+correlate to the potential gradient.
 
-The maximum detectable velocity was limited by several factors. Data were only
-available at intervals of 1 ns. As the maximum separation of measurement
-locations was 15.24 cm, this set an upper limit of about 1.5$\times10^8$ m/s.
-Additional limitations were imposed by the jitter of the pulser output. Overall,
-the maximum detectable wave velocity was $5.0\times10^7$ m/s.
+Though this assumption is not strictly true (a changing electric field need not
+be accompanied by any emissions whatsoever), optical measurements of the wave
+velocity are one of the most common and easily accomplished diagnostics for these
+types of discharges \cite{Vasilyak1994}. As a result, it provides some basis for
+comparison, even if the wave ``velocity'' is a complex function of pressure,
+pre-ionization, gas, geometry, dielectric, and more. In this case, the relative
+difference in the timing of the optical emissions from the different axial
+locations were used to estimate the wave velocity.
 
-The velocities were determined as an average of the all the emission curves
-recorded. In each case, the curve at each axial location was interpolated with a
-smoothing spline. The time of the maximum derivate of the emission curves was
-used as the reference point in each case. The distance between the measurement
-locations was then divided by the time delay between the maximum derivatives.
-The results of these calculations are recorded in table~\ref{tbl:velocities}.
+The maximum detectable velocity was 5.0$\times10^7$ m/s, and was primarily
+determined by the jitter in the timing of the pulser output. Additional
+uncertainty was introduced in the determination relative delay in emissions
+between the various axial locations. In order to minimize the uncertainty in the
+delay values, the timing was determined by the largest positive derivative of
+each emissions curve. However, even minor noise in the \acs{pmt} signals made
+this approach unreliable. Subsequently, a smoothing spline was used to minimize
+the uncertainty introduced by the noise.
+
+Wave velocities were calculated independently for each transition. This was
+necessary as some transitions exhibited much slower rise times than others. The
+upper states of these transitions are most likely populated by the decay of
+higher excited states (radiative cascade), rather than the energetic electrons
+associated with the wave. Despite this, the velocity estimates did not appear to
+possess any meaningful dependence on the transition used. As a result, the
+velocity estimates were averaged together in order to obtain a single estimate.
+The results are recorded in table~\ref{tbl:velocities}.
 \begin{table}
   \centering
   \caption{Wave velocities in the \acs{rpnd}.}
@@ -97,26 +117,19 @@ The results of these calculations are recorded in table~\ref{tbl:velocities}.
   \end{tabular}
 \end{table}
 
-Delays in the emissions at the different axial locations only appeared for the
-8.0 and 16.0 Torr conditions. The propagation of the discharge across the
-chamber was essentially instantaneous for all other conditions. Vasilyak et al.\
-note that it is difficult to compare the velocities of \acs{fiw} discharges as a
-result of numerous dependencies and poorly understood physics. In the \acs{fiw},
-the velocity varies with pressure, gas, outer dielectric, pulse voltage, and
-preionization. There is no reason to suspect that the situation is any different
-for the \acs{rpnd}. That said, the measured values fall within the wide range
-that has previously been associated with streamers, \acs{fiw}s, and \acs{rpnd}s.
-
-The early work of Schonland and Collens \cite{Schonland1933} determined that the
-luminous front of lightning propagated with a velocity of $0.72-5.3\times10^7$
-m/s for the forward and return stroke. The studies reported by Vasilyak et al.
+Ultimately, only the 8.0 and 16.0 Torr conditions exhibited any statistically
+significant delay in the emission signals. For all other cases, the wave
+velocity exceeded the maximum detectable value. The results are comparable to
+other measurements made for similar discharges. The early work of Schonland and
+Collens \cite{Schonland1933} determined that the luminous front of lightning
+propagated with a velocity of 0.72 and 5.3$\times10^7$ m/s for the forward and
+return stroke respectively. The studies reported by Vasilyak et al.
 \cite{Vasilyak1994} give a range of approximately $2-5\times10^7$ m/s for a 200
 kV \acs{fiw} in helium at pressures from 0.1-760 Torr. Propagation velocities
-for atmospheric plasma jets of helium have been measure at about $10^5$ m/s
+for atmospheric plasma jets of helium have been measured at about $10^5$ m/s
 \cite{Lu2006} with simulations providing confirmation \cite{Naidis2010} of these
 values. Fast imaging by Ito et al. \cite{Ito2010} determined a velocity of
 $10^6$ m/s for a hydrogen \acs{rpnd}.
-
 
 \section{Electron Temperatures}
 
@@ -125,60 +138,72 @@ for several reasons. The most significant of which is the concept of temperature
 itself. As was noted in Chapter~\ref{chp:modeling}, the \acs{rpnd} is a highly
 dynamic system which does not necessarily result in a population of electrons
 with a Maxwell-Boltzmann distribution. In the absence of this property, the
-``temperature'' quantity can have an ambiguous meaning. Often, the reported
-temperature describes the Maxwell-Boltzmann distribution which best matches
-measured some choice of plasma properties (such as plasma emissions). In other
-cases, the temperature may describe the mean electron energy of the \acs{eedf},
-such as in Chapter~\ref{chp:modeling} or in the work of Starikovskaia and
-Starikovskii \cite{Starikovskaia2001}.
+``temperature'' quantity can have an ambiguous meaning. Often, reported
+temperatures will describe the Maxwell-Boltzmann distribution which best matches
+some specified plasma property (such as plasma emissions). In other cases, the
+temperature may describe the mean electron energy of the \acs{eedf}, such as in
+Chapter~\ref{chp:modeling} or in the work of Starikovskaia and Starikovskii
+\cite{Starikovskaia2001}.
 
 The temperatures generated in these two cases will coincide only for a limited
-number of situations and the choice of diagnostics. Thus, it is of interest to
-search for useful electron temperature diagnostics which apply to the
-\acs{rpnd}. The electron temperature of a system is most often determined by the
-use of electrostatic probes, such as those discussed by Lieberman
-\cite{Lieberman2005}. However, as was discussed at the beginning of
-Chapter~\ref{chp:metastables}, physical probes are not a reasonable option of
-the \acs{rpnd}. An active optical technique, such as Thomson scattering
-\cite{VanGessel2012}, would be an ideal solution if the electron densities in
-the \acs{rpnd} were not below its sensitivity threshold.
+number of situations and certain diagnostics. Thus, it is of interest to search
+for useful electron temperature diagnostics which could be used for the
+\acs{rpnd}. The electron temperature of a plasma is most often determined by the
+use of electrostatic probes, such as Langmuir probes \cite{Lieberman2005}.
+However, as was discussed at the beginning of Chapter~\ref{chp:metastables},
+physical probes are not a reasonable option of the \acs{rpnd}. An active optical
+technique, such as Thomson scattering \cite{VanGessel2012}, would be an ideal
+solution if the electron densities in the \acs{rpnd} were not below its
+sensitivity threshold.
 
-Therefore, several attempts were made to translate the plasma emission
-measurements to electron temperatures. Such techniques have been successful in
-the analysis of steady-state systems with relatively low electron densities,
-however the applicability to very dynamic discharges is not a given and must be
-qualified \cite{Kunze2009}. 
+Without the option of physical probes or active spectroscopic techniques,
+several attempts were made to translate the measured plasma emission results to
+electron temperatures. Such techniques have been successful in the analysis of
+steady-state systems with relatively low electron densities \cite{Kunze2009},
+however they are subject to several limitations. The largest of these is the
+need for a measurable amount of emissions. However, the \acs{rpnd} emissions
+only last for a few hundred nanoseconds. The second limitation is the finite
+lifetime of the excited states. This places a physical limit on the time
+resolution of passive optical electron temperature measurements. Given these
+issues, the use of such techniques must be carefully considered and qualified.
 
 \subsection{Boltzmann Plots}
 
-When the population of two excited states are in equilibrium with the electrons,
-the ratio of their densities can be written as \cite{Griem2005}
+The first attempt to determine the electron density of the \acs{rpnd} involved
+the use of a Boltzmann plot. When the \acs{eedf} is a Maxwell-Boltzmann
+distribution and the population of two excited states are in equilibrium with
+the electrons (partial local thermodynamic equilibrium, \acs{plte}), the ratio
+of their densities and line intensities can be written as \cite{Griem2005}
 \begin{equation}
-  R = \frac{\lambda_{i,j}A_{i,j}g_j}{\lambda_{i',j'}A_{i',j'}g_{j'}}
-      \exp\left( -\frac{\Delta\epsilon_{i,j} - \Delta\epsilon_{i',j'}}
-                       {\kB T_e} \right),
+  R = \frac{I_{i,j}N_j}{I_{i',j'}N_{j'}}
+    \approx \frac{\lambda_{i,j}A_{i,j}g_j}{\lambda_{i',j'}A_{i',j'}g_{j'}}
+            \exp\left( -\frac{\Delta\epsilon_{i,j} - \Delta\epsilon_{i',j'}}
+                      {\kB T_e} \right),
 \end{equation}
-where the subscripts represent different electronic states, $\lambda$ is the
-transition wavelength, $A$ is the spontaneous transition rate, $g$ is
-statistical degeneracy, and $\Delta\epsilon$ is the energy separation between
-the identified states. In this case, the line ratios only depend on the electron
-temperature and physical quantities that are well-tabulated for helium.
+where $I$ is the line intensity, $N$ is the density, the subscripts represent
+different electronic states, $\lambda$ is the transition wavelength, $A$ is the
+spontaneous transition rate, $g$ is statistical degeneracy, and $\Delta\epsilon$
+is the energy separation between the identified states. As can be seen, this
+ratio only depends tabulated physical quantities for helium and the electron
+temperatures.
 
-This approach can be applied to several successive transitions by plotting the
-quantity
+This ratio can be transformed to obtain the relation
 \begin{equation}
   \log\left(\frac{I_{i,j}\lambda_{i,j}}{g_jA_{ij}}\right)
+  \propto -\frac{$\Delta\epsilon_{i,j}$}{\kB T_e}.
 \end{equation}
-with respect to $\Delta\epsilon_{i,j}$, where $I$ is the measured intensity of
-the optical transition. Ideally, the plotted points would form a line where the
-negative reciprocal is equal to the electron temperature. This is most
-frequently referred to as a Boltzmann plot. 
+Therefore a plot of the logarithmic quantity with respect to the transition
+energy would yield a line with a slope equal to the negative reciprocal of the
+electron temperature. The use of several lines for this Boltzmann plot obviates
+the need for absolute density measurements and makes for a more accurate
+determination of the slope of the line. However, it also extends the requirement
+for \acs{plte} to additional combinations of excited states.
 
-The emissions data for the wavelengths recorded in table~\ref{tbl:transitions}
-was compiled into a series of intensities for each time step. A Boltzmann plot
-was then generated for each time step and a line was fit to the data using a
-least-squares algorithm. This produced the temperature estimates seen in
-figure~\ref{fig:boltcomp}.
+In order to evaluate this method, Boltzmann plots were generated for both the
+measured and simulated emissions data. Each set of states were assumed to be in
+\acs{plte}. At each time step, a line was fitted to the data with a
+least-squares algorithm, and the electron temperature was calculated. This
+produced the temperature estimates seen in figure~\ref{fig:boltcomp}.
 \begin{figure}
   \centering
   \includegraphics{./chapters/emissions/figures/boltcomp.eps}
@@ -187,69 +212,79 @@ figure~\ref{fig:boltcomp}.
     the simulated temperatures (solid, black line).}
   \label{fig:boltcomp}
 \end{figure}
-Negligible plasma emissions occurred prior to the pulse, preventing any analysis
-during that period of time. Estimates of the electron temperature using the
-Boltzmann plot approach proved to provide poor predictions. Peak temperatures
-were underestimated by at least a factor of ten, if not more. This disagreement
-is not altogether unexpected--the assumption of equilibrium between the excited
-states and the electrons is most certainly violated on such short time scales,
-simply as a result of the finite time required for electron-atom collisions to
-occur. This is confirmed by the poor quality of the temperature estimates
-generated from the simulated emissions.
+The limited intensity of the plasma emissions prevented temperature estimates
+for the experimental data soon after the pulse. Even after the emission
+intensities rose to adequate values, the electron temperature estimates appeared
+to be provide poor results for the duration of the measurement period. Peak
+temperatures were underestimated by at least a factor of ten, if not more.
 
-After the pulse, when the electrons are cooling primarily through elastic
-collisions, it might be expected that the atomic state populations would relax
-to an equilibrium distribution. While this is true for a long enough time
-period, this behavior is not observed for the length of time under
-consideration. Instead, the non-equilibrium distribution of atomic states that
-is established during the pulse lasts well into the afterglow. As Kunze notes,
-``one always has to check if indeed the assumption of a Boltzmann distribution
-is justified \ldots, equilibrium may not be reached even if the steady-state
-conditions seem to indicate that.'' \cite{Kunze2009}
+This disagreement is not altogether unexpected. Even in the ideal case of
+electron with a fixed temperature, \acs{plte} only occurs after each electron
+has undergone many collisions with atoms in the gas. The changes in electron
+temperatures of the \acs{rpnd} occur too rapidly for this kind of equilibrium to
+occur. This is true, not only for the actual \acs{rpnd}, but the simulation as
+well.
 
-Generally, the Boltzmann plots are poor predictors of the electron temperature
-for the time period under consideration. This almost certainly results from the
-inapplicability of the Boltzmann distribution to excited state populations. As
-can be seen in figure~\ref{fig:boltex},
+Based on this reasoning, it might be expected that the validity of the Boltzmann
+plot approach would improve as the time increased. While this is eventually
+true, it does not appear that the \acs{rpnd} afterglow ever reaches the point
+where the all the states associated with the measured transitions reach
+\acs{plte}. For the results shown, the Boltzmann plots for the measured and
+simulated emissions continue to under-predict the electron temperatures well
+into the afterglow. This reflects Kunze's statement that ``one always has to
+check if indeed the assumption of a Boltzmann distribution is justified \ldots,
+equilibrium may not be reached even if the steady-state conditions seem to
+indicate that.'' \cite{Kunze2009}
+
+Given this analysis, Boltzmann plots appear to be poor indicators of the
+electron temperatures within an \acs{rpnd}. Though the results may improve as
+the time after the pulse increases, it is possible that the emissions will fall
+below detectable limits well before \acs{plte} applies. This is emphasized by an
+examination of the individual Boltzmann plots, figure~\ref{fig:boltex}, obtained
+from the measurements.
 \begin{figure}
   \centering
   \includegraphics{./chapters/emissions/figures/boltex.eps}
   \caption{Boltzmann plot examples for the \acs{rpnd}}
   \label{fig:boltex}
 \end{figure}
-the plots show a large deviation from line that would be expected from theory.
-To some extent, this too may be indicative of inaccuracies in the line intensity
-measurements, however even after removing the transitions with relatively small
-signals, no clear lines emerge. 
+Each plot possesses many deviations from the straight line which would indicate
+the applicability of \acs{plte}. 
 
 \subsection{Coronal Model}
 
-In place of the assumption about an equilibrium distribution between excited
-states, another approach is the use of the coronal model. In this case, the
-states are considered to be excited by electrons, but to decay via optical
-transitions. This model excels at low densities where states are not subject to
-a great degree of mixing and inter-atomic collisions can be neglected. Again,
-these assumptions do not necessarily apply to the \acs{rpnd}.
+The failure of the \acs{plte} assumption indicates the need for a different
+model in the determination of the electron temperature. One such model is the
+coronal model. In this case, the excited states are all assumed to be generated
+by electron collisions with ground state atoms. However, these excited states
+decay by optical emission. This model excels at electron low densities where
+states are not subject to a great degree of mixing and inter-atomic collisions
+can be neglected \cite{Kunze2009}. As with \acs{plte}, it is not immediately
+clear that these assumptions hold for the \acs{rpnd}.
 
 Per Kunze \cite{Kunze2009}, the line intensity ratio resulting from the coronal
 model may be expressed as
 \begin{equation}
-  R = \frac{\lambda_{i',j'}A_{i,j}\sum A_{i'} K_{0,i}(T_e)}
+  \frac{I_{i,j}}{I_{i',j'}} = \frac{\lambda_{i',j'}A_{i,j}\sum A_{i'} K_{0,i}(T_e)}
   {\lambda_{i,j}A_{i',j'}\sum A_{i} K_{0,i'}(T_e)}
 \end{equation}
 where the sum is over all possible radiative decay pathways, the subscript `0'
 is the ground state, and $K$ is the rate coefficient. Note that the rate
-coefficients are explicitly functions of the electron temperature. The upper
-states used for this line ratio must be carefully chosen so as to limit
-sensitivity to collisional mixing of excited states. Likewise, the rate
-coefficient ratio should exhibit a monotonic trend with electron temperatures.
+coefficients are explicitly functions of the electron temperature. As with the
+global model, the rate coefficients must be calculated from the interaction
+cross sections with an assumed \acs{eedf}. For consistency, we assume that this
+is a Maxwell-Boltzmann distribution. The upper states used for this line ratio
+must be carefully chosen so as to limit sensitivity to collisional mixing of
+excited states. Likewise, the rate coefficient ratio should exhibit a monotonic
+trend with electron temperature.
 
 Several ratios have been suggested by Kunze and others, including:
 4$^3$S-2$^3$P$\odd$ over 4$^1$S-2$^1$P$\odd$, 3$^3$S-2$^3$P$\odd$ over
 3$^1$S-2$^1$P$\odd$, and 4$^3$S-2$^3$P$\odd$ over 4$^1$D-2$^1$P$\odd$. The
 ratios with the upper state in an S subshell are attractive as they are less
-susceptible to collisional mixing between states of equal $n$ \cite{Kunze2009}.
-Limited emission intensity prevented accurate measurements of the
+have the lowest energy for a given $n$ and thus are less susceptible to
+collisional mixing between states of equal $n$ \cite{Kunze2009}. However,
+limited emission intensity prevented accurate measurements of the
 4$^1$S-2$^1$P$\odd$ transition. As a result, only the former two ratios were
 considered for analysis.
 
@@ -269,14 +304,14 @@ Figure~\ref{fig:conversion}
 shows the relation between the emission intensity of the two transitions and the
 electron temperature of the system. The rate coefficients were calculated with
 the assumption of a Maxwell-Boltzmann distribution, using the cross sections
-produced by Ralchenko et al. \cite{Ralchenko2008}. Though it is possible to
-convert the measured and simulated line ratios to temperatures using these
-results, they may not necessarily correlate to the actual temperatures of the
-system.
+produced by Ralchenko et al. \cite{Ralchenko2008}. 
 
-The calculated conversion between triplet-singlet ratio was used to estimate the
-temperature of the \acs{rpnd} experiment in addition to the simulated emissions.
-The results can be found in figure~\ref{fig:rat2comp}.
+These calculations for the triplet-singlet ratios were used to estimate the
+electron temperature from the simulated emissions as well as the measured
+emissions. As with the Boltzmann plots, the temperatures calculated from the
+simulated emissions represent the best attainable result with this method. The
+results obtained with the 4$^3$S-2$^3$P$\odd$ to 4$^1$D-2$^1$P$\odd$ ratio, seen
+in figure~\ref{fig:rat2com},
 \begin{figure}
   \centering
   \includegraphics{./chapters/emissions/figures/rat2comp.eps}
@@ -287,24 +322,34 @@ The results can be found in figure~\ref{fig:rat2comp}.
     results from the global model simulation (solid, black lines).}
   \label{fig:rat2comp}
 \end{figure}
-Generally, neither the simulated or measured ratios provided a good estimate of
-the electron temperatures. Unlike the Boltzmann plots, both tended to
-overestimate the temperature of the \acs{rpnd}. As the higher temperatures
-relate to a lower triplet-singlet ratio, this suggests either an excess in
-4$^1$D states, or a deficit of 4$^3$S states. Additionally, both the measured
-and simulated ratios show growing or otherwise elevated temperature well after
-the pulse. This might be a consequence of the collisional mixing described by
-Kunze. Also notable is the disagreement between the measured and simulated
-ratios. For several periods of time the trends are entirely opposite. Similar
-issues were recorded by Boivin et al. \cite{Boivin2007} who suggested that
-improved data for the $n=5$ transitions may lead to better agreement.
+were not promising. As before, neither the simulated nor the measured ratios
+proved to provide good estimates of the electron temperatures. However, unlike
+the Boltzmann plots, this line ratio generally resulted in an overestimate of
+the temperatures. The relation from figure~\ref{fig:conversion} shows that the
+low triplet-singlet ratios are associated with high temperatures. This suggests
+either an excess in 4$^1$D states, or a deficit of 4$^3$S states. Additionally,
+both the measured and simulated ratios show growing or otherwise elevated
+temperature well after the pulse. This may be partially explained by the use of
+the 4$^1$D state for the singlet transition, an approach warned against by Kunze
+\cite{Kunze2009}.
 
-As suggested above, the ratio of 3$^3$S-2$^3$P$\odd$ to 3$^1$S-2$^1$P$\odd$, may
-offer a better means by which to measure the electron temperature. The greater
-energy spacing between states of equal $n$ promises to reduce collisional
-mixing. Likewise, both of the upper states are from the S subshell, as
-recommended by Kunze \cite{Kunze2009}. The promise of this approach is
-immediately apparent in figure~\ref{fig:rat1comp}.
+Also notable is the disagreement between the measured and simulated ratios.
+While the temperatures estimated from the measurements quickly decrease after
+the pulse, the temperatures from the simulations continue to rise. This
+situation reverses at about 75 ns when the temperature estimates from the
+measurements begin to rise while the simulated ones fall. The reason for this
+difference in behavior is not immediately clear, however Boivin et al.\ reported
+several problems with this line ratio which they attributed to the omission of
+$n=5$ states from their simulations \cite{Boivin2007}. 
+
+Unlike the prior line ratio, a comparison of 3$^3$S-2$^3$P$\odd$ to
+3$^1$S-2$^1$P$\odd$, eliminates the potentially problematic upper state in the D
+subshell. Additionally, the lower $n$ results in a greater energy spacing
+between the different subshells. For both of these reasons, this ratio should be
+less susceptible to collisional mixing. While the lower threshold energies make
+this ratio less desirable for very high electron temperatures, it was believed
+to be more than adequate for the \acs{rpnd}. This reasoning is somewhat borne
+out by the results in figure~\ref{fig:rat1comp}.
 \begin{figure}
   \centering
   \includegraphics{./chapters/emissions/figures/rat1comp.eps}
@@ -317,23 +362,29 @@ immediately apparent in figure~\ref{fig:rat1comp}.
 \end{figure}
 The temperature estimates based on the simulated emissions show excellent
 agreement with the temperatures from the global model. This is true both in
-terms of the magnitude of the values and the overall behavior of the trends.
-The initial increase in temperature is captured particularly well, with only
-moderate deviations in the afterglow. The differences in the afterglow are
-likely the result of the radiative cascade which occurs soon after the pulse
-ends. In this process, the relaxation of the higher excited states serves to
-boost the density of the lower states.
+terms of the magnitude of the values and the overall behavior of the trends. The
+initial increase in temperature is captured particularly well, with only
+moderate deviations in the afterglow. These differences are believe to be the
+result of the radiative cascade from higher excited states which contribute to
+the population of the upper excited states, mildly violating the coronal model.
 
-In contrast, the experimental results differ vastly from the other two
-temperature trends. In part, this can be attributed to the experimental
-difficulties. The two lines, both in wavelengths approaching the infrared, are
-not well converted into electrons by the photocathode of the \acs{pmt}. As a
-result, the absolute intensities of these lines were particularly low, leading
-to a significant amount of uncertainty. That said, the 4.0 Torr operating
-condition exhibited sufficient intensities for both lines for temperature
-estimates to be made during and after the pulse. In contrast to the temperature
-from the global model, the emission measurements suggest that the temperature
-peaks at 4.9 eV followed by a rapid relaxation to about 0.5 eV.
+Unfortunately, the experimental results do not share the exceptional qualities
+of the estimates from the simulated emissions. In part, this can be attributed
+to the experimental difficulties. The two transitions occur at wavelengths to
+which the \acs{pmt} is noticeably less sensitive. As a result, the absolute
+intensities of these lines were particularly low. This led to substantial
+uncertainties in the line ratios which persisted throughout the measurement
+period.
+
+Of the available data, the two transitions were most intense at 4.0 Torr. As a
+result, this represents the most reliable electron temperature estimates based
+on this line ratio. In contrast to the temperature from the global model, the
+emission measurements suggest that the temperature peaks at 4.9 eV followed by a
+rapid relaxation to about 0.5 eV. If accurate, the fast relaxation of the
+electrons suggests that additional inelastic processes should be considered by
+the global model. The most likely reservoir for this energy would be the excited
+states of molecular nitrogen which composes the majority of the impurities in
+the system.
 
 Given the low intensities, difficulty in obtaining accurate intensity
 measurements \cite{Griem2005}, and the sensitivity of the temperature estimate
@@ -341,134 +392,155 @@ to the line ratio, these results should be considered quite preliminary. The use
 of these transitions is promising for measurements of the electron temperature
 in the \acs{rpnd}--the global model simulations show a good agreement between
 the estimates and the actual temperatures, and the ratio changes quickly enough
-to capture at least some of the \acs{rpnd} dynamics. This measurement could be
-improved by the used of a photocathode with improved response to this spectral
-region and selection of a monochromator grating with better efficiency for these
-lines.
+to capture at least some of the \acs{rpnd} dynamics. Improvements to the
+spectral sensitivity at these wavelengths could confirm the above results and
+indicate necessary modifications to the global model.
 
 \section{Emission Comparisons}
 
-In light of the disagreement between the measured and simulated line ratios, it
-was decided to make a comparison of the measured and simulated emissions for
-several different conditions. This was done in order to obtain more insight on
-the accuracy of the simulations which were subject to a number of assumptions.
-In addition, the measured emissions from the \acs{rpnd} reveal more about the
-excited state dynamics for levels beside the triplet metastable.
+The emission curves of the simulated and experimental \acs{rpnd} contain a
+number of minor and significant differences. Likewise, some provide meaningful
+insight on the plasma characteristics, others are more ambiguous. For example,
+the greater than expected prominence of the 4$^3$D-2$^3$P$\odd$ transition may
+either indicate a more substantial high energy electron tail, or the need for
+the inclusion of $n=5$ states. Two differences will be analyzed here, however
+the full set of emission measurements are available in
+Appendix~\ref{chp:extraem}.
+
+\subsection{Excitation Duration}
 
 As was noted in Chapter~\ref{chp:modeling}, several assumptions were needed to
 develop the global model used to simulate the \acs{rpnd}. Among these were the
 assumption that the \acs{eedf} was always a Maxwell-Boltzmann distribution, and
 that the applied electric field was a Gaussian function in time with a width of
 40 ns. The \acs{pic} simulations as well as the results from Boltzmann plots and
-line ratios suggest that the former assumption is not rigorously true.
-
-The width of the electric field was inferred from the observation of a return
-stroke which appeared to occur 15 ns after the forward stroke. This approach led
-to an excellent fit of the recorded metastable data. That said, the work of
-Takashima et al. \cite{Takashima2011} among others \cite{Ito2010} suggested that
-the electric field and excitation may persist well after the pulse has ended.
+line ratios have already suggested that the former assumption is not rigorously
+true. While the electric field shape was originally inferred from the
+observation of a return stroke in the system, this assumption was considered in
+more detail via the 3$^1$D-2$^1$P$\odd$ transition at 668 nm.
 
 Figure~\ref{fig:667comp}
 \begin{figure}
   \centering
   \includegraphics{./chapters/emissions/figures/667comp.eps}
   \caption{Comparison of the measured and simulated emissions from the
-  3$^1$D-2$^1$P$\odd$ transition at pressures of 1.0, 4.0, and 8.0 Torr. Also
-  shown is the natural radiative decay rate for the transition.}
+  3$^1$D-2$^1$P$\odd$ transition at pressures of 1.0, 4.0, and 8.0 Torr.}
   \label{fig:667comp}
 \end{figure}
-features a comparison of the normalized measured and simulated emissions for the
-3$^1$D-2$^1$P$\odd$ transition at 668 nm. Also shown is the theoretical
-intensity decay if there were no additional excitation of the 3$^1$D state after
-the pulse. The transition was chosen because it was one of the more prominent
-transitions and because, at $n=3$, the global model results will include
-re-population effects via radiative transitions from $n=4$. The relative timing
-of the experimental and simulated curves is only approximate, but there is still
-a clear difference between them in all cases.
+features a comparison of the measured and simulated emissions for the
+3$^1$D-2$^1$P$\odd$ transition over the range of simulated pressures. Both sets
+of results have been normalized to the maximum value of the 4.0 Torr transition
+so that the relative trends could be compared. 
 
-At 1.0 Torr the experimental emissions take much longer to reach their peak
-value, judging by the time required to go from 10\%-90\% of the peak (27 ns
-versus 10 ns). Likewise, the experimental emissions remain relatively high
-compared to the simulated emissions. Though the simulated emissions decay at a
-greater rate after the peak, the experimental and simulated decay rates approach
-the same value by 140 ns after the pulse.
+This transition was initially chosen for investigation because it was
+particularly prominent in both the measured and simulated emissions.
+Additionally, at $n=3$, the upper state is below the maximum $n$ considered in
+the global model. Therefore, the evolution of the upper state density and its
+emission curve reflects re-population effects as a result of radiative decay
+from $n=4$. Finally, the comparative behavior of the emission curves is
+representative of most of the other transitions.
 
-The same may be said about 4.0 Torr results. After the peak intensity, the
-emissions fall faster in the simulations, but the decay rate approaches that of
-the measured results as the time after the pulse increases. In contrast to the
-1.0 Torr case, the measured intensity increases at about the same rate as the
-simulated results (13 ns versus 14 ns).
+The simulations and the experimental measurements share a number general
+features. The optical intensity peaks at 4.0 Torr, followed by 1.0 Torr, and
+lastly, by 8.0 Torr. The relative magnitude of the optical intensities also
+agree for times greater than 50 ns after the pulse. Additionally, the timing of
+the peaks are also consistent between the two sets of data. It is interesting to
+note that this occurs in part because of the long delay before the onset of the
+emissions in the 1.0 Torr simulation.
 
-This trend continues at 8.0 Torr where the rise time of the measured emissions
-is about 12 ns--noticeably shorter than the 14 ns for the simulated emissions.
-Additionally, though the simulated emission intensity initially falls more
-quickly than is observed in the experiment, the situation is reversed after
-about 50 ns. The reason for this reversal is not entirely clear, but it suggests
-an additional loss process for the 3$^1$D state aside from what is included in
-the global model. Per the earlier discussion of loss processes in the
-development of the global model, Penning ionization of nitrogen impurities is
-the most likely candidate for the accelerated decay of emissions at 8.0 Torr.
+Despite the similarities, there are several notable differences. As already
+mentioned, there is a significant delay prior to the appearance of emissions
+from the 1.0 Torr simulation. This is probably caused by the low pre-pulse
+electron density in the 1.0 Torr case--approximately two orders of magnitude
+less than the other cases. Though this value is believed to be accurate, this
+behavior must be reconciled with that of the observed emissions which all appear
+at approximately the same time.
 
-Overall, the faster decay of the simulated emission intensities in the afterglow
-suggests a faster decline in the 3$^1$D states. This may be explained if the
-simulated electrons are cooling more rapidly than in the real \acs{rpnd}. This
-is not unreasonable given the simulated distributions in
-Chapter~\ref{chp:modeling}. At the high electric fields which appear to exist in
-the \acs{rpnd}, the \acs{eedf} features a significant population of electrons
-with energies above 100 eV. Reaction cross sections are generally quite low at
-these energies \cite{Ralchenko2008}. Therefore, the electrons may be expected to
-require longer to cool in the case of the \acs{rpnd}.
+Also observable is an apparent pressure dependence for the rate at which the
+measured emissions grew. At 1.0 Torr, the emissions took noticeably longer to
+reach their peak intensity as compared to the measurements at 8.0 Torr, or 4.0
+Torr which was the fastest. This is similar to what appeared to be a relatively
+slow growth in the metastable density at 1.0 Torr, as seen in
+figure~\ref{fig:nmcomp}. Again, this suggests that something unexpected is
+occurring at the 1.0 Torr condition. To some extent, the behavior of the
+emissions and the metastable densities almost appear to be the result of a
+broadening of the applied voltage pulse. Similarly broad emission curves were
+observed in the 0.5 and 0.3 Torr experiments as well.
 
-Additionally, there is the possibility of a persistent electric field, similar
-to that observed by Takashima et al. \cite{Takashima2011} and Ito et al.
-\cite{Ito2010}. Such a field would have the effect of prolonging the excitation
-of the 3$^1$D state, resulting in an extended period of emissions. However, the
-existence of such a field can neither be confirmed nor denied without additional
-measurements.
+Another important difference is the post-pulse shape of the curves. The
+simulated emissions, after reaching their peak, have decays which could be best
+described by a superposition of a fast and a slow exponential. This behavior--a
+fast decay following the pulse followed by a slow exponential, is similar to the
+behavior of the electron temperature from figure~\ref{fig:etemps}. It seems
+likely that the two are related as the fast fall in electron temperature would
+result in a fall of the excitation rate of the 3$^1$D state, reducing its
+emissions.
 
-Radiation trapping \cite{Kunze2009} could also result in an apparent extension
-of the excitation period. This process occurs when an excited atomic state emits
-a photon which is reabsorbed before it can exit the plasma. This effect is most
-important for optical transitions to the ground state, particularly from the
-2$^1$P, 3$^1$P, and 4$^1$P states. This absorption (and later re-emission) can
-be effectively described as a diffusive process. As the number of ground state
-atoms in the system increases, the longer it takes for photon born inside the
-system to exit it.
+By comparison, each of the measured emission curves are best matched by a single
+exponential decay process. While the slow exponential decay rate of the
+simulated results is relatively constant across pressures, there is a distinct
+pressure dependence in the measured emissions. This tends to suggest some type
+of atomic collision process as the global model provides a relatively complete
+accounting for the electron collision processes. Likewise, excitation transfer
+processes were also considered. The next most likely candidate would by the
+impurities within the system which were not included in the model. 
+
+\subsection{Radiation Trapping}
+
+Another phenomena which may alter the shape of the observed emissions is
+radiation trapping. The basis for this process is stimulated absorption, the
+same as laser-absorption spectroscopy, however radiation trapping occurs in the
+absence of any external photon field. Consider a photon emitted in a plasma by
+excited atomic state transitioning to one of lower energy. If this photon
+encounters an atom in the same lower state, it stands some finite chance of
+re-absorption before exiting the plasma. Re-absorption would lead to the
+excitation of the atom and eventually the isotropic emission of a second photon
+\cite{Kunze2009}.
+
+This isotropic emission makes radiation trapping a random-walk process which can
+effectively increase the residence time of energy within a plasma. From an
+observers perspective, radiation trapping manifests as a longer than expected
+radiative lifetime. As the probability of re-absorption per unit path-length is
+proportional to the density of the lower atomic state, radiation trapping is
+most significant for transitions from an excited state to ground. This makes the
+$^1$P states the most susceptible to trapping in a helium plasma.
 
 As these transitions involve deep-UV emissions, they were not directly
-observable with the previously described setup. However, radiation trapping
-results in an effective increase of the lifetime for the atomic states involved.
-This should increase the intensity and duration of transitions involving the
-3$^1$P and 4$^1$P states. Therefore, the measured and simulated results for the
-3$^1$P-2$^1$S transitions were compared. The peak values of the measured and
-simulated 3$^3$P-2$^2$S emissions were used to properly scaled the singlet
-transitions. As the 3$^3$P state is forbidden from a direct transition to the
-ground state, its dynamics should not be affected by trapping effects.
+observable with the previously described setup. However, as radiation trapping
+results in an effective increase of the lifetime for the atomic states involved
+there should be a corresponding increase in the intensity and duration of other
+transitions involving the $^1$P states. Therefore the simulated and experimental
+emissions for the 3$^1$P$\odd$-3$^1$S transition were compared. In addition, the
+3$^3$P$\odd$-3$^3$S transition, whose upper state does not have a transition to
+ground, were plotted to provide a baseline for comparison.
 
-Figure~\ref{fig:pstates}
+Figure~\ref{fig:trapping}
 \begin{figure}
   \centering
-  \includegraphics{./chapters/emissions/figures/pstates.eps}
-  \caption{Comparison of the measured and simulated 3$^1$P-2$^1$S emissions,
-  scaled by the equivalent triplet transition at 4.0 Torr.}
-  \label{fig:pstates}
+  \includegraphics{./chapters/emissions/figures/trapping.eps}
+  \caption{Comparison of the measured and simulated 3$^1$P$\odd$-2$^1$S and
+    3$^3$P$\odd$-2$^3$S emissions normalized to the most intense condition at
+    1.0, 4.0, and 8.0 Torr.}
+  \label{fig:trapping}
 \end{figure}
-shows the results of this comparison for the case of 4.0 Torr. As can be seen,
-the measured and simulated triplet transitions evolve in a manner similar to
-that of the 3$^1$D-2$^1$P$\odd$ transition. There is a stark contrast between
-the trends of the two singlet transitions. In the case of the simulations, the
-state decays away very rapidly. This is primarily the result of the large $A$
-coefficient for the 3$^1$P-1$^1$S transition, 5.66$\times10^{8}$ s$^{-1}$.
-However the measured emissions from this state last long after the applied
-pulse. 
+shows the results of this comparison. As can be seen, the triplet transition
+shows relatively good agreement between the simulated and experimental
+emissions. The decay rates are comparable at 1.0 and 4.0 Torr, though there is
+some discrepancy at 8.0 Torr. However, a similar comparison of the results for
+the singlet transition reveals a very different case. The simulated emissions
+from the transition die away almost immediately as a result of the large $A$
+coefficient for the 3$^1$P-1$^1$S transition, 5.66$\times10^{8}$ s$^{-1}$. In
+contrast, the measured emissions for this state have decay rates which are
+generally similar to those for the triplet transition. This appears to confirm
+the effects of radiation trapping on the measured emissions.
 
-The effects of resonance radiation trapping has been long been considered from
-the perspective of the light industry. Per the work of Holstein
-\cite{Holstein1951}, the effective lifetime of resonant radiation can be
-expressed as the nominal radiative lifetime multiplied by a trapping factor. The
-trapping factor is dependent on the geometry and the lineshape. For an infinite
-cylinder primarily subject to Doppler broadening, the trapping factor may be
-written as
+The importance of radiation trapping has previously been considered by Compton
+\cite{compton1922} and later by Holstein \cite{Holstein1947, Holstein1951}.
+Holstein's work allowed the calculation of an effective lifetime for trapped
+radiation in the form of the nominal radiative lifetime, multiplied by a
+trapping factor. The trapping factor is dependent on the geometry and the
+lineshape of the transition. For an infinite cylinder primarily subject to
+Doppler broadening, the trapping factor may be written as
 \begin{equation}
   T = \frac{k_0R\left[\pi\log(k_0R)\right]^{1/2}}{1.6},
 \end{equation}
@@ -480,8 +552,8 @@ at the line center,
 Here, $\lambda_0$ is the transition wavelength, $N_1$ is the density of lower
 resonant state, $g$ is the statistical degeneracy of the upper and lower states,
 and $A$ is the natural radiative lifetime. For a gas temperature of 300 K and a
-radius of 1.65 cm, the resulting trapping coefficients and effective lifetimes of
-the 3$^1$P-1$^1$S transition are listed in table~\ref{tbl:lifetimes}.
+radius of 1.65 cm, the resulting trapping coefficients and effective lifetimes
+of the 3$^1$P-1$^1$S transition are listed in table~\ref{tbl:lifetimes}.
 \begin{table}
   \centering
   \caption{The effective lifetimes of the 3$^1$P-1$^1$S transition resulting
@@ -497,7 +569,63 @@ the 3$^1$P-1$^1$S transition are listed in table~\ref{tbl:lifetimes}.
   \end{tabular}
 \end{table}
 For comparison, the normal lifetime of this transition is about 1.77 ns.
-Therefore, even at these moderate pressures, the energy entering the 
+Therefore, even at these moderate pressures, energy entering the 3$^1$P state
+can remain in the system for an exceptionally period of time. A similar
+conclusion may be made regarding the 2$^1$P and 4$^1$P states.
 
+The conclusion that radiation trapping occurs within the \acs{rpnd} is not
+surprising given the relatively high pressure of operation. However, the
+magnitude of the phenomena is larger than expected with the effective lifetimes
+approaching the pulse period. The long persistence of energy in the $^1$P states
+at higher pressures may provide ample opportunity for collisional redistribution
+to one of the two metastable states. The importance of this effect will clearly
+grow as \acs{rpnd} operating pressures increase.
 
 \section{Summary}
+
+The active spectroscopy used to measure the metastable densities within the
+\acs{rpnd} and the subsequent modeling provided a number of insights on its
+development. Passive spectroscopy was then used to provide further information
+on the development of the discharge. Initial analysis of the emissions indicated
+that the wave developed with a velocity of 1.7-3.0$\times10^7$ m/s at 8.0 Torr
+and 0.7-1.5$\times10^7$ m/s at 16.0 Torr. All other operating conditions
+developed with velocities in excess of 5.0$\times10^7$ m/s.
+
+Estimates of the wave velocity were followed by several attempts to determine
+the evolution of the electron temperature in the \acs{rpnd}. This included the
+use of Boltzmann plots (with the corresponding assumption of \acs{plte}), as
+well as line ratios based on the coronal excitation model. The Boltzmann plot
+method proved to be a poor and unreliable indicator of electron temperature in
+the system. Examination of the individual Boltzmann plots revealed that the
+excited states were far from \acs{plte}. Attempts to use the ratio of the
+4$^3$S-2$^3$P$\odd$ to the 4$^1$D-2$^1$P$\odd$ transition also proved to provide
+poor estimates of the electron temperature from both simulated and measured
+emission values. Eventually the ratio of 3$^3$S-2$^3$P$\odd$ over
+3$^1$S-2$^1$P$\odd$, was shown to provide good estimates of the electron
+temperature based on the simulated emissions. Unfortunately, uncertainties in
+the experimental emission measurements limited any conclusion on its
+effectiveness with the \acs{rpnd}.
+
+The emissions of the \acs{rpnd} were further analyzed for three transitions. The
+measured and simulated 3$^1$D-2$^1$P$\odd$ emissions were considered because of
+their prominence and representative nature. General trends such as the relative
+emission intensities and timing of the peak intensities were consistent between
+the simulations and measurements. However, several significant differences also
+appeared. The decay of the experimental emissions featured a strong pressure
+dependence which was not present in the simulated emissions. It was speculated
+that this resulted from collisional processes with impurities. Additionally, the
+1.0 Torr measurements showed an unusually extended excitation period. This trend
+continued to the lower pressures, and the metastable trends at 1.0 Torr provided
+support for this extended excitation period. The reason for this change in
+behavior at low pressures is not entirely clear.
+
+Finally, the emissions from the 3$^1$P$\odd$-3$^1$S transition were compared to
+those from the 3$^3$P$\odd$-3$^3$S transition in search of evidence for
+radiation trapping. A comparison of the measured and simulated emissions
+illustrated the prevalence of radiation trapping at 1.0, 4.0, and 8.0 Torr. This
+was confirmed by subsequent calculations of the effective radiative lifetime for
+the 3$^1$P state. Aside from the observable impact on the plasma emissions,
+the increased effective lifetimes of the $^1$P almost certainly contribute to
+additional metastable excitation as well as ionization. The importance of these
+effects should increase with the \acs{rpnd} operating pressure and may play an
+important role in maintaining the stability of the \acs{rpnd} between pulses.
