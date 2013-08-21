@@ -1,80 +1,72 @@
 Though the metastable density measurements appear to be one of only a few
 diagnositics conducted during the development of the \acs{rpnd}, they only
-provide a limited view of what is happening. Other quantities, such as the ions,
-electrons, additional excited states, and fields are all evolving with the
-metastables. However, these are all closely related and, provided a sufficiently
-detailed model, it should be possible to infer some or all of these parameters
-during the development of the \acs{rpnd}. The ideal model would solve
+provide a limited view of the energy transport in the discharge. Quantities,
+such as the ions, electrons, additional excited states, and fields all evolve in
+time along with the metastable population. However, the gas phase excitation and
+emission processes are closely related and provided a sufficiently detailed
+model, it should be possible to infer some or all of these parameters during the
+development of the \acs{rpnd}. The ideal model would solve
 equation~\ref{eq:boltzmann}, the Boltzmann equation for each species, over the
-entire geometry, for all velocities, for as long as was required to reach
+entire geometry, for all velocities, for as long as required to reach
 equilibrium.
 
-Unfortunately, these requirements are somewhat problematic. Solutions to the
-Boltzmann equation alone are difficult \cite{Lieberman2005}, let alone for the
-dozens of species which may be present in the \acs{rpnd}. The spatial
-discretization can be estimated as the cube of the largest length scale (the
-discharge apparatus length, about 30 cm) divided by the smallest length scale
-(on the order of the Debye length, about 20 $\mu$m). This calculation reveals
-the need for nearly $2\times10^{12}$ spatial cells. Similar calculations can be
-performed for the time scale (from nanoseconds to minutes) and velocity scale
-(from thermal to 100s of eV). It quickly becomes apparent that no existing
-computer could handle such a simulation.
+Unfortunately, these requirements are somewhat problematic. Solutions of the
+Boltzmann equation for a single species are difficult \cite{Lieberman2005}, not
+withstanding for the dozens of species which may be present in the \acs{rpnd}.
+In order to resolve the behavior of the plasma, any spatial discretization of
+the geometry must be on the scale of the Debye length or smaller. A conservative
+estimate of the Debye length for the \acs{rpnd} is about 20 $\mu$m. A cube of
+this dimension has a total volume of 8$\times10^{-15}$ m$^3$, thus requiring a
+total of approximately 3.2$\times10^{10}$ cells for the \acs{rpnd} in question.
+Assuming that each dimension of velocity space is discretized into 100
+components, a total of 0.26 exabytes would be required to describe a single
+species in the \acs{rpnd} at each timestep.
 
 \section{Model Development}
 
 Therefore, some approximations of the Boltzmann equation were required in order
 to obtain a computationally tractable problem. As discussed in
 Chapter~\ref{chp:theory}, the most common approach, and the one applied here, is
-the use of \emph{moments} of the Boltzmann equation. These moments average out
-the velocity dependence of the Boltzmann equation in favor of macroscopic
-properties such as particle densities and mean velocities. They are often used
-to develop various fluid approximations for plasmas \cite{Chen1984} (e.g.\ the
-two fluid model and the magnetohydrodynamic equations). Fluid models have been
-tremendously successful in the description of everything from plasma display
-panels \cite{Rauf1999b} to interstellar plasmas \cite{Linde1998}.
+the use of \emph{moments} of the Boltzmann equation. The moments represent an
+average over the velocity-space of the Boltzmann equation, resulting in
+macroscopic properties and relations, such as the continuity equation. They are
+often used to develop various fluid approximations for plasmas \cite{Chen1984}
+(e.g.\ the two fluid model and the magnetohydrodynamic equations). Fluid models
+have been tremendously successful in the description of everything from plasma
+display panels \cite{Rauf1999b} to interstellar plasmas \cite{Linde1998}.
 
 The use of moments of the Boltzmann equation does introduce some additional
-problems. Reaction rates, such as ionization and excitation, are sensitive to
-changes in the distribution of particle velocities. This presents a problem when
-the velocity dependence has been averaged out, as in the case of the fluid
-models. As a result, a distribution function must be assumed or calculated in
-order to determine the reaction rates. The Maxwell-Boltzmann and Druyvesteyn
-distributions from Chapter~\ref{chp:theory} are often used for this purpose.
-However, they require a number of assumptions which are not necessarily true for
-most plasmas. In cases where these distributions cannot be applied, approximate
-solutions of the Boltzmann equation are often used \cite{Hagelaar2005} which
-employ detailed reaction cross sections to obtain more accurate solutions. The
-choice of which approach to use is not easy as the \acs{eedf} is rarely known
-\emph{a priori}. Consequently, this topic is considered more thoroughly in
-section~\ref{sec:dists}.
+problems. Reaction rates, such as those which describe ionization and
+excitation, are sensitive to changes in the distribution of particle velocities.
+However, the distribution velocity of particles is determined from the solution
+of the Boltzmann equation. As a result, a distribution function either be
+generated by an approximate solution of the Boltzmann equation
+\cite{Hagelaar2005} or assumed from a equilibrium solution of Boltzmann
+equation, such as the Maxwell-Boltzmann and Druyvesteyn distributions from
+Chapter~\ref{chp:theory}. The choice of which approach to use is not easy as the
+\acs{eedf} is rarely known \emph{a priori}. Consequently, this topic is
+considered more thoroughly in section~\ref{sec:dists}.
 
-From another perspective, fluid models include some or all spatial dimensions.
-This can lead to simulations that are still computationally demanding depending
-on the length scales involved. In some cases, the number of species and
-reactions must be limited in to order to speed up the solution process
-\cite{Lieberman2005}. For this reason, simulations may only include one or a few
-excited states. Careful choices of the excited states and reactions can produce
-excellent results, however this approach can prevent detailed comparisons to
-spectroscopic data which can can reveal information about the degree of
-equilibrium in the plasma and the electron temperatures, both of interest in the
-\acs{rpnd}. Therefore, the model developed here makes additional simplifications
-in order include additional a large number of excited states and reactions.
+Despite the simplification in velocity-space, the resulting fluid models can
+still be computationally demanding for large geometries. This has motivated the
+development of models which reduce the geometric complexity of the system in
+order to address a larger number of species and transitions
+\cite{Lieberman2005}. In the extreme case, the geometric dependence of the
+solutions can be completely eliminated by assuming some sort of spatial
+distribution.
 
-As simplifications had already been made to the velocity space, the next logical
-approach was a simplification of the geometric dependence of the model. Several
-\acs{fiw} studies were found to have successfully applied ``global models'' to
-their systems \cite{Aleksandrov2007, Popov2011}. These models eliminate the
-spatial dependence of the Boltzmann moments in favor of an assumed spatial
-distribution. This allowed the studies to consider a large number of species and
-reaction pathways. Following these examples, a decision was made to use a global
-model in the simulation of the \acs{rpnd}. The final model tracked a total of 32
-different excited states of helium from before the pulse until the return of the
-first reflection. Between these possible states a total of 535 different
+Several \acs{fiw} studies were found to have successfully applied these ``global
+models'' to their systems \cite{Aleksandrov2007, Popov2011}. By the elimination
+of the geometric discretization, they were able to consider a large number of
+species and reaction pathways. In this work, a global model was used to simulate
+the \acs{rpnd}. The final model tracked a total of 32 different excited states
+of helium from 50 ns prior to the pulse to 140 ns after the pulse (just prior to
+the first reflection). Between these possible states a total of 535 different
 reaction processes were incorporated including electron-related reactions,
 radiative processes, and inter-atomic interactions.
 
-In order to compare the metastable measurements to the global results, it was
-necessary to convert the line-integrated densities from
+In order to compare the metastable measurements to the global model predictions,
+it was necessary to convert the line-integrated densities from
 Chapter~\ref{chp:metastables} to volumetric densities, along the path of the
 laser. It has been noted that a similar \acs{fiw} \cite{Vasilyak1994} and the
 same \acs{rpnd} \cite{Weatherford2012} exhibited radial variations in emission
@@ -100,12 +92,14 @@ gradients reduces this to,
 where $\alpha$ identifies the particle species, $G$ is the gain term, and $L$ is
 the loss term. The gain and loss terms represent all possible reactions which
 can alter the population of $\alpha$. The model presented incorporates helium
-states up to $n=4$, helium ions, and electrons. It should be noted that helium
-dimers and impurities were also likely present in the experimental discharge.
-However, they were neglected in the case of this model. As observed in
-Chapter~\ref{chp:metastables}, the total e-folding time for the metastable decay
-was approximately 25 $\mu$s. This indicates that the processes associated with
-the dimers and impurities are irrelevant on the sub-microsecond time scale.
+states up to $n=4$, helium ions, and electrons. It should also be noted that the
+experimental measurements suggested the presence of air impurities up to 80 ppm,
+and helium dimers are also likely present in the experimental discharge
+\cite{Pouvesle1988}. However, they were neglected in the case of this model. As
+observed in Chapter~\ref{chp:metastables}, the total e-folding time for the
+metastable decay was approximately 25 $\mu$s. This indicates that the processes
+associated with the dimers and impurities are irrelevant on the sub-microsecond
+time scale.
 
 There were several possible processes that were considered for inclusion in the
 model:
@@ -125,9 +119,19 @@ time scale, and was subsequently neglected. Three-body recombination in the
 volume of the discharge is not important at the estimated temperatures and
 densities \cite{Lieberman2005}, therefore this too was neglected. In general,
 dielectronic recombination is a rare process \cite{Nahar2010}, however it was
-incorporated in early versions of the model and was subsequently retained.
-Inter-atomic excitation and de-excitation is not generally considered important
-given the low energies of the atoms in discharges.
+incorporated in early versions of the model and was subsequently retained. The
+importance of ground state excitation or ionization is generally small as the
+kinetic energy of an atom cannot be easily transferred to the orbital electron
+\cite{Lieberman2005}.
+
+While inter-atomic collisions of excited states can result in a redistribution
+of excited states or ionization, these processes are not significant in the
+\acs{rpnd} as the reaction rates are proportional to the product of two
+(relatively small) excited state densities. The most dominant excited-excited
+interaction is associative ionization by metastable states \cite{Deloche1976}.
+Based on the rates reported in by Deloche et al.\ and the measured metastable
+densities, associative ionization could be expected to change the metastable
+density by less than 0.1\% over the course of the 140 ns simulation period.
 
 The remaining processes were found to be the most important for the \acs{rpnd}.
 This included electron-impact ionization and excitation which dominated the
@@ -160,8 +164,7 @@ bracketed term on the right hand side contains all the rate coefficients for
 electron impact excitation and de-excitation (including ionization). The second
 bracketed term contains the rate coefficients for optical transitions in and out
 of the excited state. The final bracketed term contains the gains and losses as
-a result of excitation transfer caused by collisions with the ground state
-(collisions between excited states are relatively rare).
+a result of excitation transfer caused by collisions with the ground state.
 
 The rate coefficients in equation~\ref{eq:gcont} are compiled from a number of
 different sources. The optical transition rates and the energies of each level
@@ -174,12 +177,12 @@ adapted from the work of Nahar \cite{Nahar2010}.
 
 The semi-empirical relations derived by Ralchenko et al. \cite{Ralchenko2008}
 were used to calculate the electron (de)excitation and ionization cross sections
-for levels through $n=4$. At the time of writing they were the most accurate set
-of cross sections available for neutral helium with a quoted accuracy of 10-30\%
-for $\Delta S=0$, and $>30$\% for $\Delta S \neq 0$. Only reactions resulting in
-an energetically uphill reaction were tabulated. The inverse or superelastic
-cross sections were calculated using the principle of detailed balance
-\cite{Kunze2009},
+for levels through $n=4$. At the time of this writing, these are the most
+accurate set of cross sections available for neutral helium with a quoted
+accuracy of 10-30\% for $\Delta S=0$, and $>30$\% for $\Delta S \neq 0$. Only
+reactions resulting in an energetically uphill reaction were tabulated. The
+inverse or superelastic cross sections were calculated using the principle of
+detailed balance \cite{Kunze2009},
 \begin{equation}
   \sigma_{ji}(\epsilon) = \frac{\epsilon}{\epsilon - \Delta\epsilon_{ij}}
     \frac{g_j^2}{g_i}\sigma_{ij},
@@ -211,15 +214,17 @@ mean energy for the \acs{eedf} was calculated for a series of time steps. These
 values were then used to generate equivalent Maxwell-Boltzmann distributions and
 approximate solutions of the Boltzmann equation.
 
-\acs{pic} simulations do not attempt to solve the Boltzmann equation directly.
-Instead, they simulate the behavior of many plasma particles in an experimental
-geometry using the basic laws of motion and electromagnetism
+A \acs{pic} simulation does not attempt to solve the Boltzmann equation
+directly. Instead, the code simulates the behavior of many plasma particles in
+an experimental geometry using the basic laws of motion and electromagnetism
 \cite{Birdsall1991}. A discrete \acs{eedf} can then be calculated from the
 particle population (or subset thereof). As the number of simulated particles
 increases the discrete \acs{eedf} will approach the continuous \acs{eedf} which
-would result from a solution of the Boltzmann equation. The relatively small
-number of assumptions used in \acs{pic} simulations suggest that its results
-will be the most accurate representation of the \acs{eedf} in a \acs{rpnd}.
+would result from a solution of the Boltzmann equation. The relative small
+number of approximations used in \acs{pic} simulations allow them to fully
+capture the collisionless plasma dynamics \cite{Pritchett2003} while the
+accuracy of the collisional processes is dependent on the of Monte Carlo
+techniques.
 
 Generally, \acs{pic} simulations do not use a one-to-one correspondence between
 computer particles and physical particles--most plasmas involve more particles
@@ -246,9 +251,11 @@ figure~\ref{fig:pic},
 \end{figure}
 begins. The equations in the loop reflect a one-dimensional system, thus each
 macro particle possesses only one spatial component, $x$. However, the
-simulation supposes the existence of a magnetic field which induce motion
-perpendicular to the simulation domain. Thus, each macro-particle possesses a
-velocity vector, $\vec{v}$, with three components.
+simulation supposes the existence of a magnetic field which induces motion
+perpendicular to the simulation domain. Thus, each macro-particle must possess a
+velocity vector, $\vec{v}$, with three components. While all the necessary
+bookkeeping is done to track the velocity vector of the particle in all three
+dimensions, the particle's position is only calculated in one.
 
 The loop generally begins with an initial field calculation based on the
 external fields combined with that of the particles. This is followed by a
@@ -300,31 +307,35 @@ XPDP1's internal set of cross sections were used. These included: elastic
 scattering, atomic excitation, and charge exchange. The cross sections had a
 semi-empirical form which increased linearly with energy to a peak value. After
 the peak they declined as the logarithm of the energy, divided by the energy
-\cite{Verboncoeur1993}. The time domain of the simulation was 10 ns. This period
-was long enough to observe fast \acs{eedf} dynamics associated with the impulse
+\cite{Verboncoeur1993}. The spatial domain of the code was 10 cm, discretized at
+1 $\mu$m intervals. The time domain of the simulation was 10 ns. This period was
+long enough to observe fast \acs{eedf} dynamics associated with the impulse
 electric field. A time step of $4\times10^{-13}$ s was used to satisfy the
-Courant-Friedrich-Lewy stability condition. However, the \acs{eedf} was only
-sampled every 0.25 ns. The spatial domain of the code was 10 cm, discretized at
-1 $\mu$m intervals.
+Courant-Friedrich-Lewy (\acs{cfl}) stability condition. This condition requires
+that particles not traverse more than one grid cell during each time step.
+Failure to meet this condition leads to numerical instabilities in the
+simulation.
 
 BOLSIG+ was used to obtain the approximate solutions of the Boltzmann equation
-\cite{Hagelaar2005}. This is a publicly available computer code which uses the
-two-term expansion of the Boltzmann equation to solve for the equilibrium
-\acs{eedf} in a given electric field. It uses Legendre polynomials to expand the
-\acs{eedf} into an unperturbed component with a small, superimposed,
-perturbation. This assumes that the distribution is accurately represented by
-this type of superposition. In reality, this assumption does not hold for large
-electric field values. In the case of BOLSIG+, solutions for helium fail to
-converge for fields approaching 1000 Td.
+\cite{Hagelaar2005}. BOLSIG+ is a publicly available computer code which uses
+the two-term expansion of the Boltzmann equation to solve for the equilibrium
+\acs{eedf} in a given electric field. The basis for this approach is the
+realization that, within a uniform electric field, the distribution function can
+be expressed as a series of spherical harmonics. For a sufficiently small
+electric field and diffusion gradient \cite{Holstein1946}, the expansion can be
+truncated after the first two terms. This expansion begins to fail at larger
+fields \cite{Allis1982} and, for the cross sections used below, BOLSIG+ failed
+to converge for field values greater than 1000 Td.
 
 The solver was initialized with the cross sections for helium generated by Alves
 and Ferreira \cite{Alves2013}. The temporal growth model for electrons was used,
 and the electron-electron collisions were neglected as a result of the low
-ionization fraction in the \acs{rpnd} (about 10$^{-5}$). Solutions were
-calculated for the range of mean energies observed in the \acs{pic} (about 2-50
-eV). A cubic, nearest-neighbor interpolation scheme was then used to generate an
-\acs{eedf} for the precise mean energies for each time step of the \acs{pic}
-simulations.
+ionization fraction in the \acs{rpnd} (about 10$^{-5}$). The \acs{eedf} was
+calculated for a range of mean energies from 2-50 eV at intervals of
+0.25 eV. \acs{eedf}s for intermediate mean energies were calculated by
+interpolation of \acs{eedf}s for the two closest mean energies. This process was
+somewhat complicated by the adaptive energy mesh used by BOLSIG+ necessitating
+the use of a triangle-based cubic interpolation method \cite{Jones2001}.
 
 These same energies were used to determine equivalent Maxwell-Boltzmann
 distributions for comparison. The \acs{eedf}s generated by the \acs{pic}
@@ -362,47 +373,72 @@ cases. Additionally, the spacing of the contours is less consistent, with a
 dearth of high energy electrons. 
 
 By 300 and 600 Td this situation is reversed, as the Maxwell-Boltzmann
-distributions begin to underestimate the population of high energy electrons.
-Examination of the individual distributions shows that the \acs{pic} \acs{eedf}s
-have a larger population of low energy (less than 20 eV) and high energy
-(greater than 100 eV) electrons. This can be explained by the general shape of
-the cross sections. The only reactions available to electrons in the \acs{pic}
-simulations are elastic scattering, excitation (19.6 eV threshold), and
-ionization (24.6 eV threshold). As the inelastic processes turn on at energies
-in excess of the 20 eV, the electron population undergoes depletion. Likewise,
-the electron population begins to rebound at higher energies as the cross
-sections fall off.
+distributions exhibit a smaller population of high energy electrons when
+compared to the \acs{pic} simulations. Examination of the individual
+distributions shows that the \acs{pic} \acs{eedf}s have a larger population of
+low energy (less than 20 eV) and high energy (greater than 100 eV) electrons.
+This can be explained by the general shape of the cross sections. The only
+reactions available to electrons in the \acs{pic} simulations are elastic
+scattering, excitation (19.6 eV threshold), and ionization (24.6 eV threshold).
+As the inelastic processes turn on at energies in excess of the 20 eV, the
+electron population undergoes depletion. Likewise, the electron population
+begins to rebound at higher energies as the cross sections fall off.
 
-Unlike Starikovskaia and Starikovskii's results \cite{Starikovskaia2001} the
-various approaches produce comparable \acs{eedf}s. Generally, the
-Maxwell-Boltzmann results provide the best match to the \acs{pic} simulations at
-electric fields of 100 Td and below. Conversely, the BOLSIG+ results better
-represent the \acs{eedf} past 100 eV at the higher field values. That said,
-these electrons do not provide a large contribution to the excited states of the
-plasma. They are well past the excitation and ionization cross section peaks and
-are relatively few in number. Given the larger computational burden of the
-Boltzmann solver and the small perceived benefit, it was concluded that the that
-the Maxwell-Boltzmann distributions provided an adequate representation of
-the \acs{eedf} for the global model.
+In the previous work by Starikovskaia and Starikovskii \cite{Starikovskaia2001},
+it was shown that strong electric fields in a nitrogen \acs{fiw} (600 Td) could
+produce an \acs{eedf} with an elevated number of high-energy electrons relative
+to the two-term approximation. However, it was also noted that the two-term
+approximations showed reasonable agreement at weaker field strengths. This is
+similar to results presented here for helium, there was no similar comparison to
+the Maxwell-Boltzmann distribution. Notably, the Maxwell-Boltzmann and the
+\acs{pic} simulations showed better agreement at electric fields of 100 Td
+and below. Conversely, the BOLSIG+ and \acs{pic} results are more consistent at
+the higher fields values, particularly for energies greater than 100 eV.
+
+Of the three methods used to generate the \acs{eedf}s, only the \acs{pic}
+simulations are strictly valid in the strong field limit. This suggests that the
+\acs{pic} \acs{eedf}s are the most representative of the \asc{eedf}s found in
+the \acs{rpnd}. While time-dependence of the \acs{pic} results prevents their
+direct inclusion in the rate coefficient calculations, they can be used to judge
+the relative merits of the BOLSIG+ solutions compared to the Maxwell-Boltzmann
+distributions.
+
+While the two-term expansion shows greater agreement in the high-energy tail,
+the Maxwell-Boltzmann distribution was used in the global model. This assumption
+was made as the improved agreement from the BOLSIG+ solutions only became
+apparent at fields values of 300 Td or greater--near the upper limit of the
+expected fields in the \acs{rpnd}. In contrast, the Maxwell-Boltzmann
+distributions proved to provide better agreement at the lower electric fields
+and mean electron energies.
 
 \subsection{Energy Equation}
 
-With an \acs{eedf} the rate coefficients in equation~\ref{eq:gcont} can be
+With an \acs{eedf}, the rate coefficients in equation~\ref{eq:gcont} can be
 calculated. However, as was seen in figure~\ref{fig:picmb}, the distribution
 function changes over time. Previously, the \acs{pic} simulations were used to
 determine the time evolution of the mean electron energy, but an alternate
 approach was required for the global model.
 
-With suitable assumptions, equation~\ref{eq:energy} (the second moment of the
-Boltzmann equation) can provide the means by which the mean energy can be
-evolved with each time step. Given the assumptions underlying the global model,
-the spatial derivatives can be neglected such that
+Recall, from Chapter~\ref{chp:theory}, the energy equation,
+\begin{equation}
+  \frac{\partial}{\partial t}\left(\frac{3}{2}p_\alpha\right) 
+  + \nabla\cdot\frac{3}{2} (p_\alpha\vec{u}_\alpha)
+  + p_\alpha\nabla\cdot\vec{u}_\alpha
+  + \nabla\cdot\vec{q}_\alpha
+  = \frac{\partial}{\partial
+  t}\left(\frac{3}{2}p_\alpha\right)\bigg|_\mathrm{coll}.
+  \label{eq:energy}
+\end{equation}
+Given the assumptions underlying the global model, it can be modified to
+calculate the evolution of the electron temperatures in the \acs{rpnd}. First,
+per the assumption of a homogeneous system, the spatial derivatives can be
+neglected,
 \begin{equation}
   \frac{d}{dt}\left(\frac{3}{2}p_e\right) =
   \frac{d}{dt}\left(\frac{3}{2}p_e\right)\bigg|_\mathrm{coll}.
 \end{equation}
-Using the isothermal equation of state \cite{Lieberman2005}, $p=n\kB T$, this
-can be rewritten as,
+Subsequently, the ideal gas law can be used to relate the pressure of the
+electrons to their energy density,
 \begin{equation}
   \frac{d}{dt}\left(\frac{3}{2}n_e\kB T_e \right) =
   \frac{d}{dt}\left(\frac{3}{2}n_e\kB T_e \right)\bigg|_\mathrm{coll}.
@@ -509,20 +545,28 @@ as the integration scheme.
 The initial metastable densities came from the \acs{las} measurements while the
 initial electron densities were determined from \acs{lcif} measurements made by
 Weatherford \cite{Weatherford2012a}. Electron density measurements were only
-available for 1.0, 4.0, and 8.0 Torr therefore, the global model analyses only
+available for 1.0, 4.0, and 8.0 Torr; therefore, the global model analyses only
 consider these conditions. Sensitivity to changes in the initial electron
 density will be addressed in the following section.
 
 It was necessary to assume a pre-pulse electron temperatures as no such
-measurements were available. Given the relatively long period of time between
-pulses, an in initial temperature of 0.2 eV was used. Exploratory simulations
-found that changes in the initial electron temperature had a negligible impact
-on the final distribution of excited states. Initial excited state densities
-(not including ions and metastables) were determined from the 0.2 eV equilibrium
-distribution of states. Per the results from Chapter~\ref{chp:metastables}, the
-neutral gas temperature was fixed at 300 K for the duration of the simulation.
+measurements were available. The 1 ms period between pulses is sufficiently long
+such that the electrons lose much of their energy. Therefore the initial
+electron temperature was expected to be significantly less than the 1-5 eV which
+is characteristic of low temperature plasmas. As a starting point, an initial
+temperature of 0.2 eV was assumed. Subsequent simulations varied this value
+between 0.1 eV and 1.0 eV, but the resulting metastable densities changed by
+less than 1\%. Following this observation, all simulations used 0.2 eV as the
+initial electron temperature.
 
-Despite access to the waveform of the applied potential, the actual
+The relatively long period of time between pulses was assumed to be sufficient
+for the excited states (excluding ions and metastables) to reach equilibrium
+with the electron population. Therefore, the initial densities of excited states
+were calculated from their values in equilibrium with the measured electron
+densities at a temperature of 0.2 eV. The gas temperatures for all of the global
+model simulations were fixed at 300 K.
+
+Even though the waveform of the applied potential is known, the actual
 time-evolution of the electric field at the metastable measurement points is not
 well known. This is a result of the distinctly nonlinear impedance of the
 \acs{rpnd} plasma. Takashima et al.\ performed measurements of the electric
@@ -537,29 +581,29 @@ In all three cases, the evolution of the electric field could be best described
 by a Gaussian-like pulse, followed by a small, persistent electric field. This
 persistent field was on the order of 20-25\% of the peak field value, and would
 remain for at least several tens of nanoseconds. The total duration and
-magnitude of the persistent field varied between studies and some, such as the
-work of Anikin et al. \cite{Anikin1998}, did not find evidence of it. Given the
+magnitude of the persistent field varied between studies, though some, such as
+Anikin et al. \cite{Anikin1998}, did not find evidence of it. Given the
 uncertainty associated with the nature of this persistent field, the global
 model simulations only considered a single Gaussian pulse. The time domain of
 the simulations covered 190 ns with the peak of the pulse centered at 40 ns.
 
 \section{Perturbation Study}
 
-The input values for the initial metastable density, electron density, and
-pressure were fixed. However, the same could not be said for the peak electric
-field and the width of the pulse. It was initially expected that the pulse-width
-would be approximately equal to the width of the applied pulse, 25 ns. The
-global models were matched to the metastable measurements by iterative
-adjustment of the peak electric field and the pulse-width. However, there was no
-clear means by which to estimate the error in the global model calculations.
+It was difficult to predict the sensitivity of the metastable density
+predictions produced by the global model to variations in the input parameters.
+Given the lack of knowledge regarding the electric field, the sensitivity of the
+results to changes in it were of particular interest. Therefore, three
+simulations were run for four different input parameters: peak electric field,
+pressure, pulse-width, and initial electron density. One simulation used a
+nominal value, while the other two varied this value by $\pm10\%$. Each
+parameter was varied independently in order to isolate its effects.
 
-In order to provide a qualitative understanding of the possible error, a
-preliminary fit of the 4.0 Torr data was made and used as a benchmark.
-Subsequent simulations were run with small perturbations to the peak electric
-field, pressure, pulse-width, and initial electron density. In each case, the
-benchmark value was perturbed by $\pm10\%$.
-
-The nominal conditions of the simulation are recorded in table~\ref{tbl:nominal}
+The nominal values for the simulation were determined by a preliminary fit of
+the global model results to the measured metastable densities at 4.0 Torr. The
+fit was accomplished by iterative changes to the electric field and the
+pulse-width until the metastable density trend and magnitude matched the
+measured results. The resulting nominal values are recorded in
+table~\ref{tbl:nominal}.
 \begin{table}
   \centering
   \caption{Nominal simulation parameters for the 4.0 Torr operating condition.}
@@ -573,7 +617,8 @@ The nominal conditions of the simulation are recorded in table~\ref{tbl:nominal}
   \end{tabular}
   \label{tbl:nominal}
 \end{table}
-and results of these simulations are shown in figure~\ref{fig:perturbed}.
+
+Figure~\ref{fig:perturbed}
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/perturbed.eps}
@@ -581,7 +626,10 @@ and results of these simulations are shown in figure~\ref{fig:perturbed}.
   conditions on the metastable dynamics.}
   \label{fig:perturbed}
 \end{figure}
-The metastable trends suggest that the initial electron density has a relatively
+illustrates the metastable trends for each of the varied parameters. The dotted
+line indicates the case where the nominal value has been increased by 10\%, and
+the dashed line is used where the nominal value has been decreased by 10\%. The
+metastable trends suggest that the initial electron density has a relatively
 small impact on the metastable dynamics. Closer examination reveals that the
 final metastable densities change by approximately $\pm10\%$, almost one-to-one
 with the initial electron density. In contrast, changes to the pulse-width
@@ -624,47 +672,54 @@ equate to large changes in the metastable density.
 \section{Plasma Dynamics}
 
 The plasma dynamics for the 1.0, 4.0, and 8.0 Torr conditions were obtained by
-iteratively matching the pulse-width and peak electric field to the metastable
-density immediately before the arrival of the reflected pulse. The process was
-somewhat complicated by the fact that multiple combinations of the peak field
-and pulse-width could produce the same metastable density. Therefore, it was
-necessary to fix or otherwise predict one of the values.
+matching the simulated metastable densities to the measured metastable
+densities. This was accomplished by iterative adjustments to the pulse-width and
+the peak electric field. As mentioned earlier, despite the fact that the input
+voltage pulse shape and amplitude are known, the plasma acts as a nonlinear
+circuit component which can either broaden or shorten the pulse.
 
-Of the two, the pulse-width was the most promising to eliminate as a variable.
-The characteristics of the applied pulse already provided a bound on the
-possible widths. Therefore, the 4.0 Torr condition was simulated with a range of
-pulse-widths from 5-50 ns with the peak field selected to produce the same final
-metastable density in each case.
+The matching process was complicated by the fact that multiple combinations of
+the peak field and pulse-width could produce the same final metastable density.
+Therefore, it was necessary to establish a method by which a unique combination
+of the two values could be determined. Fortunately, each combination was found
+to have slightly different shape in the metastable density trends.
 
-The metastable density trend for each pulse-width is compiled in
-figure~\ref{fig:widths}.
+This effect can be seen in figure~\ref{fig:widths}
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/widths.eps}
-  \caption{Comparison of measured metastable values (represented by open
-    circles) to simulations with a range of pulse-widths.}
+  \caption{Comparison of measured metastable values (open circles) to
+    simulations (solid lines) for a range of pulse-widths.}
   \label{fig:widths}
 \end{figure}
-It is immediately apparent that the short pulse-widths do not provide an optimal
-description of the data. This includes the results for the 25 ns simulation
-which shows a much high production rate of metastables than was observed in the
-experiment. The time resolution of the experimental measurements was determined
-by the photodiode which had a response time of 5 ns. Therefore, the slowed
-change in metastable density appears to be a real phenomena. This suggested that
-the effective pulse-width in the \acs{rpnd} extended longer than the duration of
-the applied voltage. Indeed, the best match of the data for the illustrated
-simulations occurs for a pulse-width of 40 ns.
+where 10 separate simulations were run with different combinations of peak
+electric fields and pulse-widths. Each simulation produced the same final
+metastable density, however the shorter pulse-widths (and higher electric
+fields) corresponded to increasingly sharper increases in the metastable
+density during the applied pulse. Despite this, the behavior of the metastable
+density after the pulse is largely the same, regardless of the applied electric
+field.
 
-The results of the pulse-width comparison suggested that additional excitation
-was taking place beyond the applied pulse. In order to determine the origin of
-this excitation, a survey was made of the neutral emissions spectra. The details
-of these measurements will be discussed in more detail in
-Chapter~\ref{chp:emissions}. The emissions for each transition were expected to
-follow the same basic trend: an initial rise correlating with the voltage pulse,
-followed by a monotonic decay. However, several transitions exhibited trends
-that differed from this. The evolution of the 4$^1$P$^\mathrm{o}$-2$^1$S
-transition at 396 nm was a good example of this deviation and is reproduced in
-figure~\ref{fig:double}.
+It is immediately apparent from figure~\ref{fig:widths} that the shorter
+pulse-widths do not provide the best fit to the observed data. This conclusion
+includes the results for the 25 ns pulsewidth, a result which was somewhat
+unexpected as the width of the applied voltage pulse was no longer than 25 ns.
+As previously mentioned, the photodiode used in the laser-absorption
+measurements had a response time of 5 ns, well below the observed rise time of
+the metastables.
+
+The best fit to the measured results was obtained for a simulation with a
+pulse-width of 40 ns. Though this value provided the best fit to the data, there
+was no obvious physical mechanism associated with it. The long duration
+suggested that additional or extended excitation may occur within the
+\acs{rpnd}. A survey was made of the neutral emissions spectra in search of the
+origin of this extended excitation. The specifics of these measurements will be
+discussed in more detail in Chapter~\ref{chp:emissions}. The emissions for each
+transition were expected to follow the same basic trend: an initial rise
+correlating with the voltage pulse, followed by a monotonic decay. However,
+several transitions exhibited trends that differed from this. The evolution of
+the 4$^1$P$^\mathrm{o}$-2$^1$S transition at 396 nm was a good example of this
+deviation and is reproduced in figure~\ref{fig:double}.
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/double.eps}
@@ -706,8 +761,9 @@ same metastable density, regardless of further increases in the electric field.
 This occurs for the same reason that the \acs{eedf} from the \acs{pic}
 simulations was depressed between 20 and 100 eV--eventually, the cross sections
 fall off with increasing electron energy. This places an upper limit on the rate
-coefficient as a function of electron temperature and a limit to the number of
-metastables which can be generated in a given period of time.
+coefficient as a function of electron temperature and a limit on the number of
+metastables which can be generated for a given period of time.
+
 Figure~\ref{fig:longrates}
 \begin{figure}
   \centering
@@ -716,26 +772,30 @@ Figure~\ref{fig:longrates}
     electron temperature.}
   \label{fig:longrates}
 \end{figure}
-shows the ionization and metastable rate coefficients as functions of the
-electron temperatures in the system. The ionization rate coefficient peaks at
-approximately 320 eV, while the metastable rate coefficient peaks much lower at
-around 23 eV. These rate coefficients, along with the general form of the cross
-sections for the reactions, show that there is an optimal field strength for
-ionization and excited state generation. Further increases in the electric field
-would only serve to reduce to reduce the final density of these particles.
-However, there may be additional benefits in the use of a higher electric field.
-The runaway electrons which can be generated at these field strengths, described
-by Vasilyak \cite{Vasilyak1994} among others, could help increase the discharge
-volume and homogeneity via nonlocal energy deposition.
+shows the ionization and metastable rate coefficients as functions of electron
+temperature. The ionization rate coefficient peaks at approximately 320 eV,
+while the metastable rate coefficient peaks much lower at around 23 eV. The
+disparity in the peaks is a result of the shape of the cross sections. The
+ionization cross section peaks just past 100 eV while the peak metastable cross
+section occurs at its threshold value, 19.8 eV. These rate coefficients suggest
+that there is an optimal field strength for ionization and excited state
+generation. Increases past this field strength would reduce the final density of
+these particles. However, there may be additional benefits in the use of a
+higher electric field. The runaway electrons which are generated at these field
+strengths, as described by Vasilyak et al. \cite{Vasilyak1994}, Starikovskaia
+and Starikovskii \cite{Starikovskaia2001}, and others, can deposit their energy
+far from the accelerating field. This could potentially result in an increased
+discharge volume which would be advantageous in processing applications.
 
 Figure~\ref{fig:nmcomp}
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/nmcomp.eps}
   \caption{Comparison of the measured metastable densities (open circles) to
-    the global model simulations. The shaded region illustrates the applied
+    the global model simulations. The shaded region illustrates the measured
     voltage pulse. The parentheses following the 8.0 Torr labels indicate the
-    axial location of the measurement.}
+    axial location of the measurement: U - upstream, M - midstream, and D -
+    downstream.}
   \label{fig:nmcomp}
 \end{figure}
 shows the comparison of the measured metastable densities for 1.0, 4.0, and 8.0
@@ -754,13 +814,21 @@ simulation results show impressive agreement with the measurements. This
 includes the period of 0-40 ns when the metastable growth rate is the largest.
 The plasma behavior during this time is dominated by energetic electrons that
 have been accelerated by the large electric fields. Given the relatively short
-period, inter-atomic and radiative processes play a relatively unimportant role.
-The most significant discrepancies appear in the 1.0 Torr simulations where the
-global appears to overestimate the metastable density during the pulse.
+period, inter-atomic and radiative processes are relatively unimportant. However
+the radiative processes are an important source of metastable atoms in the
+post-pulse period as the electron population cools.
 
-The global model also performs well in the afterglow period, from 40 ns to the
-end of the measurements. After the pulse, the electrons begin to undergo rapid
-cooling, as seen in figure~\ref{fig:etemps}.
+The most significant discrepancies appear in the 1.0 Torr simulations where the
+global appears to overestimate the metastable density during the pulse, followed
+by an underestimate after the pulse. While it is difficult to determine given
+the noise in the measurements, this condition appears to require a pulse-width
+\emph{wider} than the 40 ns used in the other simulations. More evidence of this
+exceptionally broad excitation period is discussed in the following chapter.
+
+After the pulse, the electrons begin to undergo rapid cooling, as seen in
+figure~\ref{fig:etemps}.
+
+Figure~\ref{fig:etemps}
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/etemps.eps}
@@ -768,19 +836,22 @@ cooling, as seen in figure~\ref{fig:etemps}.
   simulated conditions, overlaid on the corresponding electric field.}
   \label{fig:etemps}
 \end{figure}
-By 50 ns, the electron temperatures have fallen below 10 eV in all cases, and by
-the end of the simulation they are all below 3 eV. As a result of this rapid
-cooling, the rate of electron-induced reactions falls significantly. As was seen
-in figure~\ref{fig:longrates}, the rate for metastable and ion generation begin
-to undergo a fast decline at temperatures below 10 eV. This indicates that much
-of the metastable growth after 50 ns can be attributed to downward radiative
-transitions from upper excited states. Again, the most significant discrepancies
-appear for the measurements at 1.0 Torr. In this case, the simulations appear to
-underestimate the total metastable population.
+shows the evolution of the estimated electron temperatures in the system,
+overlaid on the applied electric field. At 4.0 and 8.0 Torr, the electron
+temperatures show a relatively modest growth and fall that correspond with the
+electric field. The 4.0 Torr results peak at 16.3 eV and while each of the 8.0
+Torr cases peak at above 11.4 eV. The cooling of the electrons through
+approximately 30 ns is dominated by inelastic losses to atomic states. As the
+electron temperatures fall so do the rate coefficients until most of the
+electron-related excitation processes stop. At this point, the electron cooling
+is dominated by elastic scattering.
 
-The issues in accurately simulating the 1.0 Torr case may be a result of the
-large electric field present in the system. As can be observe in
-table~\ref{tbl:simsum}
+Again, the results at 1.0 Torr are exceptional, in this case, for the
+exceptionally large values. A temperature of 80 eV is unusually large in the
+context of low temperature plasmas. This suggests that the assumptions used in
+the global model may be failing at this condition. This is somewhat reinforced
+by the electric fields were required to match the metastable measurements. As
+can be observed in table~\ref{tbl:simsum}
 \begin{table}
   \centering
   \caption{Summary of the peak values for several plasma parameters from the
@@ -804,26 +875,20 @@ table~\ref{tbl:simsum}
   \end{tabular}
   \label{tbl:simsum}
 \end{table}
-the electric field approaches 350 Td for the 1.0 Torr discharge. This
-corresponds to the regime in which the Maxwell-Boltzmann distribution (as well
-as the BOLSIG+ results) begin to deviate from the \acs{pic} predictions.
-Specifically, the Maxwell-Boltzmann distribution tended to overestimate the
-number of electron in the range of 20-100 eV at high electric fields. These are
-precisely the electrons which are responsible for the generation of the
-metastable states. This suggests that the assumption of a Maxwell-Boltzmann
-distribution would tend to overestimate the metastable generation at large
-electric fields, consistent with what is observed in figure~\ref{fig:nmcomp}.
+where the electric field approaches 350 Td for the 1.0 Torr discharge. As
+observed earlier, this falls within the range of electric fields where the
+Maxwell-Boltzmann distribution shows a marked difference from the \acs{pic}
+predictions. As a result it is not clear that this electric field value or the
+electron temperature measurements can be trusted for the 1.0 Torr case. 
 
-As the global model is applied to increasing pressures, the reduced electric
-field begins to fall. Likewise, the electron temperatures are also reduced, from
-about 75 eV down to 12 eV. Despite these changes, the final metastable densities
-remain approximately the same. Though the temperatures are lower, they still
-peak near the maximum in the metastable rate coefficient in
-figure~\ref{fig:longrates}. Additionally, the large number of neutral gas
-particles ensures that the total metastable production rate remains large.
+To the extent that the results can be trusted, the table suggests that the
+reduced electric field falls with increasing pressure. Though this would be
+expected given the fixed amplitude of the applied voltage pulse, the change in
+the reduced field is less than what would be expected from changes in neutral
+density alone. 
 
 Notably, the metastable densities and electron densities peak for different
-conditions. The electron density trends can be observed in
+conditions. The simulated electron density trends can be observed in
 figure~\ref{fig:necomp}
 \begin{figure}
   \centering
@@ -846,11 +911,10 @@ conditions. For the cases under consideration the peak ionization rate occurs at
 about 23.5 ns at 1.0 Torr, 16.4 ns at 4.0 Torr, and 15.5 ns at 8.0 Torr. In
 contrast, the electron temperatures in figure~\ref{fig:etemps} show little to no
 such delay. In part, this behavior reflects the need for a finite amount of time
-before the background electrons gain ionization-relevant energies. Additionally,
-the electron growth process is relatively slow at first given the low initial
-densities. This explanation is consistent with the initial electron densities
-measured by Weatherford \cite{Weatherford2012a} which showed the largest
-pre-pulse density at 8.0 Torr, and the smallest at 1.0 Torr.
+before the electron population reaches temperatures for which there is an
+appreciable ionization rate. This is delay is compounded by the relatively low
+seed electron densities and would likely be reduced with increased
+pre-ionization.
 
 Finally, the behavior axial behavior in the 8.0 Torr condition exhibits several
 interesting characteristics. At the position closest to the anode, the peak
@@ -864,25 +928,27 @@ of the \acs{rpnd} can have large implications on its homogeneity.
 
 \section{Summary}
 
-The metastable density measurements were only able to provide limited insight on
-the development of the \acs{rpnd}. However, production of the metastable atoms
-is determined by a number of other plasma quantities such as electron
-temperature, density, and electric field strength. Following a series of
-assumptions, a global model simulation was developed in order to infer the
-dynamics of these other quantities. The development of the model carefully
-considered the choice of distribution function and the sensitivity to various
-initial conditions.
+The metastable density measurements provide limited insight on the development
+of the \acs{rpnd}. However, production of the metastable atoms is determined by
+a number of other plasma quantities such as electron temperature, density, and
+electric field strength. Following a series of assumptions, a global model
+simulation was developed in order to infer the dynamics of these other
+quantities. The development of the model made an attempt to evaluate the impact
+of the choice of distribution function. This was followed by an investigation of
+the model's sensitivity to changes in various system parameters.
 
 A comparison of several preliminary simulations to measured metastable data
 indicated the need for an electric field with a duration longer than applied
 voltage pulse. Examination of the plasma emissions showed that the extended
-excitation could be attributed to a return stroke in the system. Use of this
-extended excitation time yielded excellent agreement for all but the 1.0 Torr
-condition. In this case, what appeared to be mild deviations appeared with the
-model overestimating metastable production rate during the pulse, and
-underestimating it afterward. Given the large electric fields in this condition,
-these discrepancies can most likely be attributed to differences between the
-assumed \acs{eedf} and those in the actual device.
+excitation could be attributed to a return stroke in the system. Another
+possible explanation includes the generation and slowing of an electron beam by
+large electric fields. Use of this extended excitation time yielded excellent
+agreement for all but the 1.0 Torr condition. In this case, what appeared to be
+mild deviations appeared with the model overestimating metastable production
+rate during the pulse, and underestimating it afterward. Given the large
+electric fields in this condition, these discrepancies can most likely be
+attributed to differences between the assumed \acs{eedf} and those in the actual
+device.
 
 It was found that breakdown of the \acs{rpnd} was accompanied by a finite delay
 between the peak electric field value and the peak ionization rate. As the
