@@ -52,7 +52,11 @@ Outline
   1. Emission Measurements
   2. Wave Velocities
   3. Electron Temperatures
-  4. Global Model Comparison
+    1. Boltzmann Plots
+    2. Coronal Model
+  4. Emission Comparisons
+    1. Excitation Duration
+    2. Radiation Trapping
   5. Summary
 7. Conclusions
     1. Overview of Results
