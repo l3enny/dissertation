@@ -199,7 +199,7 @@ equation~\ref{eq:rate}. However, this equation requires an appropriate
 Per the discussion of the Boltzmann equation in Chapter~\ref{chp:theory}, there
 are two analytic equilibrium solutions: the Maxwell-Boltzmann distribution, and
 the Druyvesteyn distribution. However, research by Starikovskaia and
-Starikovskii \cite{Starikovskaia2001} has shown that the \acs{eedf} in a
+Starikovskii \cite{Starikovskaia2001a} has shown that the \acs{eedf} in a
 nitrogen \acs{fiw} can deviate from both. This is not surprising given the
 non-equilibrium nature of the \acs{fiw} discharge. Since the \acs{rpnd} shares
 many of its properties, there was the possibility that the equilibrium solutions
@@ -384,7 +384,7 @@ As the inelastic processes turn on at energies in excess of the 20 eV, the
 electron population undergoes depletion. Likewise, the electron population
 begins to rebound at higher energies as the cross sections fall off.
 
-In the previous work by Starikovskaia and Starikovskii \cite{Starikovskaia2001},
+In the previous work by Starikovskaia and Starikovskii \cite{Starikovskaia2001a},
 it was shown that strong electric fields in a nitrogen \acs{fiw} (600 Td) could
 produce an \acs{eedf} with an elevated number of high-energy electrons relative
 to the two-term approximation. However, it was also noted that the two-term
@@ -536,10 +536,11 @@ where $M$ is the total number of atomic states and $\epsilon_i <
 electrons as and electron-specific processes, however the global model used here
 assumed quasineutrality by enforcing the relation $N_\mathrm{ion}=n_e$. Changes
 in the density of each atomic state were calculated by numerical integration of
-these equations. The range of time scales exhibited by the \acs{rpnd} made it
-desirable to implement adaptive control of the time step size. For this reason,
-the Runge-Kutta-Fehlberg method, adapted from Bradie \cite{Bradie2006}, was used
-as the integration scheme.
+these equations. A fourth order Runge-Kutta integration scheme with a time step
+of 5 fs was used to solve the equations. Solutions with a time step of 2.5 fs
+produced results with less than a 0.1\% difference from the 5 fs case. The full
+code listing and a description of its methods is presented in
+Appendix~\ref{chp:crammer}.
 
 The initial metastable densities came from the \acs{las} measurements while the
 initial electron densities were determined from \acs{lcif} measurements made by
@@ -782,7 +783,7 @@ generation. Increases past this field strength would reduce the final density of
 these particles. However, there may be additional benefits in the use of a
 higher electric field. The runaway electrons which are generated at these field
 strengths, as described by Vasilyak et al. \cite{Vasilyak1994}, Starikovskaia
-and Starikovskii \cite{Starikovskaia2001}, and others, can deposit their energy
+and Starikovskii \cite{Starikovskaia2001a}, and others, can deposit their energy
 far from the accelerating field. This could potentially result in an increased
 discharge volume which would be advantageous in processing applications.
 
