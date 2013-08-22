@@ -1486,6 +1486,15 @@
  % Add the word 'Chapter' to the table of contents.
  \addtocontents{toc}{\vspace{1.3ex}\noindent %
  {\bf Chapter}\vspace{1.3ex}} %
+ % Add the word 'Figure' to the list of figures.
+ \addtocontents{lof}{\vspace{1.3ex}\noindent
+ {\bf Figure}\vspace{1.3ex} \protect\par}
+ % Add the word 'Appendix' to the list of appendices.
+ \addtocontents{lox}{\vspace{1.3ex}\noindent
+ {\bf Appendix}\vspace{1.3ex} \protect\par}
+ % Add the word 'Table' to the list of tables.
+ \addtocontents{lot}{\vspace{1.3ex}\noindent
+ {\bf Table}\vspace{1.3ex} \protect\par}
  % Use the correct formatting.
  \if@umich@thesis %
   % Use 1.5 spacing
