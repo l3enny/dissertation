@@ -206,12 +206,91 @@ incorrect results at pressures of 1.0 Torr and below.
 Additional comparisons were made between the simulated and measured emissions
 for the 3$^1$D-2$^1$P$\odd$ transition, at 1.0, 4.0, and 8.0 Torr. Some general
 features, such as the timing of the peak intensity, and the relative intensities
-between pressures were consistent between the two. However, 
+between pressures were consistent between the two. However the simulated
+emissions generally decayed away faster after the peak intensity as compared to
+the measured emissions. This suggested a prolonged excitation period in the
+\acs{rpnd}, possibly a result of energetic elecrtons.
+
+Furthermore, the decay rate of the measured emissions had a noticeable pressure
+dependence. This suggests an atomic process which was not accounted for in the
+global model. The metastable measurements suggested that Penning ionization of
+impurities was an important loss mechanism. As a result, it is likely that the
+3$^1$D state is also affected by collisions with gaseous impurities. This would
+explain the pressure dependence observed in the measure emissions.
+
+Finally, the effects of radiation trapping in the \acs{rpnd} were investigated
+as another possible source of extended excitation. Observable effects of
+radiation trapping was confirmed by a comparison of the simulated and measured
+emissions from the 3$^1$P$\odd$-2$^1$S transition. Subsequent calculations
+showed that the effective lifetime of the 3$^1$P$\odd$-1$^1$S transition could
+be extended by almost a factor of $10^5$ for the geometry in question. The
+increased residence time of this transition energy within the system increases
+the chance that it may be transferred to another excited state or result in
+ionization of an impurity. This suggests that radiation trapping in the
+\acs{rpnd} may lead to an increase in the excited state and charge particle
+densities, similar to the metastable states.
 
 \section{Future Work}
 
+There are several opportunities to improve on the work presented here. From an
+experimental perspective, the metastable density measurements could be improved
+the simple use of a more sensitive detector. This would decrease the minimum
+detectable metastable density and potentially provide pre-pulse metastable
+densities for the other operating pressures. It would also be desirable to
+measure the metastable density along several chords of the discharge cylinder.
+This would provide radial density profiles via inversion techniques.
 
+The emission measurements could also stand to be improved by the use of a more
+efficient grating, a more efficient photocathode, or both. These changes should
+be made with measurement of the 706 and 728 nm lines in mind, as these appear to
+be the most promising for optical electron temperature measurements. Further
+improvements to the optical temperature measurements could be made with the use
+of an appropriate collisional radiative model and alternative \acs{eedf}s in the
+calculation of the rate coefficients.
+
+The experiment could also be improved with the relatively simple addition of a
+capacitive probe for sensing of the electric field within the plasma, similar to
+that used by Takashima et al. \cite{Takashima2011}. The electric field
+measurements would allow for confirmation of the return stroke which was
+observed in the emissions data. The probe may also be used to determine if a
+persistent electric field exists after the pulse.
+
+The electric field information could then be incorporated into the global model
+for more accurate predictions of the \acs{rpnd} properties. Other improvements
+to the global model would include the addition of gas impurities and reactions
+in response to the metastable decay measurements and the emission measurements.
+Furthermore, the global model should be modified to include radiation trapping
+effects for resonant transitions.
+
+However, the global model is still fundamentally limited in how it handles the
+\acs{eedf} within the \acs{rpnd}. This may be improved, to some extent, by the
+inclusion of a Boltzmann solver. That said, the investigation of the \acs{eedf}s
+suggests that the two-term expansion may not be sufficient for the fields in the
+\acs{rpnd}. Another approach would be the use of a zero-dimensional \acs{pic}
+model, similar to the one used in the \acs{eedf} calculations. Such a code could
+be modified to include the improved cross sections of Ralchenko et al.
+\cite{Ralchenko2008} as well as the optical transitions from Kramida
+\cite{Kramida2013}, with suitable alterations to account for trapping effects.
+This approach would neatly sidestep the \acs{eedf} issues, however there is the
+concern that this may lead to an excessively demanding computational problem.
+Some simplification could be accomplished using a hybrid method or by only using
+\acs{pic} calculations above certain field values.
 
 \section{Final Remarks}
 
+The experimental and simulation results presented represent one of the few
+comprehensive attempts to analyze the nanosecond timescale dynamics of a
+\acs{rpnd}. Several mechanisms, including the dynamics of the metastable
+population and radiation trapping, have been identified which may influence the
+evolution and stability of a helium \acs{rpnd}. In addition, evidence has been
+provided for beam-like electrons at low operating pressures, and the effects of
+impurities on the lifetimes of excited states.
 
+Each of these phenomena represent an important component of how the nanosecond
+pulse couples energy into a gas. In turn, it is the energy in that gas--the
+electrons, ions, excited states, internal fields, and photons, which lends the
+\acs{rpnd} its ability to purify water \cite{Malik2001}, sterilize surfaces
+\cite{Ayan2009}, alter air flow \cite{Nishihara2007}, and generate nanoparticles
+\cite{Ostrikov2011}. It is only through an improved understanding of how the
+energy is distributed in a plasma that applications, such as these, can be
+realized.
