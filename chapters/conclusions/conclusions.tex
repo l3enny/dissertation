@@ -2,16 +2,17 @@ The repetitively-pulsed nanosecond discharge \acs{rpnd} is a low temperature
 plasma with several properties which make it amenable to novel applications.
 Some of these properties include its production of a large uniform discharge (on
 the order of liters), negligible gas heating, and operation over a wide range of
-pressures \cite{Starikovskaia2001}. Though the \acs{rpnd} has only recently been
-enabled by new semiconductor technology, it shares a long history with other
-pulsed discharges. This includes the fast ionization wave (\acs{fiw}),
-streamers, sparks, and lightning \cite{Loeb1965}.
+pressures (from $10^{-3}$--$1$ atmospheres) \cite{Starikovskaia2001}. Though the
+\acs{rpnd} has only recently been enabled by recent advances in semiconductor
+technology, it shares a long history with other pulsed discharges. This includes
+the fast ionization wave (\acs{fiw}), streamers, sparks, and lightning
+\cite{Loeb1965}.
 
 Despite this long history, in-depth study of these phenomena has been
 challenging. A review of the literature found that the important dynamics of the
 \acs{rpnd}, which can occur in a matter of nanoseconds, were not well-explored.
-This can be attributed to the time scales involved which present a number of
-technical difficulties. Separately, the high electric fields and the substantial
+Time-scales this short present a number of technical difficulties for plasma
+measurements. Separately, the high electric fields and the substantial
 collisionality within the \acs{rpnd} precludes the use of many traditional
 plasma diagnostic techniques. Thus, most studies have focused on measurements of
 the plasma properties after the pulse or averaged over the pulse.
@@ -25,22 +26,32 @@ during its initial phases.
 
 \section{Overview of Results}
 
-To that end, the necessary theory was developed to describe the \acs{rpnd}. This
-began with the Boltzmann equation and Maxwell's equations, the basic equations
-which can be used to describe any ionized gas. Several reductions of the
-Boltzmann equation were presented in the form of moments. These moments averaged
-over the velocity space of the probability distribution in order to simplify the
-solution of the equations.
+The over-arching goal of the study, then, was to elucidate the flow of energy
+from the electric field, through the electrons, to the gas, during the formation
+of the \acs{rpnd}. This was subdivided into several complementary measurements
+and simulations. The energy input was characterized through current-voltage
+characteristics and energy coupling measurements. This was then followed by
+measurements of the excited atomic state dynamics with passive and active
+spectroscopic techniques. Finally, the results were compared to estimates
+produced by a global model of the \acs{rpnd}.
+
+The process of accomplishing these goals, began with the development of the
+theories necessary to describe the \acs{rpnd}. Specifically, the Boltzmann
+equation and Maxwell's equations, were used as the starting point of the
+theoretical analysis. Several reductions of the Boltzmann equation were
+presented in the form of moments. These moments averaged over the velocity space
+of the probability distribution in order to simplify the solution of the
+equations.
 
 Following this, the criteria for a plasma were presented. A plasma is distinct
 from an ionized gas in the sense that its behavior is dominated by its
 electromagnetic properties. Thereafter, the initiation of a plasma from one or a
-few electrons was explained for the two primary cases. The first, the Townsend
-mechanism, occurs for relatively small electric fields, long periods of time,
-and does not involve the formation of appreciable space charge. In contrast, the
-streamer mechanism, involves a high electric field, develops over a shorter
-period of time, and is influenced by the formation of large regions of space
-charge.
+few seed electrons was explained for the two primary cases. The first, the
+Townsend mechanism, occurs for relatively small electric fields, long periods of
+time, and does not involve the formation of appreciable space charge. In
+contrast, the streamer mechanism, involves a high electric field, develops over
+a shorter period of time, and is influenced by the formation of large regions of
+space charge.
 
 It is the properties of the streamer mechanism which bear the most resemblance
 to the \acs{rpnd}. However, the streamer model does not automatically account
@@ -48,10 +59,14 @@ for the uniform nature of the \acs{rpnd}. Instead, this was described by the
 work of Levatter and Line \cite{Levatter1980}. They demonstrated that a streamer
 can develop in a uniform manner provided a sufficient density of pre-pulse
 electrons. Calculations for the subsequent experimental conditions found that
-the natural electron density was sufficient to guarantee uniform breakdown at
-all operating pressures. The theoretical discussion concluded with an
-explanation of atomic structure, spectroscopic notation, and spectral
-lineshapes.
+the natural background electron density was sufficient to guarantee uniform
+breakdown at all operating pressures.
+
+As the plasma measurements were focused on spectroscopic quantities, this was
+followed by a explanation of atomic structure and notation. Afterward, several
+factors affecting the spectral lineshape of atomic transitions were discussed.
+The theory concluded with a brief description of stimulated absorption by atoms,
+the cross section for interaction, and the concept of saturation.
 
 Subsequently, an experimental \acs{rpnd} was described. It was generated by
 repetitive positive voltage pulses in ultra-high purity helium at several
@@ -68,11 +83,11 @@ Laser-absorption spectroscopy (\acs{las}) of the 2$^3$S, or triplet metastable,
 state of helium was the primary means by which the nanosecond discharge dynamics
 were measured. This technique produced measurements of the temperature and
 line-integrated density of the triplet metastable state over the duration of the
-pulse. The triplet metastable level because it can act as a large energy
-reservoir in helium discharges and can increase the charged particle population
-via associative ionization and Penning ionization. The use of an active optical
-diagnostic, meant that the time resolution of the measurements were only limited
-by the bandwidth of the detector, 5 ns.
+pulse. The triplet metastable level was investigated because it can act as a
+large energy reservoir in helium discharges and can increase the charged
+particle population via associative ionization and Penning ionization. The use
+of an active optical diagnostic, meant that the time resolution of the
+measurements were only limited by the bandwidth of the detector, 5 ns.
 
 The results of the \acs{las} confirmed that no gas heating was occurring in the
 \acs{rpnd}. The accuracy of the temperature measurements varied with respect to
@@ -109,11 +124,19 @@ particle-in-cell (\acs{pic}) simulations. For fields of 100 Td and less, the
 \acs{pic} simulations showed good agreement with Maxwell-Boltzmann distributions
 of the same mean electron energy. However, above 300 Td, the Maxwell-Boltzmann
 distributions exhibited significantly fewer high-energy (greater than 100 eV)
-electrons. Better agreement with the \acs{pic} simulations at these field
-strengths were obtained with solutions of the two-term expansion of the
-Boltzmann equation. However, as a result of significant disagreements at lower
-electric fields, the global model assumed a Maxwell-Boltzmann distribution for
-the entirety of the simulations.
+electrons.
+
+It was speculated that this disagreement stemmed from the behavior of the
+interaction cross sections. In general, these cross sections peak at several
+times the threshold value, after which they rapidly decline. At the high
+electric fields, the electrons can reach the energies associated with these
+reduced electric fields, resulting in a higher-than-expected population of
+high-energy electrons. Better agreement with the \acs{pic} simulations at these
+field strengths were obtained with solutions of the two-term expansion of the
+Boltzmann equation which can account for the cross section variation with
+energy. However, as a result of significant disagreements at lower electric
+fields, the global model assumed a Maxwell-Boltzmann distribution for the
+entirety of the simulations.
 
 The global model simulations which best matched the measured metastable density
 trends required the use of an exceptionally long electric field, 40 ns in
@@ -155,23 +178,25 @@ seed electron population to reach ionization-relevant temperatures. In a
 simplified system, the ionization rate is an exponential function of time,
 thus the density grows quickly thereafter.
 
-The global model was designed to consider a total of 32 different species and
-535 different reaction processes, including optical transitions. This provided
-the opportunity to compare simulated plasma emissions generated by the global
-model with those measured from the experimental \acs{rpnd}. Emission
-measurements of the \acs{rpnd} covered ten detectable transitions in the
-visible spectrum. These were used to estimate the wave velocities of the
-\acs{rpnd}: 1.7-3.0$\times10^7$ m/s at 8.0 Torr, and 0.7-1.5$\times10^7$ at 16.0
-Torr. All other conditions had wave velocities that were greater than
-5$\times10^7$ m/s.
+Emission measurements of ten separate transitions in the visible wavelengths
+were used to measure the wave velocities of the \acs{rpnd}. While the rate of
+rise of the emissions depended on the transition, the wave velocity estimates
+remained largely the same. In the \acs{rpnd} the measure velocities were:
+1.7-3.0$\times10^7$ m/s at 8.0 Torr, and 0.7-1.5$\times10^7$ at 16.0 Torr. All
+other conditions had wave velocities that were greater than 5$\times10^7$ m/s.
 
-Afterward, an initial attempt was made to determine the evolution of the
-electron temperature from a series of Boltzmann plots. The Boltzmann plots from
-the simulated emissions and measured emissions both resulted in temperature
-estimates of about 0.5-0.6 eV. The temperatures estimated from the simulated
-emissions showed significant disagreement with the actual simulated
-temperatures. This indicated that the use of Boltzmann plots for the \acs{rpnd}
-is almost certainly flawed.
+The global model was designed to consider a total of 32 different species and
+535 different reaction processes, including optical transitions. This allowed
+the evaluation of several potential optical diagnostics for electron temperature
+and an opportunity for comparison with results from the measured emissions.
+
+This began with an attempt to determine the evolution of the electron
+temperature from a series of Boltzmann plots. The Boltzmann plots from the
+simulated emissions and measured emissions both resulted in temperature
+estimates of about 0.5-0.6 eV. However, the temperatures estimated from the
+simulated emissions were not consistent with the temperatures produced by the
+global mode simulations. This indicated that there was likely a fundamental flaw
+in the assumptions used to determine electron temperatures from Boltzmann plots.
 
 The reason for this lies in the assumption of partial local thermodynamic
 equilibrium in the plasma. This requires that the excited state populations used
@@ -181,27 +206,39 @@ place. This conclusion was reinforced by an examination of the individual
 Boltzmann plots for a series of times after the pulse.
 
 Subsequently, an attempt was made to determine the electron temperature via a
-coronal model and the use of line ratios \cite{Griem2005}. Three line ratios
-were considered however one was immediately rejected for lack of detectable
-emissions. The second, which compared the 4$^3$S-2$^3$P$\odd$ transition to the
-4$^1$D-2$^1$P$\odd$ transition was used with little success. Estimates based on
-the measured emissions produced unrealistic temperatures, and the estimates from
-the simulated emissions did not agree with the actual temperatures from the
-global model.
+coronal model and the use of line ratios \cite{Griem2005}. As with the global
+model, this approach requires the assumption of an \acs{eedf}. Subsequently, the
+accuracy of the results will depend on how closely the \acs{eedf} in a
+\acs{rpnd} adheres to the assumed one.
+
+For consistency with the global model, a Maxwell-Boltzmann distribution was
+used. The use of this assumption likely produced estimates of the electron
+temperature that were not accurate with respect to their absolute magnitude.
+However, as long as the shape of the \acs{eedf}s are consistent for the duration
+of the measurement period, the results will be proportional to the some mean
+energy. This allows an evaluation and comparison of the relative temperatures in
+the \acs{rpnd}.
+
+Overall, three line ratios were considered however one was immediately rejected
+for lack of detectable emissions. The second, which compared the
+4$^3$S-2$^3$P$\odd$ transition to the 4$^1$D-2$^1$P$\odd$ transition was used
+with little success. The estimates based on the measured emissions produced
+unrealistic temperatures. Additionally, the estimates from the simulated
+emissions were not consistent with the actual temperatures from the global
+model, suggesting that this particular ratio was not suitable for temperature
+estimates.
 
 The second line ratio which compared the 3$^3$S-2$^3$P$\odd$ transition to the
 3$^1$S-2$^1$P$\odd$ transition produced more promising results. The estimates
-from the simulated emissions matched the global model temperatures, which
-demonstrated that the line could potentially work provided the global model
-results are applicable.
-
-However, the estimates from the measured emissions were less successful. For
-most points in time, the two transitions were too dim to obtain a reliable
-ratio. In the cases that a temperature could be estimated, the results indicated
-a peak electron temperature of about 5 eV, followed by a quick cooling to 0.5
-eV. As the coronal model relies on the assumption of a Maxwell-Boltzmann
-distribution, this approach will almost certainly produce misleading and
-incorrect results at pressures of 1.0 Torr and below.
+from the simulated emissions were consistent with the global model temperatures,
+which demonstrated that the line could potentially work provided the global
+model results are applicable. However, the estimates from the measured emissions
+were less successful. For most points in time, the two transitions were too dim
+to obtain a reliable ratio. In the cases that a temperature could be estimated,
+the results indicated a peak electron temperature of about 5 eV, followed by a
+quick cooling to 0.5 eV. As the coronal model relies on the assumption of a
+Maxwell-Boltzmann distribution, this approach will almost certainly produce
+misleading and incorrect results at pressures of 1.0 Torr and below.
 
 Additional comparisons were made between the simulated and measured emissions
 for the 3$^1$D-2$^1$P$\odd$ transition, at 1.0, 4.0, and 8.0 Torr. Some general
@@ -230,6 +267,15 @@ transferred to another excited state or lead to ionization via collisions.
 This suggests that radiation trapping in the \acs{rpnd} may lead to an increase
 in the excited state and charged particle densities, similar to the metastable
 states.
+
+In summary, this work identified several key characteristics of the \acs{rpnd}
+based on spectroscopic measurements and modeling. Several processes affecting
+the charged particle population and energy residence time in the \acs{rpnd} were
+identified. In addition, several anomalies were noted at the analysis of the
+data at 1.0 Torr and below, indicating a high degree of non-equilibrium and the
+potential presence of beam-like electrons. Finally several approaches to the
+measurement of electron temperature trends were evaluated for their application
+to similar experiments.
 
 \section{Future Work}
 
@@ -269,10 +315,14 @@ However, the global model is still fundamentally limited in how it handles the
 \acs{eedf} within the \acs{rpnd}. This may be improved, to some extent, by the
 inclusion of a Boltzmann solver. That said, the investigation of the \acs{eedf}s
 suggests that the two-term expansion may not be sufficient for the fields in the
-\acs{rpnd}. Another approach would be the use of a zero-dimensional \acs{pic}
-model, similar to the one used in the \acs{eedf} calculations. It should be
-possible develop such a code with the inclusion of the improved cross sections
-of Ralchenko et al. \cite{Ralchenko2008} as well as the optical transitions from
+\acs{rpnd}. Another possibility is the use of a Boltzmann-like distribution
+where $f(\epsilon)\propto \exp (\epsilon^\alpha / \kB T_e)$, where $\alpha$ is
+can be varied to obtain a distribution with a suitable high-energy tail.
+
+Alternatively, a zero-dimensional \acs{pic} model could be used, similar to the
+one which was employed in the \acs{eedf} calculations. It should be possible
+develop such a code with the inclusion of the improved cross sections of
+Ralchenko et al. \cite{Ralchenko2008} as well as the optical transitions from
 Kramida \cite{Kramida2012}, with suitable alterations to account for trapping
 effects. This approach would neatly sidestep the \acs{eedf} issues, however
 there is the concern that this may lead to an excessively demanding
