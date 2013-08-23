@@ -290,7 +290,7 @@
  % Use single-spaced lines for the title page.
  \begin{singlespace} %
   % Move down the page slightly.
-  \hbox{\vspace{0.8in}} %
+  \hbox{\vspace{1.0in}} %
   % Center the title page as well.
   \begin{center} %
    % Put the title itself in 1.5-spaced format.
@@ -381,7 +381,9 @@
   % Vertical rubber space
   \ \vfill %
   % Insert the frontispiece.
-  \copyright \insertcopyrightholder \\[1ex] %
+  Except otherwise noted, this dissertation is \copyright{}
+  \insertcopyrightholder, under a Creative Commons Attribution-ShareAlike license:
+  \url{http://creativecommons.org/licenses/by-sa/3.0/} \\[1ex] %
   % Horizontal line
   \rule[0.5ex]{5in}{1pt} \\[1ex] %
   % The year of publication
