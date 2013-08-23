@@ -4,3 +4,6 @@
 [submodule "code/lasana"]
 	path = code/lasana
 	url = git://github.com/l3enny/lasana.git
+[submodule "code/rategen"]
+	path = code/rategen
+	url = git://github.com/l3enny/rategen.git
