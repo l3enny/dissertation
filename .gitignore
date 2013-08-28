@@ -36,3 +36,4 @@
 *.fls
 *.swp
 *_emissions.csv
+.\~lock.*.*\#
