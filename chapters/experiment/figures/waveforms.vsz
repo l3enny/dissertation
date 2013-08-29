@@ -1,5 +1,5 @@
-# Veusz saved document (version 1.15)
-# Saved at 2013-07-30T15:09:14.344403
+# Veusz saved document (version 1.18)
+# Saved at 2013-08-29T13:54:03.138734
 
 AddImportPath(u'/home/ben/Repos/dissertation/chapters/experiment/figures')
 ImportFileCSV(u'../../../data/Waveform Averages/0.3 Torr/current.csv', delimiter='\t', headermode='none', linked=True, dsprefix=u'0.3i')
@@ -19,6 +19,7 @@ ImportFileCSV(u'../../../data/Waveform Averages/4.0 Torr/voltage.csv', delimiter
 ImportFileCSV(u'../../../data/Waveform Averages/8.0 Torr/current.csv', delimiter='\t', headermode='none', linked=True, dsprefix=u'8.0i')
 ImportFileCSV(u'../../../data/Waveform Averages/8.0 Torr/voltage.csv', delimiter='\t', headermode='none', linked=True, dsprefix=u'8.0v')
 SetDataExpression(u'time', u't', parametric=(-2e-07, 1.8e-06, 5000), linked=True)
+Set('width', u'6in')
 Set('StyleSheet/Line/width', u'1pt')
 Set('StyleSheet/Font/font', u'TeX Gyre Termes')
 Set('StyleSheet/Font/size', u'12pt')
