@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-08-28T20:47:25.689216
+# Saved at 2013-08-30T13:37:25.954112
 
 AddImportPath(u'/home/ben/Repos/dissertation/defense/figures')
 SetDataExpression(u'Druyvesteyn', u'Energy**0.5 * exp(-Energy**2/(1.602e-19)**2)', linked=True)
@@ -35,7 +35,7 @@ Set('StyleSheet/xy/PlotLine/width', u'3pt')
 Set('StyleSheet/xy/MarkerLine/color', u'#333333')
 Add('page', name='page1', autoadd=False)
 To('page1')
-Set('width', u'9.92in')
+Set('width', u'4.96in')
 Set('height', u'6.3in')
 Add('graph', name='graph1', autoadd=False)
 To('graph1')

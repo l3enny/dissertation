@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-08-29T18:21:07.976878
+# Saved at 2013-08-30T13:58:50.915373
 
 AddImportPath(u'/home/ben/Repos/dissertation/defense/figures')
 ImportFileCSV(u'../../data/Waveform Averages/0.3 Torr/current.csv', delimiter='\t', headermode='none', linked=True, dsprefix=u'0.3i')
@@ -19,6 +19,7 @@ ImportFileCSV(u'../../data/Waveform Averages/4.0 Torr/voltage.csv', delimiter='\
 ImportFileCSV(u'../../data/Waveform Averages/8.0 Torr/current.csv', delimiter='\t', headermode='none', linked=True, dsprefix=u'8.0i')
 ImportFileCSV(u'../../data/Waveform Averages/8.0 Torr/voltage.csv', delimiter='\t', headermode='none', linked=True, dsprefix=u'8.0v')
 SetDataExpression(u'time', u't', parametric=(-2e-07, 1.8e-06, 5000), linked=True)
+Set('height', u'3.15in')
 Set('StyleSheet/Line/width', u'1pt')
 Set('StyleSheet/Font/font', u'TeX Gyre Heros')
 Set('StyleSheet/Font/size', u'18pt')
@@ -48,6 +49,7 @@ Set('StyleSheet/xy/PlotLine/width', u'3pt')
 Set('StyleSheet/xy/MarkerLine/color', u'#333333')
 Add('page', name='page1', autoadd=False)
 To('page1')
+Set('height', u'3.15in')
 Add('graph', name=u'4.0 Torr', autoadd=False)
 To(u'4.0 Torr')
 Set('rightMargin', u'1in')

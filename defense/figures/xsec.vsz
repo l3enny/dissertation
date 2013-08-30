@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-08-28T20:47:48.232590
+# Saved at 2013-08-30T13:37:13.573599
 
 AddImportPath(u'/home/ben/Repos/dissertation/defense/figures')
 ImportFileCSV(u'xsec.csv', headermode='1st', linked=True)
@@ -31,7 +31,7 @@ Set('StyleSheet/xy/PlotLine/width', u'3pt')
 Set('StyleSheet/xy/MarkerLine/color', u'#333333')
 Add('page', name='page1', autoadd=False)
 To('page1')
-Set('width', u'9.92in')
+Set('width', u'4.96in')
 Add('graph', name='graph1', autoadd=False)
 To('graph1')
 Set('leftMargin', u'1in')
