@@ -20,7 +20,7 @@ for P in pressures:
     Ni = fi * Ng            # impurity density, m^-3
     # Deloche, Monchicourt, Cheret, and Lambert (1976)
     def deloche(Nm):
-        D0 = 420./((273./293)*atm) * 1e-4  # Diffusion, m^2/s
+        D0 = 410./((273./293)*atm) * 1e-4  # Diffusion, m^2/s
         d = 0.2                    # He* + 2He -> He_2^* + He, Torr^-2/s
         B11 = 1.5e-9 * 1e-6        # He* + He* -> He^+ + He + e, m^3/s
         g1 = 4.2e-9 * 1e-6         # He* + e -> He + e, m^3/s

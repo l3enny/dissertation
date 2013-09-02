@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-08-30T18:03:33.851239
+# Saved at 2013-09-02T20:25:43.528730
 
 AddImportPath(u'/home/ben/Repos/dissertation/defense/figures')
 ImportFilePlugin(u'Numpy NPY import', u'../../simulations/PIC/Fields/10/boltzmann.npy', linked=True, prefix=u'boltzmann.npy', errorsin2d=True, name=u'bolt10')
@@ -84,6 +84,7 @@ To('..')
 Add('grid', name=u'Column Labels', autoadd=False)
 To(u'Column Labels')
 Set('columns', 3)
+Set('leftMargin', u'0.5in')
 Add('graph', name='graph1', autoadd=False)
 To('graph1')
 Set('leftMargin', u'0in')
@@ -124,7 +125,7 @@ Set('direction', 'vertical')
 To('..')
 Add('label', name='label1', autoadd=False)
 To('label1')
-Set('label', u'BOLSIG+')
+Set('label', u'Two-Term Expansion')
 Set('alignHorz', u'centre')
 Set('alignVert', u'centre')
 Set('Text/bold', True)
