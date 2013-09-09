@@ -4,7 +4,6 @@
 \usepackage{acronym}  % Enable acronyms for use with thesis class
 \usepackage{amsmath}  % AMS math macros
 \usepackage{amssymb}  % AMS symbols
-%\usepackage[backend=bibtex8, sorting=none, url=false, bibstyle=numeric, citestyle=numeric-comp]{biblatex}
 \usepackage{bm}       % Bold math symbols
 \usepackage{booktabs} % Better-looking tables
 \usepackage{dirtree}
@@ -57,10 +56,10 @@
   \emph{- Thelonious Monk} 
 }
 
-%\acknowledgments[2]{ %
-%  \input{./acknowledgements.tex}
-%}
-%\acknowledgmentswidth{0.8}
+\acknowledgments[2]{ %
+  \input{./acknowledgements.tex}
+}
+\acknowledgmentswidth{0.8}
 
 \committee{ %
   Associate Professor John E. Foster, Chair \\
@@ -78,9 +77,11 @@
   \input{./acronyms.tex}
 }
 
-%\abstract{
-%  \input{./abstract.tex}
-%}
+\abstract{%
+  {\singlespacing
+  \input{./abstract.tex}
+  }
+}
 
 \input{./mathcommands.tex}
 
