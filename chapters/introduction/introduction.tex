@@ -1,19 +1,19 @@
 \section{Overview}
 
 \subsection{Motivation}
-Plasmas, commonly called the fourth state of matter, are a gas where a
-significant fraction of the neutral atoms or molecules have been split into
-pairs of electrons and positive ions. Initially, a curiosity of the laboratory,
-they have become a critical part of every day life. The electrically charged
-nature of plasmas makes them a practical means by which to convert electrical
-energy into electromagnetic, chemical, kinetic, or even nuclear energy. From an
-applications perspective, they are indisposable in lighting, semiconductor
-manufacturing, plastic processing, and space propulsion. On a more broad scale,
-virtually all observable light in the universe is the result of a plasma in some
-form or another \cite{NA2007}.
+Plasmas, commonly called the fourth state of matter, are a gas where a fraction
+of the neutral atoms or molecules have been split into pairs of electrons and
+positive (or negative) ions. Initially, a curiosity of the laboratory, they have
+become a critical part of every day life. The electrically charged nature of
+plasmas makes them a practical means by which to convert electrical energy into
+electromagnetic, chemical, kinetic, or even nuclear energy. From an applications
+perspective, they are indispensable in lighting, semiconductor manufacturing,
+plastic processing, and space propulsion. On a more broad scale, virtually all
+observable light in the universe is the result of a plasma in some form or
+another \cite{NA2007}.
 
-Some exceptions aside, only three things are required to create a plasma: a gas,
-an energy source, and a means of transferring the energy to the gas. In man-made
+Three things are required to create a plasma: a matter, an energy source, and a
+means of transferring the energy to the matter (often gas). In man-made
 applications, the energy source is typically electricity, and the simplest
 transfer mechanism is via two electrodes placed on either side of the gas. The
 application of a potential difference to these electrodes produces an electric
@@ -37,9 +37,19 @@ an avalanche.
 Eventually, the production of ions and electrons in the gap balances out with
 the rate at which they leave the system, whether by collection at the electrodes
 or some other process. The resulting ionized gas may be referred to as a plasma
-if it meets certain criteria. Simply put, there must be a high enough density
-and number of charged particles for their electromagnetic interaction to
-dominate over random collisions with neutral gas particles.
+if it meets certain criteria. Broadly speaking, these requirements can be
+expressed as,
+\begin{enumerate}
+  \item \textbf{Quasineutrality}: The density of the positive and negative
+species are approximately the same.
+  \item \textbf{Debye Shielding}: The system is large enough ($\lambda_\mathrm{D} 
+<< L$) and possesses enough particles ($4\pi\lambda_\mathrm{D}^3/3 >> 1$) for
+Debye shielding to occur \cite{Chen1984}. These terms will be defined in more
+detail in Chapter~\ref{chp:theory}.
+  \item \textbf{Electrostatic Effects}: The interaction of the charged particles
+must dominate over the influence of random collisions with neutral gas particles
+($\omega_\mathrm{p} > \nu$) \cite{Chen1984}.
+\end{enumerate}
 
 Despite this relatively simple recipe, the physical characteristics can vary
 greatly depending on what gas is used, what pressure it is at, what voltage is
@@ -58,27 +68,27 @@ Plasmas which exhibit this disparity in temperatures are often called
 nonequilibrium or ``low-temperature'' plasmas.
 
 Conversely, there exists another class of plasmas where the electrons, ions, and
-neutral particles are all at the same temperature. These are called thermal
+neutral particles are all at the same temperature. These are called equilibrium
 plasmas. Generally speaking, the closer the gas pressure is to atmosphere, the
-more thermal a plasma is owing to the rapid increase in the frequency of
-collisions between neutral and charged particles \cite{Kunhardt2000}.
-Additionally, the temperatures in a thermal plasma can be quite high and, in
-many cases, can easily melt all metals assuming that the total energy content of
-the plasma is high enough. For example, the arc of an arc welder is a thermal
-plasma. Similar high temperature plasmas, have a number of other applications
-which include a variety of high-intensity lamps, metal cutting, and surface
-coating.
+closer a plasma is to equilibrium, owing to the rapid increase in the frequency
+of collisions between neutral and charged particles \cite{Kunhardt2000}.
+Additionally, the temperatures in an equilibrium plasma can be quite high and,
+in many cases, can easily melt all metals assuming that the total energy content
+of the plasma is high enough. For example, the arc of an arc welder is a
+equilibrium plasma. Similar equilibrium plasmas, have a number of other
+applications which include a variety of high-intensity lamps, metal cutting, and
+surface coating.
 
 There are, however, a number of applications which would benefit from operation
 at higher pressures, but with low-temperature ions and neutrals so as to avoid
 heat damage. This has spurred a substantial amount of research on nonequilibrium
-atmospheric-pressure plasmas (\acs{app}s) in recent years \cite{Becker2005}.
-Ideally, such a plasma could be generated at or near atmospheric pressure with
-hot electrons, but minimal heating of surrounding gas. Though this field of
-research is still relatively young, it has produced a variety of new plasmas and
-capabilities. One of the more ubiquitous examples is use of plasmas to process
-the surface of plastics so that ink can adhere. Separately, nonequilibrium
-\acs{app}s are the technology which drives plasma televisions \cite{Rauf1999}.
+atmospheric-pressure plasmas (\acs{app}s) in recent years \cite{Becker2005,
+Starikovskii2009, Nishihara2011, Laorussi2005, Walsh2006, Lu2006}. Ideally, such
+a plasma could be generated at or near atmospheric pressure with hot electrons,
+but minimal heating of surrounding gas. Born in the 1960s, this field of has
+produced a variety of new types of discharges and capabilities. One of the more
+ubiquitous examples is use of plasmas to process the surface of plastics so that
+ink can adhere. 
 
 As mentioned, these applications promise to be the first of many for such
 plasmas. More recently, there have been innovative proposals to use these
@@ -88,7 +98,9 @@ production \cite{Ostrikov2011}, and more. However, each situation has its own
 challenges when it comes to the design and development of a plasma source,
 particularly at these elevated pressures. Particularly problematic is the
 tendency of \acs{app}s to develop instabilities which can cause them to rapidly
-transition to thermal plasmas in a matter of nanoseconds.
+transition to thermal plasmas
+
+ in a matter of nanoseconds.
 
 There exist a few ways of getting around these instabilities. One example is the
 dielectric-barrier discharge which passively regulates the amount of power which
