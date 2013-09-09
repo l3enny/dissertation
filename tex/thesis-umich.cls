@@ -1308,7 +1308,7 @@
 \let\@tex@bibliography\bibliography
 
 % Change the bibliography header.
-\renewcommand*{\bibname}{\centerline{\large BIBLIOGRAPHY}}
+%\renewcommand*{\bibname}{\centerline{\large BIBLIOGRAPHY}}
 
 % Create a new command for the bibliography.
 \renewcommand*{\bibliography}[1]{ %
@@ -1384,7 +1384,9 @@
 % This fixes the spacing below captions, which by default can be small.
 \setlength\belowcaptionskip{7pt plus 4pt minus 1pt}
 
-
+%% ---- BIBLIOGRAPHY ---------------------------------------------------
+% This imports the modern bibliography backend with desired settings
+\RequirePackage[backend=bibtex8, sorting=none, url=false, bibstyle=numeric, citestyle=numeric-comp]{biblatex}
 
 %% ---- LINKS ----------------------------------------------------------
 % This loads a package that allows extra colors for links.

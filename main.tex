@@ -4,15 +4,22 @@
 \usepackage{acronym}  % Enable acronyms for use with thesis class
 \usepackage{amsmath}  % AMS math macros
 \usepackage{amssymb}  % AMS symbols
+%\usepackage[backend=bibtex8, sorting=none, url=false, bibstyle=numeric, citestyle=numeric-comp]{biblatex}
 \usepackage{bm}       % Bold math symbols
 \usepackage{booktabs} % Better-looking tables
-\usepackage{cite}     % Improved citation styles
 \usepackage{dirtree}
 \usepackage{enumitem} % Customized enumeration styles
 \usepackage{graphicx} % Graphics package
 \usepackage{listings} % Computer code styles
 \usepackage{mathspec} % Support for math font specification
 %\usepackage{scalefnt} % support for scaling font sizes
+
+% Import thesis BibTeX file
+\addbibresource{./Thesis.bib}
+\defbibheading{bibliography}[{\centerline{\Large BIBLIOGRAPHY}}]{%
+  \chapter*{#1}%
+  \markboth{#1}{#1}}
+
 
 % Fix list paragraph-list spacing
 \setlist{nolistsep}
@@ -112,7 +119,12 @@
     \chapter{Additional Emission Measurements}\label{chp:extraem}
       \input{chapters/extraem/extraem.tex}
 
-  \bibliographystyle{unsrt}
-  \bibliography{./Thesis}
+  %\bibliographystyle{unsrt}
+  %\bibliography{./Thesis}
+  
+  \begingroup
+    \setstretch{1.0}
+    \printbibliography
+  \endgroup
 
 \end{document}
