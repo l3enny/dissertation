@@ -1,5 +1,5 @@
 # Veusz exported stylesheet (version 1.18)
-# Saved at 2013-09-10T14:07:37.558722
+# Saved at 2013-09-10T18:39:09.659842
 
 Set('StyleSheet/Line/width', u'1pt')
 Set('StyleSheet/Line/color', 'black')
@@ -739,7 +739,7 @@ Set('StyleSheet/nonorthpoint/Label/bold', False)
 Set('StyleSheet/nonorthpoint/Label/underline', False)
 Set('StyleSheet/nonorthpoint/Label/hide', False)
 Set('StyleSheet/page/hide', False)
-Set('StyleSheet/page/width', u'4in')
+Set('StyleSheet/page/width', u'6in')
 Set('StyleSheet/page/height', u'2.5in')
 Set('StyleSheet/polar/hide', False)
 Set('StyleSheet/polar/leftMargin', '1cm')

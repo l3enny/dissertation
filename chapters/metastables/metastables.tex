@@ -72,15 +72,11 @@ during the development of the \acs{rpnd}.
 
 \section{Setup}
 
-Traditionally, the light used in absorption spectroscopy has been supplied by
-discharge tubes of same gas as the system under study. Though straightforward,
-this approach is limited by the luminosity of the discharge tube, and the fact
-that the emitted radiation is isotropic. More recently, Millard et al.\ noted
-that diode lasers provide a greatly improved light source for absorption
-experiments \cite{Millard1998}. The laser light is easily directed and
-collimated for spatial selectivity, and has more than sufficient intensity
-\cite{Millard1998}. Therefore, it was decided to use a diode laser in the
-measurement of the triplet metastable level.
+The light used in the absorption spectroscopy was provided by a
+distribute-feedback laser diode. The general approach used was similar to that
+of Millard et al. \cite{Millard1998}. The use of a laser in absorption
+spectroscopy provides a relatively high intensity and natural spatial
+selectivity as compared to the use of gas discharge tubes.
 
 As with the study by Millard et al., the decision was made to study the
 transition from the triplet metastable to the 2$^3$P$^\mathrm{o}_{0,1,2}$ state
@@ -93,14 +89,15 @@ level. Thus, the absorption strength can be increased for low densities, or
 decreased at high densities, improving the dynamic range of the diagnostic.
 
 The laser used was a distributed feedback laser diode, produced by Toptica,
-model LD-1083-0070-DFB-1. The specified linewidth of the laser was 3 MHz, well
-below the natural linewidth of the transition at 10.2 MHz. This can be exploited
-to directly measure the gas temperature of the system, as will be seen in the
-next section. The diode was rated for a total output power of 70 mW, with a beam
-size of 1 mm by 3 mm and vertical polarization. The diode was housed in a
-Toptica DL DFB housing which incorporated the collimating optics. A Toptica DCC
-110 was used to provide current control for the diode laser, and a Toptica DTC
-110 was used to control the thermoelectric cooler for the diode.
+model LD-1083-0070-DFB-1. The specified linewidth of the laser was 3 MHz,
+somewhat below the natural linewidth of the transition at 10.2 MHz, and much
+less than the Doppler linewidth at 300 K (1.7 GHz). This can be exploited to
+directly measure the gas temperature of the system, as will be seen in the next
+section. The diode was rated for a total output power of 70 mW, with a beam size
+of 1 mm by 3 mm and vertical polarization. The diode was housed in a Toptica DL
+DFB housing which incorporated the collimating optics. A Toptica DCC 110 was
+used to provide current control for the diode laser, and a Toptica DTC 110 was
+used to control the thermoelectric cooler for the diode.
 
 The layout in figure~\ref{fig:laser}
 \begin{figure}
@@ -344,7 +341,7 @@ As seen in figure~\ref{fig:tvp}
   \centering
   \includegraphics{./chapters/metastables/figures/tvp.eps}
   \caption{Plot of the average gas temperature as a function of deposited
-  energy.}
+  energy normalized by the neutral gas pressure.}
   \label{fig:tvp}
 \end{figure}
 this does not appear to be the case. Indeed, most of the operating conditions
@@ -460,23 +457,51 @@ true, this behavior would be associated with a reduction in the rate of
 metastable generation in the front, thus explaining the high pressure data in
 figure~\ref{fig:metastables}.
 
-In order to compare the metastable measurements to other results, it's necessary
-to know the density as opposed to the line-integrated value. In this case, it
-shall be assumed that the metastable atoms are distributed uniformly along the
-beam path through the plasma. This suggests that the metastable densities in the
-\acs{rpnd} lie in the range of 0-$1\times10^{12}$ cm$^{-3}$. This is
-significantly less than the measurements of Stevefelt, Pouvesle, and Bouchoule
-\cite{Pouvesle1988}, however their system involved an atmospheric-pressure
-discharge and energy deposition of up to 0.2 J (compared to a maximum of 5.5 mJ
-in this experiment). Urabe et al. \cite{Urabe2010} measured metastable densities
-of up to $4\times10^{11}$ cm$^{-3}$ with laser-absorption spectroscopy in a
-helium jet at atmospheric pressure. Nersisyan, Morrow, and Graham made
-measurements suggesting a metastable density of about $1.5\times10^{10}$
-cm$^{-3}$ in a \acs{dbd} \cite{Nersisyan2004}. Though the discharge was not
-pulsed, Millard et al.\ measured densities from $5\times10^9$ -
-$1.2\times10^{11}$ cm$^{-3}$ in helium glow at 2.0 and 5.0 Torr
-\cite{Millard1998}. While none of these experiments are a direct comparison,
-they do suggest that the results obtained above are within reason.
+\begin{table}
+  \centering
+  \caption{Listing of the extrapolated, pre-pulse line-integrated metastable 
+  densities, and decay coefficients as a function of pressure.}
+  \begin{tabular}{lll}
+    \toprule
+    Pressure (Torr) & Integral Density (m$^{-2}$) & Decay Constant (s$^{-1}$) \\
+    \midrule
+    0.3  & $1.34\times10^{14}$ & $4.23\times10^3$ \\
+    0.5  & $3.36\times10^{14}$ & $3.47\times10^3$ \\
+    1.0  & $4.29\times10^{14}$ & $3.65\times10^3$ \\
+    2.0  & $2.60\times10^{14}$ & $4.48\times10^3$ \\
+    3.0  & $3.94\times10^{13}$ & $6.47\times10^3$ \\
+    4.0  & $5.04\times10^{12}$ & $8.73\times10^3$ \\
+    8.0  & $7.08\times10^{6}$  & $2.20\times10^4$ \\
+    16.0 & $4.74\times10^{0}$  & $3.56\times10^4$ \\
+    \bottomrule
+  \end{tabular}
+  \label{tbl:prepulse}
+\end{table}
+
+Similar measurements were made by Stevefelt, Pouvesle, and Bouchoule
+\cite{Pouvesle1988} in an atmospheric-pressure discharge with an input energy of
+0.2 J. This discharge produced a peak metastable density of $4.8\times10^{14}$
+cm$^{-3}$. If the discharge is assumed to produce a cylindrical plasma, the
+energy required to generate each atom can be estimated as 29.7 eV. For
+comparison, if the peak metastable density of the present \acs{rpnd}
+($1.1\times10^{12}$ cm$^{-3}$) is assumed to fill the volume of the glass tube,
+the metastable energy cost is about 143 eV/atom. Despite the assumptions related
+to the plasma geometry and difference in operating pressure, these two values
+are comparable.
+
+Though other metastable measurements of similar helium discharges exist, most do
+not provide estimates of the energy deposition, or possess poorly defined
+geomtries. As a result, it is impossible to make the same comparison as in the
+case of Stevefelt, Pouvesle, and Bouchoule. That said, Urabe et al.
+\cite{Urabe2010} measured metastable densities of up to $4\times10^{11}$
+cm$^{-3}$ with laser-absorption spectroscopy in a helium jet at atmospheric
+pressure. Nersisyan, Morrow, and Graham made measurements suggesting a
+metastable density of about $1.5\times10^{10}$ cm$^{-3}$ in a \acs{dbd}
+\cite{Nersisyan2004}. Though the discharge was not pulsed, Millard et al.\
+measured densities from $5\times10^9$ - $1.2\times10^{11}$ cm$^{-3}$ in helium
+glow at 2.0 and 5.0 Torr \cite{Millard1998}. While none of these experiments are
+a direct comparison, they do suggest that the results obtained above are within
+reason.
 
 \subsection{Metastable Destruction}
 
@@ -544,8 +569,9 @@ Figure~\ref{fig:decay}
 \begin{figure}
   \centering
   \includegraphics{./chapters/metastables/figures/decay.eps}
-  \caption{Comparison of the decay rates for various processes at 0.3 Torr as a
-  function of metastable density.}
+  \caption{Comparison of the decay rates for diffusion, Penning ionization of
+    nitrogen, Penning ionization between metastables, and molecular conversion at
+    0.3 Torr as a function of metastable density.}
   \label{fig:decay}
 \end{figure}
 illustrates the aforementioned decay processes at 0.3 Torr, for a variety of
@@ -558,15 +584,19 @@ Chapter~\ref{chp:experiment}.
 
 As can be seen, the dominant loss mechanism above metastable densities of
 $2\times10^{17}$ m$^{-3}$ was Penning ionization between two metastable atoms.
-Below this density, the three-body process responsible for dimer formation was
-dominant. However, the three-body process scales with the square of the neutral
-gas pressure. As a result, as the pressure is increased this mechanism quickly
-overtakes all the others. Therefore, the exponential dependence of the decay at
-higher pressures is not representative of any change in the importance of
-Penning ionization between metastables, but rather the increasing importance of
-three-body collisions. This severely restricts the longevity of the metastable
-states at higher pressures, and reduces their ability to prolong the charged
-particle population.
+Also important, but not shown, are losses resulting from super-elastic electron
+collisions. Electron density measurements made by Weatherford et
+al.~\cite{Weatherford2012} indicate that the electron density is comparable to
+the metastable density. Likewise, the rate coefficient for super-elastic
+electron collisions from Pouvesle et al.~\cite{Pouvesle1988} is of the same
+order as the Penning ionization between metastables.
+
+At lower densities and higher pressures the three-body, molecular conversion
+process responsible for dimer formation was dominant. However, this process
+scales with the square of the neutral gas pressure. As a result, as the pressure
+is increased this mechanism quickly overtakes the others. This severely
+restricts the longevity of the metastable states at higher pressures, and
+reduces their ability to prolong the charged particle population.
 
 From figures~\ref{fig:decay} and~\ref{fig:long}, it can be seen that, aside from
 the deviations at lower pressures, the decay curves are well-matched by the
