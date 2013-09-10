@@ -13,10 +13,10 @@ energy levels, transitions, lineshapes, and absorption cross sections.
 
 \section{Ionized Gas}
 An ionized gas is a volume of gas in which some fraction of the neutral atoms
-and/or molecules have been separated into electron and ion pairs. For a
-sufficiently large number of particles and collision rate, the behavior of each
-species in the ionized gas can be described by a continuous distribution
-function.
+and/or molecules have been separated into negative electrons and positive and/or
+negative ions. For a sufficiently large number of particles and collision rate,
+the behavior of each species in the ionized gas can be described by a continuous
+distribution function.
 
 This function is an expression of the likelihood of finding a particle within a
 specific range of velocities in a specific volume, as a function of time. This
@@ -32,35 +32,33 @@ Boltzmann equation,
   \cdot \nabla_v f_\alpha = \left( \frac{\partial f_\alpha}
   {\partial t}\right)_\mathrm{coll}.
 \end{equation}
-Here, $m$ is the particle mass, $q$ is its charg:, $\vec{E}$ is the electric
+Here, $m$ is the particle mass, $q$ is its charge, $\vec{E}$ is the electric
 field, $\vec{B}$ is the magnetic field, and $(\partial f_\alpha/\partial
 t)_\mathrm{coll}$ is a term which represents changes to the distribution
 function as a result of collisions. Coupled with Maxwell's equations,
 equation~\ref{eq:boltzmann} provides a complete description of the behavior of
 the fields and particles in a plasma.
 
-For a species in equilibrium in the absence of external forces and ($\partial
-f_\alpha/\partial t)_\mathrm{coll} = 0$, it can be shown \cite{Druyvesteyn1940}
-that the distribution of energies is
+For a species in equilibrium for no spatial gradients ($\partial f/\partial t =
+\nabla f = 0$), it can be shown \cite{Druyvesteyn1940} that the distribution of
+energies is
 \begin{equation}\label{eq:mb}
-  f\alpha(\epsilon) = C \epsilon^{1/2}
+  f_\alpha(\epsilon) = C \epsilon^{1/2}
           \exp\left( -\frac{\epsilon}{\kB T_\alpha}\right)
 \end{equation}
 where $C$ is a normalizing constant, $\epsilon$ is the energy, $\kB$ is
-Boltzmann's constant, and $T_\alpha$ is the temperature of the species. This is
-referred to as the Maxwell-Boltzmann distribution. It should be emphasized that
-this solution only applies when the classical species can be considered to be in
-equilibrium. Gradients and electromagnetic fields can both significantly alter
-the distribution function of a species. This can be of particular importance in
-the calculation or reaction rates, or the measurement of temperatures.
+Boltzmann's constant, and $T_\alpha$ is the temperature of the species. This
+equation referred to as the Maxwell-Boltzmann distribution. It should be
+emphasized that this solution only applies when the classical species can be
+considered to be in equilibrium. Gradients and electromagnetic fields can both
+significantly alter the distribution function of a species. This can be of
+particular importance in the calculation or reaction rates, or the measurement
+of temperatures.
 
 Additionally, the Boltzmann equation may be solved for electrons in equilibrium
-constant electric field, provided that a constant current density, and only
-elastic collisions. This is generally valid if the electric field strength is
-sufficiently small such that the mean energy of the electrons does not become
-comparable to the threshold energies for inelastic collisions. This result was
-originally presented by Druyvesteyn and Penning \cite{Druyvesteyn1940} and has
-come to be known as the Druyvesteyn distribution. It is defined as,
+with constant electric field, provided that a constant current density, and only
+elastic collisions. Assuming that the mean free path of the electrons is
+constant, the Druyvesteyn distribution may be defined as \cite{Druyvesteyn1940},
 \begin{equation}
   f_\alpha(\epsilon) = C \epsilon^{1/2}
            \exp\left(-\frac{\epsilon^2}{\langle \epsilon \rangle^2} \right)
@@ -86,10 +84,10 @@ as the most probably energy.
 Additional solutions of equation~\ref{eq:boltzmann} in anything but these simple
 cases can be very challenging (c.f.\ Chapter 18 of \cite{Lieberman2005}). Even
 computational approaches can be stymied by the seven-dimension phase space and
-high dynamic range. In most situations, the Boltzmann equation is reduced to
-more tenable expressions by integrating over velocity-space (leaving $f$ as a
-function of space and time). The first so-called moment is the conservation
-equation or continuity equation \cite{Lieberman2005},
+high dynamic range. In most situations, the Boltzmann equation is converted to
+more tenable expressions by integrating it over velocity-space. The first
+so-called moment is the conservation equation or continuity equation
+\cite{Lieberman2005},
 \begin{equation}\label{eq:cont}
   \frac{\partial n_\alpha}{\partial t} + \nabla \cdot (n_\alpha \vec{u_\alpha})
   = G_\alpha - L_\alpha.
@@ -119,17 +117,15 @@ obtain the second moment \cite{Lieberman2005},
 This expresses the conservation of momentum by the plasma. It provides a means
 by which to solve for the mean velocity of the system, however it also
 introduces two additional terms. $\vec{f}|_\mathrm{coll}$ deals with the forces
-transferred to $\alpha$ via collisions. This is often approximated as the Krook
-collision operator, which is only dependent on known quantities: $m$, $n$,
+transferred to $\alpha$ via collisions. This term is often approximated as the
+Krook collision operator, which is only dependent on known quantities: $m$, $n$,
 $\vec{u}$, $G$, $L$, and the momentum transfer frequency, $\nu_\mathrm{m}$, for
 the species $\alpha$ and all species it interacts with. The second term,
 $\vec{\Pi}$, is the pressure tensor and can only be defined by the third moment
 of the Boltzmann equation. In fact, each additional moment introduces a new term
 requiring a higher order moment, \emph{ad infinitum}. In most situations, this
 chain of equations is terminated after the first two or three moments by the use
-of an additional assumption such as an equation of state. One common example of
-an equation of state is the isothermal relation, $p = n\kB T$, which can be used
-to remove the pressure tensor.
+of an additional assumption such as an equation of state.
 
 For the purposes of this paper, one more moment will suffice. Assuming that the
 pressure is isotropic, one can multiply equation~\ref{eq:boltzmann} by $mv^2/2$,
@@ -190,13 +186,14 @@ be greater than unity in a plasma, or $n_0(4\pi \lambda_D^3/3) >>
 length.}
 
 \subsection{Plasma Oscillations}
-Finally, a plasma may exhibit Debye shielding, but lack the collective behavior
-of a plasma. This can occur when the collision frequency with neutral particles
-is too high. In this case, the behavior of the ionized gas would be determined
-more by the random collisions. Therefore, the characteristic response frequency
-of a plasma, commonly called the plasma frequency, must be greater than the
-neutral collision frequency, or {$\omega_p > \nu$}. The plasma frequency can be
-shown to be $\omega_p = \sqrt{e^2n_0/(\epsilon_0 m_e)}$.
+Finally, a plasma may exhibit Debye shielding, but lack collective motion of the
+charged particles. This can occur when the collision frequency with neutral
+particles is too high. In this case, the behavior of the ionized gas is
+significantly affected by random collisions. Therefore, the characteristic
+response frequency of a plasma, commonly called the plasma frequency, should be
+greater than the neutral collision frequency ({$\omega_p > \nu$}) in order for
+this collection motion to occur. The plasma frequency can be shown to be
+$\omega_p = \sqrt{e^2n_0/(\epsilon_0 m_e)}$ \cite{Chen1984}.
 
 There are many natural and man-made plasmas of varying size and quality.
 Figure~\ref{fig:regimes}
