@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-09-10T14:11:00.267218
+# Saved at 2013-09-10T14:30:23.279602
 
 AddImportPath(u'/home/ben/Repos/dissertation/chapters/theory/figures')
 ImportFileCSV(u'../../../simulations/Streamer Criteria/lengths.dat', headermode='none', linked=True, dsprefix=u'lengths.dat')
@@ -66,7 +66,7 @@ Set('Text/size', u'12pt')
 To('..')
 Add('axis', name=u'Slope', autoadd=False)
 To(u'Slope')
-Set('label', u'Breakdown Delay (ns)')
+Set('label', u'Multiplication Delay (ns)')
 Set('log', True)
 Set('datascale', 1000000000.0)
 To('..')
