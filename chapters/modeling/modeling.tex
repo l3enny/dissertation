@@ -13,14 +13,16 @@ equilibrium.
 Unfortunately, these requirements are somewhat problematic. Solutions of the
 Boltzmann equation for a single species are difficult \cite{Lieberman2005}, not
 withstanding for the dozens of species which may be present in the \acs{rpnd}.
-In order to resolve the behavior of the plasma, any spatial discretization of
-the geometry must be on the scale of the Debye length or smaller. A conservative
-estimate of the Debye length for the \acs{rpnd} is about 20 $\mu$m. A cube of
-this dimension has a total volume of 8$\times10^{-15}$ m$^3$, thus requiring a
-total of approximately 3.2$\times10^{10}$ cells for the \acs{rpnd} in question.
+
+If the system is spatially discretized with a grid spacing on the order of a
+Debye length (about 20 $\mu$m for the \acs{rpnd}), a Debye cube of this
+dimension has a total volume of 8$\times10^{-15}$ m$^3$. This suggests the need
+for approximately 3.2$\times10^{10}$ cells for the \acs{rpnd} in question.
 Assuming that each dimension of velocity space is discretized into 100
 components, a total of 0.26 exabytes would be required to describe a single
-species in the \acs{rpnd} at each timestep.
+species in the \acs{rpnd} at each timestep. This storage requirement can be
+relaxed if a reduction in spatial or velocity resolution is acceptable, however
+even moderate simplifications possess non-trivial computing requirements.
 
 \section{Model Development}
 
@@ -92,9 +94,38 @@ gradients reduces this to,
 where $\alpha$ identifies the particle species, $G$ is the gain term, and $L$ is
 the loss term. The gain and loss terms represent all possible reactions which
 can alter the population of $\alpha$. The model presented incorporates helium
-states up to $n=4$, helium ions, and electrons. It should also be noted that the
-experimental measurements suggested the presence of air impurities up to 80 ppm,
-and helium dimers are also likely present in the experimental discharge
+states up to $n=4$ (see table~\ref{tbl:states}),
+\begin{table}
+  \centering
+  \caption{The states included in the global model and their respective energies
+    per \cite{Kramida2012}}
+  \label{tbl:states}
+  \begin{tabular}{ll|ll|ll}
+    \toprule
+    State        & Energy (eV)   & State       & Energy (eV)
+                                                 & State        & Energy (eV)  \\
+    \midrule
+    1$^1$S       & 0.0000000000 & 3$^1$S       & 22.920316225  
+                                                 & 4$^1$S       & 23.673569407 \\
+    2$^3$S       & 19.819613634 & 3$^3$P$\odd$ & 23.007076944
+                                                 & 4$^3$P$\odd$ & 23.707892060 \\
+    2$^1$S       & 20.615773877 & 3$^3$D       & 23.073650826  
+                                                 & 4$^3$D       & 23.736089604 \\
+    2$^3$P$\odd$ & 20.964103750 & 3$^1$D       & 23.074073653
+                                                 & 4$^1$D       & 23.736333849 \\
+    2$^1$P$\odd$ & 21.218021673 & 3$^1$P       & 23.087017385
+                                                 & 4$^3$F$\odd$ & 23.737006466 \\
+    3$^3$S       & 22.718465298 & 4$^3$S       & 23.593957536
+                                                 & 4$^1$F$\odd$ & 23.737008537 \\
+                 &              &              &
+                                                 & 4$^1$P$\odd$ & 23.742068883 \\
+
+    \bottomrule
+  \end{tabular}
+\end{table}
+helium ions, and electrons. It should also be noted that the experimental
+measurements suggested the presence of air impurities up to 80 ppm, and helium
+dimers are also likely present in the experimental discharge
 \cite{Pouvesle1988}. However, they were neglected in the case of this model. As
 observed in Chapter~\ref{chp:metastables}, the total e-folding time for the
 metastable decay was approximately 25 $\mu$s. This indicates that the processes
