@@ -1,18 +1,18 @@
 \section{Overview}
 
 \subsection{Motivation}
-Plasmas, commonly called the fourth state of matter, are a gas where a fraction
-of the neutral atoms or molecules have been split into pairs of electrons and
-positive (or negative) ions. Initially, a curiosity of the laboratory, they have
-become a critical part of every day life. The electrically charged nature of
-plasmas makes them a practical means by which to convert electrical energy into
-electromagnetic, chemical, kinetic, or even nuclear energy. From an applications
-perspective, they are indispensable in lighting, semiconductor manufacturing,
-plastic processing, and space propulsion. On a more broad scale, virtually all
-observable light in the universe is the result of a plasma in some form or
-another \cite{NA2007}.
+Plasmas, commonly called the fourth state of matter, consist of neutral atoms or
+molecules with some fraction split into pairs of electrons and positive (or
+negative) ions. Initially, a curiosity of the laboratory (e.g.\ demonstrations
+by Victorian-era scientists), they have become a critical part of every day
+life. The electrically charged nature of plasmas makes them a practical means by
+which to convert electrical energy into electromagnetic, chemical, kinetic, or
+even nuclear energy. From an applications perspective, they are indispensable in
+lighting, semiconductor manufacturing, plastic processing, and space propulsion.
+On a more broad scale, virtually all observable light in the universe is derived
+from the plasma state \cite{NA2007}.
 
-Three things are required to create a plasma: a matter, an energy source, and a
+Three things are required to create a plasma: matter, an energy source, and a
 means of transferring the energy to the matter (often gas). In man-made
 applications, the energy source is typically electricity, and the simplest
 transfer mechanism is via two electrodes placed on either side of the gas. The
@@ -24,21 +24,20 @@ field as seen in figure~\ref{fig:avalanche}.
   \caption{A simplified depiction of the avalanche breakdown process in a gas.}
   \label{fig:avalanche}
 \end{figure}
-The field accelerates a single seed electron in the gas (often created by
-background cosmic radiation) until it collides with a neutral particle. The
-electron, having acquired a sufficient amount of energy, liberates a second
-electron loose from the particle, leaving behind a relatively heavy and immobile
-ion. Subsequently, both the first and second electron are now accelerated by the
-electric field. Again, they collide with two more neutral atoms, creating two
-new electrons. As long as the electric field persists, the number of electron
-and ion pairs increases exponentially. This process is generally referred to as
-an avalanche.
+The field accelerates seed electrons in the gas (often created by background
+cosmic radiation) until they collide with neutral particles. The seed electrons,
+having acquired sufficient energy, liberate secondary electrons from the neutral
+particles, leaving behind relatively heavy and immobile ions. Subsequently, both
+the first and second electron are now accelerated by the electric field. Again,
+they collide with two more neutral atoms, creating two new electrons. As long as
+the electric field persists, the number of electron and ion pairs increases
+exponentially. This process is generally referred to as an avalanche.
 
 Eventually, the production of ions and electrons in the gap balances out with
 the rate at which they leave the system, whether by collection at the electrodes
-or some other process. The resulting ionized gas may be referred to as a plasma
-if it meets certain criteria. Broadly speaking, these requirements can be
-expressed as,
+or by other processes (e.g.\ surface recombination or diffusion out of the
+volume). The resulting ionized gas may be referred to as a plasma if it meets
+certain criteria. Broadly speaking, these requirements can be expressed as,
 \begin{enumerate}
   \item \textbf{Quasineutrality}: The density of the positive and negative
 species are approximately the same.
@@ -52,43 +51,40 @@ must dominate over the influence of random collisions with neutral gas particles
 \end{enumerate}
 
 Despite this relatively simple recipe, the physical characteristics can vary
-greatly depending on what gas is used, what pressure it is at, what voltage is
-used, whether the electricity is applied constantly or varied over time, what
-kind of electrodes are used, etc. As a result, man-made plasmas are generally
-produced under very specific conditions. For example, a plasma etcher used in
-semiconductor manufacturing may need to operate operate at pressures that are
-one-thousandth of atmospheric pressure with ultra-pure (99.999\%) gases
-\cite{Greenberg1993a}.
+greatly depending on the type of gas, its pressure, the nature of the applied
+voltage, the composition of the electrodes, etc. As a result, man-made plasmas
+are generally produced under very specific conditions. For example, a plasma
+etcher used in semiconductor manufacturing may need to operate operate at
+pressures that are one ten-thousandth of atmospheric pressure with ultra-pure
+(99.999\%) gases \cite{Greenberg1993a}.
 
-Plasmas like those which occur in plasma etchers, feature ions and neutral gas
-particles with temperatures that are below 1,000 K, or roughly 1,340$^\cdot$ F.
-Though this temperature is relatively high compared to room temperature, it is
-well below the temperature of the electrons which may be in excess of 20,000 K.
-Plasmas which exhibit this disparity in temperatures are often called
-nonequilibrium or ``low-temperature'' plasmas.
+Plasmas such as those produced in plasma etchers, feature ions and neutral gas
+particles with temperatures that are below 1,000 K. Though this temperature is
+relatively high compared to room temperature, it is well below the temperature
+of the electrons which are typically in excess of 20,000 K. Plasmas which
+exhibit this disparity in temperatures are often called nonequilibrium or
+``low-temperature'' plasmas.
 
 Conversely, there exists another class of plasmas where the electrons, ions, and
-neutral particles are all at the same temperature. These are called equilibrium
-plasmas. Generally speaking, the closer the gas pressure is to atmosphere, the
-closer a plasma is to equilibrium, owing to the rapid increase in the frequency
-of collisions between neutral and charged particles \cite{Kunhardt2000}.
-Additionally, the temperatures in an equilibrium plasma can be quite high and,
-in many cases, can easily melt all metals assuming that the total energy content
-of the plasma is high enough. For example, the arc of an arc welder is a
-equilibrium plasma. Similar equilibrium plasmas, have a number of other
-applications which include a variety of high-intensity lamps, metal cutting, and
-surface coating.
+neutral particles can all be described by the same equilibrium temperature.
+These are called equilibrium plasmas. As the pressure is increased, plasmas
+become susceptible to what is known as the ionization instability. Depending on
+the conditions, this can lead to a glow-to-arc transition which causes an
+initially non-equilibrium plasma to become an equilibrium plasma
+\cite{Kunhardt2000}. The resulting arcs can be used in application which include
+cutting, welding, high-intensity lighting, and surface coating.
 
 There are, however, a number of applications which would benefit from operation
-at higher pressures, but with low-temperature ions and neutrals so as to avoid
-heat damage. This has spurred a substantial amount of research on nonequilibrium
+at higher pressures with the attendant removal of complex and costly vacuum
+systems, but with low-temperature ions and neutrals so as to avoid heat damage.
+This has spurred a substantial amount of research on nonequilibrium
 atmospheric-pressure plasmas (\acs{app}s) in recent years \cite{Becker2005,
 Starikovskii2009, Nishihara2011, Laroussi2005, Walsh2006, Lu2006}. Ideally, such
 a plasma could be generated at or near atmospheric pressure with hot electrons,
 but minimal heating of surrounding gas. Born in the 1960's, this field of has
 produced a variety of new types of discharges and capabilities. One of the more
 ubiquitous examples is use of plasmas to process the surface of plastics so that
-ink can adhere. 
+ink can adhere.
 
 As mentioned, these applications promise to be the first of many for such
 plasmas. More recently, there have been innovative proposals to use these
@@ -97,26 +93,25 @@ plasmas in water purification \cite{Malik2001}, wound sterilization
 production \cite{Ostrikov2011}, and more. However, each situation has its own
 challenges when it comes to the design and development of a plasma source,
 particularly at these elevated pressures. Particularly problematic is the
-tendency of \acs{app}s to develop instabilities which can lead to equilibration
-via the glow-to-arc transition.
+ionization instability which can lead \acs{app}s to the glow-to-arc transition.
 
 There exist a few ways of getting around these instabilities. One example is the
 dielectric-barrier discharge which passively regulates the amount of power which
-can be deposited into the plasma \cite{Kogelschatz2003}. Another example
-includes split-ring resonators which use natural feedback mechanisms to damp out
-potential instabilities \cite{Iza2005}. The technique considered here, referred
-to as the repetitively-pulsed nanosecond discharge, or \acs{rpnd}, uses high
-voltage pulses which are so short that the instability does not have time to
-develop \cite{Adamovich2008}. The \acs{rpnd} is a nonequilibrium plasma which
-can operate at pressures ranging from approximately $10^{-3}$--$1$ atmospheres
-\cite{Vasilyak1994}. At atmospheric pressure the \acs{rpnd} can produce a
-uniform plasma in volumes on the order of 10 mL \cite{Walsh2006}. As the
-pressure is reduced, the plasma volume can reach the order of liters
-\cite{Starikovskaia1998}.
+can be deposited into the plasma \cite{Kogelschatz2003} by limiting charge flow.
+Another example includes split-ring resonators which use natural feedback
+mechanisms to damp out potential instabilities \cite{Iza2005}. The technique
+considered here, referred to as the repetitively-pulsed nanosecond discharge, or
+\acs{rpnd}, uses high voltage pulses which are so short that the instability
+does not have time to develop \cite{Adamovich2008}. The \acs{rpnd} is a
+nonequilibrium plasma which can operate at pressures ranging from approximately
+$10^{-3}$--$1$ atmospheres \cite{Vasilyak1994}. At atmospheric pressure the
+\acs{rpnd} can produce a uniform plasma in volumes on the order of 10 mL
+\cite{Walsh2006}. As the pressure is reduced, the plasma volume can reach the
+order of liters \cite{Starikovskaia1998}.
 
 The importance of large-area, uniform, high-pressure plasmas such as the
 \acs{rpnd} was highlighted in the National Academies' most recent decadal survey
-of plasma science \cite{NA2007}. However, there is still much that is not know
+of plasma science \cite{NA2007}. However, there is still much that is not known
 about such plasmas. From the same survey, it is said that ``the full promise of
 \acs{app}s will be known only if they can be understood and managed based on
 fundamental scientific principles at two extremes--the nanoscopic kinetic level,
@@ -129,43 +124,44 @@ drives the research presented here.
 Historically, the study of low-temperature \acs{app}s has been almost
 indistinguishable from the study of plasmas as a whole. However, this was not
 necessarily a matter of reasoned choice. Plasma generation at
-atmospheric-pressure obviates the need for an effective vacuum pump.
-Additionally, prior to the creation of large battery banks, early sources of
-electrical energy had relatively small capacities. This precluded the generation
-of thermal atmospheric plasmas which required large amounts of energy.
+atmospheric-pressure obviates the need for a vacuum pump. Additionally, prior to
+the creation of large battery banks, early sources of electrical energy had
+relatively small capacities. This precluded the generation of thermal
+atmospheric plasmas which required large amounts of energy.
 
-Indeed, the requirements for a low-temperature \acs{app} are sufficiently
-rudimentary that the first man-made one (and likely the first man-made plasma),
-was probably a spark generated by rubbing fur against amber. This is commonly
-attributed to Thales of Mil\^{e}tus from around 600 B.C. Following Thales,
-electrical sparks came to intrigue many scientists including Gottfried Liebniz,
-Benjamin Franklin, and Charles Wheatstone. By the mid-1800s, Pl\"{u}cker,
-Gei\ss{}ler, and Hittorf began some of the first work on low-pressure plasmas
-though it was Crookes who would later identify plasma as a separate state of
-matter. Later, J.J.\ Thomson's discovery of the electron and discretized charge
-in 1897 marked the beginning of modern plasma research.
+The first spark discharge is commonly attributed to Thales of Mil\^{e}tus from
+around 600 B.C. Following Thales, electrical sparks came to intrigue many
+scientists including Gottfried Liebniz, Benjamin Franklin, and Charles
+Wheatstone. By the mid-1800s, Pl\"{u}cker, Gei\ss{}ler, and Hittorf began some
+of the first work on low-pressure plasmas though it was Crookes who would later
+identify plasma as a separate state of matter. Later, J.J.\ Thomson's discovery
+of the electron and discretized charge in 1897 marked the beginning of modern
+plasma research.
 
 By this time, the necessary tools and techniques existed to create steady
-plasmas in pure, rarified gases. The behaviors of which were dominated by the
-motion and interaction of the charged electrons and ions. These carefully
-controlled systems were ideal for basic studies of plasma behavior and were used
-to great effect by individuals such as Lewi Tonks and Irving Langmuir
-\cite{Tonks1929}. In fact, many modern concepts in plasma physics can be traced
-back to their work.
+plasmas in rarified gases. These discharge tubes were ideal for basic studies of
+plasma behavior and were used to great effect by individuals such as Lewi Tonks
+and Irving Langmuir \cite{Tonks1929}. In fact, many modern concepts in plasma
+physics can be traced back to their work.
 
 In contrast, the pulsed \acs{app}s, characteristic of the earliest man-made
-plasmas \cite{Anders2003}, were easy to create, but notoriously difficult to
-work with. It could take them only a few nanoseconds to form, and less than a
-millisecond to decay away. For many years, there were simply no instruments
-capable of taking measurements this quickly. Furthermore, the neutral particles
-which were of no consequence in the low-pressure plasmas, could not be ignored.
-The neutral particles were present in such quantities that they could confound
-or obscure otherwise simple measurements.
+plasmas \cite{Anders2003}, were straightforward to create, but difficult to
+carry out measurements upon. For many years, there were simply no instruments
+with the necessary time resolution. Furthermore, neutral particles were present
+in such quantities that they could confound or obscure otherwise simple
+measurements.
 
-As a consequence, there is still a great deal that is not known about about
-pulsed \acs{app}s, particularly lightning, streamers, and a type of plasma which
-Thomson referred to as a ``luminous front.'' By the 1970s, this latter plasma
-had come to be called the fast ionization wave, or \acs{fiw}
+Diagnostic capabilities and theory evolved to allow increasingly detailed
+measurements on high pressure plasmas. This included lightning research which
+utilized a number of novel photographic techniques beginning in the 1920's and
+oscillographs and photographs of streamers starting in the 1930's. After World
+War 2, photomultiplier tubes were introduced in the study of high pressure
+discharges follow by fast digital imaging. 
+
+Despite these advances, there is still a great deal that is not known about
+about pulsed \acs{app}s, particularly lightning, streamers, and a type of plasma
+which Thomson referred to as a ``luminous front.'' By the 1970s, this latter
+plasma had come to be called the fast ionization wave, or \acs{fiw}
 \cite{Vasilyak1994}. It was generated by a single voltage pulse lasting around
 100 nanoseconds and peaking at 10s or 100s of kilovolts. For the right pressure
 and gas, the \acs{fiw} could fill volumes of nearly 40 L with a relatively
@@ -188,32 +184,30 @@ lifetimes motivated a search for replacements \cite{Partlo1995}.
 
 Fast-switching semiconductor devices (e.g.\ the thyristor and silicon-controlled
 rectifier) eventually mitigated these limitations. At present, switches exist
-which can reliably operate 100,000 times a second; sufficiently fast that the
+which can reliably operate at 100 kHz; sufficiently fast that the
 plasma duty cycle approaches 100\% \cite{Efanov1997}. The discharge produced by
 the use of these new switches is what we refer to as the \acs{rpnd}.
 
 \subsection{Questions}
 
-The large pedigree of pulsed plasma research belies the fact that they are still
-not well-understood. This remains especially true for \acs{rpnd}s which present
-significant experimental challenges. A major component of this has to do with
-the time scales associated with the \acs{rpnd}. The formation of a \acs{rpnd}
-often requires no more than a few nanoseconds. Very sensitive equipment is
-required in order to measure changes which occur during this period.
-Unfortunately, such equipment is particularly susceptible to the broadband
-electronic noise generated by both real and displacement currents of the fast
-pulses. There is a plethora of other problems that can be traced back to topic
-of timing. For example, the length and insulators of detector cables can
-introduce substantial delays, and must be considered in order to synchronize
-different measurements.
+A survey of pulsed plasma research show that \acs{rpnd}s are still not
+well-understood. One specific impediment to research on \acs{rpnd}s is the
+time-scale related to their formation. The formation of a \acs{rpnd} often
+requires no more than a few nanoseconds. Very sensitive equipment is required in
+order to measure changes which occur during this period. Unfortunately, such
+equipment is particularly susceptible to the broadband electronic noise
+generated by both real and displacement currents of the fast pulses.
+Additionally, the length and insulators of detector cables can introduce
+substantial delays, and must be considered in order to synchronize different
+measurements.
 
 Consequently, the majority of \acs{rpnd} studies focus on measurements after the
-discharge has occurred, when changes happen at a much slower rate. A great deal
-of information is available for this period of time, including chemical
-compositions, atomic densities, electron densities, gas temperatures, and more.
-While undoubtedly important, these measurements provide limited insight on what
-is happening \emph{while} the plasma is forming. It is natural, then, to ask,
-what are the \acs{rpnd} plasma properties during formation?
+discharge has occurred. A great deal of information is available for this period
+of time, including chemical compositions, atomic densities, electron densities,
+gas temperatures, and more. While undoubtedly important, these measurements
+provide limited insight on what is happening \emph{while} the plasma is forming.
+It is natural, then, to ask, what are the \acs{rpnd} plasma properties during
+formation?
 
 More specifically, it is important to determine the energy coupling into the
 plasma and how it is distributed amongst the neutral particles of the system.
@@ -236,18 +230,18 @@ gas \acs{rpnd}s compare to more conventional ones.
 \subsection{Approach}
 
 The dissertation presented here represents efforts to either answer or provide a
-foundation to answer these questions. In order to develop the appropriate
-context for this work, the next section will be a comprehensive review of the
-\acs{rpnd} literature. It begins with the first reported pulsed \acs{app}s and
-concludes with contemporary studies.
+foundation to answer the aforementioned questions. In order to develop the
+appropriate context for this work, the next section gives a comprehensive review
+of the \acs{rpnd} literature. It begins with the first reported pulsed
+\acs{app}s and concludes with contemporary studies.
 
-The following two chapters set the basis for the experimental and numerical
-studies. Chapter~\ref{chp:theory} presents the theory necessary to understand
-\acs{rpnd}s including streamer discharges, atomic spectroscopy, and collision
-processes. Subsequently, Chapter~\ref{chp:experiment} describes the design of
-the helium \acs{rpnd} discharge apparatus used for the experimental studies and
-as the basis for the simulations. Also included in this chapter are several
-measurements of the basic discharge properties.
+The following two chapters establish the basis for the experimental and
+numerical studies. Chapter~\ref{chp:theory} presents the theory necessary to
+understand \acs{rpnd}s including streamer discharges, atomic spectroscopy, and
+collision processes. Subsequently, Chapter~\ref{chp:experiment} describes the
+design of the helium \acs{rpnd} discharge apparatus used for the experimental
+studies and as the basis for the simulations. Also included in this chapter are
+several measurements of the basic discharge properties.
 
 Chapters~\ref{chp:metastables} through~\ref{chp:modeling} provide more detailed
 measurements and analysis of the \acs{rpnd} dynamics. In
@@ -457,7 +451,7 @@ discovery, a substantial effort was made to document the properties of the
 current, and attenuation were the most frequently measured quantities. Much of
 this work is summarized in a review by Vasilyak \cite{Vasilyak1994}. Also
 reviewed are Slavin and Sopin's work which was the first to attempt a
-computation of the electron energy distribution function \acs{eedf} in
+computation of the electron energy distribution function (\acs{eedf}) in
 \acs{fiw}s \cite{Slavin1992}.
 
 The experimental measurements and computational work reported by Vasilyak were
@@ -499,37 +493,14 @@ application-driven studies. This included:
 Though not specific to the \acs{rpnd}, Becker et al. \cite{Becker2005} provide
 an extensive discussion of the potential uses for non-equilibrium air plasmas.
 
-As a result, contemporary researchers have produced a wealth of literature on
-the operation of \acs{rpnd}s. More recently, there have been detailed
-measurements of the gas temperatures \cite{Pilla2006, Pancheshnyi2006,
+As a result, contemporary researchers have produced a significant amount of
+literature on the operation of \acs{rpnd}s. More recently, there have been
+detailed measurements of the gas temperatures \cite{Pilla2006, Pancheshnyi2006,
 Nishihara2006, Bao2007, Lou2007, Pai2009, Zuzeek2010, Nishihara2011}, chemical
 composition \cite{Bao2007, Lou2007, Pai2009}, electric fields \cite{Ito2009,
 Ito2010, Muller2011a}, and energy coupling \cite{Macheret2006, Pancheshnyi2006}.
 Notably, these studies have been generally restricted to molecular gases; air,
 nitrogen, and occasionally, hydrogen.
-
-Of the more recent research on the application of \acs{rpnd}s, Laroussi and Lu
-were early proponents of biomedical applications. They examined a \acs{rpnd}
-excited in a stream of helium flowing from a tube into air \cite{Laroussi2005,
-Lu2006}. The resulting plasma had the appearance of a jet, emitted from the open
-end of the tube. Using fast photography they observed that the jet was actually
-a series of plasma ``bullets'' formed with each pulse. Measurements of the
-bullet velocities showed that their speed greatly exceed what would be expected
-purely from electrons drifting under the applied electric field. They described
-the bullet as a classic cathode-directed streamer propagated by photoionization.
-
-The plasma bullets of Laroussi and Lu spawned a great deal of interest in
-\acs{rpnd} helium plasma jets\footnote{A distinction should be made between
-plasma jets, excited by sinusoidal power supplies, similar to the well-known
-dielectric-barrier discharge \cite{Kogelschatz2003}, and those produced by
-nanosecond pulses. Differences between the two were reported by Walsh, Shi, and
-Kong \cite{Walsh2006}.} For example, Walsh et al.\ studied the atomic oxygen
-production for helium-oxygen mixtures with the use of emission spectroscopy and
-a global plasma chemistry model \cite{Walsh2010}. Urabe et al.\ employed a
-variety of laser diagnostics to measure the radial density profiles of helium
-metastable atoms and molecular nitrogen ions in a similar jet. This work was
-supported by a number of two-dimensional plasma simulations such as those by
-Naidis \cite{Naidis2010} and Breden, Miki, and Raja \cite{Breden2011}.
 
 Simultaneously, there has been a decline in the study of \acs{fiw}s, and
 relatively little on large-volume \acs{rpnd}s. One of the most recent \acs{fiw}
@@ -565,27 +536,30 @@ lighting to gas lasers. Finally, the large degree of Penning ionization
 resulting from rare gases may make them useful in \acs{rpnd} gas mixtures as a
 means of optimizing discharge properties.
 
+\section{Scope of Thesis}
+
 In order to address these issues, this work will use a combination of
 experiments and modeling to examine the plasma dynamics of a helium \acs{rpnd}
 on time scales ranging from 5 ns to 100 $\mu$s and at pressures from 0.3 to 16.0
 Torr. The nanosecond time scale results will be one of a very few datasets
-available on the evolution of the \acs{rpnd} during its formation. This will
-provide new insight on the dominant physical processes in the wave front. To
-complement this, the microsecond time scale measurements will reveal the
-dominant loss mechanisms in between pulses as well as the time-averaged
-characteristics of the \acs{rpnd}. Lastly, the parameterization with pressure
-will offer the chance to examine how the physics of the discharge is altered by
-the collisionality.
+available on the evolution of the \acs{rpnd} during its formation. The aim of
+this work is to provide new insight on the dominant physical processes in the
+wave front. To complement this, the microsecond time scale measurements will
+be used to probe the dominant loss mechanisms in between pulses as well as the
+time-averaged characteristics of the \acs{rpnd}. Lastly, the parameterization
+with pressure will offer the opportunity to examine how the physics of the discharge
+is altered by the collisionality.
 
-Experimentally, the \acs{rpnd} will be studied by its current and voltage
-characteristics, optical emission, and with laser absorption spectroscopy. The
-current and voltage characteristics will be used to determine the energy
-absorbed by the plasma with each pulse. The optical emissions will provide
-information about the excited state dynamics and the wave velocity. Finally, the
-laser absorption spectroscopy will be used to resolve the short time scale
-dynamics and as a benchmark for the numerical modeling. The modeling will focus
-on the development of a detailed global model of a helium discharge. This model
-will be informed by additional particle-in-cell simulations, and solutions of
-the Boltzmann equation. Using the metastable measurements as a baseline, the
-global model will be used to predict the electric field, electron temperature,
-electron density, excited state densities, and emissions of the \acs{rpnd}.
+Experimentally, the \acs{rpnd} is studied through the analysis of its current
+and voltage characteristics, optical emission, and with laser absorption
+spectroscopy. The current and voltage characteristics will be used to determine
+the energy absorbed by the plasma with each pulse. The optical emissions will
+provide information about the excited state dynamics and the wave velocity.
+Finally, the laser absorption spectroscopy will be used to resolve the short
+time scale dynamics and as a benchmark for the numerical modeling. The modeling
+will focus on the development of a detailed global model of a helium discharge.
+This model will be supported by additional particle-in-cell simulations, and
+solutions of the Boltzmann equation. Using the metastable measurements as a
+baseline, the global model will be used to predict the electric field, electron
+temperature, electron density, excited state densities, and emissions of the
+\acs{rpnd}.

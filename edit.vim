@@ -26,31 +26,25 @@ badd +896 chapters/modeling/modeling.tex
 badd +14 chapters/theory/theory.tex
 badd +1 ~/tmp
 badd +45 ~/tmp/test.tex
-badd +242 chapters/introduction/introduction.tex
+badd +205 chapters/introduction/introduction.tex
 badd +53 chapters/oes/oes.tex
 badd +116 ~/Dropbox/school/fellowships/gsrp/Final\ Report/chapters/oes/oes.tex
 badd +188 tex/thesis-umich.cls
-badd +1 chapters/emissions/emissions.tex
+badd +568 chapters/emissions/emissions.tex
+badd +19 abstract.tex
 silent! argdel *
-edit chapters/emissions/emissions.tex
+edit chapters/introduction/introduction.tex
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
 1wincmd h
 wincmd w
-wincmd _ | wincmd |
-split
-1wincmd k
-wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 90 + 90) / 180)
-exe '2resize ' . ((&lines * 31 + 32) / 64)
-exe 'vert 2resize ' . ((&columns * 89 + 90) / 180)
-exe '3resize ' . ((&lines * 30 + 32) / 64)
-exe 'vert 3resize ' . ((&columns * 89 + 90) / 180)
+exe 'vert 1resize ' . ((&columns * 90 + 90) / 181)
+exe 'vert 2resize ' . ((&columns * 90 + 90) / 181)
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -61,30 +55,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 110 - ((45 * winheight(0) + 31) / 62)
+let s:l = 205 - ((22 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-110
-normal! 0
-wincmd w
-argglobal
-edit chapters/introduction/introduction.tex
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let s:l = 338 - ((15 * winheight(0) + 15) / 31)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-338
-normal! 01l
+205
+normal! 026|
 lcd ~/Repos/dissertation
 wincmd w
 argglobal
@@ -98,19 +74,16 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 37 - ((0 * winheight(0) + 15) / 30)
+let s:l = 35 - ((0 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-37
-normal! 05l
+35
+normal! 06|
 lcd ~/Repos/dissertation
 wincmd w
-exe 'vert 1resize ' . ((&columns * 90 + 90) / 180)
-exe '2resize ' . ((&lines * 31 + 32) / 64)
-exe 'vert 2resize ' . ((&columns * 89 + 90) / 180)
-exe '3resize ' . ((&lines * 30 + 32) / 64)
-exe 'vert 3resize ' . ((&columns * 89 + 90) / 180)
+exe 'vert 1resize ' . ((&columns * 90 + 90) / 181)
+exe 'vert 2resize ' . ((&columns * 90 + 90) / 181)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
