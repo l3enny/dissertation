@@ -11,7 +11,7 @@ scheme = "n4"
 if scheme == "n3":
     l_ki = np.array([7.06720, 7.283357]) * 1e-7
     A_ki = np.array([2.785e7, 1.830e7])
-    transitions = [13, 19]
+    transitions = [19, 24]
     confile = "temperature_ratio1.csv"
     outname = "ratio1_temperatures.csv"
     diagname = "ratios1.csv"
@@ -19,7 +19,7 @@ if scheme == "n3":
 if scheme == "n4":
     l_ki = np.array([4.71317110, 4.9219310128]) * 1e-7
     A_ki = np.array([0.9521e6, 1.986e7])
-    transitions = [58, 109]
+    transitions = [22, 29]
     confile = "temperature_ratio2.csv"
     outname = "ratio2_temperatures.csv"
     diagname = "ratios2.csv"

@@ -35,7 +35,6 @@
 .DS_Store
 *.fls
 *.swp
-*_emissions.csv
 .\~lock.*.*\#
 main-blx.bib
 *.xml
