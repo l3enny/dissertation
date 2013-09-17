@@ -208,12 +208,12 @@ adapted from the work of Nahar \cite{Nahar2010}.
 
 The semi-empirical relations derived by Ralchenko et al. \cite{Ralchenko2008}
 were used to calculate the electron (de)excitation and ionization cross sections
-for levels through $n=4$. At the time of this writing, these are the most
-accurate set of cross sections available for neutral helium with a quoted
-accuracy of 10-30\% for $\Delta S=0$, and $>30$\% for $\Delta S \neq 0$. Only
-reactions resulting in an energetically uphill reaction were tabulated. The
-inverse or superelastic cross sections were calculated using the principle of
-detailed balance \cite{Kunze2009},
+(including multi-step ionization) for levels through $n=4$. At the time of this
+writing, these are the most accurate set of cross sections available for neutral
+helium with a quoted accuracy of 10-30\% for $\Delta S=0$, and $>30$\% for
+$\Delta S \neq 0$. Only reactions resulting in an energetically uphill reaction
+were tabulated. The inverse or superelastic cross sections were calculated using
+the principle of detailed balance \cite{Kunze2009},
 \begin{equation}
   \sigma_{ji}(\epsilon) = \frac{\epsilon}{\epsilon - \Delta\epsilon_{ij}}
     \frac{g_j^2}{g_i}\sigma_{ij},
@@ -314,7 +314,10 @@ In order to address these issues, the code was modified to use periodic boundary
 conditions. Such conditions resulted in a quasi zero-dimensional simulation,
 equivalent to a plasma of infinite extent. This eliminated the issue of spatial
 variations in the \acs{eedf} and was more consistent with the assumptions that
-led to the development of the global model.
+led to the development of the global model. The XPDP1 code was further modified
+in order to include downsampling once the maximum particle population was
+reached. This the \acs{eedf} dynamics to be tracked from the seed electron
+population a substantial ionization fraction.
 
 Previous measurements of the electric field in a similar \acs{fiw} found that
 the electric field values varied from 0-350 Td \cite{Takashima2011}. Based on
@@ -329,34 +332,36 @@ Boltzmann equation.
 Helium gas was used as the background gas and was kept at a pressure of 2.0 Torr
 for all simulations. An initial plasma was assumed to exist within the volume
 with a density of $1.0\times10^{8}$ cm$^{-3}$. The plasma was considered
-quasineutral (equal numbers of ions and electrons), and was modeled with one
-computational particle for every $10^6$ physical particles. Electrons were
-initialized with a thermal energy of 2.0 eV, and the helium ions were given an
-initial energy of 0.025 eV (equal to room temperature).
+quasineutral (equal numbers of ions and electrons), and with the number of
+computational particles per physical particle varying according to the
+downsampling. The total number of particles in the simulation was limited to
+$1\times10^5$. Electrons were initialized with a thermal energy of 2.0 eV, and
+the helium ions were given an initial energy of 0.025 eV (equal to room
+temperature).
 
-XPDP1's internal set of cross sections were used. These included: elastic
-scattering, atomic excitation, and charge exchange. The cross sections had a
-semi-empirical form which increased linearly with energy to a peak value. The
-electron-collision cross sections are plotted in figure~\ref{fig:xsecs}
+XPDP1's internal set of cross sections were used. These included:
+elastic scattering, atomic excitation, and charge exchange. The cross
+sections had a semi-empirical form which increased linearly with energy
+until a peak value was reached. The electron-collision cross sections
+are plotted in figure~\ref{fig:xsecs}
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/xsecs.eps}
   \caption{Internal set of helium cross sections from the XPDP1 code.}
   \label{fig:xsecs}
 \end{figure}
-After the peak they declined as the logarithm of the energy, divided by the
-energy \cite{Verboncoeur1993}. The spatial domain of the code was 10 cm,
-discretized at 1 $\mu$m intervals.
+After the peak they declined as the logarithm of the energy, divided by
+the energy \cite{Verboncoeur1993}. The spatial domain of the code was 10
+cm, discretized at 1 $\mu$m intervals.
 
-The time domain of the simulation was 25 ns.
-This period was long enough to observe fast \acs{eedf} dynamics associated with
-the impulse electric field.
-
-A time step of $4\times10^{-13}$ s was used to
-satisfy the Courant-Friedrich-Lewy (\acs{cfl}) stability condition. This
-condition requires that particles not traverse more than one grid cell during
-each time step. Failure to meet this condition leads to numerical instabilities
-in the simulation.
+The time domain of the simulation was 25 ns which corresponds to the length of
+the applied pulse. The combination of this duration with the top hat-shaped
+pulse should exhibit the most anisotropic \acs{eedf} which can be expected in
+the \acs{rpnd}. A time step of $4\times10^{-13}$ s was used to satisfy the
+Courant-Friedrich-Lewy (\acs{cfl}) stability condition. This condition requires
+that particles not traverse more than one grid cell during each time step.
+Failure to meet this condition leads to numerical instabilities in the
+simulation.
 
 BOLSIG+ was used to obtain the approximate solutions of the Boltzmann equation
 \cite{Hagelaar2005}. BOLSIG+ is a publicly available computer code which uses
@@ -710,8 +715,8 @@ ionization rate for each condition. As seen in figure~\ref{fig:ionrates},
 \begin{figure}
   \centering
   \includegraphics{./chapters/modeling/figures/ionrates.eps}
-  \caption{Ionization rates coefficients corresponding to the perturbed electric
-  field simulations.}
+  \caption{Ionization rates coefficients from the ground state corresponding to
+    the perturbed electric field simulations.}
   \label{fig:ionrates}
 \end{figure}
 the magnitude of the ionization rate coefficient corresponds to the magnitude of

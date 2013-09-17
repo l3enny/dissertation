@@ -10,7 +10,7 @@ import os
 
 debug = False
 test_spline = False
-resolution = 200
+resolution = 1000
 
 boltzmann = np.load("../../../BOLSIG+/Distributions/bolsig.npy")
 btemps = np.load("../../../BOLSIG+/Distributions/btemps.npy")
@@ -44,9 +44,9 @@ def mean_energy(E, f):
     return trapz(f * E**1.5, E)
 
 # Initialize arrays
-pic_eedfs = np.zeros((40, 200))
-maxwellian_eedfs = np.zeros((40, resolution))
-boltzmann_eedfs = np.zeros((40, resolution))
+pic_eedfs = np.zeros((100, 1000))
+maxwellian_eedfs = np.zeros((100, resolution))
+boltzmann_eedfs = np.zeros((100, resolution))
 
 for fn in os.listdir('.'):
     if "eedf" in fn:
