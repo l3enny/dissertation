@@ -20,7 +20,7 @@ if debug:
 # Directory structure and transition indices
 directories = ["1.0 Torr", "4.0 Torr", "8.0 Torr (D)", "8.0 Torr (M)",
                "8.0 Torr (U)"]
-transitions = [22, 155, 94, 109, 47, 31, 40, 13, 19]
+transitions = [11, 18, 23, 29, 16, 20, 26, 19, 24]
 
 # Physical values for the transitions in question
 l_ki = np.array([3.8897, 3.9659, 4.4728, 4.9233, 5.0171, 5.8773, 6.6800,
