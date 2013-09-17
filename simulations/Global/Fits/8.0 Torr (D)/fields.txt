@@ -2,9 +2,15 @@ Target: Nm = 1.23e17
 
  Electric Field | Metastable Density
 -----------------------------------
+3.8678e2        |  1.2539e17
+3.8658e2        |  1.2415e17
+3.8640e2        |  1.2305e17
+
+# Obsolete recomb rates and no trapping
+ Electric Field | Metastable Density
+-----------------------------------
   3.91460e2     |  1.5559e17       
   3.89000e2     |  1.3746e17       
   3.87000e2     |  1.2443e17       
   3.86900e2     |  1.2379e17       
   3.86800e2     |  1.2317e17       
-                |                  
