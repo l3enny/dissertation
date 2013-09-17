@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-09-17T19:23:56.743815
+# Saved at 2013-09-17T19:30:04.665993
 
 AddImportPath(u'/home/ben/Repos/dissertation/chapters/emissions/figures')
 ImportFileCSV(u'../../../simulations/Global/Fits/1.0 Torr/boltplot.csv', headermode='1st', linked=True, dsprefix=u'1.0_D_bolt')
@@ -328,7 +328,7 @@ To(u'Simulated')
 Set('xData', u'8.0_U_tcol1')
 Set('yData', u'8.0Torr_U_eV')
 Set('marker', u'none')
-Set('key', u'Global\\\\Model')
+Set('key', u'Global\\\\Model (x 0.1)')
 Set('PlotLine/style', u'solid')
 To('..')
 Add('xy', name=u'Bolt_meas', autoadd=False)
