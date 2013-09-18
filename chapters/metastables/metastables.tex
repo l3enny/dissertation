@@ -7,12 +7,12 @@ can be used to estimate electron densities and reaction rates in the plasma,
 this requires a number of additional assumptions regarding electron locality,
 and equilibrium with the applied field.
 
-As a result, there is a lack of reliable information on particle properties of
-the \acs{rpnd} during its development. That said, such information is necessary
-to confirm the present understanding of how these discharges develop, how they
-may be optimized for specific applications, and how to improve existing
-numerical simulations. Therefore, a clear need exists for direct measurements of
-the \acs{rpnd} particle properties.
+As a result, there is a lack of information on particle properties of the
+\acs{rpnd} during its development. Such information is necessary to confirm the
+present understanding of how these discharges develop, how they may be optimized
+for specific applications, and how to improve existing numerical simulations.
+Therefore, a clear need exists for direct measurements of the \acs{rpnd}
+particle properties.
 
 Unfortunately, this presents a significant challenge for most traditional plasma
 diagnostics. In most situations, the obvious choice would be the Langmuir probe
@@ -24,14 +24,15 @@ measuring.
 
 The logical alternative to physical probes is the use of optical diagnostics,
 however these have their own associated difficulties. Electrons cannot be
-studied by their light emissions because, with the exception of bremsstrahlung
-and cyclotron radiation, they do not emit. This leaves the light emitted from
-excited atoms. Atomic emission spectroscopy can be used to measure many
-different plasma quantities, from electron density, to local electric field
-strength \cite{Griem2005}. Unfortunately, spontaneous emission can be a slow
-process compared to the development of the \acs{rpnd}. For example, the fastest
-neutral helium transition in visible wavelengths (3$^3$D$_3$-2$^3$P$_2^\cdot$)
-has a decay rate of 14 ns \cite{Kramida2012}.
+directly studied by their light emissions because, with the exception of
+bremsstrahlung and cyclotron radiation, they do not produce electromagnetic
+radiation. This leaves the light emitted from excited atoms as the primary
+source of information for electron energetics. Atomic emission spectroscopy can
+be used to measure many different plasma quantities, from electron density, to
+local electric field strength \cite{Griem2005}. Unfortunately, spontaneous
+emission can be a slow process compared to the development of the \acs{rpnd}.
+For example, the fastest neutral helium transition in visible wavelengths
+(3$^3$D$_3$-2$^3$P$_2^\cdot$) has a decay rate of 14 ns \cite{Kramida2012}.
 
 This suggests that instead of waiting for spontaneous emission to occur, it may
 be better to use some form of active spectroscopy. Though the added complexity
@@ -47,16 +48,15 @@ If it is not possible to directly interact with the electrons, the next
 alternative is interact with the atomic population. Probing of the ground state
 is difficult given its large separation from any excited state. Furthermore, the
 high densities of the neutral states would completely absorb all incident
-radiation, even over short pathlengths (leaving nothing to measure). Instead it
-makes more sense to probe an excited atomic state. The lowest lying one is the
-triplet metastable (2$^3$S), which resides at 19.82 eV above ground
-\cite{Kramida2012}. This relatively large energy gap assures that no such states
-will be naturally present at room temperature. The triplet metastable (and all
-higher-energy states in helium) will be populated almost exclusively by
-energetic electrons. Therefore, the triplet metastable density is a useful
-indicator of the electron energetics in the \acs{rpnd} as it develops. With a
-sufficiently complex model, it may even be used to infer properties of the
-electron population.
+radiation, even over short pathlengths (leaving nothing to measure). Instead one
+can probe excited atomic states. The lowest lying excited state is the triplet
+metastable (2$^3$S), which resides at 19.82 eV above ground \cite{Kramida2012}.
+This relatively large energy gap assures that no such states will be naturally
+present at room temperature. The triplet metastable (and all higher-energy
+states in helium) will be populated almost exclusively by energetic electrons.
+Therefore, the triplet metastable density is a useful indicator of the electron
+energetics in the \acs{rpnd} as it develops. With a sufficiently complex model,
+it may even be used to infer properties of the electron population.
 
 Perhaps the most straightforward means by which to measure the triplet
 metastable density is with absorption spectroscopy. This approach has a long
@@ -66,9 +66,9 @@ plasma with light matching a transition between the metastable, and some upper
 level. The amount of transmitted light is then measured with a detector on the
 opposite side of the plasma. The amount of transmitted light is proportional to
 the metastable density, integrated along the path of the light. As the temporal
-bandwidth of this technique is only limited by the time require for the light to
-traverse the plasma, it presents a promising approach for particle measurements
-during the development of the \acs{rpnd}.
+bandwidth of this technique is only limited by the time required for the light
+to traverse the plasma, it presents a promising approach for particle
+measurements during the development of the \acs{rpnd}.
 
 \section{Setup}
 
@@ -190,11 +190,13 @@ shows the transmission signal measured at the nominal transition wavelength
 while the plasma was active in 4.0 Torr of helium. The signal is an average of
 200 independent pulses. Further sampling had no appreciable effect on the
 waveform. As can be seen, despite the efforts to limit the electrical
-interference, there is still a substantial amount of noise present in the
-transmission signal. This is most noticeable in the large ringing which occurs
-for the first 200 ns after the voltage pulse. Without any kind of compensation
-for this noise it would be impossible to obtain reliable measurements of the
-transmission signal.
+interference, there is still a substantial amount of what is believed to be
+noise present in the transmission signal. These features are believed to be
+electrical noise as they exceed the bandwidth of the photodetector and exhibited
+unpredictable variations between shots. This is most noticeable in the large
+ringing which occurs for the first 200 ns after the voltage pulse. Without any
+kind of compensation for this noise it would be impossible to obtain reliable
+measurements of the transmission signal.
 
 \section{Noise Suppression \& Absorption Analysis}
 
@@ -282,6 +284,29 @@ measured for each experiment and use to correct the wavelengths in the
 post-processing. A full report and code listing for the laser analysis software
 is presented in Appendix~\ref{chp:lasana}.
 
+Prior to the absorption measurements, the laser power was measured with a
+Newport thermopile sensor (818P-001-12) calibrated at 1064 nm in conjunction
+with a Newport 2832-C power meter. This allowed the selection of an appropriate
+neutral density filter in order to remain below the two-level saturation limit.
+To ensure that the actual intensity was below the saturation limit, two
+preliminary absorption measurements were made of the line-integrated density at
+the midstream position of the \acs{rpnd} operating at 4.0 Torr. The first
+measurement was for the nominal laser intensity. The second measurement used a
+second neutral density filter which reduced this intensity by an order of
+magnitude. The results are compared in figure~\ref{fig:saturation}
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/metastables/figures/saturation.eps}
+  \caption{Test for saturation in laser-absorption signal. The red curve shows
+    the integrated density for an intensity ten times larger than the black
+    curve.}
+  \label{fig:saturation}
+\end{figure}
+with the nominal intensity in red and the reduced intensity in black. If
+saturation was present in the system, the integrated density would be expected
+to increase for the reduced laser intensity. Instead, the two curves are
+essentially the same within the variance estimated by the analysis routine.
+
 \section{Results}
 
 The matching algorithm proved robust enough to automatically match the
@@ -302,8 +327,9 @@ noise caused by the discharge. This suggests that the compensation described in
 the previous section was adequate for these conditions. Across all cases, the
 total variation in the baseline transmission signal was approximately 0.02. This
 set a minimum line-integrated detection limit of approximately $3.0 \times
-10^{14}$ m$^{-2}$, though the actual value varied with respect to the pressure
-and temperature.
+10^{14}$ m$^{-2}$ (about $9.1\times10^{15}$ m$^{-3}$ for a radially uniform
+distribution of metastable atoms), though the actual value varied with respect
+to the pressure and temperature.
 
 \subsection{Temperatures}
 
@@ -317,8 +343,8 @@ spectroscopy diagnostic are shown in figure~\ref{fig:temperatures}.
   \label{fig:temperatures}
 \end{figure}
 Prior to the pulse, the temperature estimates are subject to large variations.
-This is a result of the low metastable densities which precede the pulse.
-Without a substantial metastable population, the matching algorithm had
+This is a result of the relatively low metastable densities which precede the
+pulse. Without a substantial metastable population, the matching algorithm had
 difficulty discriminating between a combination of low temperatures and low
 densities (a small, narrow absorption spectrum) versus high temperatures and
 high densities (a very broad absorption spectrum).
@@ -364,13 +390,13 @@ used to determine the temperature. Temperatures ranged from 300-340 K, depending
 on the average power dissipated in the plasma. Walsh et al.\ suggested that the
 observed temperature increase was a result of Joule heating, that is, heating of
 the gas as a result of electrons colliding with neutral particles. As this
-process scales with temperature, it would not be expected to be present in the
+process scales with density, it would not be expected to be present in the
 trends from figure~\ref{fig:tvp}. The presence of a measurable fraction of a
-molecular gas (oxygen) allows for several other heating mechanisms to occur.
-Dissociation of the oxygen can impart translational energy to the daughter
-particles, heating the gas. Additionally, excited the energy contained in
-rotational and (to a lesser extent) vibrational states can be converted to
-translational energy in collisions \cite{Kiehlbauch2003}.
+molecular gas (oxygen) Walsh et al.'s work allows for several other heating
+mechanisms to occur. Dissociation of the oxygen can impart translational energy
+to the daughter particles, heating the gas. Additionally, excited the energy
+contained in rotational and (to a lesser extent) vibrational states can be
+converted to translational energy in collisions \cite{Kiehlbauch2003}.
 
 Other experiments have demonstrated minimal gas heating for \acs{rpnd}s. Plasma
 bullets, like those of Laroussi and Lu \cite{Laroussi2005, Lu2006}, tend to be
@@ -408,15 +434,16 @@ shows the metastables dynamics for each operating pressure and at each location.
 Similar to the temperature measurements, there is a substantial uncertainty
 during the pre-pulse period for pressures greater than 1.0 Torr. However, for
 1.0 Torr and below, there are detectable populations of triplet metastables,
-around $7\times10^{14}$ m$^{-2}$. These excited atoms are the remnants of the
-previous pulses which have not been destroyed or left the system. Despite the
-efforts made to limit the noise in the signals, there is a significant number of
+around $7\times10^{14}$ m$^{-2}$ ($2.1\times10^{16}$ m$^{-3}$ for a radially
+uniform distribution). These excited atoms are the remnants of the previous
+pulses which have not been destroyed or left the system. Despite the efforts
+made to limit the noise in the signals, there is a significant number of
 erroneous data points in the downstream measurements for pressures below 3.0
 Torr. It is not clear why this measurement location was particularly susceptible
 to plasma-related noise. In all cases, the photodiode remained in the grounded
 enclosure and only optical components were moved.
 
-In each case, the metastable population exhibits two short bursts at 140 and 280
+In each case, the metastable population exhibits two short jumps at 140 and 280
 ns. This is shown in more detail in figure~\ref{fig:mzoomed}.
 \begin{figure}
   \centering
@@ -450,7 +477,7 @@ of the wave would attenuate with distance. In order to interpret this, they
 considered the wave to consist of two components: a moving ionization front with
 a finite width, and the plasma left in its wake. They state that the plasma,
 with its finite conductivity, will have some voltage drop across it, and as it
-grows, this drop increases. As a results the voltage drop across the ionization
+grows, this drop increases. As a result the voltage drop across the ionization
 front can never be greater than the overall potential applied to the system and
 is constantly diminishing as it moves away from the energized electrode. If
 true, this behavior would be associated with a reduction in the rate of
@@ -512,7 +539,8 @@ timescale measurements. This makes it possible to obtain relatively clean and
 precise values for the metastable densities. However, without the applied
 electric field, the nonequilibrium dynamics of the system rapidly disappear.
 Therefore, while these measurements provide some insight on the initial
-conditions, they cannot describe the dynamics of the \acs{rpnd} alone.
+conditions and the post-pulse dynamics, they cannot describe the changes which
+occur during the onset of a pulse in the \acs{rpnd}.
 
 That said, a large body of work has been conducted on helium afterglow
 discharges, which makes this regime attractive as a point of comparison.

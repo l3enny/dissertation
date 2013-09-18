@@ -99,8 +99,8 @@ figure~\ref{fig:pump}. The gas supply was provided by a bottle of ultra-high
 purity helium. Following the regulator, the helium passed through a digital flow
 controller which was set at 25.0 sccm for all experiments. The helium then
 entered a gas distribution manifold, followed by a shutoff valve, a short run of
-1/4" stainless steel tubing, another shutoff valve, about 2 m of 1/4"
-polyethylene tubing, and then the discharge tube via the double-sided flange. 
+2.54 cm stainless steel tubing, another shutoff valve, about 2 m of 2.54 cm
+polyethylene tubing, and then the discharge tube via the double-sided flange.
 
 The gas exited the discharge tube via an identical tube, on the side opposite
 the inlet, see figure~\ref{fig:appschem}. This second tube was intended to
@@ -215,8 +215,8 @@ the wall.
 
 One of two operating procedures for the \acs{rpnd} was used depending on how
 recently the discharge had last been turned on. If the discharge was inactive
-for over one hour, then a full startup procedure was used. Otherwise, an abbreviated
-process was used.
+for over one hour, then a full startup procedure was used. Otherwise, an
+abbreviated process was used.
 
 In the case that the discharge had not been operated for over an hour, the
 roughing pump was turned on and the primary pump path valve was opened as was
@@ -224,15 +224,18 @@ the first shutoff valve upstream of the discharge chamber, seen in
 figure~\ref{fig:pump}. The system was then allowed to pump down to its base
 pressure. Afterward the second upstream shutoff valve was opened and the system
 was again allowed to reach base pressure. At this point the helium flow was
-turned on and set to 25.0 sccm. The primary pump path was then closed and the
-needle valve bypasses were used to adjust the system pressure to 3.0 Torr.
+turned on and set to 25.0 sccm. The primary pump path was then closed however
+pumping continued via the needle valve bypasses which were adjusted to obtain a
+system pressure of 3.0 Torr.
 
 Next, the delay generator was turned on and the output for triggering the power
 supply was activated. Then, the \acs{fid} power supply was turned on. This would
 produce an easily visible discharge within the discharge tube. The system was
-allowed to operate at this condition for one hour in order to remove potential
-contamination on the walls and electrodes. At the end of this period, the
-voltage waveform was checked to ensure that it was consistent with previous
+allowed to operate at this condition for one hour before any measurements were
+made. This resulted in reduced jitter in the power supply triggering and
+provided the opportunity for the removal of contaminants desorbed via electron
+and ion bombardment of the electrodes and galss tube. At the end of this period,
+the voltage waveform was checked to ensure that it was consistent with previous
 experiments. Once this was confirmed, the pressure was adjusted to the desired
 operating condition.
 
@@ -250,8 +253,9 @@ the same as the previous one, however once the pump-related procedures were
 complete the discharge only required five minutes to reach a steady state. This
 was verified with multiple measurements of the current and voltage
 characteristics as well as the discharge emissions. At times prior to this five
-minute equilibration period, the reflected pulse energy was noticeably higher,
-and the delay between the trigger pulse and the output pulse was variable.
+minute equilibration period, the reflected pulse energy was noticeably higher in
+amplitude, and the delay between the trigger pulse and the output pulse was
+variable.
 
 It seems likely that the increased reflected pulse energy during the
 equilibration period is due to poor matching between the output impedance of the
@@ -288,15 +292,16 @@ most part, analysis of the \acs{rpnd} will focus on the times which precede 280
 ns (the incident pulse and first reflected pulse).
 
 The properties of the \acs{rpnd} were examined at: 0.3, 0.5, 1.0, 2.0, 3.0, 4.0,
-8.0, and 16.0 Torr. The appearance of the discharge varied with the pressure in
-a continuous fashion, however it was apparent that there were three regimes of
-operation. At the low pressures, 0.3 and 0.5, it was difficult to initiate the
-discharge. Often, it would be necessary to increase the pressure to initiate the
-discharge, and then reduce the pressure to the desired conditions. The discharge
-appeared dim and relatively constricted about the central axis of the discharge
-tube, with a radial extent of approximately 1 cm. Accompanying these pressures
-was a large degree of electronic noise. This manifested primarily in the current
-waveforms, as seen in figure~\ref{fig:waveforms},
+8.0, and 16.0 Torr. This range of pressures coincided with previous \acs{lcif}
+measurements by Weatherford et al. \cite{Weatherford2012} and covered three
+visible modes of operation. At the low pressures, 0.3 and 0.5, it was difficult
+to initiate the discharge. Often, it would be necessary to increase the pressure
+to initiate the discharge, and then reduce the pressure to the desired
+conditions. The discharge appeared dim and relatively constricted about the
+central axis of the discharge tube, with a radial extent of approximately 1 cm.
+Accompanying these pressures was a large degree of electronic noise. This
+manifested primarily in the current waveforms, as seen in
+figure~\ref{fig:waveforms},
 \begin{figure}
   \centering
   \includegraphics{./chapters/experiment/figures/waveforms.eps}
@@ -304,7 +309,9 @@ waveforms, as seen in figure~\ref{fig:waveforms},
   first incident and reflected pulse, at each of the operating pressures.}
   \label{fig:waveforms}
 \end{figure}
-as well as a number of equipment malfunctions.
+as well as a number of equipment malfunctions: unexpected triggering of
+electronic shutters, disabling of computer mice, and non-responsiveness in the
+lock-in amplifier.
 
 The displacement current in the waveforms was estimated based on a calculation
 of the capacitance of the high voltage electrode. The capacitance of the

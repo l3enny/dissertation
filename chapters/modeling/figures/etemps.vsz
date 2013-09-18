@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-09-17T19:31:01.632316
+# Saved at 2013-09-17T20:37:58.715916
 
 AddImportPath(u'/home/ben/Repos/dissertation/chapters/modeling/figures')
 ImportFileCSV(u'../../../simulations/Global/Fits/1.0 Torr/1torr_field.csv', headermode='none', linked=True, dsprefix=u'1torr_E')

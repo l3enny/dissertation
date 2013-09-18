@@ -425,12 +425,13 @@ necessary nor desirable to cover it in full. Instead we will only consider what
 is necessary to understand the emissions from a singly-excited, multi-electron
 atom.
 
-An atom is composed of a small, positively charged nucleus, orbited by
-negatively charged electrons. The actual position of any single electron is
-probabilistic and described by a wavefunction--solutions of the Schr\"{o}dinger
-equation for the atom in question. Each wavefunction is associated with a number
-of eigenvalues which quantize aspects of the state of bound electrons. In simple
-atoms, four such quantum numbers are of interest \cite{Drake2006},
+An atom is composed of a small, positively charged nucleus, superimposed on a
+large ``cloud'' compose of negatively charged electrons. The actual position of
+any single electron is probabilistic and described by a wavefunction--solutions
+of the Schr\"{o}dinger equation for the atom in question. Each wavefunction is
+associated with a number of eigenvalues which quantize aspects of the state of
+bound electrons. In simple atoms, four such quantum numbers are of interest
+\cite{Drake2006},
 \begin{itemize}
   \item $n=1,2,\ldots$: the principal quantum number,
   \item $l=0,1,\ldots,n-1$: the orbital angular momentum number,
@@ -447,10 +448,13 @@ often referred to using the nomenclature $0,1,2,3,\ldots = s,p,d,f,\ldots$.
 
 As a result of their separation from the nucleus, the electrons in an atom
 possess some degree of potential energy. As the $n$ and $l$ of an electron
-increase, so does its potential energy. In the absence of electric and magnetic
-fields, $m_l$ and $s$ do not affect the potential energy of an electron. As an
-example, an electron in the 1s ($n=1$ and $l=0$) subshell has the lowest
-possible potential energy.
+increase, the potential energy of the electron decreases. In the absence of
+electric and magnetic fields, the potential energy of the electron for the
+allowed $m_l$ and $s$ values is degenerate. As an example, an electron in the 1s
+($n=1$ and $l=0$) subshell has the lowest possible potential energy. It is
+convention to assume that the potential energy is zero for an unbound (one at an
+infinite distance from the nucleus) electron. Thus a bound electron will always
+carry a negative potential energy.
 
 Absent from external influences, the individual states are populated with
 electrons so as to minimize the total potential energy of the system. This
@@ -462,20 +466,18 @@ transition to another state, increasing the potential energy of the system. In
 low-temperature plasmas it usually one of the electrons from the outermost or
 partially filled subshell to be excited.
 
-The potential energies of the electron configurations for multi-electron atoms
-are determined by the collective effects of all the surrounding electrons.
-
 It is the collective effects of all electrons surrounding an atom which
 determine its potential energy. This results in a single set of total angular
 momenta which can be used to describe the atom. In lighter atoms
-\cite{Drake2006}, the contributions of the individual electrons are combined
-assuming a condition called L-S coupling. Under this assumption, the total
-angular momentum of the atom can written as $\vec{L} = \sum\vec{l}_i$, where $i$
-is each electron in a partially filled subshell (filled subshells sum to zero).
-Likewise, the total spin can be written as $\vec{S} = \sum\vec{s}_i$. These can
-be combined to form the total angular momentum of the atom, $\vec{J} = \vec{L} +
-\vec{S}$. Finally, the each atom is said to have an even or odd parity, defined
-as $(-1)^{\sum\bm{l}_i}$, where $-1$ is odd, and $1$ is even.
+\cite{Drake2006}, the spin and orbital angular momentum of the electrons couple
+together to determine a total angular momentum. This phenomena is known as L-S
+or Russell-Saunders coupling. In this case, the total angular momentum of the
+atom can written as $\vec{L} = \sum\vec{l}_i$, where $i$ is each electron in a
+partially filled subshell (filled subshells sum to zero). Likewise, the total
+spin can be written as $\vec{S} = \sum\vec{s}_i$. These can be combined to form
+the total angular momentum of the atom, $\vec{J} = \vec{L} + \vec{S}$. Finally,
+the each atom is said to have an even or odd parity, defined as
+$(-1)^{\sum\bm{l}_i}$, where $-1$ is odd, and $1$ is even.
 
 These quantities can be used to write a ``term symbol'' for the atom, of the
 form $^{2S+1}L_J^p$, where $p$ is `o' if the parity is odd, and omitted if it's
@@ -543,12 +545,12 @@ Conservation of energy requires that the energy of the absorbed or emitted
 photon match the energy difference between the two states. However, the finite
 lifetime of excited atomic states implies, via the time-energy formulation of
 the uncertainty principle, some uncertainty in the actual energy difference
-between the states. As a result, the emitted photon will possess an energy
-selected from a distribution of energies.
+between the states. As a result, the emitted photons will have a spread in
+energy.
 
-This distribution is referred to as the spectral lineshape. The narrowest
-permissible lineshape, or natural lineshape, of an atomic transition can be
-shown \cite{Siegman1986} to be a Lorentzian of the form,
+This distribution of energies is referred to as the spectral lineshape. The
+narrowest permissible lineshape, or natural lineshape, of an atomic transition
+can be shown \cite{Siegman1986} to be a Lorentzian of the form,
 \begin{equation}
   g(\omega) = -\frac{1}{4\pi^2}\frac{A\lambda^3}{\dwa}
   \frac{1}{1 + \left[2(\omega-\omega_a)/\dwa\right]^2},
@@ -650,11 +652,11 @@ degree to which the field is absorbed will depend on its intensity. The more
 intense the photon field is, the more it reduces the number of atoms available
 to interact with.
 
-Eventually, this effect is balanced by a process called stimulated emission. In
-this process, an atom is already in an excited state with one or more lower
-states. If an photon is incident on the atom and matches the energy difference
-between its current state and a lower one, the photon may induce a transition to
-the lower state. This results in the emission of a second photon with the same
+This effect is balanced by a process called stimulated emission. In this
+process, an atom is already in an excited state with one or more lower states.
+If an photon is incident on the atom and matches the energy difference between
+its current state and a lower one, the photon may induce a transition to the
+lower state. This results in the emission of a second photon with the same
 energy and phase as the first. The cross section for stimulated emission is
 similar to that for photon absorption but differs by the ratio of the
 statistical degeneracies of the states.
