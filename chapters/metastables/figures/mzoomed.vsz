@@ -1,5 +1,5 @@
 # Veusz saved document (version 1.18)
-# Saved at 2013-09-10T18:54:14.562597
+# Saved at 2013-09-18T20:37:23.725801
 
 AddImportPath(u'/home/ben/Repos/dissertation/chapters/metastables/figures')
 ImportFileCSV(u'../../../simulations/Fast LAS/Midstream/3.0Torr.csv', headermode='1st', linked=True, dsprefix=u'Nm')
@@ -52,7 +52,7 @@ Set('MajorTicks/number', 3)
 To('..')
 Add('axis', name='y', autoadd=False)
 To('y')
-Set('label', u'\\int{}Density (m^{-2})')
+Set('label', u'\\int{}Density (10^{16}m^{-2})')
 Set('min', 0.0)
 Set('max', 1.5)
 Set('datascale', 1e-16)

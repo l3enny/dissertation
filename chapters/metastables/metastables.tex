@@ -5,7 +5,9 @@ wave-mixing, thus far provide the only insight on the development of the
 \acs{rpnd} \cite{Ito2010, Muller2011a, Takashima2011}. Though the electric field
 can be used to estimate electron densities and reaction rates in the plasma,
 this requires a number of additional assumptions regarding electron locality,
-and equilibrium with the applied field.
+and equilibrium with the applied field. In some systems, these conditions may be
+explicitly violated, as demonstrated by \acs{lcif} measurements by Weatherford
+et al. \cite{Weatherford2012}.
 
 As a result, there is a lack of information on particle properties of the
 \acs{rpnd} during its development. Such information is necessary to confirm the
@@ -220,7 +222,8 @@ The effect of this subtraction can be seen in figure~\ref{fig:contours}
   \centering
   \includegraphics{./chapters/metastables/figures/contours.eps}
   \caption{Heatmaps of the transmitted laser signal for the 4.0 Torr condition at 
-  various stages of post-processing.}
+    various stages of post-processing. Darker shades of gray indicate higher
+    transmission values.}
   \label{fig:contours}
 \end{figure}
 where the top heatmap shows the initial set of acquisitions with the laser on,
@@ -260,14 +263,14 @@ line-integrated density will be defined. This is simply, $\nint = \int_0^x
 N(x')dx'$. While equation~\ref{eq:absorb} can be used to determine the
 absorption cross section it requires that a lineshape be specified. In general,
 it is preferable to select either a purely Gaussian or purely Lorentzian
-lineshape. This reduces the computational cost of spectral calculations in
-comparison to the use of the Voigt profile (equation~\ref{eq:voigt}). Whether
-the Voigt profile is necessitated or not can be determined by a comparison of
-the relative widths of the different broadening mechanisms. For a temperature of
-300 K and a pressure of 8.0 Torr, it is found that $\dwd = 1.7$ GHz and $\dwa =
-0.21$ GHz. Because neither broadening mechanism appears dominant, the choice was
-made to analyze the data with a Voigt profile, despite the added computational
-cost.
+lineshape. This can reduce the computational cost of spectral calculations for
+situations where a large number of transitions are considered or where higher
+throughput is required. Whether the Voigt profile is necessitated or not can be
+determined by a comparison of the relative widths of the different broadening
+mechanisms. For a temperature of 300 K and a pressure of 8.0 Torr, it is found
+that $\dwd = 1.7$ GHz and $\dwa = 0.21$ GHz. Because neither broadening
+mechanism appears dominant, the choice was made to analyze the data with a Voigt
+profile, despite the added computational cost.
 
 Equations~\ref{eq:transmitted},~\ref{eq:absorb}, and~\ref{eq:voigt} can be
 combined to form a model equation for the absorption spectrum. It can be seen
@@ -333,6 +336,14 @@ to the pressure and temperature.
 
 \subsection{Temperatures}
 
+Previous measurements have shown that the heating in \acs{fiw}s and \acs{rpnd}s
+can be small \cite{Zuzeek2010, Mintoussov2011}, but not necessarily negligible.
+Through lineshape analysis, it is possible to derive the time-dependent
+temperatures of the \acs{rpnd}. Changes in temperature can affect both reaction
+rates and energy deposition within a plasma. A change in temperature may also
+indicate the presence of different gases as seen in the work of Walsh et al.
+\cite{Walsh2010}.
+
 The temperatures calculated for the metastables from the laser-absorption
 spectroscopy diagnostic are shown in figure~\ref{fig:temperatures}.
 \begin{figure}
@@ -344,10 +355,15 @@ spectroscopy diagnostic are shown in figure~\ref{fig:temperatures}.
 \end{figure}
 Prior to the pulse, the temperature estimates are subject to large variations.
 This is a result of the relatively low metastable densities which precede the
-pulse. Without a substantial metastable population, the matching algorithm had
-difficulty discriminating between a combination of low temperatures and low
-densities (a small, narrow absorption spectrum) versus high temperatures and
-high densities (a very broad absorption spectrum).
+pulse. The pre-pulse metastable densities are estimated later, in
+Section~\ref{sec:destruct}. For most conditions, the line-integrated densities
+exceed $5.0\times10^{12}$ m$^{-2}$ ($1.5\times10^14$ m$^{-3}$ for a uniform
+radial distribution), however the pre-pulse metastable densities are essentially
+zero for the 8.0 and 16.0 Torr cases. Without a substantial metastable
+population, the matching algorithm had difficulty discriminating between a
+combination of low temperatures and low densities (a small, narrow absorption
+spectrum) versus high temperatures and high densities (a very broad absorption
+spectrum).
 
 Though it is not possible to provide an exact value of the errors in the
 calculated temperatures, the algorithm does provide an estimate of the standard
@@ -358,27 +374,34 @@ measurement locations.
 
 In order to more clearly compare the temperatures at the different operating
 conditions, the results for each location were combined and averaged over the
-final 200 ns. This was then plotted with respect to the energy deposition
-calculations from Chapter~\ref{chp:experiment}, divided by the gas density. If
-the discharge was appreciably heating the helium, the temperature would be
-expected to increase with respect to the density-normalized energy deposition.
-As seen in figure~\ref{fig:tvp}
+final 200 ns. These average temperatures were then plotted with respect to the
+energy deposition calculations from Chapter~\ref{chp:experiment}, divided by the
+an estimate of the total number of helium atoms in the system. If the discharge
+was appreciably heating the helium, the temperature would be expected to
+increase with respect to the density-normalized energy deposition. As seen in
+figure~\ref{fig:tvp}
 \begin{figure}
   \centering
   \includegraphics{./chapters/metastables/figures/tvp.eps}
   \caption{Plot of the average gas temperature as a function of deposited
-  energy normalized by the neutral gas pressure.}
+  energy normalized by the number of atoms present in the system.}
   \label{fig:tvp}
 \end{figure}
-this does not appear to be the case. Indeed, most of the operating conditions
-show little to no statistical difference between each other and room
-temperature. The only exception to this is the 16.0 Torr operating condition
-with a mean temperature of 255 K. As no effort was made to cool the discharge
-tube, this appears to be an erroneous result. A comparison of the calculated
-spectra and the original absorption spectra revealed no obvious errors. However,
-as will be seen later, the metastables were the least dense at 16.0 Torr. This,
-along with the large variation of the temperatures between time points suggest
-that the standard deviation in the calculations is higher than estimated. 
+there does appear to be a slight increase in the average gas temperature as a
+function of the energy deposited per atom. This trend can be attributed to the
+results for 8.0 and 16.0 Torr, both of which fall below room temperature.
+However, there is no reason to expect that the gas temperature should be this
+low as no effort was made to cool the apparatus. This suggests that the
+temperature measurements for these two operating conditions are erroneous. This
+may be explained in the 16.0 Torr case by the relatively large post-pulse
+temperature variations which suggest that the variance estimate is inaccurate.
+However, this explanation does not apply to the 8.0 Torr case which exhibited
+relatively consistent post-pulse temperatures in figure~\ref{fig:temperatures}.
+A more plausible explanation is that the pressure broadening coefficient or
+pressure measurements are higher than measured. This would lead to an
+overestimate of the Lorentzian component of the lineshape and an underestimate
+of the Gaussian component. This would lead to an increasingly large
+underestimate of the temperature as the pressure of the system was increased.
 
 Only a limited number of similar direct temperature measurements exist within
 the literature. The work of Walsh et al. \cite{Walsh2010} provides the most
@@ -427,7 +450,7 @@ yielded the line-integrated metastable densities. Figure~\ref{fig:metastables}
   \includegraphics{./chapters/metastables/figures/metastables.eps}
   \caption{Plots of the line-integrated metastable densities at each of
   the operating pressures and each axial location as a function of
-  time.}
+  time. The corresponding voltage curve for each condition is shown in gray.}
   \label{fig:metastables}
 \end{figure}
 shows the metastables dynamics for each operating pressure and at each location.
@@ -452,12 +475,13 @@ ns. This is shown in more detail in figure~\ref{fig:mzoomed}.
     pulse reflections.}
   \label{fig:mzoomed}
 \end{figure}
-The timing of these bursts correlate with the arrival of pulse reflections.
+The timing of these jumps correlate with the reflection of voltage pulses
+between the anode and power supply as discussed in Chapter~\ref{chp:experiment}.
 This suggests that the even after the plasma has formed, additional pulses are
 still able to deposit a significant amount of energy in the plasma. This appears
 to contradict the predictions made by the one-dimensional drift models of
 Adamovich et al. \cite{Adamovich2009} and Nikandrov et al. \cite{Nikandrov2008}
-which stated that little energy is coupled into the plasma after breakdown
+which indicated that little energy is coupled into the plasma after breakdown
 occurs. In addition to the smaller bursts in density, another can be noted at
 about 900 ns which corresponds to the double-pulsing observed in the
 current-voltage characteristics of Chapter~\ref{chp:experiment}.
@@ -484,7 +508,27 @@ true, this behavior would be associated with a reduction in the rate of
 metastable generation in the front, thus explaining the high pressure data in
 figure~\ref{fig:metastables}.
 
-Similar measurements were made by Stevefelt, Pouvesle, and Bouchoule
+Previous work by Weatherford et al. \cite{Weatherford2012} used the \acs{lcif}
+diagnostic to obtain the relative metastable distributions in the same
+\acs{rpnd} apparatus, integrated over a period of 5 ns. The line-integrated
+values were used to convert these profiles into absolute measurements of the
+metastable density, shown in figure~\ref{fig:profiles}.
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/metastables/figures/profiles.eps}
+  \caption{Heatmap of the absolute metastable density profiles obtained by
+    combining the line-integrated absorption measurements with the work of
+    Weatherford et al. \cite{Weatherford2012}.}
+  \label{fig:profiles}
+\end{figure}
+The attenuation of the metastable densities as a function of distance from the
+anode is replicated at 8.0 and 16.0 Torr. Likewise, both the 4.0 and 2.0 Torr
+cases appear to be relatively uniform throughout the volume. In contrast, the
+metastable distribution at 1.0 Torr is strongly peaked in the center. This
+change in radial profiles has previously been attributed to energetic electrons
+travelling radially inwards, originating at the glass wall.
+
+Similar absorption measurements were made by Stevefelt, Pouvesle, and Bouchoule
 \cite{Pouvesle1988} in an atmospheric-pressure discharge with an input energy of
 0.2 J. This discharge produced a peak metastable density of $4.8\times10^{14}$
 cm$^{-3}$. If the discharge is assumed to produce a cylindrical plasma, the
@@ -509,7 +553,7 @@ glow at 2.0 and 5.0 Torr \cite{Millard1998}. While none of these experiments are
 a direct comparison, they do suggest that the results obtained above are within
 reason.
 
-\subsection{Metastable Destruction}
+\subsection{Metastable Destruction}\label{sec:destruct}
 
 In addition to the fast metastable dynamics, measurements were made of the
 long-term trends of the metastable populations. Afterglow measurements such as
@@ -547,30 +591,14 @@ function was fit to the tail of each trend, represented by the dotted line. On
 these time scales, the destruction of metastables in the \acs{rpnd} apparatus
 can be described by four different mechanisms: diffusion, Penning ionization of
 impurities, Penning ionization between metastables, and three-body collisions
-resulting in helium dimer formation. All processes with the exception of the
-Penning ionization between metastables have an exponential dependence, thus any
-deviation from an exponential decay is likely a result of Penning ionization
-\cite{Deloche1976}.
+resulting in helium dimer formation (molecular conversion). All processes with
+the exception of the Penning ionization between metastables have an exponential
+dependence, thus any deviation from an exponential decay is likely a result of
+Penning ionization \cite{Deloche1976}.
 
-As can be seen, a number of the decay curves deviate from a strictly exponential
-decline. This deviation appears to be more substantial at the lower pressures.
-For example, the decay at 16.0 Torr appears strictly exponential. Initially,
-this deviation was believed to be the result of Penning ionization between
-metastables. The rate at which this takes place is proportional to the square of
-the metastable density. Therefore, if this is the process responsible for these
-deviations, it should be most severe for the highest metastable densities.
-However, per figure~\ref{fig:peaknm},
-\begin{figure}
-  \centering
-  \includegraphics{./chapters/metastables/figures/peaknm.eps}
-  \caption{Peak line-integrated metastable densities as a function of pressure.}
-  \label{fig:peaknm}
-\end{figure}
-this is not the case. If Penning ionization between metastables were the
-dominant loss mechanism, it would be reduced at the lower pressure conditions,
-contrary to what was observed.
-
-Ultimately, the behavior of the metastable populations in the afterglow can be
+As can be seen, all but the 16.0 Torr decay curves deviate from a strictly
+exponential decline. This deviation becomes more substantial at the lower
+pressures. The behavior of the metastable populations in the afterglow can be
 best understood by a comparison of the depopulation rates for each process.
 Figure~\ref{fig:decay}
 \begin{figure}
@@ -594,24 +622,27 @@ $2\times10^{17}$ m$^{-3}$ was Penning ionization between two metastable atoms.
 Also important, but not shown, are losses resulting from super-elastic electron
 collisions. Electron density measurements made by Weatherford et
 al.~\cite{Weatherford2012} indicate that the electron density is comparable to
-the metastable density. Likewise, the rate coefficient for super-elastic
-electron collisions from Pouvesle et al.~\cite{Pouvesle1988} is of the same
-order as the Penning ionization between metastables.
+the metastable density. The rate coefficient for super-elastic electron
+collisions which result in metastable de-excitation can be found in the work of
+Pouvesle et al.~\cite{Pouvesle1988}. This too is comparable to the rate
+coefficient for Penning ionization between metastable states. As a result, both
+processes most likely play a dominant role in the early post-pulse period.
 
-At lower densities and higher pressures the three-body, molecular conversion
-process responsible for dimer formation was dominant. However, this process
-scales with the square of the neutral gas pressure. As a result, as the pressure
-is increased this mechanism quickly overtakes the others. This severely
-restricts the longevity of the metastable states at higher pressures, and
-reduces their ability to prolong the charged particle population.
+The molecular conversion process scales with the square of the neutral gas
+pressure. Thus, as the pressure of the \acs{rpnd} is increased, this process
+becomes more important. At high densities, such as 8.0 and 16.0 Torr, molecular
+conversion is the dominant loss process for the majority of the afterglow. This
+severely restricts the longevity of the metastable states at higher pressures,
+and reduces their ability to prolong the charged particle population via Penning
+ionization processes.
 
-From figures~\ref{fig:decay} and~\ref{fig:long}, it can be seen that, aside from
-the deviations at lower pressures, the decay curves are well-matched by the
-exponential functions. As a result, it is possible to use the fitting functions
-to estimate the pre-pulse metastable densities as a function of pressure. These
-estimates are consistent with the short-scale measurements from
-figure~\ref{fig:metastables}. The estimated values of the pre-pulse metastable
-densities are compiled in table~\ref{tbl:prepulse}.
+From figures~\ref{fig:decay} and~\ref{fig:long}, it can be seen that after
+enough time, the decay curves are well-matched by the exponential functions. As
+a result, it is possible to use the fitting functions to estimate the pre-pulse
+metastable densities as a function of pressure. These estimates are consistent
+with the short-scale measurements from figure~\ref{fig:metastables}. The
+estimated values of the pre-pulse metastable densities are compiled in
+table~\ref{tbl:prepulse}.
 \begin{table}
   \centering
   \caption{Listing of the extrapolated, pre-pulse line-integrated metastable 
