@@ -1,0 +1,14 @@
+Target: 1.63e17
+
+Electric Field | Metastables
+----------------------------
+1.11295e2      | 1.6368e17
+
+
+# From obsolete recomb and no trapping
+Electric Field | Metastables
+----------------------------
+1.11225e2      | 1.5250e17  
+1.11500e2      | 1.8950e17  
+1.11300e2      | 1.6146e17  
+1.11312e2      | 1.6297e17  
