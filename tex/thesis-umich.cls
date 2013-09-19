@@ -1268,9 +1268,12 @@
  % Vertical rubber space
  \vspace*{\stretch{2}} %
  % Insert the text in a centered minipage.
+
  \begin{center} %
   \begin{minipage}{0.9\textwidth} %
+
    % Double-spaced lines required by Rackham
+   \parindent 17.62482pt
    \doublespacing %
    % Insert the text.
    \insertabstract %
@@ -1293,6 +1296,7 @@
  \begin{center} %
   \begin{minipage}{0.9\textwidth} %
    % Double-spaced lines required by Rackham
+   \parindent 17.62482pt
    \doublespacing %
    % Insert the text.
    \insertabstractmore %

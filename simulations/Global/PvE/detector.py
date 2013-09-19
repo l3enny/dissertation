@@ -9,10 +9,11 @@ signal = "Impulse"
 prefixes = ["01", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50"]
 N_m_filenames = [i + "_ns_N.npy" for i in prefixes]
 t_m_filenames = [i + "_ns_t.npy" for i in prefixes]
+out_filenames = [i + "_ns_con.npy" for i in prefixes]
 
 for i in range(len(dirs)):
-    N = np.loadtxt(dirs[i] + "/" + files[i], delimiter=",")
-    t = np.loadtxt(dirs[i] + "/" + times[i], delimiter=",")
+    N_m = np.loadtxt(N_m_filenames[i], delimiter=",")
+    t   = np.loadtxt(t_m_filenames[i], delimiter=",")
     dt = t[1] - t[0]
     width = tau / dt
     N_m = N[:, 1]
@@ -38,4 +39,4 @@ for i in range(len(dirs)):
         plt.legend(["Initial", "Convolved"])
         plt.show()
     
-    np.savetxt(dirs[i] + "/" + "nm_convolved.csv", N_convolve, delimiter=",")
+    np.save(out_filenames[i], N_convolve)
