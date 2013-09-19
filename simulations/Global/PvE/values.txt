@@ -1,5 +1,21 @@
-Target: Nm = 1.92e17 m^-3
+Target: Nm = 1.90e17 m^-3
 
+Pulse-width | Electric Field
+(ns)        | (V/cm)
+----------------------------
+50          | 2.4531e2
+45          | 2.5502e2
+40          | 2.6626e2     
+35          | 2.7944e2
+30          | 2.9513e2
+25          | 3.1423e2
+20          | 3.3812e2
+15          | 3.6918e2
+10          | 4.1320e2
+5           | 5.0100e2
+1           | 
+
+# Old integration alg
 Pulse-width | Electric Field
 (ns)        | (V/cm)
 ----------------------------
