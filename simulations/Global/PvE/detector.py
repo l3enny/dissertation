@@ -11,12 +11,11 @@ N_m_filenames = [i + "_ns_N.npy" for i in prefixes]
 t_m_filenames = [i + "_ns_t.npy" for i in prefixes]
 out_filenames = [i + "_ns_con.npy" for i in prefixes]
 
-for i in range(len(dirs)):
-    N_m = np.loadtxt(N_m_filenames[i], delimiter=",")
-    t   = np.loadtxt(t_m_filenames[i], delimiter=",")
+for i in range(len(prefixes)):
+    N_m = np.load(N_m_filenames[i])
+    t   = np.load(t_m_filenames[i])
     dt = t[1] - t[0]
     width = tau / dt
-    N_m = N[:, 1]
     dim = len(N_m)
 
     if signal == "Impulse":
