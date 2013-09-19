@@ -67,6 +67,18 @@ the first reflection). Between these possible states a total of 535 different
 reaction processes were incorporated including electron-related reactions,
 radiative processes, and inter-atomic interactions.
 
+Only the \acs{rpnd} dynamics during and after the first pulse were considered as
+this represents the case for which the initial conditions are best-known (e.g.\
+the electron density, temperature, and excited state distribution). This helps
+to limit the sources of error in the simulation to the physics and assumptions
+of the model. Though it is technically possible to model subsequent pulses in
+the same manner as the first, their initial conditions would be dependent on the
+outcome of the simulations for the first. This would compound any potential
+errors introduced by the assumptions and make it more difficult to discern the
+actual physics of the plasma. Provided the results of the global model can be
+verified for the first pulse, exploration of the impact of the reflected pulses
+may prove fruitful.
+
 In order to compare the metastable measurements to the global model predictions,
 it was necessary to convert the line-integrated densities from
 Chapter~\ref{chp:metastables} to volumetric densities, along the path of the
@@ -199,15 +211,62 @@ a result of excitation transfer caused by collisions with the ground state.
 
 The rate coefficients in equation~\ref{eq:gcont} are compiled from a number of
 different sources. The optical transition rates and the energies of each level
-were obtained from the NIST Atomic Spectra Database \cite{Kramida2012}.
+were obtained from the NIST Atomic Spectra Database \cite{Kramida2012}. The
+global model was written to automatically account for radiation trapping.
+Radiation trapping occurs when an excited state emits resonance radiation (via a
+transition to the ground state) inside a volume of plasma. At a sufficiently
+high pressure, this resonance radiation will undergo absorption by another
+ground state atom nearby. This prevents the resonance radiation from immediately
+leaving the plasma, causing it to move away from its origin in a diffusion-like
+process.
 
+The importance of radiation trapping has previously been considered by Compton
+\cite{Compton1922} and later by Holstein \cite{Holstein1947, Holstein1951}.
+Holstein's work allowed the calculation of an effective lifetime for trapped
+radiation in the form of the nominal radiative lifetime, multiplied by a
+trapping factor. The trapping factor is dependent on the geometry of the
+absorbing medium and the lineshape of the transition. Assuming an infinite
+cylinder primarily subject to Doppler broadening, the trapping factor may be
+written as
+\begin{equation}
+  T = \frac{k_0R\left[\pi\log(k_0R)\right]^{1/2}}{1.6},
+\end{equation}
+where $R$ is the radius of the cylinder and $k_0$ is the absorption coefficient
+at the line center,
+\begin{equation}
+  k_0 = \frac{\lambda_0^3N_1}{8\pi} \frac{g_2}{g_1}
+        \frac{A_{21}}{\pi^{1/2}v_\mathrm{th}}.
+\end{equation}
+Here, $\lambda_0$ is the transition wavelength, $N_1$ is the density of lower
+resonant state, $g$ is the statistical degeneracy of the upper and lower states,
+and $A$ is the natural radiative lifetime. For a gas temperature of 300 K and a
+radius of 1.65 cm, the resulting trapping coefficients and effective lifetimes
+of the 3$^1$P-1$^1$S transition are listed in table~\ref{tbl:lifetimes}.
+\begin{table}
+  \centering
+  \caption{The effective lifetimes of the 3$^1$P-1$^1$S transition resulting
+    from radiation trapping.}
+  \label{tbl:lifetimes}
+  \begin{tabular}{lll}
+    \toprule \\
+    Pressure (Torr) & Trapping Factor & Effective Lifetime (s) \\
+    \midrule \\
+    1.0             & 8,773            & 1.549$\times10^{-5}$   \\
+    4.0             & 38,031           & 6.715$\times10^{-5}$   \\
+    8.0             & 78,837           & 1.392$\times10^{-4}$   \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+For comparison, the normal lifetime of this transition is about 1.77 ns.
+Therefore, even at these moderate pressures, energy entering the 3$^1$P state
+can remain in the system for an exceptionally period of time. A similar
+conclusion may be made regarding the 2$^1$P and 4$^1$P states.
 
- The
-excitation transfer rate coefficients came from the studies of Catherinot and
-Dubreuil \cite{Catherinot1981, Dubreuil1980}. Coefficients were only available
-for the transitions with $\Delta n=0$ and $n=3,4$. No constants were found for
-other excitation transfer reactions. The dielectronic recombination rates were
-adapted from the work of Nahar \cite{Nahar2010}.
+The excitation transfer rate coefficients came from the studies of Catherinot
+and Dubreuil \cite{Catherinot1981, Dubreuil1980}. Coefficients were only
+available for the transitions with $\Delta n=0$ and $n=3,4$. No constants were
+found for other excitation transfer reactions. The dielectronic recombination
+rates were adapted from the work of Nahar \cite{Nahar2010}.
 
 The semi-empirical relations derived by Ralchenko et al. \cite{Ralchenko2008}
 were used to calculate the electron (de)excitation and ionization cross sections
@@ -397,7 +456,7 @@ distributions can be seen in figures~\ref{fig:picmb1} and~\ref{fig:picmb2},
   \includegraphics{./chapters/modeling/figures/picmb1.eps}
   \caption{Contour plots of the \acs{eedf}s determined from \acs{pic}
     simulations, solutions of the two-term expansion, and corresponding
-    Maxwell-Boltzmann distributions at low field values. Each primary contour
+    Maxwell-Boltzmann distributions at low field values. Each solid contour
     line indicates a change by one order of magnitude.}
   \label{fig:picmb1}
 \end{figure}
@@ -406,7 +465,7 @@ distributions can be seen in figures~\ref{fig:picmb1} and~\ref{fig:picmb2},
   \includegraphics{./chapters/modeling/figures/picmb2.eps}
   \caption{Contour plots of the \acs{eedf}s determined from \acs{pic}
     simulations, solutions of the two-term expansion, and corresponding
-    Maxwell-Boltzmann distributions at high field values. Each primary contour
+    Maxwell-Boltzmann distributions at high field values. Each solid contour
     line indicates a change by one order of magnitude.}
   \label{fig:picmb2}
 \end{figure}
@@ -457,12 +516,22 @@ and below. Conversely, the BOLSIG+ and \acs{pic} results are more consistent at
 the higher fields values, particularly for energies greater than 100 eV.
 
 Of the three methods used to generate the \acs{eedf}s, only the \acs{pic}
-simulations are strictly valid in the strong field limit. This suggests that the
-\acs{pic} \acs{eedf}s are the most representative of the \acs{eedf}s found in
-the \acs{rpnd}. While time-dependence of the \acs{pic} results prevents their
-direct inclusion in the rate coefficient calculations, they can be used to judge
-the relative merits of the BOLSIG+ solutions compared to the Maxwell-Boltzmann
-distributions.
+simulations are produce meaningful dynamic results. The other two approaches
+assume that the species is in equilibrium, a condition violated by the
+\acs{rpnd}. Additionally, the two-term expansion of the Boltzmann equation
+assumes that the anisotropic component of the \acs{eedf} is small relative to
+the isotropic component. Once this condition is violated, the applicability of
+the expansion can be considered questionable. The conditions for which the
+two-term expansion fails is described in more detail by Allis \cite{Allis1982}.
+Meanwhile, the Maxwell-Boltzmann distribution assumes a single-species in
+equilibrium with itself, a condition which is unlikely given the high neutral
+collision frequencies in the \acs{rpnd}.
+
+This suggests that the \acs{pic} \acs{eedf}s are the most representative of the
+\acs{eedf}s found in the \acs{rpnd}. While time-dependence of the \acs{pic}
+results prevents their direct inclusion in the rate coefficient calculations,
+they can be used to judge the relative merits of the BOLSIG+ solutions compared
+to the Maxwell-Boltzmann distributions.
 
 While the two-term expansion shows greater agreement in the high-energy tail,
 the Maxwell-Boltzmann distribution was used in the global model. This assumption

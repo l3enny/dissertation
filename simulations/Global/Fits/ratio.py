@@ -6,7 +6,7 @@ from scipy.interpolate import UnivariateSpline
 
 
 debug = False         # do stuff that is useful
-scheme = "n4"
+scheme = "n3"
 
 if scheme == "n3":
     l_ki = np.array([7.06720, 7.283357]) * 1e-7
