@@ -823,14 +823,16 @@ This effect can be seen in figure~\ref{fig:widths}
   \label{fig:widths}
 \end{figure}
 where 10 separate simulations were run with different combinations of peak
-electric fields and pulse-widths. Each simulation produced the same final
-metastable density, however the shorter pulse-widths (and higher electric
-fields) corresponded to increasingly sharper increases in the metastable
-density during the applied pulse. Despite this, the behavior of the metastable
-density after the pulse is largely the same, regardless of the applied electric
-field. This post-pulse period is dominated by radiative cascade into the
-metastable state and energetic electrons. The simulated electron temperatures
-are described later in figure~\ref{fig:etemps}.
+electric fields and pulse-widths. The results of each simulation were convolved
+with a 5 ns impulse function in order to replicate the response of the
+photodiode in the experimental measurements. Each simulation produced the same
+final metastable density, however the shorter pulse-widths (and higher electric
+fields) corresponded to increasingly sharper increases in the metastable density
+during the applied pulse. Despite this, the behavior of the metastable density
+after the pulse is largely the same, regardless of the applied electric field.
+This post-pulse period is dominated by radiative cascade into the metastable
+state and energetic electrons. The simulated electron temperatures are described
+later in figure~\ref{fig:etemps}.
 
 It is immediately apparent from figure~\ref{fig:widths} that the shorter
 pulse-widths do not provide the best fit to the observed data. This conclusion
@@ -889,9 +891,12 @@ metastable density as a function of the pulse-width. Initially, as the
 pulse-width is decreased from 50 ns, only small increases of the electric field
 are required to obtain the same number of metastable atoms. However, as the
 pulse-width is decreased further, the rate at which the electric field must be
-increased grows substantially.
+increased grows substantially. This plot shows that the electric field necessary
+to generate a given metastable density grows as the pulsewidth decreases. Alone,
+this behavior is not notable as the energy deposited is related to the integral
+of the electric field pulse over time.
 
-Eventually, for short enough pulses, it is no longer possible to maintain the
+However, for short enough pulses, it is no longer possible to maintain the
 same metastable density, regardless of further increases in the electric field.
 This may occur for the same reason that the \acs{eedf} from the \acs{pic}
 simulations was depressed between 20 and 100 eV--eventually, the cross sections
@@ -967,15 +972,42 @@ Figure~\ref{fig:nmcomp}
   \label{fig:nmcomp}
 \end{figure}
 shows the comparison of the measured metastable densities for 1.0, 4.0, and 8.0
-Torr overlaid atop the applied voltage pulse\footnote{The relative timing of the
+Torr overlaid atop the applied voltage pulse. The relative timing of the
 metastable measurements and the voltage pulse are approximate. Corrections were
-made in post-processing to account for different cable lengths in the system.}.
-As seen in chapter~\ref{chp:metastables}, there was little axial variation in
-the metastable measurements at 1.0 and 4.0 Torr. For this reason, simulations
-were conducted only for the measurements at the midstream positions. In
-contrast, the axial distribution of metastables showed noticeable variation at
-8.0 Torr. Therefore, each location was considered independently in the
-simulations.
+made in post-processing to account for different cable lengths in the system. As
+seen in chapter~\ref{chp:metastables}, there was little axial variation in the
+metastable measurements at 1.0 and 4.0 Torr. For this reason, simulations were
+conducted only for the measurements at the midstream positions under these
+conditions. In contrast, the axial distribution of metastables showed noticeable
+variation at 8.0 Torr. Therefore, each location was considered independently in
+the simulations.
+
+The input parameters for the simulations recorded in figure~\ref{fig:nmcomp} are
+displayed in table~\ref{tbl:ics}. The initial electron densities were determined
+via extrapolation of \acs{lcif} data provided by Weatherford \cite{2012a}. The
+initial metastable densities were determined by averaging the pre-pulse
+densities determined from the \acs{las} diagnostic. At 8.0 Torr, the pre-pulse
+density values were below the detection limit of the system and were set to
+zero. A pulse-width of 40 ns was used for each simulation and the peak electric
+field was adjust to best fit the observed metastable dynamics.
+\begin{table}
+  \centering
+  \caption{Table of the input conditions for the global model simulations (all
+    simulations used a pulse-width of 40 ns).}
+  \label{tbl:ics}
+  \begin{tabular}{llll}
+    \toprule
+    Pressure & Initial Electron    & Initial Metastable  & Peak Electric \\
+    (Torr)   & Density (m$^{-3}$)  & Density (m$^{-3}$)  & Field (Td) \\
+    \midrule
+    1.0      & 2.23$\times10^{11}$ & 3.76$\times10^{16}$ & 345.76 \\
+    4.0      & 5.36$\times10^{13}$ & 6.03$\times10^{15}$ & 206.79 \\
+    8.0 (U)  & 1.16$\times10^{14}$ & 0.00                & 153.39 \\
+    8.0 (M)  & 1.16$\times10^{14}$ & 0.00                & 152.03 \\
+    8.0 (D)  & 1.16$\times10^{14}$ & 0.00                & 150.05 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 Despite the assumptions involved in the development of the global model, the
 simulation results show impressive agreement with the measurements. This
@@ -1011,8 +1043,8 @@ electron temperatures fall so do the rate coefficients until most of the
 electron-related excitation processes stop. At this point, the electron cooling
 is dominated by elastic scattering.
 
-Again, the results at 1.0 Torr are exceptional, in this case, for the
-exceptionally large values. A temperature of 80 eV is unreasonably large in the
+Again, the results at 1.0 Torr are exceptional, in this case, for the large
+electron temperature values. A temperature of 80 eV is unreasonably large in the
 context of low temperature plasmas. This suggests that the assumptions used in
 the global model may be failing at this condition. This is somewhat reinforced
 by the electric fields were required to match the metastable measurements. As
@@ -1023,19 +1055,14 @@ can be observed in table~\ref{tbl:simsum}
   global model simulations.}
   \begin{tabular}{lllll}
     \toprule \\
-    Pressure         & E/N  & T$_\mathrm{e}$ & N$_\mathrm{m}$ & n$_\mathrm{e}$ \\
-    (Torr)           & (Td) & (eV)           &  (m$^{-3}$)    & (m$^{-3}$) \\
+    Pressure & E/N     & T$_\mathrm{e}$ & N$_\mathrm{m}$ & n$_\mathrm{e}$ \\
+    (Torr)   & (Td)    & (eV)           & (m$^{-3}$)     & (m$^{-3}$) \\
     \midrule \\
-    1.0              & 346  & 74.4           & 1.62$\times10^{17}$ & 
-      5.17$\times10^{17}$ \\
-    4.0              & 207  & 16.3           & 1.87$\times10^{17}$ &
-      3.41$\times10^{17}$ \\
-    8.0 (Upstream)   & 154  & 11.5           & 1.88$\times10^{17}$ &
-      2.60$\times10^{17}$ \\
-    8.0 (Midstream)  & 152  & 11.4           & 1.57$\times10^{17}$ & 
-      2.16$\times10^{17}$ \\
-    8.0 (Downstream) & 150  & 11.3           & 1.21$\times10^{17}$ &
-      1.67$\times10^{17}$ \\
+    1.0      & 345.76  & 74.4  & 1.64$\times10^{17}$ & 5.07$\times10^{17}$ \\
+    4.0      & 206.79  & 16.3  & 1.90$\times10^{17}$ & 3.34$\times10^{17}$ \\
+    8.0 (U)  & 153.39  & 11.5  & 1.90$\times10^{17}$ & 2.54$\times10^{17}$ \\
+    8.0 (M)  & 152.03  & 11.4  & 1.59$\times10^{17}$ & 2.11$\times10^{17}$ \\
+    8.0 (D)  & 150.05  & 11.3  & 1.23$\times10^{17}$ & 1.64$\times10^{17}$ \\
     \bottomrule
   \end{tabular}
   \label{tbl:simsum}
@@ -1046,11 +1073,21 @@ Maxwell-Boltzmann distribution shows a marked difference from the \acs{pic}
 predictions. As a result it is not clear that this electric field value or the
 electron temperature measurements can be trusted for the 1.0 Torr case. 
 
-To the extent that the results can be trusted, the table suggests that the
-reduced electric field falls with increasing pressure. Though this would be
-expected given the fixed amplitude of the applied voltage pulse, the change in
-the reduced field is less than what would be expected from changes in neutral
-density alone. 
+The table shows that the reduced field required to match the metastable dynamics
+falls with increasing pressure. This is to be expected given that the reduction
+in gas pressure reduces the number of ground state atoms. This produces a
+corresponding decline in the metastable rate coefficient. As a result, the
+electron temperature must be increased to compensate, an effect which is
+accomplished by the increased field.
+
+In addition, the behavior of the electric field for the three axial locations at
+8.0 Torr is consistent with Vasilyak et al.'s explanation for the attenuation of
+the \acs{fiw} wave front \cite{Vasilyak1994}. As discussed in
+Chapter~\ref{chp:metastables}, the plasma attenuation should coincide with a
+reduction of the electric field as a function of distance from the anode. This
+is precisely what is observed in table~\ref{tbl:simsum}. The electric field is
+largest nearest the anode (the upstream position) and decreases as the distance
+from the anode grows.
 
 Notably, the metastable densities and electron densities peak for different
 conditions. The simulated electron density trends can be observed in
@@ -1064,22 +1101,28 @@ figure~\ref{fig:necomp}
 \end{figure}
 overlaid on the reduced electric fields. The electron density peaks at the
 lowest simulated pressure whereas the metastable density peaks at 4.0 Torr.
-Again, this can be seen as a result of the rate coefficients for the respective
-reactions. The ionization rate coefficient continues to increase well past 100
-eV, whereas the metastable rate coefficient decreases after 23 eV. While the
-increase in electron density competes with the decline in the metastable rate
-coefficient, ultimately the rate coefficient falls too quickly. 
+Again, this can be interpreted as a result of the rate coefficients for the
+respective reactions. The ionization rate coefficient continues to increase well
+past 100 eV, whereas the metastable rate coefficient decreases after 23 eV.
+While the increase in electron density competes with the decline in the
+metastable rate coefficient, ultimately the rate coefficient falls too quickly.
 
 Also observable in the evolution of the electron densities is a time-delay
 between the peak electric field and peak electron production rate for all
-conditions. For the cases under consideration the peak ionization rate occurs at
-about 23.5 ns at 1.0 Torr, 16.4 ns at 4.0 Torr, and 15.5 ns at 8.0 Torr. In
-contrast, the electron temperatures in figure~\ref{fig:etemps} show little to no
-such delay. In part, this behavior reflects the need for a finite amount of time
-before the electron population reaches temperatures for which there is an
-appreciable ionization rate. This is delay is compounded by the relatively low
-seed electron densities and would likely be reduced with increased
-pre-ionization.
+conditions. As the displayed field values and density trends are the result of
+the simulations, this delay is a real result. For the cases under consideration
+the peak ionization rate occurs at about 23.5 ns at 1.0 Torr, 16.4 ns at 4.0
+Torr, and 15.5 ns at 8.0 Torr. 
+
+In contrast, the electron temperatures in figure~\ref{fig:etemps} peak at the
+same time as the electric field for the 4.0 and 8.0 Torr conditions. At 1.0 Torr
+the delay between the peaks is about 10 ns. As the ionization rate is
+proportional to the electron density, this difference between the behavior of
+the temperature and electron density likely reflects the time required to
+establish a substantial electron population. In addition the lag between the
+peak ionization rate and the applied field is also probably related to the
+electron temperatures. As seen in figure~\ref{fig:longrates}, the ionization
+rate coefficient rapidly falls off at low electron temperatures.
 
 Finally, the behavior axial behavior in the 8.0 Torr condition exhibits several
 interesting characteristics. At the position closest to the anode, the peak
@@ -1105,15 +1148,16 @@ the model's sensitivity to changes in various system parameters.
 A comparison of several preliminary simulations to measured metastable data
 indicated the need for an electric field with a duration longer than applied
 voltage pulse. Examination of the plasma emissions showed that the extended
-excitation could be attributed to a return stroke in the system. Another
-possible explanation includes the generation and slowing of an electron beam by
-large electric fields. Use of this extended excitation time yielded excellent
-agreement for all but the 1.0 Torr condition. In this case, what appeared to be
-mild deviations appeared with the model overestimating metastable production
-rate during the pulse, and underestimating it afterward. Given the large
-electric fields in this condition, these discrepancies can most likely be
-attributed to differences between the assumed \acs{eedf} and those in the actual
-device.
+excitation could be attributed to a return stroke in the system. It should also
+be mentioned that such extended excitation may arise from the slowing of a high
+energy population of electrons. Similar electron beams have been recorded in a
+number of \acs{fiw} experiments \cite{Yatom2011, Vasilyak1994, Macheret2002,
+Bychkov1978}. Use of this extended excitation time yielded excellent agreement
+for all but the 1.0 Torr condition. In this case, what appeared to be mild
+deviations appeared with the model overestimating metastable production rate
+during the pulse, and underestimating it afterward. Given the large electric
+fields in this condition, these discrepancies can most likely be attributed to
+differences between the assumed \acs{eedf} and those in the actual device.
 
 It was found that breakdown of the \acs{rpnd} was accompanied by a finite delay
 between the peak electric field value and the peak ionization rate. As the
