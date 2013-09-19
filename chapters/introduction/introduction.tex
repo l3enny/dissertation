@@ -3,14 +3,15 @@
 \subsection{Motivation}
 Plasmas, commonly called the fourth state of matter, consist of neutral atoms or
 molecules with some fraction split into pairs of electrons and positive (or
-negative) ions. Initially, a curiosity of the laboratory (e.g.\ demonstrations
-by Victorian-era scientists), they have become a critical part of every day
-life. The electrically charged nature of plasmas makes them a practical means by
-which to convert electrical energy into electromagnetic, chemical, kinetic, or
-even nuclear energy. From an applications perspective, they are indispensable in
-lighting, semiconductor manufacturing, plastic processing, and space propulsion.
-On a more broad scale, virtually all observable light in the universe is
-originates from baryonic matter in the plasma state \cite{NA2007}.
+negative) ions. Initially, a curiosity of the laboratory (e.g.\ as a popular
+demonstration by Victorian-era scientists), they have become a critical part of
+every day life. The electrically charged nature of plasmas makes them a
+practical means by which to convert electrical energy into electromagnetic,
+chemical, kinetic, or even nuclear energy. From an applications perspective,
+they are indispensable in lighting, semiconductor manufacturing, plastic
+processing, and space propulsion. On a more broad scale, virtually all
+observable light in the universe originates from baryonic matter in the plasma
+state \cite{NA2007}.
 
 Three things are required to create a plasma: matter, an energy source, and a
 means of transferring the energy to the matter (often gas). In man-made
@@ -28,10 +29,10 @@ The field accelerates seed electrons in the gas (often created by background
 cosmic radiation) until they collide with neutral particles. The seed electrons,
 having acquired sufficient energy, liberate secondary electrons from the neutral
 particles, leaving behind relatively heavy and immobile ions. Subsequently, both
-the first and second electron are now accelerated by the electric field. Again,
-they collide with two more neutral atoms, creating two new electrons. As long as
-the electric field persists, the number of electron and ion pairs increases
-exponentially. This process is generally referred to as an avalanche.
+the seed and secondary electrons are now accelerated by the electric field.
+Again, they collide with neutral atoms, multiply the number of electrons. As
+long as the electric field persists, the number of electron and ion pairs
+increases exponentially. This process is generally referred to as an avalanche.
 
 Eventually, the production of ions and electrons in the gap balances out with
 the rate at which they leave the system, whether by collection at the electrodes
@@ -50,69 +51,68 @@ must dominate over the influence of random collisions with neutral gas particles
 ($\omega_\mathrm{p} > \nu$) \cite{Chen1984}.
 \end{enumerate}
 
-Despite this relatively simple recipe, the physical characteristics can vary
+Despite these criteria, the physical characteristics of a plasma can vary
 greatly depending on the type of gas, its pressure, the nature of the applied
 voltage, the composition of the electrodes, etc. As a result, man-made plasmas
-are generally produced under very specific conditions. For example, a plasma
-etcher used in semiconductor manufacturing may need to operate at pressures that
-are one ten-thousandth of atmospheric pressure with ultra-pure (99.999\%) gases
-\cite{Greenberg1993a}.
+are generally produced under strictly controlled conditions. For example, a
+plasma etcher used in semiconductor manufacturing may need to operate at
+pressures that are one ten-thousandth of atmospheric pressure with ultra-pure
+(99.999\%) gases \cite{Greenberg1993a}.
 
-Plasmas such as those produced in plasma etchers feature ions and neutral gas
-particles with temperatures that are below 1,000 K. Though this temperature is
-relatively high compared to room temperature, it is well below the temperature
-of the electrons which are typically in excess of 20,000 K. Plasmas which
-exhibit this disparity in temperatures are often called nonequilibrium or
+Plasmas like those produced in plasma etchers feature ions and neutral gas
+particles with temperatures that are generally below 1,000 K. Though this
+temperature is relatively high compared to room temperature, it is well below
+the temperature of the electrons which can be in excess of 20,000 K. Plasmas
+which exhibit this disparity in temperatures are often called nonequilibrium or
 ``low-temperature'' plasmas.
 
-Conversely, there exists another class of plasmas where the electrons, ions, and
-neutral particles can all be described by the same equilibrium temperature.
-These are called equilibrium plasmas. As the pressure is increased, plasmas
-become susceptible to what is known as the ionization instability. Depending on
-the conditions, this can lead to a glow-to-arc transition which causes an
-initially non-equilibrium plasma to become an equilibrium plasma
-\cite{Kunhardt2000}. The resulting arcs can be used in application which include
-cutting, welding, high-intensity lighting, and surface coating.
+Conversely, there exists a class of plasmas where the electrons, ions, and
+neutral particles can all be described by the same temperature. These are called
+equilibrium plasmas and are commonly found when the gas pressure approaches
+atmosphere. The appearance of equilibrium plasmas at elevated pressures is a
+result of the ionization instability which can cause what is known as the
+glow-to-arc transition where an initially non-equilibrium plasma becomes an
+equilibrium plasma \cite{Kunhardt2000}. The resulting arcs can be used in
+application which include cutting, welding, high-intensity lighting, and surface
+coating.
 
 There are, however, a number of applications which would benefit from operation
 at higher pressures with the attendant removal of complex and costly vacuum
-systems, but with low-temperature ions and neutrals so as to avoid heat damage.
-This has spurred a substantial amount of research on nonequilibrium
+systems, but with low-temperature ions and neutrals so as to avoid thermal
+damage. This has spurred a substantial amount of research on nonequilibrium
 atmospheric-pressure plasmas (\acs{app}s) in recent years \cite{Becker2005,
 Starikovskii2009, Nishihara2011, Laroussi2005, Walsh2006, Lu2006}. Ideally, such
 a plasma could be generated at or near atmospheric pressure with hot electrons,
-but minimal heating of surrounding gas. Born in the 1960's, this field of has
-produced a variety of new types of discharges and capabilities. One of the more
-ubiquitous examples is use of plasmas to process the surface of plastics so that
-ink can adhere.
+but minimal heating of surrounding gas. Born in the 1960's, the \acs{app} field
+has produced a variety of new types of discharges with varying capabilities. One
+of the more ubiquitous examples is use of \acs{app}s to process the surface of
+plastics so that ink can adhere.
 
-As mentioned, these applications promise to be the first of many for such
-plasmas. More recently, there have been innovative proposals to use these
-plasmas in water purification \cite{Malik2001}, wound sterilization
-\cite{Ayan2009}, improved combustion engines \cite{Nishihara2007}, nanoparticle
-production \cite{Ostrikov2011}, and more. However, each situation has its own
-challenges when it comes to the design and development of a plasma source,
-particularly at these elevated pressures. Particularly problematic is the
-ionization instability which can lead \acs{app}s to the glow-to-arc transition.
+More recently, there have been innovative proposals to use these plasmas in
+water purification \cite{Malik2001}, wound sterilization \cite{Ayan2009},
+improved combustion engines \cite{Nishihara2007}, nanoparticle production
+\cite{Ostrikov2011}, and more. Each situation has its own set of challenges when
+it comes to the design and development of a plasma source, particularly at these
+elevated pressures. Such challenges have motivated the use of several approaches
+to mitigate the glow-to-arc transition.
 
-There exist a few ways of getting around these instabilities. One example is the
-dielectric-barrier discharge which passively regulates the amount of power which
-can be deposited into the plasma \cite{Kogelschatz2003} by limiting charge flow.
-Another example includes split-ring resonators which use natural feedback
-mechanisms to damp out potential instabilities \cite{Iza2005}. The technique
-considered here, referred to as the repetitively-pulsed nanosecond discharge, or
-\acs{rpnd}, uses high voltage pulses which are so short that the instability
-does not have time to develop \cite{Adamovich2008}. The \acs{rpnd} is a
-nonequilibrium plasma which can operate at pressures ranging from approximately
-$10^{-3}$--$1$ atmospheres \cite{Vasilyak1994}. At atmospheric pressure the
-\acs{rpnd} can produce a uniform plasma in volumes on the order of 10 mL
-\cite{Walsh2006}. As the pressure is reduced, the plasma volume can reach the
-order of liters \cite{Starikovskaia1998}.
+One example is the dielectric-barrier discharge which passively regulates the
+amount of power which can be deposited into the plasma \cite{Kogelschatz2003} by
+limiting charge flow. Another example includes split-ring resonators which use
+natural feedback mechanisms to damp out potential instabilities \cite{Iza2005}.
+The technique considered here, referred to as the repetitively-pulsed nanosecond
+discharge, or \acs{rpnd}, uses high voltage pulses which are so short that the
+instability does not have time to develop \cite{Adamovich2008}. The \acs{rpnd}
+is a nonequilibrium plasma which can operate at pressures ranging from
+approximately $10^{-3}$--$1$ atmospheres \cite{Vasilyak1994}. At atmospheric
+pressure the \acs{rpnd} can produce a uniform plasma in volumes on the order of
+10 mL \cite{Walsh2006}. As the pressure is reduced, the plasma volume can reach
+the order of liters \cite{Starikovskaia1998}.
 
 The importance of large-area, uniform, high-pressure plasmas such as the
 \acs{rpnd} was highlighted in the National Academies' most recent decadal survey
 of plasma science \cite{NA2007}. However, there is still much that is not known
-about such plasmas. From the same survey, it is said that ``the full promise of
+about such plasmas. From the same survey, it is noted that ``the full promise of
 \acs{app}s will be known only if they can be understood and managed based on
 fundamental scientific principles at two extremes--the nanoscopic kinetic level,
 where selective chemistry occurs, and the global stability level.'' It is this
@@ -131,18 +131,18 @@ atmospheric plasmas which required large amounts of energy.
 
 The first spark discharge is commonly attributed to Thales of Mil\^{e}tus from
 around 600 B.C. Following Thales, electrical sparks came to intrigue many
-scientists including Gottfried Liebniz, Benjamin Franklin, and Charles
+scientists including Gottfried Leibniz, Benjamin Franklin, and Charles
 Wheatstone. By the mid-1800s, Pl\"{u}cker, Gei\ss{}ler, and Hittorf began some
 of the first work on low-pressure plasmas though it was Crookes who would later
 identify plasma as a separate state of matter. Later, J.J.\ Thomson's discovery
 of the electron and discretized charge in 1897 marked the beginning of modern
 plasma research.
 
-By this time, the necessary tools and techniques existed to create steady
-plasmas in rarified gases. These discharge tubes were ideal for basic studies of
-plasma behavior and were used to great effect by individuals such as Lewi Tonks
-and Irving Langmuir \cite{Tonks1929}. In fact, many modern concepts in plasma
-physics can be traced back to their work.
+By the time Thomson had made his discovery, the necessary tools and techniques
+existed to create steady plasmas in rarified gases. These discharge tubes were
+ideal for basic studies of plasma behavior and were used to great effect by
+individuals such as Lewi Tonks and Irving Langmuir \cite{Tonks1929}. In fact,
+many modern concepts in plasma physics can be traced back to their early work.
 
 In contrast, the pulsed \acs{app}s, characteristic of the earliest man-made
 plasmas \cite{Anders2003}, were straightforward to create, but difficult to
@@ -156,16 +156,19 @@ measurements on high pressure plasmas. This included lightning research which
 utilized a number of novel photographic techniques beginning in the 1920's and
 oscillographs and photographs of streamers starting in the 1930's. After World
 War 2, photomultiplier tubes were introduced in the study of high pressure
-discharges follow by fast digital imaging. 
+discharges. The use of lasers and other active spectroscopic techniques by the
+1970's and 1980's allowed unprecedented measurements specific plasma components.
+Later, fast digital imaging greatly simplified the process of obtaining large,
+two-dimensional datasets.
 
 Despite these advances, there is still a great deal that is not known about
 about pulsed \acs{app}s, particularly lightning, streamers, and a type of plasma
 which Thomson referred to as a ``luminous front.'' By the 1970s, this latter
 plasma had come to be called the fast ionization wave, or \acs{fiw}
 \cite{Vasilyak1994}. It was generated by a single voltage pulse lasting around
-100 nanoseconds and peaking at 10s or 100s of kilovolts. For the right pressure
-and gas, the \acs{fiw} could fill volumes of nearly 40 L with a relatively
-uniform plasma, but with little heating of the gas.
+100 nanoseconds and which peaked at 10s or 100s of kilovolts. For the right
+pressure and gas, the \acs{fiw} could fill volumes of nearly 40 L with a
+relatively uniform plasma, but with little heating of the gas.
 
 An early example of applications for these discharges was in high-pressure
 lasers. Specifically, copper \cite{Kushner1983} and copper halide
@@ -177,17 +180,17 @@ gaps or thyratrons.
 These switching mechanisms were somewhat limiting for the application of
 \acs{fiw}s. Spark gaps possess a relatively long recovery time which limits
 their repetition rate \cite{Moran1991}. As the lifetime of a plasma at elevated
-pressures is relatively short this results in a relatively low plasma duty
-cycle; the ratio of the time the plasma spends on to the time it spends off.
-Thyratrons, did not have such limitations, however their high cost and low
-lifetimes motivated a search for replacements \cite{Partlo1995}.
+pressures is relatively short the long recovery time results in a relatively low
+plasma duty cycle; the ratio of the time the plasma is ``on'' to the time it is
+``off.'' Thyratrons, did not have such limitations, however their high cost and
+low lifetimes motivated a search for replacements \cite{Partlo1995}.
 
 Fast-switching semiconductor devices (e.g.\ the thyristor and silicon-controlled
-rectifier) eventually mitigated these limitations. At present, switches with
-sufficiently low recovery times which can reliably operate at 100 kHz;
-sufficiently fast that the plasma duty cycle approaches 100\% \cite{Efanov1997}.
-The discharge produced by the use of these new switches is what we refer to as
-the \acs{rpnd}.
+rectifier) eventually combined the lost cost and reliability of spark gaps with
+the high repetition rate of thyratrons. At present, switches with sufficiently
+low recovery times which can reliably operate at 100 kHz; sufficiently fast that
+the plasma duty cycle approaches 100\% \cite{Efanov1997}. The discharge produced
+by the use of these new switches is what we refer to as the \acs{rpnd}.
 
 \subsection{Questions}
 
