@@ -828,7 +828,9 @@ metastable density, however the shorter pulse-widths (and higher electric
 fields) corresponded to increasingly sharper increases in the metastable
 density during the applied pulse. Despite this, the behavior of the metastable
 density after the pulse is largely the same, regardless of the applied electric
-field.
+field. This post-pulse period is dominated by radiative cascade into the
+metastable state and energetic electrons. The simulated electron temperatures
+are described later in figure~\ref{fig:etemps}.
 
 It is immediately apparent from figure~\ref{fig:widths} that the shorter
 pulse-widths do not provide the best fit to the observed data. This conclusion
@@ -869,7 +871,10 @@ the double-peaked emissions. If the forward and return strokes possess durations
 equal to the applied voltage (25 ns), separated by 15 ns, then the excitation
 period would be approximately 40 ns. This is consistent with the pulse-width
 required to match the observed data. As a result, a pulse-width of 40 ns was
-used in all subsequent simulations.
+used in all subsequent simulations. The cause of the 15 ns delay is unclear. It
+is possible that the return stroke originates from an impedance discontinuity
+somewhere along the return path. The location of this discontinuity would
+influence the return stroke delay.
 
 Figure~\ref{fig:fieldtau}
 \begin{figure}
@@ -883,16 +888,17 @@ is a scatter plot of the peak electric fields necessary to obtain the same final
 metastable density as a function of the pulse-width. Initially, as the
 pulse-width is decreased from 50 ns, only small increases of the electric field
 are required to obtain the same number of metastable atoms. However, as the
-pulse-width is decreased further, the rate at which the electric field must
+pulse-width is decreased further, the rate at which the electric field must be
 increased grows substantially.
 
 Eventually, for short enough pulses, it is no longer possible to maintain the
 same metastable density, regardless of further increases in the electric field.
-This occurs for the same reason that the \acs{eedf} from the \acs{pic}
+This may occur for the same reason that the \acs{eedf} from the \acs{pic}
 simulations was depressed between 20 and 100 eV--eventually, the cross sections
-fall off with increasing electron energy. This places an upper limit on the rate
-coefficient as a function of electron temperature and a limit on the number of
-metastables which can be generated for a given period of time.
+fall off with increasing electron energy. This fall off places an upper limit on
+the metastable rate coefficient as a function of electron temperature.
+Therefore, for a given period of time, only so many metastable states can be
+produced through direct excitation.
 
 Figure~\ref{fig:longrates}
 \begin{figure}
@@ -916,6 +922,38 @@ strengths, as described by Vasilyak et al. \cite{Vasilyak1994}, Starikovskaia
 and Starikovskii \cite{Starikovskaia2001a}, and others, can deposit their energy
 far from the accelerating field. This could potentially result in an increased
 discharge volume which would be advantageous in processing applications.
+
+If only ionization and metastable excitation from the ground state are
+considered, a simple model can be used to estimate the maximum electron and
+metastable generation for a fixed temperature and pulsewidth. The rate equation
+for the electrons can be written as
+\begin{equation}
+  \frac{dn_e}{dt} = N_gn_eK_{iz}(T_e),
+\end{equation}
+while the metastable rate equation is
+\begin{equation}
+  \frac{dN_m}{dt} = N_gn_eK_{m}(T_e).
+\end{equation}
+Here, $n_e$ is the electron density, $t$ is time, $N_g$ is the neutral gas
+density, $K_{iz}$ is the ionization rate coefficient, $T_e$ is the electron
+temperature, $N_m$ is the metastable density, and $K_m$ is the metastable rate
+coefficient. Assuming a fixed electron temperature for 5 ns, and a neutral gas
+pressure of 1.0 Torr, these equations may be integrated to obtain
+figure~\ref{fig:maxgen}.
+\begin{figure}
+  \centering
+  \includegraphics{./chapters/modeling/figures/maxgen.eps}
+  \caption{Final electron and metastable densities (normalized to the initial
+    electron density) as a function of electron temperature after 5 ns at a 
+    pressure of 1.0 Torr.}
+\end{figure}
+Here, the densities have been normalized by the initial electron density and the
+initial metastable density is zero. Based on this model, the electron generation
+is optimized at a temperature of about 325 eV, whereas the metastable generation
+is optimized at a temperature of about 115 eV. Though neither temperature is
+realistic as a Maxwell-Boltzmann temperature for such a short pulse, this
+suggests an experimental investigation of the electron and metastable generation
+as a function of peak applied field for a fixed pulsewidth.
 
 Figure~\ref{fig:nmcomp}
 \begin{figure}

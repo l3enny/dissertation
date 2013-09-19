@@ -1,0 +1,176 @@
+# Veusz saved document (version 1.18)
+# Saved at 2013-09-19T13:53:28.945122
+
+AddImportPath(u'/home/ben/Repos/dissertation/chapters/modeling/figures')
+ImportFilePlugin(u'Numpy NPY import', u'../../../simulations/Global/maxnm.npy', linked=True, errorsin2d=True, name=u'N_m')
+ImportFilePlugin(u'Numpy NPY import', u'../../../simulations/Global/maxne.npy', linked=True, errorsin2d=True, name=u'n_e')
+ImportString(u'Te(numeric)','''
+1.000000e+00
+1.072267e+00
+1.149757e+00
+1.232847e+00
+1.321941e+00
+1.417474e+00
+1.519911e+00
+1.629751e+00
+1.747528e+00
+1.873817e+00
+2.009233e+00
+2.154435e+00
+2.310130e+00
+2.477076e+00
+2.656088e+00
+2.848036e+00
+3.053856e+00
+3.274549e+00
+3.511192e+00
+3.764936e+00
+4.037017e+00
+4.328761e+00
+4.641589e+00
+4.977024e+00
+5.336699e+00
+5.722368e+00
+6.135907e+00
+6.579332e+00
+7.054802e+00
+7.564633e+00
+8.111308e+00
+8.697490e+00
+9.326033e+00
+1.000000e+01
+1.072267e+01
+1.149757e+01
+1.232847e+01
+1.321941e+01
+1.417474e+01
+1.519911e+01
+1.629751e+01
+1.747528e+01
+1.873817e+01
+2.009233e+01
+2.154435e+01
+2.310130e+01
+2.477076e+01
+2.656088e+01
+2.848036e+01
+3.053856e+01
+3.274549e+01
+3.511192e+01
+3.764936e+01
+4.037017e+01
+4.328761e+01
+4.641589e+01
+4.977024e+01
+5.336699e+01
+5.722368e+01
+6.135907e+01
+6.579332e+01
+7.054802e+01
+7.564633e+01
+8.111308e+01
+8.697490e+01
+9.326033e+01
+1.000000e+02
+1.072267e+02
+1.149757e+02
+1.232847e+02
+1.321941e+02
+1.417474e+02
+1.519911e+02
+1.629751e+02
+1.747528e+02
+1.873817e+02
+2.009233e+02
+2.154435e+02
+2.310130e+02
+2.477076e+02
+2.656088e+02
+2.848036e+02
+3.053856e+02
+3.274549e+02
+3.511192e+02
+3.764936e+02
+4.037017e+02
+4.328761e+02
+4.641589e+02
+4.977024e+02
+5.336699e+02
+5.722368e+02
+6.135907e+02
+6.579332e+02
+7.054802e+02
+7.564633e+02
+8.111308e+02
+8.697490e+02
+9.326033e+02
+1.000000e+03
+''')
+Set('StyleSheet/Line/width', u'1pt')
+Set('StyleSheet/Font/font', u'TeX Gyre Termes')
+Set('StyleSheet/Font/size', u'12pt')
+Set('StyleSheet/axis/autoMirror', False)
+Set('StyleSheet/axis/Line/color', u'grey')
+Set('StyleSheet/axis/Line/width', u'0.5pt')
+Set('StyleSheet/axis/TickLabels/size', u'10pt')
+Set('StyleSheet/axis/TickLabels/color', u'black')
+Set('StyleSheet/axis/MajorTicks/color', u'grey')
+Set('StyleSheet/axis/MajorTicks/width', u'0.5pt')
+Set('StyleSheet/axis/MajorTicks/length', u'3pt')
+Set('StyleSheet/axis/MajorTicks/number', 3)
+Set('StyleSheet/axis/MinorTicks/color', u'grey')
+Set('StyleSheet/axis/MinorTicks/width', u'0.5pt')
+Set('StyleSheet/axis/MinorTicks/length', u'2pt')
+Set('StyleSheet/document/width', u'6in')
+Set('StyleSheet/document/height', u'2.5in')
+Set('StyleSheet/document/englishlocale', True)
+Set('StyleSheet/graph/leftMargin', u'0.75in')
+Set('StyleSheet/graph/rightMargin', u'0.25in')
+Set('StyleSheet/graph/topMargin', u'0.25in')
+Set('StyleSheet/graph/bottomMargin', u'0.5in')
+Set('StyleSheet/graph/Border/hide', True)
+Set('StyleSheet/grid/leftMargin', u'0pt')
+Set('StyleSheet/grid/rightMargin', u'0pt')
+Set('StyleSheet/grid/topMargin', u'0pt')
+Set('StyleSheet/grid/bottomMargin', u'0pt')
+Set('StyleSheet/key/Border/hide', True)
+Set('StyleSheet/nonorthpoint/marker', u'none')
+Set('StyleSheet/page/width', u'6in')
+Set('StyleSheet/page/height', u'2.5in')
+Set('StyleSheet/xy/marker', u'none')
+Set('StyleSheet/xy/markerSize', u'2pt')
+Set('StyleSheet/xy/errorStyle', u'none')
+Add('page', name='page1', autoadd=False)
+To('page1')
+Add('graph', name='graph1', autoadd=False)
+To('graph1')
+Add('axis', name='x', autoadd=False)
+To('x')
+Set('label', u'Electron Temperature (eV)')
+Set('log', True)
+To('..')
+Add('axis', name='y', autoadd=False)
+To('y')
+Set('label', u'Normalized Density (a.u.)')
+Set('min', 0.0001)
+Set('max', 100.0)
+Set('log', True)
+Set('direction', 'vertical')
+Set('MajorTicks/number', 5)
+To('..')
+Add('xy', name='xy1', autoadd=False)
+To('xy1')
+Set('xData', u'Te')
+Set('yData', u'n_e')
+Set('key', u'Electron')
+To('..')
+Add('xy', name='xy2', autoadd=False)
+To('xy2')
+Set('xData', u'Te')
+Set('yData', u'N_m')
+Set('key', u'Metastable')
+Set('PlotLine/style', u'dashed')
+To('..')
+Add('key', name='key1', autoadd=False)
+To('..')
+To('..')
