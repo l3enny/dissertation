@@ -86,6 +86,7 @@
 \newif\if@umich@frontispiece
 \newif\if@umich@dedication
 \newif\if@umich@acknowledgments
+\newif\if@umich@acknowledgmentsmore
 \newif\if@umich@preface
 \newif\if@umich@prologue
 \newif\if@umich@foreword
@@ -565,6 +566,7 @@
 \newcommand{\showcopyright}{\@umich@copyrighttrue}
 \newcommand{\showdedication}{\@umich@dedicationtrue}
 \newcommand{\showacknowledgments}{\@umich@acknowledgmentstrue}
+\newcommand{\showacknowledgmentsmore}{\@umich@acknowledgmentsmoretrue}
 \newcommand{\showpreface}{\@umich@prefacetrue}
 \newcommand{\showforeword}{\@umich@forewordtrue}
 \newcommand{\showprologue}{\@umich@prologuetrue}
@@ -625,6 +627,7 @@
 \newcommand{\@acknowledgmentsstyle}{\@frontpagestyle}
 % Command that sets the width of the acknowledgments text area
 \newcommand{\@acknowledgments@width}{0.66}
+\newcommand{\@acknowledgmentsmore}{}
 
 % Command to change it from the default
 \newcommand{\acknowledgments}[2][]{ %
@@ -642,8 +645,16 @@
 \newcommand{\acknowledgmentsstyle}[1]{ %
  \renewcommand{\@acknowledgmentsstyle}{#1}}
 
+% Command to set it.
+\newcommand{\acknowledgmentsmore}[1]{
+ % Show the acknowledgments page.
+ \showacknowledgmentsmore %
+ % Set the acknowledgments text.
+ \renewcommand{\@acknowledgmentsmore}{#1}}
+
 % Command to insert it
 \newcommand{\insertacknowledgments}{\@acknowledgments}
+\newcommand{\insertacknowledgmentsmore}{\@acknowledgmentsmore}
 
 % Command for page with the acknowledgments
 \newcommand*{\acknowledgmentspage}{ %
@@ -656,6 +667,22 @@
   }{\@acknowledgmentsstyle}{Acknowledgments}{\@acknowledgments@width}
 }
 
+\newcommand{\acknowledgmentsmorepage}{ %
+ % Set the page formatting.
+ \frntpg %
+ % Insert the text in a centered minipage.
+ \begin{center} %
+  \begin{minipage}{0.8\textwidth} %
+   % Double-spaced lines required by Rackham
+   \parindent 17.62482pt
+   \doublespacing %
+   % Insert the text.
+   \insertacknowledgmentsmore %
+  \end{minipage} %
+ \end{center} %
+ % Vertical rubber space
+ \vspace*{\stretch{1}} %
+}
 
 %% ---- PREFACE PAGE ---------------------------------------------------
 % Command that holds the value text of the preface
@@ -1453,6 +1480,8 @@
  \if@umich@dedication\dedicationpage\fi %
  % Insert the acknowledgments if there are any.
  \if@umich@acknowledgments\acknowledgmentspage\fi %
+ % Insert the acknowledgments if there are any.
+ \if@umich@acknowledgmentsmore\acknowledgmentsmorepage\fi %
  % Insert the preface if there is one.
  \if@umich@preface\prefacepage\fi %
  % Insert the foreword if there is one.
